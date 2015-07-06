@@ -1,3 +1,9 @@
 [submodule "dependancies/wt"]
 	path = dependancies/wt
 	url = https://github.com/kdeforche/wt.git
+[submodule "dependancies/gegl"]
+	path = dependancies/gegl
+	url = https://git.gnome.org/browse/gegl
+[submodule "dependancies/babl"]
+	path = dependancies/babl
+	url = https://git.gnome.org/browse/babl
