@@ -7,3 +7,9 @@
 [submodule "dependancies/babl"]
 	path = dependancies/babl
 	url = https://git.gnome.org/browse/babl
+[submodule "dependancies/gegl-qt"]
+	path = dependancies/gegl-qt
+	url = git://git.gnome.org/gegl-qt
+[submodule "dependancies/jwt"]
+	path = dependancies/jwt
+	url = https://github.com/kdeforche/jwt.git
