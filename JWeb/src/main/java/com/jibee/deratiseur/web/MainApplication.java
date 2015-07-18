@@ -1,8 +1,7 @@
 package com.jibee.deratiseur.web;
 
 import com.jibee.gegl.priv.Gegl;
-import com.jibee.gegl.priv.TypedPointer;
-import com.jibee.gegl.priv.Gegl.GeglNode;
+import com.jibee.gegl.GeglNode;
 
 import eu.webtoolkit.jwt.WApplication;
 import eu.webtoolkit.jwt.WEnvironment;
@@ -19,22 +18,22 @@ public class MainApplication extends WApplication {
 		g.gegl_config().set("application-license", "GPL3");
 
 		
-		TypedPointer<GeglNode> gegl = g.gegl_node_new();
-		TypedPointer<GeglNode> display    = g.gegl_node_create_child (gegl, "gegl:display");
-		TypedPointer<GeglNode> crop       = g.gegl_node_new_child (gegl,
+		GeglNode gegl = g.gegl_node_new();
+		GeglNode display    = g.gegl_node_create_child (gegl, "gegl:display");
+		GeglNode crop       = g.gegl_node_new_child (gegl,
 				"operation", "gegl:crop",
 				"width", 512.0,
 				"height", 384.0,
 				null);
-		TypedPointer<GeglNode> over       = g.gegl_node_new_child (gegl,
+		GeglNode over       = g.gegl_node_new_child (gegl,
 				"operation", "gegl:over",
 				null);
-		TypedPointer<GeglNode> text       = g.gegl_node_new_child (gegl,
+		GeglNode text       = g.gegl_node_new_child (gegl,
 				"operation", "gegl:text",
 				"size", 10.0,
 				"color", g.gegl_color_new("rgb(1.0,1.0,1.0)"),
 				null);
-		TypedPointer<GeglNode> mandelbrot = g.gegl_node_new_child (gegl,
+		GeglNode mandelbrot = g.gegl_node_new_child (gegl,
 				"operation", "gegl:fractal-explorer",
 				"shiftx", -256.0,
 				null);

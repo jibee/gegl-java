@@ -1,5 +1,13 @@
 package com.jibee.gegl;
 
-public class GeglBuffer {
+import org.gstreamer.GObject;
+
+public class GeglBuffer extends GObject {
+
+	public GeglBuffer(Initializer init) {
+		super(init);
+		// TODO Auto-generated constructor stub
+	}
 
 }
+

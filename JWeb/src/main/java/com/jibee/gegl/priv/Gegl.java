@@ -2,12 +2,17 @@ package com.jibee.gegl.priv;
 
 import java.util.HashMap;
 
-import org.gstreamer.GObject;
 import org.gstreamer.lowlevel.GObjectAPI.GParamSpec;
 import org.gstreamer.lowlevel.GType;
 import org.gstreamer.lowlevel.GValueAPI.GValue;
 import org.gstreamer.lowlevel.OurGTypeMapper;
 
+import com.jibee.gegl.Babl;
+import com.jibee.gegl.GeglBuffer;
+import com.jibee.gegl.GeglColor;
+import com.jibee.gegl.GeglConfig;
+import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.GeglOperation;
 import com.sun.jna.Library;
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
@@ -16,35 +21,11 @@ import com.sun.jna.ptr.IntByReference;
 import com.sun.jna.ptr.PointerByReference;
 
 public interface Gegl extends Library {
-	public interface GeglColor {
 
-	}
 
-	public interface GeglBuffer {
-
-	}
-
-	public interface GeglOperation {
-
-	}
-
-	public interface Babl {
-
-	}
-
-	public interface GeglNode {	}
-
-	public class GeglConfig extends GObject {
-
-		public GeglConfig(Initializer init) {
-			super(init);
-			// TODO Auto-generated constructor stub
-		}
-		
-		
-	}
-
-	Gegl INSTANCE = (Gegl)Native.loadLibrary("gegl-0.3", Gegl.class,new HashMap<String, Object>() {{
+	Gegl INSTANCE = (Gegl)Native.loadLibrary("gegl-0.3", Gegl.class,new HashMap<String, Object>() {
+		private static final long serialVersionUID = 4534904554735816797L;
+	{
 		put(Library.OPTION_TYPE_MAPPER, new OurGTypeMapper());
 	}});
 
@@ -110,7 +91,7 @@ public interface Gegl extends Library {
 	 * href='operations.html'>operation</a> is specified.
 	 *
 	 * ---
-	 * TypedPointer<GeglNode>gegl, *load, *bcontrast;
+	 * GeglNode gegl, *load, *bcontrast;
 	 *
 	 * gegl = gegl_node_new ();
 	 * load = gegl_node_new_child (gegl,
@@ -133,7 +114,7 @@ public interface Gegl extends Library {
 	 * are done using this graph instance it should be unreferenced with g_object_unref.
 	 * This will also free any sub nodes created from this node.
 	 */
-	TypedPointer<GeglNode> gegl_node_new();
+	GeglNode gegl_node_new();
 
 	/**
 	 * gegl_node_new_child:
@@ -156,7 +137,7 @@ public interface Gegl extends Library {
 	 * g_object_ref/g_object_unref, but in general relying on the parents reference
 	 * counting is easiest.)
 	 */
-	TypedPointer<GeglNode> gegl_node_new_child(TypedPointer<GeglNode> parent, String first_property_name, Object... args);
+	GeglNode gegl_node_new_child(GeglNode parent, String first_property_name, Object... args);
 	
 	/***
 	 * Making connections:
@@ -182,10 +163,12 @@ public interface Gegl extends Library {
 	 * Returns TRUE if the connection was succesfully made.
 	 */
 
-	boolean gegl_node_connect_from(TypedPointer<GeglNode> sink,
-	 String input_pad_name,
-	 TypedPointer<GeglNode> source,
-	 String output_pad_name);
+	boolean gegl_node_connect_from(
+			GeglNode sink,
+			String input_pad_name,
+			GeglNode source,
+			String output_pad_name
+			);
 
 	/**
 	 * gegl_node_connect_to:
@@ -198,9 +181,9 @@ public interface Gegl extends Library {
 	 *
 	 * Returns TRUE if the connection was succesfully made.
 	 */
-	boolean gegl_node_connect_to(TypedPointer<GeglNode> source,
+	boolean gegl_node_connect_to(GeglNode source,
 	 String output_pad_name,
-	 TypedPointer<GeglNode> sink,
+	 GeglNode sink,
 	 String input_pad_name);
 
 	/**
@@ -211,7 +194,7 @@ public interface Gegl extends Library {
 	 * Synthetic sugar for linking the "output" pad of @source to the "input"
 	 * pad of @sink.
 	 */
-	void gegl_node_link (TypedPointer<GeglNode> source, TypedPointer<GeglNode> sink);
+	void gegl_node_link (GeglNode source, GeglNode sink);
 
 	/**
 	 * gegl_node_link_many:
@@ -223,7 +206,7 @@ public interface Gegl extends Library {
 	 * list is NULL terminated.
 	 */
 	@Deprecated
-	void gegl_node_link_many(TypedPointer<GeglNode> source, TypedPointer<GeglNode>first_sink, TypedPointer<GeglNode>... others);
+	void gegl_node_link_many(GeglNode source, GeglNode first_sink, GeglNode... others);
 	
 	
 	
@@ -236,7 +219,7 @@ public interface Gegl extends Library {
 	 *
 	 * Returns TRUE if a connection was broken.
 	 */
-	boolean gegl_node_disconnect(TypedPointer<GeglNode> node, String input_pad);
+	boolean gegl_node_disconnect(GeglNode node, String input_pad);
 
 	/***
 	 * Properties:
@@ -267,7 +250,7 @@ public interface Gegl extends Library {
 	 * "contrast", 2.0,
 	 * NULL);
 	 */
-	void gegl_node_set(TypedPointer<GeglNode> node, String first_property_name, Object ... args);
+	void gegl_node_set(GeglNode node, String first_property_name, Object ... args);
 
 	/**
 	 * gegl_node_get:
@@ -284,7 +267,7 @@ public interface Gegl extends Library {
 	 * gegl_node_get (png_save, "path", &path, NULL);
 	 * gegl_node_get (threshold, "level", &level, NULL);
 	 */
-	void gegl_node_get(TypedPointer<GeglNode> node, String first_property_name, Object... args);
+	void gegl_node_get(GeglNode node, String first_property_name, Object... args);
 
 
 /***
@@ -318,10 +301,10 @@ public interface Gegl extends Library {
  *
  * Render a rectangular region from a node.
  */
-void gegl_node_blit (TypedPointer<GeglNode>node,
+void gegl_node_blit (GeglNode node,
  double scale,
  GeglRectangle roi,
- TypedPointer<Babl> format,
+ Babl format,
  Pointer destination_buf,
  int rowstride,
  int flags);
@@ -334,8 +317,8 @@ void gegl_node_blit (TypedPointer<GeglNode>node,
  *
  * Render a rectangular region from a node to the given buffer.
  */
-void gegl_node_blit_buffer (TypedPointer<GeglNode>node,
- TypedPointer<GeglBuffer> buffer,
+void gegl_node_blit_buffer (GeglNode node,
+ GeglBuffer buffer,
 GeglRectangle roi);
 
 /**
@@ -349,9 +332,9 @@ GeglRectangle roi);
  * #gegl_processor_work. See #GeglProcessor.
  *
  * ---
- * TypedPointer<GeglNode>gegl;
+ * GeglNode gegl;
  * GeglRectangle roi;
- * TypedPointer<GeglNode>png_save;
+ * GeglNode png_save;
  * unsigned char *buffer;
  *
  * gegl = gegl_parse_xml (xml_data);
@@ -375,7 +358,7 @@ GeglRectangle roi);
  * GEGL_AUTO_ROWSTRIDE,
  * GEGL_BLIT_DEFAULT);
  */
-void gegl_node_process (TypedPointer<GeglNode>sink_node);
+void gegl_node_process (GeglNode sink_node);
 
 
 /***
@@ -396,8 +379,8 @@ void gegl_node_process (TypedPointer<GeglNode>sink_node);
  *
  * Return value: (transfer none): the child.
  */
-TypedPointer<GeglNode> gegl_node_add_child (TypedPointer<GeglNode>graph,
- TypedPointer<GeglNode>child);
+GeglNode  gegl_node_add_child (GeglNode  graph,
+ GeglNode child);
 
 /**
  * gegl_node_remove_child:
@@ -410,8 +393,8 @@ TypedPointer<GeglNode> gegl_node_add_child (TypedPointer<GeglNode>graph,
  *
  * Return value: (transfer none): the child.
  */
-TypedPointer<GeglNode> gegl_node_remove_child (TypedPointer<GeglNode>graph,
- TypedPointer<GeglNode>child);
+GeglNode  gegl_node_remove_child (GeglNode graph,
+ GeglNode child);
 
 /**
  * gegl_node_get_parent:
@@ -421,7 +404,7 @@ TypedPointer<GeglNode> gegl_node_remove_child (TypedPointer<GeglNode>graph,
  *
  * Return value: (transfer none): the parent of a node or NULL.
  */
-TypedPointer<GeglNode> gegl_node_get_parent (TypedPointer<GeglNode>node);
+GeglNode  gegl_node_get_parent (GeglNode node);
 
 
 /***
@@ -449,7 +432,7 @@ TypedPointer<GeglNode> gegl_node_get_parent (TypedPointer<GeglNode>node);
  * Return value: (transfer none): the GeglNode providing the
  * data ending up at @x,@y in the output of @node.
  */
-TypedPointer<GeglNode> gegl_node_detect (TypedPointer<GeglNode>node,
+GeglNode  gegl_node_detect (GeglNode node,
  int x,
  int y);
 
@@ -463,7 +446,7 @@ TypedPointer<GeglNode> gegl_node_detect (TypedPointer<GeglNode>node,
  * if no such property exists.
  */
 /*
-GParamSpec * gegl_node_find_property (TypedPointer<GeglNode>node,
+GParamSpec * gegl_node_find_property (GeglNode node,
  String property_name);
 */
 
@@ -475,7 +458,7 @@ GParamSpec * gegl_node_find_property (TypedPointer<GeglNode>node,
  * Returns the position and dimensions of a rectangle spanning the area
  * defined by a node.
  */
-GeglRectangle gegl_node_get_bounding_box (TypedPointer<GeglNode>node);
+GeglRectangle gegl_node_get_bounding_box (GeglNode node);
 
 /**
  * gegl_node_get_children:
@@ -486,7 +469,7 @@ GeglRectangle gegl_node_get_bounding_box (TypedPointer<GeglNode>node);
  * Use g_list_free () on the list when done.
  */
 /*
-GSList * gegl_node_get_children (TypedPointer<GeglNode>node);
+GSList * gegl_node_get_children (GeglNode node);
 */
 /**
  * gegl_node_get_consumers:
@@ -503,9 +486,9 @@ GSList * gegl_node_get_children (TypedPointer<GeglNode>node);
  * Returns the number of consumers connected to this output_pad.
  */
 /*
-int gegl_node_get_consumers (TypedPointer<GeglNode>node,
+int gegl_node_get_consumers (GeglNode node,
  String output_pad,
- TypedPointer<GeglNode>**nodes,
+ GeglNode **nodes,
  String **pads);
 */
 /**
@@ -519,7 +502,7 @@ int gegl_node_get_consumers (TypedPointer<GeglNode>node,
  * Return value: (transfer none): Returns an input proxy for the named pad.
  * If no input proxy exists with this name a new one will be created.
  */
-TypedPointer<GeglNode> gegl_node_get_input_proxy (TypedPointer<GeglNode>node,
+GeglNode  gegl_node_get_input_proxy (GeglNode node,
  String pad_name);
 
 /**
@@ -530,7 +513,7 @@ TypedPointer<GeglNode> gegl_node_get_input_proxy (TypedPointer<GeglNode>node,
  * node, or NULL if there is no op associated. The special name
  * "GraphNode" is returned if the node is the container of a subgraph.
  */
-String  gegl_node_get_operation (TypedPointer<GeglNode> node);
+String  gegl_node_get_operation (GeglNode  node);
 
 /**
  * gegl_node_get_gegl_operation:
@@ -539,7 +522,7 @@ String  gegl_node_get_operation (TypedPointer<GeglNode> node);
  * Return value: (transfer none) (allow-none): The operation object
  * assoicated with this node or NULL if there is no op associated.
  */
-TypedPointer<GeglOperation> gegl_node_get_gegl_operation (TypedPointer<GeglNode>node);
+GeglOperation gegl_node_get_gegl_operation (GeglNode node);
 
 /**
  * gegl_node_get_output_proxy:
@@ -552,7 +535,7 @@ TypedPointer<GeglOperation> gegl_node_get_gegl_operation (TypedPointer<GeglNode>
  * Return value: (transfer none): Returns a output proxy for the named pad.
  * If no output proxy exists with this name a new one will be created.
  */
-TypedPointer<GeglNode> gegl_node_get_output_proxy (TypedPointer<GeglNode>node,
+GeglNode  gegl_node_get_output_proxy (GeglNode node,
  String pad_name);
 
 /**
@@ -565,7 +548,7 @@ TypedPointer<GeglNode> gegl_node_get_output_proxy (TypedPointer<GeglNode>node,
  * Return value: (transfer none): the node providing data
  * or NULL if no node is connected to the input_pad.
  */
-TypedPointer<GeglNode> gegl_node_get_producer (TypedPointer<GeglNode> node,
+GeglNode  gegl_node_get_producer (GeglNode  node,
  String input_pad_name,
  PointerByReference output_pad_name);
 
@@ -576,7 +559,7 @@ TypedPointer<GeglNode> gegl_node_get_producer (TypedPointer<GeglNode> node,
  *
  * Returns TRUE if the node has a pad with the specified name
  */
-boolean gegl_node_has_pad (TypedPointer<GeglNode>node,
+boolean gegl_node_has_pad (GeglNode node,
  String pad_name);
 
 /**
@@ -589,7 +572,7 @@ boolean gegl_node_has_pad (TypedPointer<GeglNode>node,
  *
  * Return value: (transfer full) (array zero-terminated=1)
  */
-String[] gegl_node_list_input_pads (TypedPointer<GeglNode>node);
+String[] gegl_node_list_input_pads (GeglNode node);
 
 /**
  * gegl_node_list_output_pads:
@@ -601,7 +584,7 @@ String[] gegl_node_list_input_pads (TypedPointer<GeglNode>node);
  *
  * Return value: (transfer full) (array zero-terminated=1)
  */
-String[] gegl_node_list_output_pads (TypedPointer<GeglNode>node);
+String[] gegl_node_list_output_pads (GeglNode node);
 
 /***
  * Binding conveniences:
@@ -629,7 +612,7 @@ String[] gegl_node_list_output_pads (TypedPointer<GeglNode>node);
  * counting is easiest.)
  */
 
-TypedPointer<GeglNode> gegl_node_create_child (TypedPointer<GeglNode>parent,
+GeglNode  gegl_node_create_child (GeglNode parent,
  String operation);
 
 
@@ -643,7 +626,7 @@ TypedPointer<GeglNode> gegl_node_create_child (TypedPointer<GeglNode>parent,
  * more convenient when programming in C.
  *
  */
-void gegl_node_get_property (TypedPointer<GeglNode>node,
+void gegl_node_get_property (GeglNode node,
  String property_name,
  GValue value);
 
@@ -656,7 +639,7 @@ void gegl_node_get_property (TypedPointer<GeglNode>node,
  * This is mainly included for language bindings. Using #gegl_node_set is
  * more convenient when programming in C.
  */
-void gegl_node_set_property (TypedPointer<GeglNode>node,
+void gegl_node_set_property (GeglNode node,
  String property_name,
  GValue value);
 
@@ -678,7 +661,7 @@ void gegl_node_set_property (TypedPointer<GeglNode>node,
  *
  * Return value: (transfer full): a GeglNode containing the parsed XML as a subgraph.
  */
-TypedPointer<GeglNode> gegl_node_new_from_xml (String xmldata,
+GeglNode  gegl_node_new_from_xml (String xmldata,
  String path_root);
 
 /**
@@ -691,7 +674,7 @@ TypedPointer<GeglNode> gegl_node_new_from_xml (String xmldata,
  *
  * Return value: (transfer full): a GeglNode containing the parsed XML as a subgraph.
  */
-TypedPointer<GeglNode> gegl_node_new_from_file (String path);
+GeglNode  gegl_node_new_from_file (String path);
 
 /**
  * gegl_node_to_xml:
@@ -705,12 +688,11 @@ TypedPointer<GeglNode> gegl_node_new_from_file (String path);
  * #gegl_node_get_output_proxy.) and use the proxy node as the basis
  * for the serialization.
  */
-String gegl_node_to_xml (TypedPointer<GeglNode>node,String path_root);
+String gegl_node_to_xml (GeglNode node,String path_root);
 
-boolean gegl_node_get_passthrough (TypedPointer<GeglNode>node);
+boolean gegl_node_get_passthrough ( GeglNode node);
 
-void gegl_node_set_passthrough (TypedPointer<GeglNode>node,
- boolean passthrough);
+void gegl_node_set_passthrough (GeglNode node, boolean passthrough);
 
 
 /***
@@ -738,7 +720,7 @@ void gegl_node_set_passthrough (TypedPointer<GeglNode>node,
  *
  * Returns the newly created #GeglColor.
  */
-TypedPointer<GeglColor> gegl_color_new(String string);
+GeglColor gegl_color_new(String string);
 
 /**
  * gegl_color_duplicate:
@@ -748,7 +730,7 @@ TypedPointer<GeglColor> gegl_color_new(String string);
  *
  * Return value: (transfer full): A new copy of @color.
  */
-TypedPointer<GeglColor>  gegl_color_duplicate(TypedPointer<GeglColor> color);
+GeglColor  gegl_color_duplicate(GeglColor color);
 
 /**
  * gegl_color_get_rgba:
@@ -761,7 +743,7 @@ TypedPointer<GeglColor>  gegl_color_duplicate(TypedPointer<GeglColor> color);
  * Retrieves the current set color as linear light non premultipled RGBA data,
  * any of the return pointers can be omitted.
  */
-void gegl_color_get_rgba(TypedPointer<GeglColor>color,
+void gegl_color_get_rgba(GeglColor color,
                                                 DoubleByReference red,
                                                 DoubleByReference green,
                                                 DoubleByReference blue,
@@ -777,7 +759,7 @@ void gegl_color_get_rgba(TypedPointer<GeglColor>color,
  *
  * Retrieves the current set color as linear light non premultipled RGBA data
  */
-void gegl_color_set_rgba(TypedPointer<GeglColor> color,
+void gegl_color_set_rgba(GeglColor color,
                                                 double      red,
                                                 double      green,
                                                 double      blue,
@@ -790,8 +772,7 @@ void gegl_color_set_rgba(TypedPointer<GeglColor> color,
  *
  * Set a GeglColor from a pointer to a pixel and it's babl format.
  */
-void gegl_color_set_pixel(TypedPointer<GeglColor> color,
-		TypedPointer<Babl> format, Pointer pixed);
+void gegl_color_set_pixel(GeglColor color, Babl format, Pointer pixed);
 /**
  * gegl_color_get_pixel: (skip)
  * @color: a #GeglColor
@@ -800,9 +781,7 @@ void gegl_color_set_pixel(TypedPointer<GeglColor> color,
  *
  * Store the color in a pixel in the given format.
  */
-void gegl_color_get_pixel(TypedPointer<GeglColor> color,
-                                                TypedPointer<Babl> format,
-                                                Pointer pixel);
+void gegl_color_get_pixel(GeglColor color, Babl format, Pointer pixel);
 
 /***
  */
@@ -827,7 +806,7 @@ GType gegl_param_color_get_type();
 GParamSpec gegl_param_spec_color(String  name,
                                                 String nick,
                                                 String blurb,
-                                                TypedPointer<GeglColor> default_color,
+                                                GeglColor default_color,
                                                 int   flags);
 
 /**
@@ -855,7 +834,7 @@ GParamSpec gegl_param_spec_color_from_string (String name,
  *
  * Returns: (transfer none): the default #GeglColor
  */
-TypedPointer<GeglColor> gegl_param_spec_color_get_default (GParamSpec self);
+GeglColor gegl_param_spec_color_get_default (GParamSpec self);
 
 
 
