@@ -3,58 +3,71 @@ package com.jibee.gegl;
 import com.sun.jna.Pointer;
 
 public class GeglFilter {
+	private GeglNode m_implementation;
 
-	public GeglFilter(String filterClass) {
-		// TODO Auto-generated constructor stub
+	public GeglFilter(GeglNode container, String filterClass) {
+		m_implementation = com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_create_child(container, filterClass);
+		
+		String operation = com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_get_operation(m_implementation);
+		System.out.println(operation);
+	}
+	public GeglFilter(GeglFilter parent, String filterClass) {
+		this(parent.getImplementation(), filterClass);
+	}
+	private GeglNode getImplementation() {
+		return m_implementation;
 	}
 	protected void setProperty(String propertyName, GeglVector value) {
-		// TODO Auto-generated method stub
-
+		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_set(m_implementation, propertyName, value);
 	}
 	protected void setProperty(String propertyName, GeglCurve value) {
-		// TODO Auto-generated method stub
-
+		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_set(m_implementation, propertyName, value);
 	}
 
 	protected void setProperty(String propertyName, GeglColor value) {
-		// TODO Auto-generated method stub
-
+		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_set(m_implementation, propertyName, value);
 	}
 
 	protected void setProperty(String propertyName, GeglBuffer value) {
-		// TODO Auto-generated method stub
-
+		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_set(m_implementation, propertyName, value);
 	}
 
 	protected void setProperty(String propertyName, Pointer value) {
-		// TODO Auto-generated method stub
-
+		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_set(m_implementation, propertyName, value);
 	}
 	protected void setProperty(String propertyName, Babl value) {
-		// TODO Auto-generated method stub
-
+		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_set(m_implementation, propertyName, value);
 	}
 	protected void setProperty(String propertyName, int value) {
-		// TODO Auto-generated method stub
+		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_set(m_implementation, propertyName, value);
 	}
 
 	protected void setProperty(String propertyName, boolean value) {
-		// TODO Auto-generated method stub
-
+		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_set(m_implementation, propertyName, value);
 	}
 	protected void setProperty(String propertyName, double value) {
-		// TODO Auto-generated method stub
-
+		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_set(m_implementation, propertyName, value);
 	}
 	protected void setProperty(String propertyName, String value) {
-		// TODO Auto-generated method stub
-
+		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_set(m_implementation, propertyName, value);
 	}
 	protected GeglColor makeColor(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		return Gegl.makeColor(string);
 	}
-
+	public GeglFilter connectTo(GeglFilter receiver) {
+		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_link(getImplementation(), receiver.getImplementation());
+		return receiver;
+	}
+	public GeglFilter connectTo(GeglFilter receiver, String outputPadName, String inputPadName) {
+		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_connect_to(
+				getImplementation(), outputPadName,  
+				receiver.getImplementation(), inputPadName);
+		return receiver;
+		
+	}
+	public void process() {
+		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_process(getImplementation());
+	}
 
 
 }
