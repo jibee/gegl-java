@@ -23,6 +23,7 @@ public class EmbeddedServer {
         Server server = new Server(8080);
         
         
+        
         // The ServletHandler is a dead simple way to create a context handler
         // that is backed by an instance of a Servlet.
         // This handler then needs to be registered with the Server object.
@@ -44,7 +45,9 @@ public class EmbeddedServer {
         // IMPORTANT:
         // This is a raw Servlet, not a Servlet that has been configured
         // through a web.xml @WebServlet annotation, or anything similar.
+        handler.addServlet(AssetsServlet.class, "/assets/*");
         handler.addServlet(Servlet.class, "/*");
+        
         server.setHandler(handler);
         server.start();
         server.dumpStdErr();
