@@ -20,8 +20,6 @@ package org.gstreamer.lowlevel;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.net.URI;
-import java.util.concurrent.TimeUnit;
-
 import org.gstreamer.lowlevel.EnumMapper;
 import org.gstreamer.lowlevel.GlibAPI;
 import org.gstreamer.lowlevel.IntPtr;
@@ -51,24 +49,29 @@ import com.sun.jna.TypeConverter;
  * @author wayne
  */
 public class OurGTypeMapper extends com.sun.jna.DefaultTypeMapper {
-
+	/** Constructor
+	 * 
+	 */
     public OurGTypeMapper() {
         addToNativeConverter(URI.class, uriConverter);
     }
     private static ToNativeConverter nativeValueArgumentConverter = new ToNativeConverter() {
 
-        public Object toNative(Object arg, ToNativeContext context) {
+        @Override
+		public Object toNative(Object arg, ToNativeContext context) {
             return arg != null ? ((NativeValue) arg).nativeValue() : null;
         }
 
-        public Class<?> nativeType() {
+        @Override
+		public Class<?> nativeType() {
             return Void.class; // not really correct, but not used in this instance
         }        
     };
     
  
     private static TypeConverter nativeObjectConverter = new TypeConverter() {
-        public Object toNative(Object arg, ToNativeContext context) {
+        @Override
+		public Object toNative(Object arg, ToNativeContext context) {
             if (arg == null) {
                 return null;
             }
@@ -99,7 +102,8 @@ public class OurGTypeMapper extends com.sun.jna.DefaultTypeMapper {
             return ptr;
         }
  
-        @SuppressWarnings(value = "unchecked")
+        @Override
+		@SuppressWarnings(value = "unchecked")
         public Object fromNative(Object result, FromNativeContext context) {
             if (result == null) {
                 return null;
@@ -124,23 +128,27 @@ public class OurGTypeMapper extends com.sun.jna.DefaultTypeMapper {
             throw new IllegalStateException("Cannot convert to NativeObject from " + context);
         }
         
-        public Class<?> nativeType() {
+        @Override
+		public Class<?> nativeType() {
             return Pointer.class;
         }
     };
     private static TypeConverter enumConverter = new TypeConverter() {
 
-        @SuppressWarnings(value = "unchecked")
+        @Override
+		@SuppressWarnings(value = "unchecked")
         public Object fromNative(Object value, FromNativeContext context) {
             return EnumMapper.getInstance().valueOf((Integer) value, context.getTargetType());
         }
 
-        public Class<?> nativeType() {
+        @Override
+		public Class<?> nativeType() {
             return Integer.class;
         }
 
-        @SuppressWarnings("unchecked")
-        public Object toNative(Object arg, ToNativeContext context) {
+        @SuppressWarnings("rawtypes")
+		@Override
+		public Object toNative(Object arg, ToNativeContext context) {
             if (arg == null) {
                 return null;
             }
@@ -150,7 +158,8 @@ public class OurGTypeMapper extends com.sun.jna.DefaultTypeMapper {
 
     private TypeConverter stringConverter = new TypeConverter() {
 
-        public Object fromNative(Object result, FromNativeContext context) {
+        @Override
+		public Object fromNative(Object result, FromNativeContext context) {
             if (result == null) {
                 return null;
             }
@@ -169,47 +178,56 @@ public class OurGTypeMapper extends com.sun.jna.DefaultTypeMapper {
             }           
         }
 
-        public Class<?> nativeType() {
+        @Override
+		public Class<?> nativeType() {
             return Pointer.class;
         }
 
-        public Object toNative(Object arg, ToNativeContext context) {
+        @Override
+		public Object toNative(Object arg, ToNativeContext context) {
             // Let the default String -> native conversion handle it
             return arg;            
         }
     };
 
     private TypeConverter booleanConverter = new TypeConverter() {
-        public Object toNative(Object arg, ToNativeContext context) {
+        @Override
+		public Object toNative(Object arg, ToNativeContext context) {
             return Integer.valueOf(Boolean.TRUE.equals(arg) ? 1 : 0);
         }
 
-        public Object fromNative(Object arg0, FromNativeContext arg1) {
+        @Override
+		public Object fromNative(Object arg0, FromNativeContext arg1) {
             return Boolean.valueOf(((Integer)arg0).intValue() != 0);
         }
 
-        public Class<?> nativeType() {
+        @Override
+		public Class<?> nativeType() {
             return Integer.class;
         }
     };
 
     private TypeConverter intptrConverter = new TypeConverter() {
         
-        public Object toNative(Object arg, ToNativeContext context) {
+        @Override
+		public Object toNative(Object arg, ToNativeContext context) {
             return ((IntPtr)arg).value;            
         }
 
-        public Object fromNative(Object arg0, FromNativeContext arg1) {
+        @Override
+		public Object fromNative(Object arg0, FromNativeContext arg1) {
             return new IntPtr(((Number) arg0).intValue());            
         }
 
-        public Class<?> nativeType() {
+        @Override
+		public Class<?> nativeType() {
             return Pointer.SIZE == 8 ? Long.class : Integer.class;
         }
     };
     private static ToNativeConverter uriConverter = new ToNativeConverter() {
 
-        public Object toNative(Object arg0, ToNativeContext arg1) {
+        @Override
+		public Object toNative(Object arg0, ToNativeContext arg1) {
             URI uri = (URI) arg0;
             String uriString = uri.toString();
             // Need to fixup file:/ to be file:/// for gstreamer
@@ -224,12 +242,13 @@ public class OurGTypeMapper extends com.sun.jna.DefaultTypeMapper {
             return uriString;
         }
 
-        public Class<?> nativeType() {
+        @Override
+		public Class<?> nativeType() {
             return String.class;
         }
     };
-    @SuppressWarnings("unchecked")
-	public FromNativeConverter getFromNativeConverter(Class type) {
+    @Override
+	public FromNativeConverter getFromNativeConverter(@SuppressWarnings("rawtypes") Class type) {
         if (Enum.class.isAssignableFrom(type)) {
             return enumConverter;              
         } else if (NativeObject.class.isAssignableFrom(type)) {
@@ -244,8 +263,8 @@ public class OurGTypeMapper extends com.sun.jna.DefaultTypeMapper {
         return super.getFromNativeConverter(type);
     }
 
-    @SuppressWarnings("unchecked")
-	public ToNativeConverter getToNativeConverter(Class type) {
+    @Override
+	public ToNativeConverter getToNativeConverter(@SuppressWarnings("rawtypes") Class type) {
         if (NativeObject.class.isAssignableFrom(type)) {
             return nativeObjectConverter;
         } else if (NativeValue.class.isAssignableFrom(type)) {
