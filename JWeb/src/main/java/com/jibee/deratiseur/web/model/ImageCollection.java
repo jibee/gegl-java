@@ -26,7 +26,7 @@ public class ImageCollection implements IImageCollectionModel {
 	}
 	
 // TODO use a proxy class with the info we need to store
-	private List<File> m_files;
+	private List<IImage> m_files;
 
 	public ImageCollection(iFolder arg) {
 		m_files = arg.getAllImages();
@@ -34,35 +34,42 @@ public class ImageCollection implements IImageCollectionModel {
 
 	public ImageCollection() 
 	{
-		m_files = new Vector<File>();
+		m_files = new Vector<IImage>();
 	}
 
+	@Override
 	public int getStacksCount() {
 		return m_files.size();
 	}
 
+	@Override
 	public int getImageCount() {
 		return m_files.size();
 	}
 
+	@Override
 	public StackIndex getImageIndex(int i) {
 		return new OurIndex(i);
 	}
 
+	@Override
 	public ImageIndex getImageIndex(StackIndex stackIndex, int i) {
 		return (OurIndex)stackIndex;
 	}
 
+	@Override
 	public int getTotalImageCount(StackIndex parent) {
 		return 1;
 	}
 
+	@Override
 	public int getImageCount(StackIndex parent) {
 		return 1;
 	}
 
+	@Override
 	public IImage getImageAt(ImageIndex index) {
-		return new FileBackedImage(m_files.get(((OurIndex) index).getIndex()));
+		return m_files.get(((OurIndex) index).getIndex());
 	}
 
 }

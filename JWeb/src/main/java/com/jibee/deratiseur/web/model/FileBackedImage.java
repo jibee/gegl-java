@@ -15,4 +15,8 @@ public class FileBackedImage implements IImage {
 		return m_file.getName();
 	}
 
+	public File getFile() {
+		return m_file;
+	}
+
 }

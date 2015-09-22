@@ -14,12 +14,17 @@ import eu.webtoolkit.jwt.WModelIndex;
  * 
  * @author jibee
  *
+ * @deprecated add the virtual folders to the UserLibrary instead?
  */
 public class AugmentedUserLibrary extends WAbstractItemModel{
 
 	private List<iFolder> m_projects;
 	private UserLibrary m_baseLibrary;
 	
+	/** Constructor
+	 * 
+	 * @param baseLibrary
+	 */
 	public AugmentedUserLibrary(UserLibrary baseLibrary) {
 		m_baseLibrary=baseLibrary;
 		m_projects = new Vector<iFolder>();

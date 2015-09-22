@@ -2,7 +2,6 @@ package com.jibee.deratiseur.web.model;
 
 import java.io.File;
 import java.io.FileFilter;
-import java.io.FilenameFilter;
 import java.util.List;
 import java.util.Vector;
 
@@ -49,7 +48,7 @@ public class PhysicalFolder implements iFolder {
 		return null;
 	}
 	@Override
-	public List<File> getAllImages() {
+	public List<IImage> getAllImages() {
 		// TODO recurse into subfolders
 		FileFilter filter = new FileFilter() {
 			@Override
@@ -57,21 +56,36 @@ public class PhysicalFolder implements iFolder {
 				if(!file.isDirectory())
 				{
 					// TODO expand list of extensions
-					if(file.getName().endsWith("CR2"))
+					if(file.getName().endsWith(".CR2"))
 						return true;
 				}
 				return false;
 			}
 		};
 		File[] elements = m_folder.listFiles(filter);
-		Vector<File> retval = new Vector<File>();
+		Vector<IImage> retval = new Vector<IImage>();
 		if(null!=elements)
 		{
 			for(File f: elements)
 			{
-				retval.add(f);
+				retval.add(new FileBackedImage(f));
 			}
 		}
 		return retval;
+	}
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public iFolder newFolder(String f_name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void importImages(List<IImage> toImport) {
+		// TODO Auto-generated method stub
+		
 	}
 }

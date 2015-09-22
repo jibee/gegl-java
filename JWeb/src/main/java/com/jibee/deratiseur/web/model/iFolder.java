@@ -10,7 +10,7 @@ import eu.webtoolkit.jwt.WModelIndex;
 
 public interface iFolder  {
 	/** Lists the subfolders in the folder */
-	List<iFolder> subFolders();
+	List<? extends iFolder> subFolders();
 	/**
 	 * Return data for a given role.
 	 * <p>
@@ -29,7 +29,10 @@ public interface iFolder  {
 	 *      role)
 	 */
 	Object getData(int role);
-	List<File> getAllImages();
+	List<IImage> getAllImages();
+	String getName();
+	iFolder newFolder(String f_name);
+	void importImages(List<IImage> toImport);
 
 
 }
