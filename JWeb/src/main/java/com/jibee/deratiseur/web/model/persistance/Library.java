@@ -1,6 +1,7 @@
 package com.jibee.deratiseur.web.model.persistance;
 
 import java.util.List;
+import java.util.Vector;
 
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
@@ -23,13 +24,7 @@ import com.jibee.deratiseur.web.model.iFolder;
  *
  */
 @Entity("library")
-public class Library implements iFolder, IMongoObject {
-	/**
-	 * Library ID
-	 */
-	@Id
-	ObjectId m_id;
-	
+public class Library extends IMongoObject implements iFolder {	
 	/**
 	 * Library name as set by the user and for display purposes
 	 */
@@ -45,29 +40,7 @@ public class Library implements iFolder, IMongoObject {
 	public Library(String owner, String name) {
 		m_owner_login = owner;
 		m_name = name;
-	}
-	
-	void importImages(List<IImage> toImport, String[] destinationPath)
-	{
-		iFolder destination = this;
-		for(String f_name: destinationPath)
-		{
-			List<? extends iFolder> subs = null;
-			subs=destination.subFolders();
-			iFolder found = null;
-			for(iFolder f: subs)
-			{
-				if(f.getName().equals(f_name))
-				{
-					found = f;
-					break;
-				}
-			}
-			if(null==found)
-				found=destination.newFolder(f_name);
-			destination = found;
-		}
-		destination.importImages(toImport);
+		save();
 	}
 	
 	Library()
@@ -84,7 +57,13 @@ public class Library implements iFolder, IMongoObject {
 
 	@Override
 	public List<? extends iFolder> subFolders() {
-		return Factory.instance().getFolders(null).asList();
+		List<? extends iFolder> retval = Factory.instance().getFolders((ObjectId)null).asList();
+		if(null==retval)
+		{
+			return new Vector<>();
+		}
+		else
+			return retval;
 	}
 
 	@Override
@@ -116,13 +95,14 @@ public class Library implements iFolder, IMongoObject {
 	}
 
 	@Override
-	public ObjectId getId() {
-		return m_id;
+	public void importImages(List<? extends IImage> toImport) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
-	public void importImages(List<IImage> toImport) {
+	public List<IImage> getImages() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 }

@@ -18,7 +18,6 @@ import eu.webtoolkit.jwt.WImage;
 import eu.webtoolkit.jwt.WPushButton;
 import eu.webtoolkit.jwt.WTemplate;
 import eu.webtoolkit.jwt.Signal;
-import eu.webtoolkit.jwt.Signal.Listener;
 
 public class ProcessorTest extends WTemplate {
 	private static final CharSequence TEMPLATE = 
@@ -37,18 +36,21 @@ public class ProcessorTest extends WTemplate {
 		m_fileupload = new WFileUpload(interactions);
 		WPushButton uploadButton = new WPushButton("Upload", interactions);
 		uploadButton.clicked().addListener(this, new Signal.Listener() {
+			@Override
 			public void trigger() {
 				m_fileupload.upload();
 			}
 		});
 		
 		m_fileupload.uploaded().addListener(this, new Signal.Listener() {
+			@Override
 			public void trigger() {
 				processUpload();					
 			}
 		});
 		m_fileupload.fileTooLarge().addListener(this, new Signal1.Listener<Long>() {
 			
+			@Override
 			public void trigger(Long arg) {
 				bindString("exif_info", "File too large "+arg);
 			}

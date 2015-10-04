@@ -1,23 +1,10 @@
 package com.jibee.deratiseur.web;
 
-import java.util.EnumSet;
-import java.util.List;
-
-import eu.webtoolkit.jwt.AlignmentFlag;
-import eu.webtoolkit.jwt.DomElement;
-import eu.webtoolkit.jwt.PositionScheme;
-import eu.webtoolkit.jwt.Side;
 import eu.webtoolkit.jwt.TextFormat;
-import eu.webtoolkit.jwt.WAnimation;
-import eu.webtoolkit.jwt.WApplication;
 import eu.webtoolkit.jwt.WContainerWidget;
-import eu.webtoolkit.jwt.WCssDecorationStyle;
 import eu.webtoolkit.jwt.WLength;
 import eu.webtoolkit.jwt.WLength.Unit;
-import eu.webtoolkit.jwt.WString;
 import eu.webtoolkit.jwt.WText;
-import eu.webtoolkit.jwt.WWebWidget;
-import eu.webtoolkit.jwt.WWidget;
 
 
 public class TopToolbar extends WContainerWidget {

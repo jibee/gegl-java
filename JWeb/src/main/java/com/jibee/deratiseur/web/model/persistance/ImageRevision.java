@@ -1,6 +1,7 @@
 package com.jibee.deratiseur.web.model.persistance;
 
 import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
 import org.mongodb.morphia.annotations.Reference;
@@ -14,9 +15,8 @@ import org.mongodb.morphia.annotations.Reference;
  * @author jibee
  *
  */
-public class ImageRevision implements IMongoObject {
-	@Id
-	private ObjectId m_id;
+@Entity("imageRevision")
+public class ImageRevision extends  IMongoObject {
 
 	@Property("image")
 	private ObjectId m_image;
@@ -28,11 +28,6 @@ public class ImageRevision implements IMongoObject {
 	public void discard() {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public ObjectId getId() {
-		return m_id;
 	}
 
 	public Image getImage() {

@@ -8,6 +8,7 @@ public class Gegl {
 		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_config().set("application-license", "GPL3");
 	}
 	
+	@Override
 	protected void finalize() throws Throwable {
 		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_exit();
 	};

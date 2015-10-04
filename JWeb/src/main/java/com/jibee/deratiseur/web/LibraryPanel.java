@@ -15,6 +15,7 @@ public class LibraryPanel extends WContainerWidget {
 	
 	private WTreeView m_treeView;
 	private Signal1<iFolder> m_folderSelected;
+	private UserLibrary m_userLibrary;
 
 	public LibraryPanel()
 	{
@@ -44,8 +45,12 @@ public class LibraryPanel extends WContainerWidget {
 		folderSelected().trigger(f);		
 	}
 	public void openLibrary(UserLibrary userLibrary) {
+		m_userLibrary = userLibrary;
 		m_treeView.setModel(userLibrary);
 		
+	}
+	public UserLibrary getLibrary() {
+		return m_userLibrary;
 	}
 
 }

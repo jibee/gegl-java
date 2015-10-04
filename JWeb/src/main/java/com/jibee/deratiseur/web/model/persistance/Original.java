@@ -21,14 +21,11 @@ import org.mongodb.morphia.annotations.Reference;
  *
  */
 @Entity("Original")
-public class Original implements IMongoObject{
+public class Original extends IMongoObject{
 	public Original(File file, Library library) {
-		setLibrary(library);
 		m_filePath=file.getAbsolutePath();
+		setLibrary(library);
 	}
-
-	@Id
-	private ObjectId m_id;
 	
 	@Property("library")
 	private ObjectId m_library;
@@ -36,16 +33,16 @@ public class Original implements IMongoObject{
 	@Property("filePath")
 	private String m_filePath;
 
-	@Override
-	public ObjectId getId() {
-		return m_id;
-	}
-
 	public Library getLibrary() {
 		return Factory.instance().getLibrary(m_library);
 	}
 
 	public void setLibrary(Library library) {
 		m_library = IMongoObject.getIdFor(library);
+		save();
+	}
+
+	public static boolean exists(File file, Library library) {
+		return Factory.instance().getOriginals(library).field("filePath").equal(file.getAbsolutePath()).countAll()>0;
 	}
 }

@@ -48,7 +48,7 @@ public class PhysicalFolder implements iFolder {
 		return null;
 	}
 	@Override
-	public List<IImage> getAllImages() {
+	public List<IImage> getImages() {
 		// TODO recurse into subfolders
 		FileFilter filter = new FileFilter() {
 			@Override
@@ -75,8 +75,7 @@ public class PhysicalFolder implements iFolder {
 	}
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return m_folder.getName();
 	}
 	@Override
 	public iFolder newFolder(String f_name) {
@@ -84,8 +83,17 @@ public class PhysicalFolder implements iFolder {
 		return null;
 	}
 	@Override
-	public void importImages(List<IImage> toImport) {
+	public void importImages(List<? extends IImage> toImport) {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public List<IImage> getAllImages() {
+		List<IImage> retval = getImages();
+		for(iFolder f: subFolders())
+		{
+			retval.addAll(f.getAllImages());
+		}
+		return retval;
 	}
 }

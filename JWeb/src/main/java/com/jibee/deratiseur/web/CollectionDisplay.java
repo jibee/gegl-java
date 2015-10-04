@@ -1,8 +1,6 @@
 package com.jibee.deratiseur.web;
 
 import java.util.EnumSet;
-import java.util.Stack;
-
 import com.jibee.deratiseur.web.model.IImage;
 import com.jibee.deratiseur.web.model.IImageCollectionModel;
 import com.jibee.deratiseur.web.model.IImageCollectionModel.ImageIndex;

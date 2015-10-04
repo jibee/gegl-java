@@ -1,22 +1,18 @@
 package com.jibee.deratiseur.web;
 
-import com.jibee.deratiseur.web.model.IImageCollectionModel;
+import java.io.File;
+
+import com.jibee.deratiseur.web.MenuBar.DirectoryImportOptions;
 import com.jibee.deratiseur.web.model.ISelectableImageCollectionModel;
 import com.jibee.deratiseur.web.model.UserLibrary;
 
-import eu.webtoolkit.jwt.PositionScheme;
-import eu.webtoolkit.jwt.Side;
 import eu.webtoolkit.jwt.Signal1;
+import eu.webtoolkit.jwt.Signal2.Listener;
 import eu.webtoolkit.jwt.WApplication;
 import eu.webtoolkit.jwt.WBootstrapTheme;
-import eu.webtoolkit.jwt.WBorderLayout;
-import eu.webtoolkit.jwt.WBorderLayout.Position;
-import eu.webtoolkit.jwt.WContainerWidget;
 import eu.webtoolkit.jwt.WBootstrapTheme.Version;
 import eu.webtoolkit.jwt.WEnvironment;
 import eu.webtoolkit.jwt.WGridLayout;
-import eu.webtoolkit.jwt.WHBoxLayout;
-import eu.webtoolkit.jwt.WLayout;
 import eu.webtoolkit.jwt.WLength;
 import eu.webtoolkit.jwt.WLength.Unit;
 import eu.webtoolkit.jwt.WLink;
@@ -54,8 +50,16 @@ public class MainApplication extends WApplication {
 		sublayout.addWidget(m_main, 0, 1);
 
 		m_inspector.collectionSelected().addListener(this, new Signal1.Listener<ISelectableImageCollectionModel>() {
+			@Override
 			public void trigger(ISelectableImageCollectionModel arg) {
 				m_main.selectCollection(arg);
+			}
+		});
+		
+		m_topMenu.importDirectory().addListener(this, new Listener<File, MenuBar.DirectoryImportOptions>() {
+			@Override
+			public void trigger(File rootFolder, DirectoryImportOptions options) {
+				m_inspector.getLibrary().importDirectory(rootFolder, "import", options);
 			}
 		});
 

@@ -52,4 +52,8 @@ public class InspectorPanel extends WTabWidget {
 		return m_collectionSelected;
 	}
 
+	public UserLibrary getLibrary() {
+		return m_lp.getLibrary();
+	}
+
 }

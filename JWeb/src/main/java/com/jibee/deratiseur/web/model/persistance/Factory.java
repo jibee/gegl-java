@@ -1,5 +1,7 @@
 package com.jibee.deratiseur.web.model.persistance;
 
+import java.util.List;
+
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
@@ -7,6 +9,7 @@ import org.mongodb.morphia.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.jibee.deratiseur.web.model.IImage;
 import com.mongodb.MongoClient;
 
 public class Factory {
@@ -65,6 +68,9 @@ public class Factory {
 		return m_datastore.createQuery(LibraryFolder.class);
 	}
 	public Query<LibraryFolder> getFolders(LibraryFolder parent) {
+		return getFolders(IMongoObject.getIdFor(parent));
+	}
+	public Query<LibraryFolder> getFolders(ObjectId parent) {
 		return getFolders().field("parent").equal(parent);
 	}
 
@@ -72,7 +78,7 @@ public class Factory {
 		return m_datastore.createQuery(ImageRevision.class);
 	}
 	public Query<ImageRevision> getRevisions(Image image) {
-		return getRevisions().field("image").equal(image);
+		return getRevisions().field("image").equal(IMongoObject.getIdFor(image));
 	}
 
 	public Original getOriginal(ObjectId original) {
@@ -97,6 +103,14 @@ public class Factory {
 
 	public Library getLibrary(ObjectId id) {
 		return getLibraries().field("_id").equal(id).get();
+	}
+
+	public void save(IMongoObject o) {
+		m_datastore.save(o);
+	}
+
+	public Query<Image> getImagesInFolder(ObjectId library, ObjectId folder) {
+		return getImages().field("library").equal(library).field("folder").equal(folder);
 	}
 
 }

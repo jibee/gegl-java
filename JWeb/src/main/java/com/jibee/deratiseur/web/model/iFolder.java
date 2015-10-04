@@ -29,10 +29,20 @@ public interface iFolder  {
 	 *      role)
 	 */
 	Object getData(int role);
+	/** Obtains all images including those comprising sub-folders 
+	 * 
+	 * @return
+	 */
 	List<IImage> getAllImages();
+	/** Obtains all images excluding those comprising sub-folders 
+	 * 
+	 * @return
+	 */
+	List<? extends IImage> getImages();
+	
 	String getName();
 	iFolder newFolder(String f_name);
-	void importImages(List<IImage> toImport);
+	void importImages(List<? extends IImage> list);
 
 
 }

@@ -8,13 +8,14 @@ import org.mongodb.morphia.query.Query;
 
 import com.jibee.deratiseur.web.model.IImage;
 
-public class Image implements IImage, IMongoObject{
-	@Id
-	private ObjectId m_id;
+public class Image extends IMongoObject implements IImage{
 	
 	@Property("original")
 	private ObjectId m_original;
 	
+	@Property("library")
+	private ObjectId m_library;
+
 	@Property("active_rev")
 	private ObjectId m_activeRevision;
 	
@@ -26,7 +27,7 @@ public class Image implements IImage, IMongoObject{
 	
 	public Image(Original original, LibraryFolder libraryFolder) {
 		setOriginal(original);
-		setFolder(libraryFolder);
+		setFolder(libraryFolder, libraryFolder.getLibrary());
 	}
 	public Query<ImageRevision> getRevisions()
 	{
@@ -38,7 +39,9 @@ public class Image implements IImage, IMongoObject{
 	}
 	public ImageRevision createRevision() {
 		ImageRevision revision=new ImageRevision(this);
-		getActiveRevision().discard();
+		ImageRevision active = getActiveRevision();
+		if(null!=active)
+			active.discard();
 		setActiveRevision(revision);
 		return revision;
 	}
@@ -47,6 +50,7 @@ public class Image implements IImage, IMongoObject{
 	}
 	private void setOriginal(Original original) {
 		m_original = IMongoObject.getIdFor(original);
+		save();
 	}
 	public ImageRevision getActiveRevision()
 	{
@@ -54,15 +58,14 @@ public class Image implements IImage, IMongoObject{
 	}
 	private void setActiveRevision(ImageRevision activeRevision) {
 		m_activeRevision = IMongoObject.getIdFor(activeRevision);
+		save();
 	}
 	private LibraryFolder getFolder() {
 		return Factory.instance().getFolder(m_folder);
 	}
-	private void setFolder(LibraryFolder folder) {
+	private void setFolder(LibraryFolder folder, Library library) {
 		m_folder = IMongoObject.getIdFor(folder);
-	}
-	@Override
-	public ObjectId getId() {
-		return m_id;
+		m_library = IMongoObject.getIdFor(library);
+		save();
 	}
 }
