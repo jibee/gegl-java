@@ -92,7 +92,9 @@ public class UserLibrary extends WItemModel<iFolder>{
 				return f;
 			}
 		}
+		// TODO trigger About to insert a row
 		return base.newFolder(name);
+		// TODO Row inserted
 	}
 	private void importDirectory(iFolder source, iFolder target, DirectoryImportOptions options)
 	{

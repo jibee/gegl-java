@@ -13,6 +13,8 @@ import org.mongodb.morphia.query.Query;
 import com.jibee.deratiseur.web.model.IImage;
 import com.jibee.deratiseur.web.model.iFolder;
 
+import eu.webtoolkit.jwt.ItemDataRole;
+
 /** 
  * Model backend for a library with local storage.
  * 
@@ -68,14 +70,19 @@ public class Library extends IMongoObject implements iFolder {
 
 	@Override
 	public Object getData(int role) {
-		// TODO Auto-generated method stub
+		if(ItemDataRole.DisplayRole == role)
+			return getName();
 		return null;
 	}
 
 	@Override
 	public List<IImage> getAllImages() {
-		// TODO Auto-generated method stub
-		return null;
+		List<IImage> retval = getImages();
+		for(iFolder f: subFolders())
+		{
+			retval.addAll(f.getAllImages());
+		}
+		return retval;
 	}
 	
 	Query<Original> getOriginals()
@@ -102,7 +109,7 @@ public class Library extends IMongoObject implements iFolder {
 
 	@Override
 	public List<IImage> getImages() {
-		// TODO Auto-generated method stub
-		return null;
+		List<? extends IImage> retval = Factory.instance().getImagesInFolder(this.getId(), null).asList();
+		return (List<IImage>) retval;
 	}
 }

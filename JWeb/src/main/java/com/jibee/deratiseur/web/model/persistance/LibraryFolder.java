@@ -1,6 +1,7 @@
 package com.jibee.deratiseur.web.model.persistance;
 
 import java.io.File;
+import java.util.Collection;
 import java.util.List;
 import java.util.Vector;
 
@@ -14,6 +15,8 @@ import org.mongodb.morphia.annotations.Property;
 import com.jibee.deratiseur.web.model.FileBackedImage;
 import com.jibee.deratiseur.web.model.IImage;
 import com.jibee.deratiseur.web.model.iFolder;
+
+import eu.webtoolkit.jwt.ItemDataRole;
 
 @Entity("folder")
 public class LibraryFolder extends IMongoObject implements iFolder {
@@ -68,13 +71,19 @@ public class LibraryFolder extends IMongoObject implements iFolder {
 
 	@Override
 	public Object getData(int role) {
-		// TODO Auto-generated method stub
+		if(ItemDataRole.DisplayRole == role)
+			return getName();
 		return null;
 	}
 
 	@Override
-	public List<? extends IImage> getAllImages() {
-		return getImages();
+	public List<IImage> getAllImages() {
+		List<IImage> retval = getImages();
+		for(iFolder f: subFolders())
+		{
+			retval.addAll(f.getAllImages());
+		}
+		return retval;
 	}
 
 	@Override
@@ -132,9 +141,9 @@ public class LibraryFolder extends IMongoObject implements iFolder {
 	}
 
 	@Override
-	public List<? extends IImage> getImages() {
-		List<Image> retval = Factory.instance().getImagesInFolder(m_library, getId()).asList();
-		return retval;
+	public List<IImage> getImages() {
+		List<? extends IImage> retval = Factory.instance().getImagesInFolder(m_library, getId()).asList();
+		return (List<IImage>) retval;
 	}
 
 }
