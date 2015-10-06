@@ -9,9 +9,12 @@ import com.jibee.deratiseur.web.model.IImageCollectionModel.StackIndex;
 import eu.webtoolkit.jwt.EventSignal1;
 import eu.webtoolkit.jwt.RenderFlag;
 import eu.webtoolkit.jwt.WAbstractItemView.ScrollHint;
+import eu.webtoolkit.jwt.WLength.Unit;
 import eu.webtoolkit.jwt.WCompositeWidget;
 import eu.webtoolkit.jwt.WContainerWidget;
+import eu.webtoolkit.jwt.WLength;
 import eu.webtoolkit.jwt.WScrollEvent;
+import eu.webtoolkit.jwt.WTableView;
 import eu.webtoolkit.jwt.WWidget;
 
 
@@ -25,10 +28,7 @@ import eu.webtoolkit.jwt.WWidget;
 public class CollectionDisplay extends WCompositeWidget {
 
 	/** Container for the items displayed */
-	protected WContainerWidget m_main_container;
-	private boolean m_dirty;
-	private int renderedFirstRow_;
-	private int renderedLastRow_;
+	protected WTableView m_main_container;
 	private IImageCollectionModel m_model;
 
 	/** 
@@ -40,46 +40,34 @@ public class CollectionDisplay extends WCompositeWidget {
 	 */
 	public void setModel(IImageCollectionModel model) {
 		m_model = model;
-		m_dirty = true;
-		scheduleRender();
+		m_main_container.setModel(new LinearImageCollectionProxy(model));
 	}
 
-	/** Override to base class - renders the widget.
-	
-	 We override this method to delay the table contents update as late as we can.
-	 */
-	@Override
-	public void render(EnumSet<RenderFlag> flags) {
-		// do our own rendering
-		renderPage();
-		m_dirty = false;
-		super.render(flags);
-	}
 
 	/** Our own late rendering. 
 	 * 
 	 */
 	private void renderPage() {
 		// Empty the table. There is room for optimisation on this bit
-		m_main_container.clear();
-		if(null==getModel())
+		if(null==m_model)
 		{
 			return;
 		}
 	
-		int rowCount = getModel().getStacksCount();
+		int rowCount = m_model.getStacksCount();
 		//		Now iterates through each item in the model 
 		for(int i = 0; i<rowCount; ++i)
 		{
-			StackIndex index = getModel().getImageIndex(i);
-			m_main_container.addWidget(itemWidget(index)); 
+			StackIndex index = m_model.getImageIndex(i);
+			//m_main_container.addWidget(itemWidget(index)); 
 		}
 	}
 
-	private IImageCollectionModel getModel() {
-		return m_model;
+	protected void selectRange(StackIndex first, StackIndex last) {
+		// TODO Auto-generated method stub
+		
 	}
-
+	
 	public WWidget itemWidget(StackIndex index) {
 		int count = m_model.getImageCount(index);
 		int totalcount = m_model.getTotalImageCount(index);
@@ -100,26 +88,6 @@ public class CollectionDisplay extends WCompositeWidget {
 		}
 		return stackContainer;
 	}
-
-	public void scrollTo(ImageIndex index, ScrollHint hint) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public EventSignal1<WScrollEvent> scrolled() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	protected void modelDataChanged(StackIndex left, StackIndex right) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	protected void selectRange(StackIndex first, StackIndex last) {
-		// TODO Auto-generated method stub
-		
-	}
 	/** Constructor */
 	public CollectionDisplay()
 	{
@@ -133,9 +101,15 @@ public class CollectionDisplay extends WCompositeWidget {
 	{
 		super(parent);
 		// add forward / backward buttons
-		m_main_container = new WContainerWidget();
+		m_main_container = new WTableView();
 		setImplementation(m_main_container);
-
+		m_main_container.setHeaderHeight(new WLength(0, Unit.Pixel));
+		setLayoutSizeAware(true);
+	}
+	@Override
+	protected void layoutSizeChanged(int width, int height) {
+		super.layoutSizeChanged(width, height);
+		m_main_container.setRowHeight(new WLength(height-10, Unit.Pixel));
 	}
 
 
