@@ -29,6 +29,11 @@ public class Image extends IMongoObject implements IImage{
 		setOriginal(original);
 		setFolder(libraryFolder, libraryFolder.getLibrary());
 	}
+	
+	private Image()
+	{
+		
+	}
 	public Query<ImageRevision> getRevisions()
 	{
 		return Factory.instance().getRevisions(this);
@@ -50,6 +55,7 @@ public class Image extends IMongoObject implements IImage{
 	}
 	private void setOriginal(Original original) {
 		m_original = IMongoObject.getIdFor(original);
+		m_name = original.getName();
 		save();
 	}
 	public ImageRevision getActiveRevision()

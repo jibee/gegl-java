@@ -24,6 +24,7 @@ import org.mongodb.morphia.annotations.Reference;
 public class Original extends IMongoObject{
 	public Original(File file, Library library) {
 		m_filePath=file.getAbsolutePath();
+		m_name = file.getName();
 		setLibrary(library);
 	}
 	
@@ -32,6 +33,9 @@ public class Original extends IMongoObject{
 	
 	@Property("filePath")
 	private String m_filePath;
+
+	@Property("name")
+	private String m_name;
 
 	public Library getLibrary() {
 		return Factory.instance().getLibrary(m_library);
@@ -44,5 +48,14 @@ public class Original extends IMongoObject{
 
 	public static boolean exists(File file, Library library) {
 		return Factory.instance().getOriginals(library).field("filePath").equal(file.getAbsolutePath()).countAll()>0;
+	}
+
+	public void scheduleExifParsing() {
+		// TODO create a deferred task
+		
+	}
+
+	public String getName() {
+		return m_name;
 	}
 }

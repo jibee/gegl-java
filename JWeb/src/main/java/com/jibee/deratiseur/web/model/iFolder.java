@@ -33,7 +33,7 @@ public interface iFolder  {
 	 * 
 	 * @return
 	 */
-	List<IImage> getAllImages();
+	List<? extends IImage> getAllImages();
 	/** Obtains all images excluding those comprising sub-folders 
 	 * 
 	 * @return

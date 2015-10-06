@@ -60,6 +60,9 @@ public class Factory {
 	}
 
 	public Query<Original> getOriginals(Library library) {
+		return getOriginals(IMongoObject.getIdFor(library));
+	}
+	public Query<Original> getOriginals(ObjectId library) {
 		return getOriginals().field("library").equal(library);
 	}
 

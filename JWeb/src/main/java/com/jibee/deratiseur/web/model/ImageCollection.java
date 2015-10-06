@@ -26,7 +26,7 @@ public class ImageCollection implements IImageCollectionModel {
 	}
 	
 // TODO use a proxy class with the info we need to store
-	private List<IImage> m_files;
+	private List<? extends IImage> m_files;
 
 	public ImageCollection(iFolder arg) {
 		m_files = arg.getAllImages();

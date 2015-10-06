@@ -37,4 +37,9 @@ public class ImageRevision extends  IMongoObject {
 	public void setImage(Image image) {
 		m_image = IMongoObject.getIdFor(image);
 	}
+
+	public void scheduleRender() {
+		// TODO: create a deferred task to create the miniature
+	
+	}
 }

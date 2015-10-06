@@ -73,9 +73,8 @@ public class LibraryFolder extends IMongoObject implements iFolder {
 	}
 
 	@Override
-	public List<IImage> getAllImages() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<? extends IImage> getAllImages() {
+		return getImages();
 	}
 
 	@Override
@@ -106,8 +105,12 @@ public class LibraryFolder extends IMongoObject implements iFolder {
 			if(!Original.exists(bi.getFile(), getLibrary()))
 			{
 				Original original = new Original(bi.getFile(), getLibrary());
+				// TODO: create a deferred task to source the image meta data (exif)
+				original.scheduleExifParsing();
 				Image image = new Image(original,this);
-				image.createRevision();
+				ImageRevision r = image.createRevision();
+				// TODO: create a deferred task to create the miniature
+				r.scheduleRender();
 			}
 		}
 	}
