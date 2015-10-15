@@ -1,12 +1,12 @@
 package com.jibee.deratiseur.web.model.persistance;
 
 import org.bson.types.ObjectId;
-import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
-import org.mongodb.morphia.annotations.Reference;
 import org.mongodb.morphia.query.Query;
 
 import com.jibee.deratiseur.web.model.IImage;
+
+import eu.webtoolkit.jwt.WLink;
 
 public class Image extends IMongoObject implements IImage{
 	
@@ -28,6 +28,7 @@ public class Image extends IMongoObject implements IImage{
 	public Image(Original original, LibraryFolder libraryFolder) {
 		setOriginal(original);
 		setFolder(libraryFolder, libraryFolder.getLibrary());
+		createRevision();
 	}
 	
 	private Image()
@@ -50,7 +51,7 @@ public class Image extends IMongoObject implements IImage{
 		setActiveRevision(revision);
 		return revision;
 	}
-	private Original getOriginal() {
+	public Original getOriginal() {
 		return Factory.instance().getOriginal(m_original);
 	}
 	private void setOriginal(Original original) {
@@ -73,5 +74,10 @@ public class Image extends IMongoObject implements IImage{
 		m_folder = IMongoObject.getIdFor(folder);
 		m_library = IMongoObject.getIdFor(library);
 		save();
+	}
+
+	@Override
+	public WLink getResourceLink(RenderSize size) {
+		return getActiveRevision().getResourceLink(size);
 	}
 }

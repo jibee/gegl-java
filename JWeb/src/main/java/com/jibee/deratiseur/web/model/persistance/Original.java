@@ -22,6 +22,10 @@ import org.mongodb.morphia.annotations.Reference;
  */
 @Entity("Original")
 public class Original extends IMongoObject{
+	private Original()
+	{
+		
+	}
 	public Original(File file, Library library) {
 		m_filePath=file.getAbsolutePath();
 		m_name = file.getName();
@@ -57,5 +61,9 @@ public class Original extends IMongoObject{
 
 	public String getName() {
 		return m_name;
+	}
+
+	public String getPath() {
+		return m_filePath;
 	}
 }

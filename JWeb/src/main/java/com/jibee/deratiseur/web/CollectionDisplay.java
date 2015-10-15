@@ -7,14 +7,19 @@ import com.jibee.deratiseur.web.model.IImageCollectionModel.ImageIndex;
 import com.jibee.deratiseur.web.model.IImageCollectionModel.StackIndex;
 
 import eu.webtoolkit.jwt.EventSignal1;
+import eu.webtoolkit.jwt.ItemDataRole;
 import eu.webtoolkit.jwt.RenderFlag;
+import eu.webtoolkit.jwt.ViewItemRenderFlag;
+import eu.webtoolkit.jwt.WAbstractItemDelegate;
 import eu.webtoolkit.jwt.WAbstractItemView.ScrollHint;
 import eu.webtoolkit.jwt.WLength.Unit;
 import eu.webtoolkit.jwt.WCompositeWidget;
 import eu.webtoolkit.jwt.WContainerWidget;
 import eu.webtoolkit.jwt.WLength;
+import eu.webtoolkit.jwt.WModelIndex;
 import eu.webtoolkit.jwt.WScrollEvent;
 import eu.webtoolkit.jwt.WTableView;
+import eu.webtoolkit.jwt.WText;
 import eu.webtoolkit.jwt.WWidget;
 
 
@@ -105,6 +110,16 @@ public class CollectionDisplay extends WCompositeWidget {
 		setImplementation(m_main_container);
 		m_main_container.setHeaderHeight(new WLength(0, Unit.Pixel));
 		setLayoutSizeAware(true);
+		m_main_container.setItemDelegate(new WAbstractItemDelegate() {
+			@Override
+			public WWidget update(WWidget widget, WModelIndex index, EnumSet<ViewItemRenderFlag> flags) {
+				IImage image =(IImage)index.getData(LinearImageCollectionProxy.ImageObjectRole);
+				if(null==image)
+					return new WText((String)index.getData(ItemDataRole.DisplayRole));
+				else
+					return new Thumbnail(image);
+			}
+		});
 	}
 	@Override
 	protected void layoutSizeChanged(int width, int height) {

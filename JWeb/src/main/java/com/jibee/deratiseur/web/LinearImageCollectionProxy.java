@@ -8,7 +8,7 @@ import eu.webtoolkit.jwt.WAbstractItemModel;
 import eu.webtoolkit.jwt.WModelIndex;
 
 public class LinearImageCollectionProxy extends WAbstractItemModel {
-
+	public static final int ImageObjectRole = ItemDataRole.UserRole+4985;
 	private IImageCollectionModel m_model;
 
 	public LinearImageCollectionProxy(IImageCollectionModel model) {
@@ -37,6 +37,8 @@ public class LinearImageCollectionProxy extends WAbstractItemModel {
 		{
 		case ItemDataRole.DisplayRole:
 			return image.getFilename();
+		case ImageObjectRole:
+			return image;
 		}
 		return null;
 	}

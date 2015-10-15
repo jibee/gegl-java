@@ -1,4 +1,4 @@
-package com.jibee.deratiseur.web;
+package com.jibee.deratiseur;
 
 import eu.webtoolkit.jwt.ServletInit;
 
@@ -11,6 +11,9 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.session.HashSessionManager;
 import org.eclipse.jetty.server.session.SessionHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
+
+import com.jibee.deratiseur.processor.ImageProcessorServlet;
+import com.jibee.deratiseur.web.Servlet;
 
 public class EmbeddedServer {
 
@@ -46,6 +49,7 @@ public class EmbeddedServer {
         // This is a raw Servlet, not a Servlet that has been configured
         // through a web.xml @WebServlet annotation, or anything similar.
         handler.addServlet(AssetsServlet.class, "/assets/*");
+        handler.addServlet(ImageProcessorServlet.class, "/img/*");
         handler.addServlet(Servlet.class, "/*");
         
         server.setHandler(handler);

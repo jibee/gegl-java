@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jibee.deratiseur.web.model.IImage;
+import com.jibee.deratiseur.web.model.IImage.RenderSize;
 import com.mongodb.MongoClient;
 
 public class Factory {
@@ -45,7 +46,7 @@ public class Factory {
 		 * classes annotations.
 		 */
 		morphia.map(
-				Library.class, Image.class, ImagePreview.class, ImageRevision.class, LibraryFolder.class, Original.class
+				Library.class, Image.class, Render.class, ImageRevision.class, LibraryFolder.class, Original.class
 				);
 		m_datastore = morphia.createDatastore(mongo_connection, "Deratiseur");
 		m_datastore.ensureIndexes();
@@ -114,6 +115,29 @@ public class Factory {
 
 	public Query<Image> getImagesInFolder(ObjectId library, ObjectId folder) {
 		return getImages().field("library").equal(library).field("folder").equal(folder);
+	}
+
+	public Query<Render> getRender()
+	{
+		return m_datastore.createQuery(Render.class);
+	}
+	public Render getRenderByPublicHash(String path) {
+		return getRender().field("key").equal(path).get();
+	}
+
+	public Render getRenderByID(ObjectId id) {
+		return getRender().field("_id").equal(id).get();
+	}
+
+	public List<Render> getRenders(ImageRevision imageRevision) {
+		return getRender().field("imageRevision").equal(IMongoObject.getIdFor(imageRevision)).asList();
+	}
+
+	public Render getRender(ImageRevision imageRevision, RenderSize size) {
+		return getRender()
+				.field("imageRevision").equal(IMongoObject.getIdFor(imageRevision))
+				.field("profiles").hasThisOne(size)
+				.get();
 	}
 
 }

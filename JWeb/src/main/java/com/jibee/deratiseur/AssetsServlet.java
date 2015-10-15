@@ -1,4 +1,4 @@
-package com.jibee.deratiseur.web;
+package com.jibee.deratiseur;
 
 import javax.servlet.annotation.WebServlet;
 
