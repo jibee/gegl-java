@@ -23,6 +23,7 @@ public class MainView extends WContainerWidget {
 		m_collectionDisplay = new CollectionDisplay();
 		layout.addWidget(m_collectionDisplay);
 		layout.setResizable(0, true, new WLength(80, Unit.Percentage));
+		m_mainImageDisplay.listenToSelectionChange(m_collectionDisplay.selectionUpdated());
 	}
 
 	public MainView() {

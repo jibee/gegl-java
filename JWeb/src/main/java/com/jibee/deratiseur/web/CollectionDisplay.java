@@ -1,23 +1,25 @@
 package com.jibee.deratiseur.web;
 
 import java.util.EnumSet;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.Vector;
+
 import com.jibee.deratiseur.web.model.IImage;
 import com.jibee.deratiseur.web.model.IImageCollectionModel;
-import com.jibee.deratiseur.web.model.IImageCollectionModel.ImageIndex;
 import com.jibee.deratiseur.web.model.IImageCollectionModel.StackIndex;
 
-import eu.webtoolkit.jwt.EventSignal1;
 import eu.webtoolkit.jwt.ItemDataRole;
-import eu.webtoolkit.jwt.RenderFlag;
+import eu.webtoolkit.jwt.SelectionMode;
+import eu.webtoolkit.jwt.Signal.Listener;
+import eu.webtoolkit.jwt.Signal1;
 import eu.webtoolkit.jwt.ViewItemRenderFlag;
 import eu.webtoolkit.jwt.WAbstractItemDelegate;
-import eu.webtoolkit.jwt.WAbstractItemView.ScrollHint;
 import eu.webtoolkit.jwt.WLength.Unit;
 import eu.webtoolkit.jwt.WCompositeWidget;
 import eu.webtoolkit.jwt.WContainerWidget;
 import eu.webtoolkit.jwt.WLength;
 import eu.webtoolkit.jwt.WModelIndex;
-import eu.webtoolkit.jwt.WScrollEvent;
 import eu.webtoolkit.jwt.WTableView;
 import eu.webtoolkit.jwt.WText;
 import eu.webtoolkit.jwt.WWidget;
@@ -35,6 +37,7 @@ public class CollectionDisplay extends WCompositeWidget {
 	/** Container for the items displayed */
 	protected WTableView m_main_container;
 	private IImageCollectionModel m_model;
+	private Signal1<List<IImage>> m_selectionUpdated;
 
 	/** 
 	Sets the model.
@@ -49,30 +52,6 @@ public class CollectionDisplay extends WCompositeWidget {
 	}
 
 
-	/** Our own late rendering. 
-	 * 
-	 */
-	private void renderPage() {
-		// Empty the table. There is room for optimisation on this bit
-		if(null==m_model)
-		{
-			return;
-		}
-	
-		int rowCount = m_model.getStacksCount();
-		//		Now iterates through each item in the model 
-		for(int i = 0; i<rowCount; ++i)
-		{
-			StackIndex index = m_model.getImageIndex(i);
-			//m_main_container.addWidget(itemWidget(index)); 
-		}
-	}
-
-	protected void selectRange(StackIndex first, StackIndex last) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	public WWidget itemWidget(StackIndex index) {
 		int count = m_model.getImageCount(index);
 		int totalcount = m_model.getTotalImageCount(index);
@@ -107,6 +86,13 @@ public class CollectionDisplay extends WCompositeWidget {
 		super(parent);
 		// add forward / backward buttons
 		m_main_container = new WTableView();
+		m_main_container.selectionChanged().addListener(this, new Listener() {
+			@Override
+			public void trigger() {
+				updateSelection();
+			}
+		});
+		m_main_container.setSelectionMode(SelectionMode.ExtendedSelection);
 		setImplementation(m_main_container);
 		m_main_container.setHeaderHeight(new WLength(0, Unit.Pixel));
 		setLayoutSizeAware(true);
@@ -121,6 +107,25 @@ public class CollectionDisplay extends WCompositeWidget {
 			}
 		});
 	}
+	protected void updateSelection() {
+		SortedSet<WModelIndex> selection = m_main_container.getSelectedIndexes();
+		List<IImage> s = new Vector<>();
+		for(WModelIndex i: selection)
+		{
+			IImage image = (IImage)i.getData(LinearImageCollectionProxy.ImageObjectRole);
+			s.add(image);
+		}
+		selectionUpdated().trigger(s);
+	}
+
+
+	public Signal1<List<IImage> > selectionUpdated() {
+		if(null==m_selectionUpdated)
+			m_selectionUpdated = new Signal1<>();
+		return m_selectionUpdated;
+	}
+
+
 	@Override
 	protected void layoutSizeChanged(int width, int height) {
 		super.layoutSizeChanged(width, height);
