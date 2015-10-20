@@ -51,14 +51,14 @@ public class Render extends IMongoObject{
 	private ObjectId m_imageRevision;
 
 	@Property("w")
-	double m_width;
+	int m_width;
 
 	@Property("h")
-	double m_height;
+	int m_height;
 
 	@Indexed
-	@Property("profiles")
-	Set<RenderSize> m_renderProfiles;
+	@Property("profile")
+	RenderSize m_renderProfile;
 
 	@Indexed
 	@Property("status")
@@ -70,6 +70,9 @@ public class Render extends IMongoObject{
 	@Property("address")
 	private
 	String m_localAddress;
+	
+	@Property("type")
+	private String m_mimeType;
 
 	@SuppressWarnings("unused")
 	private Render()
@@ -78,8 +81,7 @@ public class Render extends IMongoObject{
 
 	public Render(ImageRevision imageRevision, RenderSize size)
 	{
-		m_renderProfiles = new TreeSet<>();
-		m_renderProfiles.add(size);
+		m_renderProfile = size;
 		m_status = RenderStatus.Pending;
 		m_key=ImageRenderer.instance().getUniqueIdentifier();
 		setImageRevision(imageRevision);
@@ -155,10 +157,50 @@ public class Render extends IMongoObject{
 	}
 
 	public String getMimeType() {
-		return "image/jpeg";
+		return m_mimeType;
+	}
+	public void setMimeType(String s) {
+		m_mimeType=s;
 	}
 
 	public WLink getLink() {
 		return new WLink("/img/"+m_key);
+	}
+
+	public void calculateTargetDimensions() {
+		Original o = getImage().getImage().getOriginal();
+		
+		switch(m_renderProfile)
+		{
+		case FullResolution:
+			m_height = o.getHeight();
+			m_width = o.getWidth();
+			break;
+		case Thumbnail:
+			calculateTargetDimensions(o, 320, 320);
+			break;
+		}
+	}
+
+	private void calculateTargetDimensions(Original o, int maxHeight, int maxWidth) {
+		double h_ratio = (1.0 * o.getHeight() ) / (1.0 * maxHeight);
+		double w_ratio = (1.0 * o.getWidth() ) / (1.0 * maxWidth);
+		
+		double ratio = h_ratio>w_ratio?h_ratio:w_ratio;
+		
+		if(ratio < 1)
+			ratio = 1;
+		
+		m_height = (int) (o.getHeight() / ratio);
+		m_width = (int) (o.getWidth() / ratio);
+		save();
+	}
+
+	public int getWidth() {
+		return m_width;
+	}
+
+	public int getHeight() {
+		return m_height;
 	}
 }

@@ -83,25 +83,35 @@ public class ImageProcessorServlet extends HttpServlet {
 		try {
 			FileInputStream in = new FileInputStream(path);
 			resp.setContentType(r.getMimeType());
-			resp.setStatus(HttpServletResponse.SC_FOUND);
+			resp.setStatus(HttpServletResponse.SC_OK);
 			byte[] chunk = new byte[CHUNK_SIZE];
 			int readBytes = 0;
 			try
 			{
-			do{
-				readBytes = in.read(chunk);
-				resp.getOutputStream().write(chunk, 0, readBytes);
-			}
-			while(readBytes!=-1);
+				do{
+					readBytes = in.read(chunk);
+					resp.getOutputStream().write(chunk, 0, readBytes);
+				}
+				while(readBytes!=-1);
 			}
 			catch(Exception e)
 			{
-				
+
 			}
 
 		} catch (FileNotFoundException e) {
-			serve404(resp);
-			return;
+			r.setStatus(RenderStatus.Pending);
+			r.save();
+			if(RenderStatus.Pending == r.atomicallyGetRenderStatus())
+			{
+				ImageRenderer.instance().render(r);
+				serveFile(resp, r);
+			}
+			else
+			{
+				serve404(resp);
+				return;
+			}
 		}
 		
 		// TODO Auto-generated method stub

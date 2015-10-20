@@ -136,7 +136,7 @@ public class Factory {
 	public Render getRender(ImageRevision imageRevision, RenderSize size) {
 		return getRender()
 				.field("imageRevision").equal(IMongoObject.getIdFor(imageRevision))
-				.field("profiles").hasThisOne(size)
+				.field("profile").equal(size)
 				.get();
 	}
 
