@@ -1,8 +1,5 @@
 package com.jibee.deratiseur.web.model.persistance;
 
-import java.util.Set;
-import java.util.TreeSet;
-
 import com.jibee.deratiseur.processor.ImageRenderer;
 import com.jibee.deratiseur.web.model.IImage.RenderSize;
 import com.mongodb.BasicDBObject;

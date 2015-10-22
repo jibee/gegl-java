@@ -4,10 +4,7 @@ import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
-import org.mongodb.morphia.annotations.Reference;
-
 import eu.webtoolkit.jwt.WLink;
 import com.jibee.deratiseur.web.model.IImage.RenderSize;
 
@@ -25,7 +22,10 @@ public class ImageRevision extends  IMongoObject {
 
 	@Property("image")
 	private ObjectId m_image;
-	
+	/** Constructor for use by Mongo and reflection 
+	 * 
+	 */
+	@SuppressWarnings("unused")
 	private ImageRevision()
 	{
 		

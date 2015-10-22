@@ -1,6 +1,5 @@
 package com.jibee.deratiseur.web.model;
 
-import java.io.File;
 import java.util.List;
 
 import eu.webtoolkit.jwt.ItemDataRole;

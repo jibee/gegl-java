@@ -5,8 +5,6 @@ import eu.webtoolkit.jwt.Signal2;
 
 import java.io.File;
 
-import com.jibee.deratiseur.web.MenuBar.DirectoryImportOptions;
-
 import eu.webtoolkit.jwt.WContainerWidget;
 import eu.webtoolkit.jwt.WLength;
 import eu.webtoolkit.jwt.WLength.Unit;

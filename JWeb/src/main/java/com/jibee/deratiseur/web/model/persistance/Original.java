@@ -5,9 +5,7 @@ import java.io.IOException;
 
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
-import org.mongodb.morphia.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +15,6 @@ import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.MetadataException;
 import com.drew.metadata.exif.ExifIFD0Directory;
-import com.drew.metadata.exif.ExifThumbnailDirectory;
 
 /** 
  * Original image reference.
@@ -34,7 +31,10 @@ import com.drew.metadata.exif.ExifThumbnailDirectory;
 @Entity("Original")
 public class Original extends IMongoObject{
 	private static final Logger logger = LoggerFactory.getLogger(Original.class);
-
+	/** Constructor for Mongo and reflection
+	 * 
+	 */
+	@SuppressWarnings("unused")
 	private Original()
 	{
 

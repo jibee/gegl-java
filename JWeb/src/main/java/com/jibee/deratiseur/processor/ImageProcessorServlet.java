@@ -3,8 +3,6 @@ package com.jibee.deratiseur.processor;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.jibee.deratiseur.web.model.persistance.Factory;
 import com.jibee.deratiseur.web.model.persistance.Render;
 import com.jibee.deratiseur.web.model.persistance.Render.RenderStatus;
+/*
 import com.mongodb.MongoClient;
 import com.mongodb.gridfs.GridFS;
 import com.mongodb.gridfs.GridFSDBFile;
+*/
 
 public class ImageProcessorServlet extends HttpServlet {
 	
@@ -98,7 +98,7 @@ public class ImageProcessorServlet extends HttpServlet {
 			{
 
 			}
-
+			in.close();
 		} catch (FileNotFoundException e) {
 			r.setStatus(RenderStatus.Pending);
 			r.save();

@@ -1,14 +1,10 @@
 package com.jibee.deratiseur.web.model.persistance;
 
-import java.io.File;
-import java.util.Collection;
 import java.util.List;
 import java.util.Vector;
 
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Field;
-import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Indexed;
 import org.mongodb.morphia.annotations.Property;
 
@@ -41,6 +37,10 @@ public class LibraryFolder extends IMongoObject implements iFolder {
 	@Property("name")
 	private String m_name;
 	
+	/** Constructor for mongo and reflection 
+	 * 
+	 */
+	@SuppressWarnings("unused")
 	private LibraryFolder()
 	{
 		

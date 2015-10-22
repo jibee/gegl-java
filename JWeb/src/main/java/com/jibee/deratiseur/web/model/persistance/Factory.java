@@ -9,7 +9,6 @@ import org.mongodb.morphia.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.jibee.deratiseur.web.model.IImage;
 import com.jibee.deratiseur.web.model.IImage.RenderSize;
 import com.mongodb.MongoClient;
 

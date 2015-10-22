@@ -5,9 +5,7 @@ import java.util.Vector;
 
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.Property;
-import org.mongodb.morphia.annotations.Transient;
 import org.mongodb.morphia.query.Query;
 
 import com.jibee.deratiseur.web.model.IImage;

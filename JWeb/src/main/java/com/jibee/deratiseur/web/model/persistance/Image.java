@@ -30,7 +30,10 @@ public class Image extends IMongoObject implements IImage{
 		setFolder(libraryFolder, libraryFolder.getLibrary());
 		createRevision();
 	}
-	
+	/** Constructor for Mongo and reflection 
+	 * 
+	 */
+	@SuppressWarnings("unused")
 	private Image()
 	{
 		
