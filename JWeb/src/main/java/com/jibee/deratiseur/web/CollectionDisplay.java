@@ -10,9 +10,11 @@ import com.jibee.deratiseur.web.model.IImageCollectionModel;
 import com.jibee.deratiseur.web.model.IImageCollectionModel.StackIndex;
 
 import eu.webtoolkit.jwt.ItemDataRole;
+import eu.webtoolkit.jwt.KeyboardModifier;
 import eu.webtoolkit.jwt.SelectionMode;
 import eu.webtoolkit.jwt.Signal.Listener;
 import eu.webtoolkit.jwt.Signal1;
+import eu.webtoolkit.jwt.Signal2;
 import eu.webtoolkit.jwt.ViewItemRenderFlag;
 import eu.webtoolkit.jwt.WAbstractItemDelegate;
 import eu.webtoolkit.jwt.WLength.Unit;
@@ -20,6 +22,7 @@ import eu.webtoolkit.jwt.WCompositeWidget;
 import eu.webtoolkit.jwt.WContainerWidget;
 import eu.webtoolkit.jwt.WLength;
 import eu.webtoolkit.jwt.WModelIndex;
+import eu.webtoolkit.jwt.WMouseEvent;
 import eu.webtoolkit.jwt.WTableView;
 import eu.webtoolkit.jwt.WText;
 import eu.webtoolkit.jwt.WWidget;
@@ -86,12 +89,20 @@ public class CollectionDisplay extends WCompositeWidget {
 		super(parent);
 		// add forward / backward buttons
 		m_main_container = new WTableView();
+		m_main_container.clicked().addListener(this, new Signal2.Listener<WModelIndex, WMouseEvent>() {
+			@Override
+			public void trigger(WModelIndex arg1, WMouseEvent arg2) {
+				mouseClick(arg1, arg2);
+			}
+		});
+		/*
 		m_main_container.selectionChanged().addListener(this, new Listener() {
 			@Override
 			public void trigger() {
 				updateSelection();
 			}
 		});
+		*/
 		m_main_container.setSelectionMode(SelectionMode.ExtendedSelection);
 		setImplementation(m_main_container);
 		m_main_container.setHeaderHeight(new WLength(0, Unit.Pixel));
@@ -107,6 +118,15 @@ public class CollectionDisplay extends WCompositeWidget {
 			}
 		});
 	}
+	protected void mouseClick(WModelIndex arg1, WMouseEvent arg2) {
+//		arg2.getModifiers().contains(KeyboardModifier.ShiftModifier)
+		List<IImage> s = new Vector<>();
+		IImage image = (IImage)arg1.getData(LinearImageCollectionProxy.ImageObjectRole);
+		s.add(image);
+		selectionUpdated().trigger(s);
+	}
+
+
 	protected void updateSelection() {
 		SortedSet<WModelIndex> selection = m_main_container.getSelectedIndexes();
 		List<IImage> s = new Vector<>();
