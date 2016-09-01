@@ -48,7 +48,7 @@ public class ImageRenderer {
 		return instance;
 	}
 
-	public synchronized void render(Render r) {
+	public void render(Render r) {
 		r.setMimeType("image/jpg");
 		GeglNode rootNode = com.jibee.gegl.Gegl.newNode();
 		String extension;

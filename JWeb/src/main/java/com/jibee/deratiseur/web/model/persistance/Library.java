@@ -3,11 +3,8 @@ package com.jibee.deratiseur.web.model.persistance;
 import java.util.List;
 import java.util.Vector;
 
-import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Property;
-import org.mongodb.morphia.query.Query;
-
 import com.jibee.deratiseur.web.model.IImage;
 import com.jibee.deratiseur.web.model.iFolder;
 
@@ -57,7 +54,7 @@ public class Library extends IMongoObject implements iFolder {
 
 	@Override
 	public List<? extends iFolder> subFolders() {
-		List<? extends iFolder> retval = Factory.instance().getFolders((ObjectId)null).asList();
+		List<? extends iFolder> retval = Factory.instance().getFolders(null);
 		if(null==retval)
 		{
 			return new Vector<>();
@@ -83,11 +80,6 @@ public class Library extends IMongoObject implements iFolder {
 		return retval;
 	}
 	
-	Query<Original> getOriginals()
-	{
-		return Factory.instance().getOriginals(this);	
-	}
-
 	@Override
 	public String getName() {
 		return m_name;
@@ -107,7 +99,7 @@ public class Library extends IMongoObject implements iFolder {
 
 	@Override
 	public List<IImage> getImages() {
-		List<? extends IImage> retval = Factory.instance().getImagesInFolder(this.getId(), null).asList();
+		List<? extends IImage> retval = Factory.instance().getImagesInFolder(this.getId(), null);
 		return (List<IImage>) retval;
 	}
 }

@@ -9,8 +9,13 @@ import org.mongodb.morphia.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.jibee.deratiseur.web.model.iFolder;
 import com.jibee.deratiseur.web.model.IImage.RenderSize;
+import com.jibee.deratiseur.web.model.persistance.Render.RenderStatus;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
+import com.mongodb.WriteResult;
 
 public class Factory {
 	
@@ -51,37 +56,41 @@ public class Factory {
 		m_datastore.ensureIndexes();
 	}
 	
-	public Query<Library> getLibraries() {
+	private Query<Library> getLibraries() {
 		return m_datastore.createQuery(Library.class);
 	}
-
-	public Query<Original> getOriginals() {
+	
+	public Library getLibrary(String username, String library)
+	{
+		return getLibraries().field("owner").equal("jibee").field("name").equal("default").get();
+	}
+	private Query<Original> getOriginals() {
 		return m_datastore.createQuery(Original.class);
 	}
 
-	public Query<Original> getOriginals(Library library) {
+	private Query<Original> getOriginals(Library library) {
 		return getOriginals(IMongoObject.getIdFor(library));
 	}
-	public Query<Original> getOriginals(ObjectId library) {
+	private Query<Original> getOriginals(ObjectId library) {
 		return getOriginals().field("library").equal(library);
 	}
 
-	public Query<LibraryFolder> getFolders()
+	private Query<LibraryFolder> getFolders()
 	{
 		return m_datastore.createQuery(LibraryFolder.class);
 	}
-	public Query<LibraryFolder> getFolders(LibraryFolder parent) {
-		return getFolders(IMongoObject.getIdFor(parent));
+	public List<? extends iFolder> getFolders(LibraryFolder parent) {
+		return getFolders(IMongoObject.getIdFor(parent)).asList();
 	}
-	public Query<LibraryFolder> getFolders(ObjectId parent) {
+	private Query<LibraryFolder> getFolders(ObjectId parent) {
 		return getFolders().field("parent").equal(parent);
 	}
 
-	public Query<ImageRevision> getRevisions() {
+	private Query<ImageRevision> getRevisions() {
 		return m_datastore.createQuery(ImageRevision.class);
 	}
-	public Query<ImageRevision> getRevisions(Image image) {
-		return getRevisions().field("image").equal(IMongoObject.getIdFor(image));
+	public List<ImageRevision> getRevisions(Image image) {
+		return getRevisions().field("image").equal(IMongoObject.getIdFor(image)).asList();
 	}
 
 	public Original getOriginal(ObjectId original) {
@@ -112,8 +121,8 @@ public class Factory {
 		m_datastore.save(o);
 	}
 
-	public Query<Image> getImagesInFolder(ObjectId library, ObjectId folder) {
-		return getImages().field("library").equal(library).field("folder").equal(folder);
+	public List<Image> getImagesInFolder(ObjectId library, ObjectId folder) {
+		return getImages().field("library").equal(library).field("folder").equal(folder).asList();
 	}
 
 	public Query<Render> getRender()
@@ -137,6 +146,18 @@ public class Factory {
 				.field("imageRevision").equal(IMongoObject.getIdFor(imageRevision))
 				.field("profile").equal(size)
 				.get();
+	}
+
+	public boolean originalIsInLibrary(Library library, String absolutePath) {
+		return getOriginals(library).field("filePath").equal(absolutePath).countAll()>0;
+	}
+
+	public boolean takeRenderLock(ObjectId id) {
+		DBObject query = new BasicDBObject("_id", id).append("status", RenderStatus.Pending.toString());
+		DBObject update = new BasicDBObject("$set", new BasicDBObject("status", RenderStatus.InProgress.toString()));
+
+		WriteResult result = Factory.instance().getRender().getCollection().update(query, update);
+		return 1==result.getN();
 	}
 
 }

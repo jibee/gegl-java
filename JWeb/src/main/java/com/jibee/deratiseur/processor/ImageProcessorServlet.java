@@ -11,14 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.jibee.deratiseur.web.model.persistance.Factory;
 import com.jibee.deratiseur.web.model.persistance.Render;
 import com.jibee.deratiseur.web.model.persistance.Render.RenderStatus;
-/*
-import com.mongodb.MongoClient;
-import com.mongodb.gridfs.GridFS;
-import com.mongodb.gridfs.GridFSDBFile;
-*/
 
 public class ImageProcessorServlet extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8762648844216491443L;
 	private static final int CHUNK_SIZE = 4096;
 
 	@Override

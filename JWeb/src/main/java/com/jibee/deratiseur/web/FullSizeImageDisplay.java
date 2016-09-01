@@ -2,11 +2,9 @@ package com.jibee.deratiseur.web;
 
 import com.jibee.deratiseur.web.model.IImage;
 
-import eu.webtoolkit.jwt.WCompositeWidget;
 import eu.webtoolkit.jwt.WContainerWidget;
 import eu.webtoolkit.jwt.WImage;
 import eu.webtoolkit.jwt.WLength;
-import eu.webtoolkit.jwt.WLength.Unit;
 import eu.webtoolkit.jwt.WLink;
 
 public class FullSizeImageDisplay extends WContainerWidget {

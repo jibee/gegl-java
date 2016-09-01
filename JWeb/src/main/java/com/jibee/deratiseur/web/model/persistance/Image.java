@@ -2,8 +2,6 @@ package com.jibee.deratiseur.web.model.persistance;
 
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Property;
-import org.mongodb.morphia.query.Query;
-
 import com.jibee.deratiseur.web.model.IImage;
 
 import eu.webtoolkit.jwt.WLink;
@@ -37,10 +35,6 @@ public class Image extends IMongoObject implements IImage{
 	private Image()
 	{
 		
-	}
-	public Query<ImageRevision> getRevisions()
-	{
-		return Factory.instance().getRevisions(this);
 	}
 	@Override
 	public String getFilename() {

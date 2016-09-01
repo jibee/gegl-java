@@ -2,10 +2,6 @@ package com.jibee.deratiseur.web.model.persistance;
 
 import com.jibee.deratiseur.processor.ImageRenderer;
 import com.jibee.deratiseur.web.model.IImage.RenderSize;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
-import com.mongodb.WriteResult;
-
 import eu.webtoolkit.jwt.WLink;
 
 import org.bson.types.ObjectId;
@@ -106,11 +102,13 @@ public class Render extends IMongoObject{
 			return m_status;
 		if(m_status == RenderStatus.Pending)
 		{
-			DBObject query = new BasicDBObject("_id", getId()).append("status", RenderStatus.Pending.toString());
-			DBObject update = new BasicDBObject("$set", new BasicDBObject("status", RenderStatus.InProgress.toString()));
-
-			WriteResult result = Factory.instance().getRender().getCollection().update(query, update);
-			if(0==result.getN())
+			if(Factory.instance().takeRenderLock(getId()))
+			{
+				// Reflect the updated render status
+				m_status = RenderStatus.InProgress;
+				return RenderStatus.Pending;
+			}
+			else
 			{
 				// Status was changed by another process, let's update
 				Render r = Factory.instance().getRenderByID(getId());
@@ -118,12 +116,6 @@ public class Render extends IMongoObject{
 				m_storage = r.m_storage;
 				setLocalAddress(r.getLocalAddress());
 				return m_status;
-			}
-			else
-			{
-				// Reflect the updated render status
-				m_status = RenderStatus.InProgress;
-				return RenderStatus.Pending;
 			}
 		}
 		return m_status;

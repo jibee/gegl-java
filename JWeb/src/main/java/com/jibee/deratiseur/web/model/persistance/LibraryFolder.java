@@ -60,7 +60,7 @@ public class LibraryFolder extends IMongoObject implements iFolder {
 
 	@Override
 	public List<? extends iFolder> subFolders() {
-		List<? extends iFolder> retval = Factory.instance().getFolders(this).asList();
+		List<? extends iFolder> retval = Factory.instance().getFolders(this);
 		if(null==retval)
 		{
 			return new Vector<>();
@@ -142,7 +142,7 @@ public class LibraryFolder extends IMongoObject implements iFolder {
 
 	@Override
 	public List<IImage> getImages() {
-		List<? extends IImage> retval = Factory.instance().getImagesInFolder(m_library, getId()).asList();
+		List<? extends IImage> retval = Factory.instance().getImagesInFolder(m_library, getId());
 		return (List<IImage>) retval;
 	}
 

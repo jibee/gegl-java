@@ -10,9 +10,7 @@ import com.jibee.deratiseur.web.model.IImageCollectionModel;
 import com.jibee.deratiseur.web.model.IImageCollectionModel.StackIndex;
 
 import eu.webtoolkit.jwt.ItemDataRole;
-import eu.webtoolkit.jwt.KeyboardModifier;
 import eu.webtoolkit.jwt.SelectionMode;
-import eu.webtoolkit.jwt.Signal.Listener;
 import eu.webtoolkit.jwt.Signal1;
 import eu.webtoolkit.jwt.Signal2;
 import eu.webtoolkit.jwt.ViewItemRenderFlag;

@@ -71,7 +71,7 @@ public class Original extends IMongoObject{
 	}
 
 	public static boolean exists(File file, Library library) {
-		return Factory.instance().getOriginals(library).field("filePath").equal(file.getAbsolutePath()).countAll()>0;
+		return Factory.instance().originalIsInLibrary(library, file.getAbsolutePath());
 	}
 
 	public void scheduleExifParsing() {

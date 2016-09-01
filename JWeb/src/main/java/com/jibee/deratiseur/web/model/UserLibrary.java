@@ -35,7 +35,7 @@ public class UserLibrary extends WItemModel<iFolder>{
  * TODO add abstraction layers away from the drive model (cloud-like setup)
  */
 	public UserLibrary() {
-		Library def = Factory.instance().getLibraries().field("owner").equal("jibee").field("name").equal("default").get();
+		Library def = Factory.instance().getLibrary("jibee", null);
 		if(null==def)
 			def = new Library("jibee", "default");
 		m_root=def;
