@@ -106,14 +106,15 @@ $type_imports
 import com.jibee.gegl.GeglNode;
 
 /**
-$title
-
-$description
-
-License: $license
-Supports OpenCL: $support_openCL
-Position Dependant: $position_dependant
-*/
+ * $title
+ *
+ * $description
+ * 
+ * License: $license
+ * Supports OpenCL: $support_openCL
+ * Position Dependant: $position_dependant
+ */
+\@Filter(license="$license", opencl=$support_openCL, position_dependant=$position_dependant)
 public class $className extends GeglFilter
 {
 /** Constructs a $title.
