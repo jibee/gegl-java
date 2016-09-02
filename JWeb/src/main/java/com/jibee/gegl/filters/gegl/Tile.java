@@ -1,55 +1,59 @@
 package com.jibee.gegl.filters.gegl;
 
+import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.InputPad;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Tile
-
-Infinitely repeats the input image.
-
-License: 
-Supports OpenCL: 
-Position Dependant: true
-*/
+ * Tile
+ *
+ * Infinitely repeats the input image.
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: true
+ */
+@Filter(license="", opencl=false, position_dependant=true, categories={"tile"})
 public class Tile extends GeglFilter
 {
-/** Constructs a Tile.
-
-Infinitely repeats the input image.
-*/
+    /** Constructs a Tile.
+     *
+     * Infinitely repeats the input image.
+     */
     public Tile(GeglNode container)
     {
         super(container, "gegl:tile");
     }
-/** Constructs a Tile.
-
-Infinitely repeats the input image.
-*/
+    /** Constructs a Tile.
+     *
+     * Infinitely repeats the input image.
+     */
     public Tile(GeglFilter parent)
     {
         super(parent, "gegl:tile");
     }
 
     
-/** Horizontal offset
-
-
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Horizontal offset
+     *
+     * 
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private int m_OffsetX ;
 
-/** Horizontal offset
-
-
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Horizontal offset
+     *
+     * 
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     */
     public Tile setOffsetX(int value)
     {
 	
@@ -58,38 +62,38 @@ Acceptable Range:
         return this;
     }
 
-/** Horizontal offset
-
-
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Horizontal offset
+     *
+     * 
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     */
     public int getOffsetX()
     {
         return m_OffsetX;
     }
 
 
-/** Vertical offset
-
-
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Vertical offset
+     *
+     * 
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private int m_OffsetY ;
 
-/** Vertical offset
-
-
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Vertical offset
+     *
+     * 
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     */
     public Tile setOffsetY(int value)
     {
 	
@@ -98,19 +102,27 @@ Acceptable Range:
         return this;
     }
 
-/** Vertical offset
-
-
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Vertical offset
+     *
+     * 
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     */
     public int getOffsetY()
     {
         return m_OffsetY;
     }
 
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

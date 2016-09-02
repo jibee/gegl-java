@@ -1,100 +1,104 @@
 package com.jibee.gegl.filters.gegl;
-import com.jibee.gegl.GeglFilter;
-import com.jibee.gegl.ParameterOutOfRangeException;
 
+import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.InputPad;
+import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-
-
-Seamless cloning composite operation
-
-License: 
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * 
+ *
+ * Seamless cloning composite operation
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="", opencl=false, position_dependant=false, categories={"compositors", "meta", "blend"})
 public class SeamlessCloneCompose extends GeglFilter
 {
-/** Constructs a .
-
-Seamless cloning composite operation
-*/
+    /** Constructs a .
+     *
+     * Seamless cloning composite operation
+     */
     public SeamlessCloneCompose(GeglNode container)
     {
         super(container, "gegl:seamless-clone-compose");
     }
-/** Constructs a .
-
-Seamless cloning composite operation
-*/
+    /** Constructs a .
+     *
+     * Seamless cloning composite operation
+     */
     public SeamlessCloneCompose(GeglFilter parent)
     {
         super(parent, "gegl:seamless-clone-compose");
     }
 
     
-/** Refinement steps
+    /** Refinement steps
+     *
+     * Maximal amount of refinement points to be used for the interpolation mesh
+     *
+     * Unit: 
+     * Default value: 2000
+     * Acceptable Range:  100000
+     * */
+    private int m_MaxRefineScale  = 2000;
 
-Maximal amount of refinement points to be used for the interpolation mesh
-
-Unit: 
-Default value: 2000
-Acceptable Range:  100000
-*/
-    private int m_MaxRefineSteps  = 2000;
-
-/** Refinement steps
-
-Maximal amount of refinement points to be used for the interpolation mesh
-
-Unit: 
-Default value: 2000
-Acceptable Range:  100000
-*/
-    public SeamlessCloneCompose setMaxRefineSteps(int value) throws ParameterOutOfRangeException
+    /** Refinement steps
+     *
+     * Maximal amount of refinement points to be used for the interpolation mesh
+     *
+     * Unit: 
+     * Default value: 2000
+     * Acceptable Range:  100000
+     */
+    public SeamlessCloneCompose setMaxRefineScale(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100000)
 	{
 	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 100000);
 	}
 
-        m_MaxRefineSteps = value;
-        setProperty("max-refine-steps", value);
+        m_MaxRefineScale = value;
+        setProperty("max-refine-scale", value);
         return this;
     }
 
-/** Refinement steps
-
-Maximal amount of refinement points to be used for the interpolation mesh
-
-Unit: 
-Default value: 2000
-Acceptable Range:  100000
-*/
-    public int getMaxRefineSteps()
+    /** Refinement steps
+     *
+     * Maximal amount of refinement points to be used for the interpolation mesh
+     *
+     * Unit: 
+     * Default value: 2000
+     * Acceptable Range:  100000
+     */
+    public int getMaxRefineScale()
     {
-        return m_MaxRefineSteps;
+        return m_MaxRefineScale;
     }
 
 
-/** Offset X
-
-How much horizontal offset should applied to the paste
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  100000
-*/
+    /** Offset X
+     *
+     * How much horizontal offset should applied to the paste
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  100000
+     * */
     private int m_Xoff ;
 
-/** Offset X
-
-How much horizontal offset should applied to the paste
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  100000
-*/
+    /** Offset X
+     *
+     * How much horizontal offset should applied to the paste
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  100000
+     */
     public SeamlessCloneCompose setXoff(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100000)
@@ -107,38 +111,38 @@ Acceptable Range:  100000
         return this;
     }
 
-/** Offset X
-
-How much horizontal offset should applied to the paste
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  100000
-*/
+    /** Offset X
+     *
+     * How much horizontal offset should applied to the paste
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  100000
+     */
     public int getXoff()
     {
         return m_Xoff;
     }
 
 
-/** Offset Y
-
-How much vertical offset should applied to the paste
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  100000
-*/
+    /** Offset Y
+     *
+     * How much vertical offset should applied to the paste
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  100000
+     * */
     private int m_Yoff ;
 
-/** Offset Y
-
-How much vertical offset should applied to the paste
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  100000
-*/
+    /** Offset Y
+     *
+     * How much vertical offset should applied to the paste
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  100000
+     */
     public SeamlessCloneCompose setYoff(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100000)
@@ -151,38 +155,38 @@ Acceptable Range:  100000
         return this;
     }
 
-/** Offset Y
-
-How much vertical offset should applied to the paste
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  100000
-*/
+    /** Offset Y
+     *
+     * How much vertical offset should applied to the paste
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  100000
+     */
     public int getYoff()
     {
         return m_Yoff;
     }
 
 
-/** Error message
-
-An error message in case of a failure
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Error message
+     *
+     * An error message in case of a failure
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private String m_ErrorMsg ;
 
-/** Error message
-
-An error message in case of a failure
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Error message
+     *
+     * An error message in case of a failure
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public SeamlessCloneCompose setErrorMsg(String value)
     {
 	
@@ -191,19 +195,32 @@ Acceptable Range:
         return this;
     }
 
-/** Error message
-
-An error message in case of a failure
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Error message
+     *
+     * An error message in case of a failure
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public String getErrorMsg()
     {
         return m_ErrorMsg;
     }
 
+    public InputPad aux()
+    {
+        return new InputPad(this, "aux");
+    }
+
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

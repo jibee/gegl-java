@@ -1,56 +1,60 @@
 package com.jibee.gegl.filters.gegl;
-import com.jibee.gegl.ParameterOutOfRangeException;
 
+import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.InputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Illusion
-
-Superimpose many altered copies of the image.
-
-License: GPL3+
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * Illusion
+ *
+ * Superimpose many altered copies of the image.
+ * 
+ * License: GPL3+
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="GPL3+", opencl=false, position_dependant=false, categories={"map"})
 public class Illusion extends GeglFilter
 {
-/** Constructs a Illusion.
-
-Superimpose many altered copies of the image.
-*/
+    /** Constructs a Illusion.
+     *
+     * Superimpose many altered copies of the image.
+     */
     public Illusion(GeglNode container)
     {
         super(container, "gegl:illusion");
     }
-/** Constructs a Illusion.
-
-Superimpose many altered copies of the image.
-*/
+    /** Constructs a Illusion.
+     *
+     * Superimpose many altered copies of the image.
+     */
     public Illusion(GeglFilter parent)
     {
         super(parent, "gegl:illusion");
     }
 
     
-/** Division
-
-The number of divisions
-
-Unit: 
-Default value: 8
-Acceptable Range:  64
-*/
+    /** Division
+     *
+     * The number of divisions
+     *
+     * Unit: 
+     * Default value: 8
+     * Acceptable Range:  64
+     * */
     private int m_Division  = 8;
 
-/** Division
-
-The number of divisions
-
-Unit: 
-Default value: 8
-Acceptable Range:  64
-*/
+    /** Division
+     *
+     * The number of divisions
+     *
+     * Unit: 
+     * Default value: 8
+     * Acceptable Range:  64
+     */
     public Illusion setDivision(int value) throws ParameterOutOfRangeException
     {
 		if(value > 64)
@@ -63,38 +67,38 @@ Acceptable Range:  64
         return this;
     }
 
-/** Division
-
-The number of divisions
-
-Unit: 
-Default value: 8
-Acceptable Range:  64
-*/
+    /** Division
+     *
+     * The number of divisions
+     *
+     * Unit: 
+     * Default value: 8
+     * Acceptable Range:  64
+     */
     public int getDivision()
     {
         return m_Division;
     }
 
 
-/** Illusion type
-
-Type of illusion
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Illusion type
+     *
+     * Type of illusion
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private String m_IllusionType ;
 
-/** Illusion type
-
-Type of illusion
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Illusion type
+     *
+     * Type of illusion
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public Illusion setIllusionType(String value)
     {
 	
@@ -103,19 +107,27 @@ Acceptable Range:
         return this;
     }
 
-/** Illusion type
-
-Type of illusion
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Illusion type
+     *
+     * Type of illusion
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public String getIllusionType()
     {
         return m_IllusionType;
     }
 
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

@@ -1,57 +1,61 @@
 package com.jibee.gegl.filters.gegl;
-import com.jibee.gegl.GeglFilter;
-import com.jibee.gegl.GeglColor;
-import com.jibee.gegl.ParameterOutOfRangeException;
 
+import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.GeglColor;
+import com.jibee.gegl.InputPad;
+import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Apply Lens
-
-Simulates the optical distoration caused by having an elliptical lens over the image
-
-License: GPL3+
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * Apply Lens
+ *
+ * Simulates the optical distortion caused by having an elliptical lens over the image
+ * 
+ * License: GPL3+
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="GPL3+", opencl=false, position_dependant=false, categories={"map"})
 public class ApplyLens extends GeglFilter
 {
-/** Constructs a Apply Lens.
-
-Simulates the optical distoration caused by having an elliptical lens over the image
-*/
+    /** Constructs a Apply Lens.
+     *
+     * Simulates the optical distortion caused by having an elliptical lens over the image
+     */
     public ApplyLens(GeglNode container)
     {
         super(container, "gegl:apply-lens");
     }
-/** Constructs a Apply Lens.
-
-Simulates the optical distoration caused by having an elliptical lens over the image
-*/
+    /** Constructs a Apply Lens.
+     *
+     * Simulates the optical distortion caused by having an elliptical lens over the image
+     */
     public ApplyLens(GeglFilter parent)
     {
         super(parent, "gegl:apply-lens");
     }
 
     
-/** Lens refraction index
-
-
-
-Unit: 
-Default value: 1.70
-Acceptable Range: 1.00 100.00
-*/
+    /** Lens refraction index
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 1.70
+     * Acceptable Range: 1.00 100.00
+     * */
     private double m_RefractionIndex  = 1.70;
 
-/** Lens refraction index
-
-
-
-Unit: 
-Default value: 1.70
-Acceptable Range: 1.00 100.00
-*/
+    /** Lens refraction index
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 1.70
+     * Acceptable Range: 1.00 100.00
+     */
     public ApplyLens setRefractionIndex(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 1.00)
@@ -64,38 +68,38 @@ Acceptable Range: 1.00 100.00
         return this;
     }
 
-/** Lens refraction index
-
-
-
-Unit: 
-Default value: 1.70
-Acceptable Range: 1.00 100.00
-*/
+    /** Lens refraction index
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 1.70
+     * Acceptable Range: 1.00 100.00
+     */
     public double getRefractionIndex()
     {
         return m_RefractionIndex;
     }
 
 
-/** Keep original surroundings
-
-Keep image unchanged, where not affected by the lens.
-
-Unit: 
-Default value: false
-Acceptable Range:  
-*/
+    /** Keep original surroundings
+     *
+     * Keep image unchanged, where not affected by the lens.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     * */
     private boolean m_KeepSurroundings  = false;
 
-/** Keep original surroundings
-
-Keep image unchanged, where not affected by the lens.
-
-Unit: 
-Default value: false
-Acceptable Range:  
-*/
+    /** Keep original surroundings
+     *
+     * Keep image unchanged, where not affected by the lens.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
     public ApplyLens setKeepSurroundings(boolean value)
     {
 	
@@ -104,38 +108,38 @@ Acceptable Range:
         return this;
     }
 
-/** Keep original surroundings
-
-Keep image unchanged, where not affected by the lens.
-
-Unit: 
-Default value: false
-Acceptable Range:  
-*/
+    /** Keep original surroundings
+     *
+     * Keep image unchanged, where not affected by the lens.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
     public boolean getKeepSurroundings()
     {
         return m_KeepSurroundings;
     }
 
 
-/** Background color
-
-
-
-Unit: 
-Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
-Acceptable Range:  
-*/
+    /** Background color
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
+     * Acceptable Range:  
+     * */
     private GeglColor m_BackgroundColor  = makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)");
 
-/** Background color
-
-
-
-Unit: 
-Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
-Acceptable Range:  
-*/
+    /** Background color
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
+     * Acceptable Range:  
+     */
     public ApplyLens setBackgroundColor(GeglColor value)
     {
 	
@@ -144,19 +148,27 @@ Acceptable Range:
         return this;
     }
 
-/** Background color
-
-
-
-Unit: 
-Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
-Acceptable Range:  
-*/
+    /** Background color
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
+     * Acceptable Range:  
+     */
     public GeglColor getBackgroundColor()
     {
         return m_BackgroundColor;
     }
 
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

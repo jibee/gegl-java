@@ -1,35 +1,48 @@
 package com.jibee.gegl.filters.gegl;
+
 import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.InputPad;
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Value Invert
-
-Inverts just the value component, the result is the corresponding 'inverted' image.
-
-License: 
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * Value Invert
+ *
+ * Inverts just the value component, the result is the corresponding 'inverted' image.
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="", opencl=false, position_dependant=false, categories={"color"})
 public class ValueInvert extends GeglFilter
 {
-/** Constructs a Value Invert.
-
-Inverts just the value component, the result is the corresponding 'inverted' image.
-*/
+    /** Constructs a Value Invert.
+     *
+     * Inverts just the value component, the result is the corresponding 'inverted' image.
+     */
     public ValueInvert(GeglNode container)
     {
         super(container, "gegl:value-invert");
     }
-/** Constructs a Value Invert.
-
-Inverts just the value component, the result is the corresponding 'inverted' image.
-*/
+    /** Constructs a Value Invert.
+     *
+     * Inverts just the value component, the result is the corresponding 'inverted' image.
+     */
     public ValueInvert(GeglFilter parent)
     {
         super(parent, "gegl:value-invert");
     }
 
-    
+        public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
+
 }
 

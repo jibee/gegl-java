@@ -1,57 +1,60 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.GeglColor;
 import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Grid
-
-Grid renderer
-
-License: 
-Supports OpenCL: 
-Position Dependant: true
-*/
+ * Grid
+ *
+ * Grid renderer
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: true
+ */
+@Filter(license="", opencl=false, position_dependant=true, categories={"render"})
 public class Grid extends GeglFilter
 {
-/** Constructs a Grid.
-
-Grid renderer
-*/
+    /** Constructs a Grid.
+     *
+     * Grid renderer
+     */
     public Grid(GeglNode container)
     {
         super(container, "gegl:grid");
     }
-/** Constructs a Grid.
-
-Grid renderer
-*/
+    /** Constructs a Grid.
+     *
+     * Grid renderer
+     */
     public Grid(GeglFilter parent)
     {
         super(parent, "gegl:grid");
     }
 
     
-/** Width
-
-Horizontal width of cells pixels
-
-Unit: pixel-distance
-Default value: 32
-Acceptable Range: 1 
-*/
+    /** Width
+     *
+     * Horizontal width of cells pixels
+     *
+     * Unit: pixel-distance
+     * Default value: 32
+     * Acceptable Range: 1 
+     * */
     private int m_X  = 32;
 
-/** Width
-
-Horizontal width of cells pixels
-
-Unit: pixel-distance
-Default value: 32
-Acceptable Range: 1 
-*/
+    /** Width
+     *
+     * Horizontal width of cells pixels
+     *
+     * Unit: pixel-distance
+     * Default value: 32
+     * Acceptable Range: 1 
+     */
     public Grid setX(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
@@ -64,38 +67,38 @@ Acceptable Range: 1
         return this;
     }
 
-/** Width
-
-Horizontal width of cells pixels
-
-Unit: pixel-distance
-Default value: 32
-Acceptable Range: 1 
-*/
+    /** Width
+     *
+     * Horizontal width of cells pixels
+     *
+     * Unit: pixel-distance
+     * Default value: 32
+     * Acceptable Range: 1 
+     */
     public int getX()
     {
         return m_X;
     }
 
 
-/** Height
-
-Vertical width of cells pixels
-
-Unit: pixel-distance
-Default value: 32
-Acceptable Range: 1 
-*/
+    /** Height
+     *
+     * Vertical width of cells pixels
+     *
+     * Unit: pixel-distance
+     * Default value: 32
+     * Acceptable Range: 1 
+     * */
     private int m_Y  = 32;
 
-/** Height
-
-Vertical width of cells pixels
-
-Unit: pixel-distance
-Default value: 32
-Acceptable Range: 1 
-*/
+    /** Height
+     *
+     * Vertical width of cells pixels
+     *
+     * Unit: pixel-distance
+     * Default value: 32
+     * Acceptable Range: 1 
+     */
     public Grid setY(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
@@ -108,38 +111,38 @@ Acceptable Range: 1
         return this;
     }
 
-/** Height
-
-Vertical width of cells pixels
-
-Unit: pixel-distance
-Default value: 32
-Acceptable Range: 1 
-*/
+    /** Height
+     *
+     * Vertical width of cells pixels
+     *
+     * Unit: pixel-distance
+     * Default value: 32
+     * Acceptable Range: 1 
+     */
     public int getY()
     {
         return m_Y;
     }
 
 
-/** Offset X
-
-Horizontal offset (from origin) for start of grid
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Offset X
+     *
+     * Horizontal offset (from origin) for start of grid
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private int m_XOffset ;
 
-/** Offset X
-
-Horizontal offset (from origin) for start of grid
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Offset X
+     *
+     * Horizontal offset (from origin) for start of grid
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     */
     public Grid setXOffset(int value)
     {
 	
@@ -148,38 +151,38 @@ Acceptable Range:
         return this;
     }
 
-/** Offset X
-
-Horizontal offset (from origin) for start of grid
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Offset X
+     *
+     * Horizontal offset (from origin) for start of grid
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     */
     public int getXOffset()
     {
         return m_XOffset;
     }
 
 
-/** Offset Y
-
-Vertical offset (from origin) for start of grid
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Offset Y
+     *
+     * Vertical offset (from origin) for start of grid
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private int m_YOffset ;
 
-/** Offset Y
-
-Vertical offset (from origin) for start of grid
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Offset Y
+     *
+     * Vertical offset (from origin) for start of grid
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     */
     public Grid setYOffset(int value)
     {
 	
@@ -188,38 +191,38 @@ Acceptable Range:
         return this;
     }
 
-/** Offset Y
-
-Vertical offset (from origin) for start of grid
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Offset Y
+     *
+     * Vertical offset (from origin) for start of grid
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     */
     public int getYOffset()
     {
         return m_YOffset;
     }
 
 
-/** Line width
-
-Width of grid lines in pixels
-
-Unit: pixel-distance
-Default value: 4
-Acceptable Range:  
-*/
+    /** Line width
+     *
+     * Width of grid lines in pixels
+     *
+     * Unit: pixel-distance
+     * Default value: 4
+     * Acceptable Range:  
+     * */
     private int m_LineWidth  = 4;
 
-/** Line width
-
-Width of grid lines in pixels
-
-Unit: pixel-distance
-Default value: 4
-Acceptable Range:  
-*/
+    /** Line width
+     *
+     * Width of grid lines in pixels
+     *
+     * Unit: pixel-distance
+     * Default value: 4
+     * Acceptable Range:  
+     */
     public Grid setLineWidth(int value)
     {
 	
@@ -228,38 +231,38 @@ Acceptable Range:
         return this;
     }
 
-/** Line width
-
-Width of grid lines in pixels
-
-Unit: pixel-distance
-Default value: 4
-Acceptable Range:  
-*/
+    /** Line width
+     *
+     * Width of grid lines in pixels
+     *
+     * Unit: pixel-distance
+     * Default value: 4
+     * Acceptable Range:  
+     */
     public int getLineWidth()
     {
         return m_LineWidth;
     }
 
 
-/** Line height
-
-Height of grid lines in pixels
-
-Unit: pixel-distance
-Default value: 4
-Acceptable Range:  
-*/
+    /** Line height
+     *
+     * Height of grid lines in pixels
+     *
+     * Unit: pixel-distance
+     * Default value: 4
+     * Acceptable Range:  
+     * */
     private int m_LineHeight  = 4;
 
-/** Line height
-
-Height of grid lines in pixels
-
-Unit: pixel-distance
-Default value: 4
-Acceptable Range:  
-*/
+    /** Line height
+     *
+     * Height of grid lines in pixels
+     *
+     * Unit: pixel-distance
+     * Default value: 4
+     * Acceptable Range:  
+     */
     public Grid setLineHeight(int value)
     {
 	
@@ -268,38 +271,38 @@ Acceptable Range:
         return this;
     }
 
-/** Line height
-
-Height of grid lines in pixels
-
-Unit: pixel-distance
-Default value: 4
-Acceptable Range:  
-*/
+    /** Line height
+     *
+     * Height of grid lines in pixels
+     *
+     * Unit: pixel-distance
+     * Default value: 4
+     * Acceptable Range:  
+     */
     public int getLineHeight()
     {
         return m_LineHeight;
     }
 
 
-/** Color
-
-Color of the grid lines
-
-Unit: 
-Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
-Acceptable Range:  
-*/
+    /** Color
+     *
+     * Color of the grid lines
+     *
+     * Unit: 
+     * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
+     * Acceptable Range:  
+     * */
     private GeglColor m_LineColor  = makeColor("rgb(0.0000, 0.0000, 0.0000)");
 
-/** Color
-
-Color of the grid lines
-
-Unit: 
-Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
-Acceptable Range:  
-*/
+    /** Color
+     *
+     * Color of the grid lines
+     *
+     * Unit: 
+     * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
+     * Acceptable Range:  
+     */
     public Grid setLineColor(GeglColor value)
     {
 	
@@ -308,19 +311,23 @@ Acceptable Range:
         return this;
     }
 
-/** Color
-
-Color of the grid lines
-
-Unit: 
-Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
-Acceptable Range:  
-*/
+    /** Color
+     *
+     * Color of the grid lines
+     *
+     * Unit: 
+     * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
+     * Acceptable Range:  
+     */
     public GeglColor getLineColor()
     {
         return m_LineColor;
     }
 
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

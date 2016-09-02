@@ -1,55 +1,59 @@
 package com.jibee.gegl.filters.gegl;
 
 import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.InputPad;
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Map Absolute
-
-sample input with an auxiliary buffer that contain absolute source coordinates
-
-License: 
-Supports OpenCL: 
-Position Dependant: true
-*/
+ * Map Absolute
+ *
+ * sample input with an auxiliary buffer that contain absolute source coordinates
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: true
+ */
+@Filter(license="", opencl=false, position_dependant=true, categories={"map"})
 public class MapAbsolute extends GeglFilter
 {
-/** Constructs a Map Absolute.
-
-sample input with an auxiliary buffer that contain absolute source coordinates
-*/
+    /** Constructs a Map Absolute.
+     *
+     * sample input with an auxiliary buffer that contain absolute source coordinates
+     */
     public MapAbsolute(GeglNode container)
     {
         super(container, "gegl:map-absolute");
     }
-/** Constructs a Map Absolute.
-
-sample input with an auxiliary buffer that contain absolute source coordinates
-*/
+    /** Constructs a Map Absolute.
+     *
+     * sample input with an auxiliary buffer that contain absolute source coordinates
+     */
     public MapAbsolute(GeglFilter parent)
     {
         super(parent, "gegl:map-absolute");
     }
 
     
-/** Resampling method
-
-
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Resampling method
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private String m_SamplerType ;
 
-/** Resampling method
-
-
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Resampling method
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public MapAbsolute setSamplerType(String value)
     {
 	
@@ -58,19 +62,32 @@ Acceptable Range:
         return this;
     }
 
-/** Resampling method
-
-
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Resampling method
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public String getSamplerType()
     {
         return m_SamplerType;
     }
 
+    public InputPad aux()
+    {
+        return new InputPad(this, "aux");
+    }
+
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

@@ -1,55 +1,58 @@
 package com.jibee.gegl.filters.gegl;
-import com.jibee.gegl.GeglFilter;
 
+import com.jibee.gegl.InputPad;
+import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-
-
-Display the input buffer in a window.
-
-License: 
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * 
+ *
+ * Display the input buffer in a window.
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="", opencl=false, position_dependant=false, categories={"meta", "display"})
 public class Display extends GeglFilter
 {
-/** Constructs a .
-
-Display the input buffer in a window.
-*/
+    /** Constructs a .
+     *
+     * Display the input buffer in a window.
+     */
     public Display(GeglNode container)
     {
         super(container, "gegl:display");
     }
-/** Constructs a .
-
-Display the input buffer in a window.
-*/
+    /** Constructs a .
+     *
+     * Display the input buffer in a window.
+     */
     public Display(GeglFilter parent)
     {
         super(parent, "gegl:display");
     }
 
     
-/** Window title
-
-Title to be given to output window
-
-Unit: 
-Default value: "window_title"
-Acceptable Range:  
-*/
+    /** Window title
+     *
+     * Title to be given to output window
+     *
+     * Unit: 
+     * Default value: "window_title"
+     * Acceptable Range:  
+     * */
     private String m_WindowTitle  = "window_title";
 
-/** Window title
-
-Title to be given to output window
-
-Unit: 
-Default value: "window_title"
-Acceptable Range:  
-*/
+    /** Window title
+     *
+     * Title to be given to output window
+     *
+     * Unit: 
+     * Default value: "window_title"
+     * Acceptable Range:  
+     */
     public Display setWindowTitle(String value)
     {
 	
@@ -58,19 +61,23 @@ Acceptable Range:
         return this;
     }
 
-/** Window title
-
-Title to be given to output window
-
-Unit: 
-Default value: "window_title"
-Acceptable Range:  
-*/
+    /** Window title
+     *
+     * Title to be given to output window
+     *
+     * Unit: 
+     * Default value: "window_title"
+     * Acceptable Range:  
+     */
     public String getWindowTitle()
     {
         return m_WindowTitle;
     }
 
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
 
 }
 

@@ -1,55 +1,59 @@
 package com.jibee.gegl.filters.svg;
 
+import com.jibee.gegl.InputPad;
 import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Dst-over
-
-Porter Duff operation dst-over (d = cB + cA * (1.0f - aB))
-
-License: 
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * Dst-over
+ *
+ * Porter Duff operation dst-over (d = cB + cA * (1.0f - aB))
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="", opencl=false, position_dependant=false, categories={"compositors", "porter-duff"})
 public class DstOver extends GeglFilter
 {
-/** Constructs a Dst-over.
-
-Porter Duff operation dst-over (d = cB + cA * (1.0f - aB))
-*/
+    /** Constructs a Dst-over.
+     *
+     * Porter Duff operation dst-over (d = cB + cA * (1.0f - aB))
+     */
     public DstOver(GeglNode container)
     {
         super(container, "svg:dst-over");
     }
-/** Constructs a Dst-over.
-
-Porter Duff operation dst-over (d = cB + cA * (1.0f - aB))
-*/
+    /** Constructs a Dst-over.
+     *
+     * Porter Duff operation dst-over (d = cB + cA * (1.0f - aB))
+     */
     public DstOver(GeglFilter parent)
     {
         super(parent, "svg:dst-over");
     }
 
     
-/** sRGB
-
-Use sRGB gamma instead of linear
-
-Unit: 
-Default value: false
-Acceptable Range:  
-*/
+    /** sRGB
+     *
+     * Use sRGB gamma instead of linear
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     * */
     private boolean m_Srgb  = false;
 
-/** sRGB
-
-Use sRGB gamma instead of linear
-
-Unit: 
-Default value: false
-Acceptable Range:  
-*/
+    /** sRGB
+     *
+     * Use sRGB gamma instead of linear
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
     public DstOver setSrgb(boolean value)
     {
 	
@@ -58,19 +62,32 @@ Acceptable Range:
         return this;
     }
 
-/** sRGB
-
-Use sRGB gamma instead of linear
-
-Unit: 
-Default value: false
-Acceptable Range:  
-*/
+    /** sRGB
+     *
+     * Use sRGB gamma instead of linear
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
     public boolean getSrgb()
     {
         return m_Srgb;
     }
 
+    public InputPad aux()
+    {
+        return new InputPad(this, "aux");
+    }
+
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

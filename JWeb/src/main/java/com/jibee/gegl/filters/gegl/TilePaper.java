@@ -1,57 +1,61 @@
 package com.jibee.gegl.filters.gegl;
-import com.jibee.gegl.GeglColor;
-import com.jibee.gegl.ParameterOutOfRangeException;
 
+import com.jibee.gegl.InputPad;
+import com.jibee.gegl.GeglColor;
 import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Paper Tile
-
-Cut image into paper tiles, and slide them
-
-License: GPL3+
-Supports OpenCL: 
-Position Dependant: true
-*/
+ * Paper Tile
+ *
+ * Cut image into paper tiles, and slide them
+ * 
+ * License: GPL3+
+ * Supports OpenCL: false
+ * Position Dependant: true
+ */
+@Filter(license="GPL3+", opencl=false, position_dependant=true, categories={"artistic", "map"})
 public class TilePaper extends GeglFilter
 {
-/** Constructs a Paper Tile.
-
-Cut image into paper tiles, and slide them
-*/
+    /** Constructs a Paper Tile.
+     *
+     * Cut image into paper tiles, and slide them
+     */
     public TilePaper(GeglNode container)
     {
         super(container, "gegl:tile-paper");
     }
-/** Constructs a Paper Tile.
-
-Cut image into paper tiles, and slide them
-*/
+    /** Constructs a Paper Tile.
+     *
+     * Cut image into paper tiles, and slide them
+     */
     public TilePaper(GeglFilter parent)
     {
         super(parent, "gegl:tile-paper");
     }
 
     
-/** Tile Width
-
-Width of the tile
-
-Unit: pixel-distance
-Default value: 155
-Acceptable Range: 1 
-*/
+    /** Tile Width
+     *
+     * Width of the tile
+     *
+     * Unit: pixel-distance
+     * Default value: 155
+     * Acceptable Range: 1 
+     * */
     private int m_TileWidth  = 155;
 
-/** Tile Width
-
-Width of the tile
-
-Unit: pixel-distance
-Default value: 155
-Acceptable Range: 1 
-*/
+    /** Tile Width
+     *
+     * Width of the tile
+     *
+     * Unit: pixel-distance
+     * Default value: 155
+     * Acceptable Range: 1 
+     */
     public TilePaper setTileWidth(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
@@ -64,38 +68,38 @@ Acceptable Range: 1
         return this;
     }
 
-/** Tile Width
-
-Width of the tile
-
-Unit: pixel-distance
-Default value: 155
-Acceptable Range: 1 
-*/
+    /** Tile Width
+     *
+     * Width of the tile
+     *
+     * Unit: pixel-distance
+     * Default value: 155
+     * Acceptable Range: 1 
+     */
     public int getTileWidth()
     {
         return m_TileWidth;
     }
 
 
-/** Tile Height
-
-Height of the tile
-
-Unit: pixel-distance
-Default value: 56
-Acceptable Range: 1 
-*/
+    /** Tile Height
+     *
+     * Height of the tile
+     *
+     * Unit: pixel-distance
+     * Default value: 56
+     * Acceptable Range: 1 
+     * */
     private int m_TileHeight  = 56;
 
-/** Tile Height
-
-Height of the tile
-
-Unit: pixel-distance
-Default value: 56
-Acceptable Range: 1 
-*/
+    /** Tile Height
+     *
+     * Height of the tile
+     *
+     * Unit: pixel-distance
+     * Default value: 56
+     * Acceptable Range: 1 
+     */
     public TilePaper setTileHeight(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
@@ -108,38 +112,38 @@ Acceptable Range: 1
         return this;
     }
 
-/** Tile Height
-
-Height of the tile
-
-Unit: pixel-distance
-Default value: 56
-Acceptable Range: 1 
-*/
+    /** Tile Height
+     *
+     * Height of the tile
+     *
+     * Unit: pixel-distance
+     * Default value: 56
+     * Acceptable Range: 1 
+     */
     public int getTileHeight()
     {
         return m_TileHeight;
     }
 
 
-/** Move rate
-
-Move rate
-
-Unit: percent
-Default value: 25.00
-Acceptable Range: 1.00 100.00
-*/
+    /** Move rate
+     *
+     * Move rate
+     *
+     * Unit: percent
+     * Default value: 25.00
+     * Acceptable Range: 1.00 100.00
+     * */
     private double m_MoveRate  = 25.00;
 
-/** Move rate
-
-Move rate
-
-Unit: percent
-Default value: 25.00
-Acceptable Range: 1.00 100.00
-*/
+    /** Move rate
+     *
+     * Move rate
+     *
+     * Unit: percent
+     * Default value: 25.00
+     * Acceptable Range: 1.00 100.00
+     */
     public TilePaper setMoveRate(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 1.00)
@@ -152,38 +156,38 @@ Acceptable Range: 1.00 100.00
         return this;
     }
 
-/** Move rate
-
-Move rate
-
-Unit: percent
-Default value: 25.00
-Acceptable Range: 1.00 100.00
-*/
+    /** Move rate
+     *
+     * Move rate
+     *
+     * Unit: percent
+     * Default value: 25.00
+     * Acceptable Range: 1.00 100.00
+     */
     public double getMoveRate()
     {
         return m_MoveRate;
     }
 
 
-/** Wrap around
-
-Wrap the fractional tiles
-
-Unit: 
-Default value: false
-Acceptable Range:  
-*/
+    /** Wrap around
+     *
+     * Wrap the fractional tiles
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     * */
     private boolean m_WrapAround  = false;
 
-/** Wrap around
-
-Wrap the fractional tiles
-
-Unit: 
-Default value: false
-Acceptable Range:  
-*/
+    /** Wrap around
+     *
+     * Wrap the fractional tiles
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
     public TilePaper setWrapAround(boolean value)
     {
 	
@@ -192,38 +196,38 @@ Acceptable Range:
         return this;
     }
 
-/** Wrap around
-
-Wrap the fractional tiles
-
-Unit: 
-Default value: false
-Acceptable Range:  
-*/
+    /** Wrap around
+     *
+     * Wrap the fractional tiles
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
     public boolean getWrapAround()
     {
         return m_WrapAround;
     }
 
 
-/** Fractional type
-
-Fractional Type
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Fractional type
+     *
+     * Fractional Type
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private String m_FractionalType ;
 
-/** Fractional type
-
-Fractional Type
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Fractional type
+     *
+     * Fractional Type
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public TilePaper setFractionalType(String value)
     {
 	
@@ -232,38 +236,38 @@ Acceptable Range:
         return this;
     }
 
-/** Fractional type
-
-Fractional Type
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Fractional type
+     *
+     * Fractional Type
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public String getFractionalType()
     {
         return m_FractionalType;
     }
 
 
-/** Centering
-
-Centering of the tiles
-
-Unit: 
-Default value: true
-Acceptable Range:  
-*/
+    /** Centering
+     *
+     * Centering of the tiles
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     * */
     private boolean m_Centering  = true;
 
-/** Centering
-
-Centering of the tiles
-
-Unit: 
-Default value: true
-Acceptable Range:  
-*/
+    /** Centering
+     *
+     * Centering of the tiles
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     */
     public TilePaper setCentering(boolean value)
     {
 	
@@ -272,38 +276,38 @@ Acceptable Range:
         return this;
     }
 
-/** Centering
-
-Centering of the tiles
-
-Unit: 
-Default value: true
-Acceptable Range:  
-*/
+    /** Centering
+     *
+     * Centering of the tiles
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     */
     public boolean getCentering()
     {
         return m_Centering;
     }
 
 
-/** Background type
-
-Background type
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Background type
+     *
+     * Background type
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private String m_BackgroundType ;
 
-/** Background type
-
-Background type
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Background type
+     *
+     * Background type
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public TilePaper setBackgroundType(String value)
     {
 	
@@ -312,38 +316,38 @@ Acceptable Range:
         return this;
     }
 
-/** Background type
-
-Background type
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Background type
+     *
+     * Background type
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public String getBackgroundType()
     {
         return m_BackgroundType;
     }
 
 
-/** Background color
-
-The tiles' background color
-
-Unit: 
-Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
-Acceptable Range:  
-*/
+    /** Background color
+     *
+     * The tiles' background color
+     *
+     * Unit: 
+     * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
+     * Acceptable Range:  
+     * */
     private GeglColor m_BgColor  = makeColor("rgb(0.0000, 0.0000, 0.0000)");
 
-/** Background color
-
-The tiles' background color
-
-Unit: 
-Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
-Acceptable Range:  
-*/
+    /** Background color
+     *
+     * The tiles' background color
+     *
+     * Unit: 
+     * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
+     * Acceptable Range:  
+     */
     public TilePaper setBgColor(GeglColor value)
     {
 	
@@ -352,19 +356,27 @@ Acceptable Range:
         return this;
     }
 
-/** Background color
-
-The tiles' background color
-
-Unit: 
-Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
-Acceptable Range:  
-*/
+    /** Background color
+     *
+     * The tiles' background color
+     *
+     * Unit: 
+     * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
+     * Acceptable Range:  
+     */
     public GeglColor getBgColor()
     {
         return m_BgColor;
     }
 
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

@@ -1,57 +1,61 @@
 package com.jibee.gegl.filters.gegl;
-import com.jibee.gegl.GeglFilter;
-import com.jibee.gegl.GeglColor;
-import com.jibee.gegl.ParameterOutOfRangeException;
 
+import com.jibee.gegl.InputPad;
+import com.jibee.gegl.GeglColor;
+import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Supernova
-
-This plug-in produces an effect like a supernova burst. The amount of the light effect is approximately in proportion to 1/r, where r is the distance from the center of the star.
-
-License: GPL3+
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * Supernova
+ *
+ * This plug-in produces an effect like a supernova burst. The amount of the light effect is approximately in proportion to 1/r, where r is the distance from the center of the star.
+ * 
+ * License: GPL3+
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="GPL3+", opencl=false, position_dependant=false, categories={"light"})
 public class Supernova extends GeglFilter
 {
-/** Constructs a Supernova.
-
-This plug-in produces an effect like a supernova burst. The amount of the light effect is approximately in proportion to 1/r, where r is the distance from the center of the star.
-*/
+    /** Constructs a Supernova.
+     *
+     * This plug-in produces an effect like a supernova burst. The amount of the light effect is approximately in proportion to 1/r, where r is the distance from the center of the star.
+     */
     public Supernova(GeglNode container)
     {
         super(container, "gegl:supernova");
     }
-/** Constructs a Supernova.
-
-This plug-in produces an effect like a supernova burst. The amount of the light effect is approximately in proportion to 1/r, where r is the distance from the center of the star.
-*/
+    /** Constructs a Supernova.
+     *
+     * This plug-in produces an effect like a supernova burst. The amount of the light effect is approximately in proportion to 1/r, where r is the distance from the center of the star.
+     */
     public Supernova(GeglFilter parent)
     {
         super(parent, "gegl:supernova");
     }
 
     
-/** Center X
-
-X coordinates of the center of supernova
-
-Unit: relative-coordinate
-Default value: 0.50
-Acceptable Range:  
-*/
+    /** Center X
+     *
+     * X coordinates of the center of supernova
+     *
+     * Unit: relative-coordinate
+     * Default value: 0.50
+     * Acceptable Range:  
+     * */
     private double m_CenterX  = 0.50;
 
-/** Center X
-
-X coordinates of the center of supernova
-
-Unit: relative-coordinate
-Default value: 0.50
-Acceptable Range:  
-*/
+    /** Center X
+     *
+     * X coordinates of the center of supernova
+     *
+     * Unit: relative-coordinate
+     * Default value: 0.50
+     * Acceptable Range:  
+     */
     public Supernova setCenterX(double value)
     {
 	
@@ -60,38 +64,38 @@ Acceptable Range:
         return this;
     }
 
-/** Center X
-
-X coordinates of the center of supernova
-
-Unit: relative-coordinate
-Default value: 0.50
-Acceptable Range:  
-*/
+    /** Center X
+     *
+     * X coordinates of the center of supernova
+     *
+     * Unit: relative-coordinate
+     * Default value: 0.50
+     * Acceptable Range:  
+     */
     public double getCenterX()
     {
         return m_CenterX;
     }
 
 
-/** Center Y
-
-Y coordinates of the center of supernova
-
-Unit: relative-coordinate
-Default value: 0.50
-Acceptable Range:  
-*/
+    /** Center Y
+     *
+     * Y coordinates of the center of supernova
+     *
+     * Unit: relative-coordinate
+     * Default value: 0.50
+     * Acceptable Range:  
+     * */
     private double m_CenterY  = 0.50;
 
-/** Center Y
-
-Y coordinates of the center of supernova
-
-Unit: relative-coordinate
-Default value: 0.50
-Acceptable Range:  
-*/
+    /** Center Y
+     *
+     * Y coordinates of the center of supernova
+     *
+     * Unit: relative-coordinate
+     * Default value: 0.50
+     * Acceptable Range:  
+     */
     public Supernova setCenterY(double value)
     {
 	
@@ -100,38 +104,38 @@ Acceptable Range:
         return this;
     }
 
-/** Center Y
-
-Y coordinates of the center of supernova
-
-Unit: relative-coordinate
-Default value: 0.50
-Acceptable Range:  
-*/
+    /** Center Y
+     *
+     * Y coordinates of the center of supernova
+     *
+     * Unit: relative-coordinate
+     * Default value: 0.50
+     * Acceptable Range:  
+     */
     public double getCenterY()
     {
         return m_CenterY;
     }
 
 
-/** Radius
-
-Radius of supernova
-
-Unit: 
-Default value: 20
-Acceptable Range: 1 3000
-*/
+    /** Radius
+     *
+     * Radius of supernova
+     *
+     * Unit: 
+     * Default value: 20
+     * Acceptable Range: 1 3000
+     * */
     private int m_Radius  = 20;
 
-/** Radius
-
-Radius of supernova
-
-Unit: 
-Default value: 20
-Acceptable Range: 1 3000
-*/
+    /** Radius
+     *
+     * Radius of supernova
+     *
+     * Unit: 
+     * Default value: 20
+     * Acceptable Range: 1 3000
+     */
     public Supernova setRadius(int value) throws ParameterOutOfRangeException
     {
 		if(value > 3000 || value < 1)
@@ -144,38 +148,38 @@ Acceptable Range: 1 3000
         return this;
     }
 
-/** Radius
-
-Radius of supernova
-
-Unit: 
-Default value: 20
-Acceptable Range: 1 3000
-*/
+    /** Radius
+     *
+     * Radius of supernova
+     *
+     * Unit: 
+     * Default value: 20
+     * Acceptable Range: 1 3000
+     */
     public int getRadius()
     {
         return m_Radius;
     }
 
 
-/** Number of spokes
-
-Number of spokes
-
-Unit: 
-Default value: 100
-Acceptable Range: 1 1024
-*/
+    /** Number of spokes
+     *
+     * Number of spokes
+     *
+     * Unit: 
+     * Default value: 100
+     * Acceptable Range: 1 1024
+     * */
     private int m_SpokesCount  = 100;
 
-/** Number of spokes
-
-Number of spokes
-
-Unit: 
-Default value: 100
-Acceptable Range: 1 1024
-*/
+    /** Number of spokes
+     *
+     * Number of spokes
+     *
+     * Unit: 
+     * Default value: 100
+     * Acceptable Range: 1 1024
+     */
     public Supernova setSpokesCount(int value) throws ParameterOutOfRangeException
     {
 		if(value > 1024 || value < 1)
@@ -188,38 +192,38 @@ Acceptable Range: 1 1024
         return this;
     }
 
-/** Number of spokes
-
-Number of spokes
-
-Unit: 
-Default value: 100
-Acceptable Range: 1 1024
-*/
+    /** Number of spokes
+     *
+     * Number of spokes
+     *
+     * Unit: 
+     * Default value: 100
+     * Acceptable Range: 1 1024
+     */
     public int getSpokesCount()
     {
         return m_SpokesCount;
     }
 
 
-/** Random hue
-
-Random hue
-
-Unit: 
-Default value: 
-Acceptable Range:  360
-*/
+    /** Random hue
+     *
+     * Random hue
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  360
+     * */
     private int m_RandomHue ;
 
-/** Random hue
-
-Random hue
-
-Unit: 
-Default value: 
-Acceptable Range:  360
-*/
+    /** Random hue
+     *
+     * Random hue
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  360
+     */
     public Supernova setRandomHue(int value) throws ParameterOutOfRangeException
     {
 		if(value > 360)
@@ -232,38 +236,38 @@ Acceptable Range:  360
         return this;
     }
 
-/** Random hue
-
-Random hue
-
-Unit: 
-Default value: 
-Acceptable Range:  360
-*/
+    /** Random hue
+     *
+     * Random hue
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  360
+     */
     public int getRandomHue()
     {
         return m_RandomHue;
     }
 
 
-/** Color
-
-The color of supernova.
-
-Unit: 
-Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
-Acceptable Range:  
-*/
+    /** Color
+     *
+     * The color of supernova.
+     *
+     * Unit: 
+     * Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
+     * Acceptable Range:  
+     * */
     private GeglColor m_Color  = makeColor("rgb(0.0000, 0.0000, 1.0000)");
 
-/** Color
-
-The color of supernova.
-
-Unit: 
-Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
-Acceptable Range:  
-*/
+    /** Color
+     *
+     * The color of supernova.
+     *
+     * Unit: 
+     * Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
+     * Acceptable Range:  
+     */
     public Supernova setColor(GeglColor value)
     {
 	
@@ -272,38 +276,38 @@ Acceptable Range:
         return this;
     }
 
-/** Color
-
-The color of supernova.
-
-Unit: 
-Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
-Acceptable Range:  
-*/
+    /** Color
+     *
+     * The color of supernova.
+     *
+     * Unit: 
+     * Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
+     * Acceptable Range:  
+     */
     public GeglColor getColor()
     {
         return m_Color;
     }
 
 
-/** Random seed
-
-The random seed for spokes and random hue
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Random seed
+     *
+     * The random seed for spokes and random hue
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private int m_Seed ;
 
-/** Random seed
-
-The random seed for spokes and random hue
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Random seed
+     *
+     * The random seed for spokes and random hue
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public Supernova setSeed(int value)
     {
 	
@@ -312,19 +316,27 @@ Acceptable Range:
         return this;
     }
 
-/** Random seed
-
-The random seed for spokes and random hue
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Random seed
+     *
+     * The random seed for spokes and random hue
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public int getSeed()
     {
         return m_Seed;
     }
 
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

@@ -1,55 +1,58 @@
 package com.jibee.gegl.filters.gegl;
-import com.jibee.gegl.GeglFilter;
 
+import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.InputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-NPY File Saver
-
-NPY image saver (Numerical python file saver.)
-
-License: 
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * NPY File Saver
+ *
+ * NPY image saver (Numerical python file saver.)
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="", opencl=false, position_dependant=false, categories={"output"})
 public class NpySave extends GeglFilter
 {
-/** Constructs a NPY File Saver.
-
-NPY image saver (Numerical python file saver.)
-*/
+    /** Constructs a NPY File Saver.
+     *
+     * NPY image saver (Numerical python file saver.)
+     */
     public NpySave(GeglNode container)
     {
         super(container, "gegl:npy-save");
     }
-/** Constructs a NPY File Saver.
-
-NPY image saver (Numerical python file saver.)
-*/
+    /** Constructs a NPY File Saver.
+     *
+     * NPY image saver (Numerical python file saver.)
+     */
     public NpySave(GeglFilter parent)
     {
         super(parent, "gegl:npy-save");
     }
 
     
-/** File
-
-Target path and filename, use '-' for stdout.
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** File
+     *
+     * Target path and filename, use '-' for stdout.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private String m_Path ;
 
-/** File
-
-Target path and filename, use '-' for stdout.
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** File
+     *
+     * Target path and filename, use '-' for stdout.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public NpySave setPath(String value)
     {
 	
@@ -58,19 +61,23 @@ Acceptable Range:
         return this;
     }
 
-/** File
-
-Target path and filename, use '-' for stdout.
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** File
+     *
+     * Target path and filename, use '-' for stdout.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public String getPath()
     {
         return m_Path;
     }
 
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
 
 }
 

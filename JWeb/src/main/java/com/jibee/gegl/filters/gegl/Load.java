@@ -1,55 +1,58 @@
 package com.jibee.gegl.filters.gegl;
 
 import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Load Image
-
-Multipurpose file loader, that uses other native handlers, and fallback conversion using Image Magick's convert.
-
-License: 
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * Load Image
+ *
+ * Multipurpose file loader, that uses other native handlers, and fallback conversion using Image Magick's convert.
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="", opencl=false, position_dependant=false, categories={"meta", "input"})
 public class Load extends GeglFilter
 {
-/** Constructs a Load Image.
-
-Multipurpose file loader, that uses other native handlers, and fallback conversion using Image Magick's convert.
-*/
+    /** Constructs a Load Image.
+     *
+     * Multipurpose file loader, that uses other native handlers, and fallback conversion using Image Magick's convert.
+     */
     public Load(GeglNode container)
     {
         super(container, "gegl:load");
     }
-/** Constructs a Load Image.
-
-Multipurpose file loader, that uses other native handlers, and fallback conversion using Image Magick's convert.
-*/
+    /** Constructs a Load Image.
+     *
+     * Multipurpose file loader, that uses other native handlers, and fallback conversion using Image Magick's convert.
+     */
     public Load(GeglFilter parent)
     {
         super(parent, "gegl:load");
     }
 
     
-/** File
-
-Path of file to load.
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** File
+     *
+     * Path of file to load.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private String m_Path ;
 
-/** File
-
-Path of file to load.
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** File
+     *
+     * Path of file to load.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public Load setPath(String value)
     {
 	
@@ -58,38 +61,38 @@ Acceptable Range:
         return this;
     }
 
-/** File
-
-Path of file to load.
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** File
+     *
+     * Path of file to load.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public String getPath()
     {
         return m_Path;
     }
 
 
-/** URI
-
-URI of file to load.
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** URI
+     *
+     * URI of file to load.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private String m_Uri ;
 
-/** URI
-
-URI of file to load.
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** URI
+     *
+     * URI of file to load.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public Load setUri(String value)
     {
 	
@@ -98,19 +101,23 @@ Acceptable Range:
         return this;
     }
 
-/** URI
-
-URI of file to load.
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** URI
+     *
+     * URI of file to load.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public String getUri()
     {
         return m_Uri;
     }
 
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

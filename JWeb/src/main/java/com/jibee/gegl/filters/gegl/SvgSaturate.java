@@ -1,55 +1,59 @@
 package com.jibee.gegl.filters.gegl;
 
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.InputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-
-
-SVG color matrix operation svg_saturate
-
-License: 
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * 
+ *
+ * SVG color matrix operation svg_saturate
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="", opencl=false, position_dependant=false, categories={"compositors", "svgfilter"})
 public class SvgSaturate extends GeglFilter
 {
-/** Constructs a .
-
-SVG color matrix operation svg_saturate
-*/
+    /** Constructs a .
+     *
+     * SVG color matrix operation svg_saturate
+     */
     public SvgSaturate(GeglNode container)
     {
         super(container, "gegl:svg-saturate");
     }
-/** Constructs a .
-
-SVG color matrix operation svg_saturate
-*/
+    /** Constructs a .
+     *
+     * SVG color matrix operation svg_saturate
+     */
     public SvgSaturate(GeglFilter parent)
     {
         super(parent, "gegl:svg-saturate");
     }
 
     
-/** Values
-
-list of <number>s
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Values
+     *
+     * list of <number>s
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private String m_Values ;
 
-/** Values
-
-list of <number>s
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Values
+     *
+     * list of <number>s
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public SvgSaturate setValues(String value)
     {
 	
@@ -58,19 +62,27 @@ Acceptable Range:
         return this;
     }
 
-/** Values
-
-list of <number>s
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Values
+     *
+     * list of <number>s
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public String getValues()
     {
         return m_Values;
     }
 
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

@@ -1,56 +1,60 @@
 package com.jibee.gegl.filters.gegl;
-import com.jibee.gegl.ParameterOutOfRangeException;
 
+import com.jibee.gegl.InputPad;
 import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-
-
-A layer in the traditional sense
-
-License: 
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * 
+ *
+ * A layer in the traditional sense
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="", opencl=false, position_dependant=false, categories={"meta"})
 public class Layer extends GeglFilter
 {
-/** Constructs a .
-
-A layer in the traditional sense
-*/
+    /** Constructs a .
+     *
+     * A layer in the traditional sense
+     */
     public Layer(GeglNode container)
     {
         super(container, "gegl:layer");
     }
-/** Constructs a .
-
-A layer in the traditional sense
-*/
+    /** Constructs a .
+     *
+     * A layer in the traditional sense
+     */
     public Layer(GeglFilter parent)
     {
         super(parent, "gegl:layer");
     }
 
     
-/** Operation
-
-Composite operation to use
-
-Unit: 
-Default value: "gegl:over"
-Acceptable Range:  
-*/
+    /** Operation
+     *
+     * Composite operation to use
+     *
+     * Unit: 
+     * Default value: "gegl:over"
+     * Acceptable Range:  
+     * */
     private String m_CompositeOp  = "gegl:over";
 
-/** Operation
-
-Composite operation to use
-
-Unit: 
-Default value: "gegl:over"
-Acceptable Range:  
-*/
+    /** Operation
+     *
+     * Composite operation to use
+     *
+     * Unit: 
+     * Default value: "gegl:over"
+     * Acceptable Range:  
+     */
     public Layer setCompositeOp(String value)
     {
 	
@@ -59,38 +63,38 @@ Acceptable Range:
         return this;
     }
 
-/** Operation
-
-Composite operation to use
-
-Unit: 
-Default value: "gegl:over"
-Acceptable Range:  
-*/
+    /** Operation
+     *
+     * Composite operation to use
+     *
+     * Unit: 
+     * Default value: "gegl:over"
+     * Acceptable Range:  
+     */
     public String getCompositeOp()
     {
         return m_CompositeOp;
     }
 
 
-/** Opacity
-
-
-
-Unit: 
-Default value: 1.00
-Acceptable Range: 0.00 1.00
-*/
+    /** Opacity
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 1.00
+     * Acceptable Range: 0.00 1.00
+     * */
     private double m_Opacity  = 1.00;
 
-/** Opacity
-
-
-
-Unit: 
-Default value: 1.00
-Acceptable Range: 0.00 1.00
-*/
+    /** Opacity
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 1.00
+     * Acceptable Range: 0.00 1.00
+     */
     public Layer setOpacity(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
@@ -103,38 +107,38 @@ Acceptable Range: 0.00 1.00
         return this;
     }
 
-/** Opacity
-
-
-
-Unit: 
-Default value: 1.00
-Acceptable Range: 0.00 1.00
-*/
+    /** Opacity
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 1.00
+     * Acceptable Range: 0.00 1.00
+     */
     public double getOpacity()
     {
         return m_Opacity;
     }
 
 
-/** X
-
-Horizontal position in pixels
-
-Unit: pixel-coordinate
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** X
+     *
+     * Horizontal position in pixels
+     *
+     * Unit: pixel-coordinate
+     * Default value: 0.00
+     * Acceptable Range:  
+     * */
     private double m_X  = 0.00;
 
-/** X
-
-Horizontal position in pixels
-
-Unit: pixel-coordinate
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** X
+     *
+     * Horizontal position in pixels
+     *
+     * Unit: pixel-coordinate
+     * Default value: 0.00
+     * Acceptable Range:  
+     */
     public Layer setX(double value)
     {
 	
@@ -143,38 +147,38 @@ Acceptable Range:
         return this;
     }
 
-/** X
-
-Horizontal position in pixels
-
-Unit: pixel-coordinate
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** X
+     *
+     * Horizontal position in pixels
+     *
+     * Unit: pixel-coordinate
+     * Default value: 0.00
+     * Acceptable Range:  
+     */
     public double getX()
     {
         return m_X;
     }
 
 
-/** Y
-
-Vertical position in pixels
-
-Unit: pixel-coordinate
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** Y
+     *
+     * Vertical position in pixels
+     *
+     * Unit: pixel-coordinate
+     * Default value: 0.00
+     * Acceptable Range:  
+     * */
     private double m_Y  = 0.00;
 
-/** Y
-
-Vertical position in pixels
-
-Unit: pixel-coordinate
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** Y
+     *
+     * Vertical position in pixels
+     *
+     * Unit: pixel-coordinate
+     * Default value: 0.00
+     * Acceptable Range:  
+     */
     public Layer setY(double value)
     {
 	
@@ -183,38 +187,38 @@ Acceptable Range:
         return this;
     }
 
-/** Y
-
-Vertical position in pixels
-
-Unit: pixel-coordinate
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** Y
+     *
+     * Vertical position in pixels
+     *
+     * Unit: pixel-coordinate
+     * Default value: 0.00
+     * Acceptable Range:  
+     */
     public double getY()
     {
         return m_Y;
     }
 
 
-/** Scale
-
-Scale 1:1 size
-
-Unit: 
-Default value: 1.00
-Acceptable Range:  
-*/
+    /** Scale
+     *
+     * Scale 1:1 size
+     *
+     * Unit: 
+     * Default value: 1.00
+     * Acceptable Range:  
+     * */
     private double m_Scale  = 1.00;
 
-/** Scale
-
-Scale 1:1 size
-
-Unit: 
-Default value: 1.00
-Acceptable Range:  
-*/
+    /** Scale
+     *
+     * Scale 1:1 size
+     *
+     * Unit: 
+     * Default value: 1.00
+     * Acceptable Range:  
+     */
     public Layer setScale(double value)
     {
 	
@@ -223,38 +227,38 @@ Acceptable Range:
         return this;
     }
 
-/** Scale
-
-Scale 1:1 size
-
-Unit: 
-Default value: 1.00
-Acceptable Range:  
-*/
+    /** Scale
+     *
+     * Scale 1:1 size
+     *
+     * Unit: 
+     * Default value: 1.00
+     * Acceptable Range:  
+     */
     public double getScale()
     {
         return m_Scale;
     }
 
 
-/** Source
-
-Source image file path (png, jpg, raw, svg, bmp, tif, ...)
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Source
+     *
+     * Source image file path (png, jpg, raw, svg, bmp, tif, ...)
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private String m_Src ;
 
-/** Source
-
-Source image file path (png, jpg, raw, svg, bmp, tif, ...)
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Source
+     *
+     * Source image file path (png, jpg, raw, svg, bmp, tif, ...)
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public Layer setSrc(String value)
     {
 	
@@ -263,19 +267,32 @@ Acceptable Range:
         return this;
     }
 
-/** Source
-
-Source image file path (png, jpg, raw, svg, bmp, tif, ...)
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Source
+     *
+     * Source image file path (png, jpg, raw, svg, bmp, tif, ...)
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public String getSrc()
     {
         return m_Src;
     }
 
+    public InputPad aux()
+    {
+        return new InputPad(this, "aux");
+    }
+
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

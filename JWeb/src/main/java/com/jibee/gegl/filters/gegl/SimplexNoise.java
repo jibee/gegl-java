@@ -1,56 +1,59 @@
 package com.jibee.gegl.filters.gegl;
-import com.jibee.gegl.ParameterOutOfRangeException;
 
 import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Simplex Noise
-
-Generates a solid noise texture.
-
-License: 
-Supports OpenCL: true
-Position Dependant: true
-*/
+ * Simplex Noise
+ *
+ * Generates a solid noise texture.
+ * 
+ * License: 
+ * Supports OpenCL: true
+ * Position Dependant: true
+ */
+@Filter(license="", opencl=true, position_dependant=true, categories={"render"})
 public class SimplexNoise extends GeglFilter
 {
-/** Constructs a Simplex Noise.
-
-Generates a solid noise texture.
-*/
+    /** Constructs a Simplex Noise.
+     *
+     * Generates a solid noise texture.
+     */
     public SimplexNoise(GeglNode container)
     {
         super(container, "gegl:simplex-noise");
     }
-/** Constructs a Simplex Noise.
-
-Generates a solid noise texture.
-*/
+    /** Constructs a Simplex Noise.
+     *
+     * Generates a solid noise texture.
+     */
     public SimplexNoise(GeglFilter parent)
     {
         super(parent, "gegl:simplex-noise");
     }
 
     
-/** Scale
-
-The scale of the noise function
-
-Unit: 
-Default value: 1.00
-Acceptable Range: 0.00 20.00
-*/
+    /** Scale
+     *
+     * The scale of the noise function
+     *
+     * Unit: 
+     * Default value: 1.00
+     * Acceptable Range: 0.00 20.00
+     * */
     private double m_Scale  = 1.00;
 
-/** Scale
-
-The scale of the noise function
-
-Unit: 
-Default value: 1.00
-Acceptable Range: 0.00 20.00
-*/
+    /** Scale
+     *
+     * The scale of the noise function
+     *
+     * Unit: 
+     * Default value: 1.00
+     * Acceptable Range: 0.00 20.00
+     */
     public SimplexNoise setScale(double value) throws ParameterOutOfRangeException
     {
 		if(value > 20.00 || value < 0.00)
@@ -63,38 +66,38 @@ Acceptable Range: 0.00 20.00
         return this;
     }
 
-/** Scale
-
-The scale of the noise function
-
-Unit: 
-Default value: 1.00
-Acceptable Range: 0.00 20.00
-*/
+    /** Scale
+     *
+     * The scale of the noise function
+     *
+     * Unit: 
+     * Default value: 1.00
+     * Acceptable Range: 0.00 20.00
+     */
     public double getScale()
     {
         return m_Scale;
     }
 
 
-/** Iterations
-
-The number of noise octaves.
-
-Unit: 
-Default value: 1
-Acceptable Range: 1 20
-*/
+    /** Iterations
+     *
+     * The number of noise octaves.
+     *
+     * Unit: 
+     * Default value: 1
+     * Acceptable Range: 1 20
+     * */
     private int m_Iterations  = 1;
 
-/** Iterations
-
-The number of noise octaves.
-
-Unit: 
-Default value: 1
-Acceptable Range: 1 20
-*/
+    /** Iterations
+     *
+     * The number of noise octaves.
+     *
+     * Unit: 
+     * Default value: 1
+     * Acceptable Range: 1 20
+     */
     public SimplexNoise setIterations(int value) throws ParameterOutOfRangeException
     {
 		if(value > 20 || value < 1)
@@ -107,38 +110,38 @@ Acceptable Range: 1 20
         return this;
     }
 
-/** Iterations
-
-The number of noise octaves.
-
-Unit: 
-Default value: 1
-Acceptable Range: 1 20
-*/
+    /** Iterations
+     *
+     * The number of noise octaves.
+     *
+     * Unit: 
+     * Default value: 1
+     * Acceptable Range: 1 20
+     */
     public int getIterations()
     {
         return m_Iterations;
     }
 
 
-/** Random seed
-
-The random seed for the noise function
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Random seed
+     *
+     * The random seed for the noise function
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private int m_Seed ;
 
-/** Random seed
-
-The random seed for the noise function
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Random seed
+     *
+     * The random seed for the noise function
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public SimplexNoise setSeed(int value)
     {
 	
@@ -147,19 +150,23 @@ Acceptable Range:
         return this;
     }
 
-/** Random seed
-
-The random seed for the noise function
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Random seed
+     *
+     * The random seed for the noise function
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public int getSeed()
     {
         return m_Seed;
     }
 
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

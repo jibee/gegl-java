@@ -1,57 +1,61 @@
 package com.jibee.gegl.filters.gegl;
-import com.jibee.gegl.GeglFilter;
-import com.jibee.gegl.ParameterOutOfRangeException;
 
+import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.InputPad;
 import com.jibee.gegl.GeglCurve;
+import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Contrast Curve
-
-Adjusts the contrast of a grayscale image with a curve specifying contrast for intensity.
-
-License: 
-Supports OpenCL: true
-Position Dependant: 
-*/
+ * Contrast Curve
+ *
+ * Adjusts the contrast of a grayscale image with a curve specifying contrast for intensity.
+ * 
+ * License: 
+ * Supports OpenCL: true
+ * Position Dependant: false
+ */
+@Filter(license="", opencl=true, position_dependant=false, categories={"color"})
 public class ContrastCurve extends GeglFilter
 {
-/** Constructs a Contrast Curve.
-
-Adjusts the contrast of a grayscale image with a curve specifying contrast for intensity.
-*/
+    /** Constructs a Contrast Curve.
+     *
+     * Adjusts the contrast of a grayscale image with a curve specifying contrast for intensity.
+     */
     public ContrastCurve(GeglNode container)
     {
         super(container, "gegl:contrast-curve");
     }
-/** Constructs a Contrast Curve.
-
-Adjusts the contrast of a grayscale image with a curve specifying contrast for intensity.
-*/
+    /** Constructs a Contrast Curve.
+     *
+     * Adjusts the contrast of a grayscale image with a curve specifying contrast for intensity.
+     */
     public ContrastCurve(GeglFilter parent)
     {
         super(parent, "gegl:contrast-curve");
     }
 
     
-/** Sample points
-
-Number of curve sampling points.  0 for exact calculation.
-
-Unit: 
-Default value: 
-Acceptable Range:  65536
-*/
+    /** Sample points
+     *
+     * Number of curve sampling points.  0 for exact calculation.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  65536
+     * */
     private int m_SamplingPoints ;
 
-/** Sample points
-
-Number of curve sampling points.  0 for exact calculation.
-
-Unit: 
-Default value: 
-Acceptable Range:  65536
-*/
+    /** Sample points
+     *
+     * Number of curve sampling points.  0 for exact calculation.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  65536
+     */
     public ContrastCurve setSamplingPoints(int value) throws ParameterOutOfRangeException
     {
 		if(value > 65536)
@@ -64,38 +68,38 @@ Acceptable Range:  65536
         return this;
     }
 
-/** Sample points
-
-Number of curve sampling points.  0 for exact calculation.
-
-Unit: 
-Default value: 
-Acceptable Range:  65536
-*/
+    /** Sample points
+     *
+     * Number of curve sampling points.  0 for exact calculation.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  65536
+     */
     public int getSamplingPoints()
     {
         return m_SamplingPoints;
     }
 
 
-/** Curve
-
-The contrast curve.
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Curve
+     *
+     * The contrast curve.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private GeglCurve m_Curve ;
 
-/** Curve
-
-The contrast curve.
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Curve
+     *
+     * The contrast curve.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public ContrastCurve setCurve(GeglCurve value)
     {
 	
@@ -104,19 +108,27 @@ Acceptable Range:
         return this;
     }
 
-/** Curve
-
-The contrast curve.
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Curve
+     *
+     * The contrast curve.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public GeglCurve getCurve()
     {
         return m_Curve;
     }
 
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

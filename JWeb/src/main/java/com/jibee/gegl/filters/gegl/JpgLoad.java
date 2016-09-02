@@ -1,55 +1,58 @@
 package com.jibee.gegl.filters.gegl;
 
 import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-JPEG File Loader
-
-JPEG image loader using libjpeg
-
-License: 
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * JPEG File Loader
+ *
+ * JPEG image loader using libjpeg
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="", opencl=false, position_dependant=false, categories={"hidden"})
 public class JpgLoad extends GeglFilter
 {
-/** Constructs a JPEG File Loader.
-
-JPEG image loader using libjpeg
-*/
+    /** Constructs a JPEG File Loader.
+     *
+     * JPEG image loader using libjpeg
+     */
     public JpgLoad(GeglNode container)
     {
         super(container, "gegl:jpg-load");
     }
-/** Constructs a JPEG File Loader.
-
-JPEG image loader using libjpeg
-*/
+    /** Constructs a JPEG File Loader.
+     *
+     * JPEG image loader using libjpeg
+     */
     public JpgLoad(GeglFilter parent)
     {
         super(parent, "gegl:jpg-load");
     }
 
     
-/** File
-
-Path of file to load
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** File
+     *
+     * Path of file to load
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private String m_Path ;
 
-/** File
-
-Path of file to load
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** File
+     *
+     * Path of file to load
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public JpgLoad setPath(String value)
     {
 	
@@ -58,38 +61,38 @@ Acceptable Range:
         return this;
     }
 
-/** File
-
-Path of file to load
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** File
+     *
+     * Path of file to load
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public String getPath()
     {
         return m_Path;
     }
 
 
-/** URI
-
-URI of file to load
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** URI
+     *
+     * URI of file to load
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private String m_Uri ;
 
-/** URI
-
-URI of file to load
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** URI
+     *
+     * URI of file to load
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public JpgLoad setUri(String value)
     {
 	
@@ -98,19 +101,23 @@ Acceptable Range:
         return this;
     }
 
-/** URI
-
-URI of file to load
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** URI
+     *
+     * URI of file to load
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public String getUri()
     {
         return m_Uri;
     }
 
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

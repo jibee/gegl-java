@@ -1,55 +1,59 @@
 package com.jibee.gegl.filters.gegl;
 
 import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.InputPad;
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-
-
-
-
-License: 
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * 
+ *
+ * 
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="", opencl=false, position_dependant=false, categories={"transform"})
 public class Reflect extends GeglFilter
 {
-/** Constructs a .
-
-
-*/
+    /** Constructs a .
+     *
+     * 
+     */
     public Reflect(GeglNode container)
     {
         super(container, "gegl:reflect");
     }
-/** Constructs a .
-
-
-*/
+    /** Constructs a .
+     *
+     * 
+     */
     public Reflect(GeglFilter parent)
     {
         super(parent, "gegl:reflect");
     }
 
     
-/** Origin-x
-
-X coordinate of origin
-
-Unit: 
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** Origin-x
+     *
+     * X coordinate of origin
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range:  
+     * */
     private double m_OriginX  = 0.00;
 
-/** Origin-x
-
-X coordinate of origin
-
-Unit: 
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** Origin-x
+     *
+     * X coordinate of origin
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range:  
+     */
     public Reflect setOriginX(double value)
     {
 	
@@ -58,38 +62,38 @@ Acceptable Range:
         return this;
     }
 
-/** Origin-x
-
-X coordinate of origin
-
-Unit: 
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** Origin-x
+     *
+     * X coordinate of origin
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range:  
+     */
     public double getOriginX()
     {
         return m_OriginX;
     }
 
 
-/** Origin-y
-
-Y coordinate of origin
-
-Unit: 
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** Origin-y
+     *
+     * Y coordinate of origin
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range:  
+     * */
     private double m_OriginY  = 0.00;
 
-/** Origin-y
-
-Y coordinate of origin
-
-Unit: 
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** Origin-y
+     *
+     * Y coordinate of origin
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range:  
+     */
     public Reflect setOriginY(double value)
     {
 	
@@ -98,38 +102,38 @@ Acceptable Range:
         return this;
     }
 
-/** Origin-y
-
-Y coordinate of origin
-
-Unit: 
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** Origin-y
+     *
+     * Y coordinate of origin
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range:  
+     */
     public double getOriginY()
     {
         return m_OriginY;
     }
 
 
-/** Sampler
-
-Sampler used internally
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Sampler
+     *
+     * Sampler used internally
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private String m_Sampler ;
 
-/** Sampler
-
-Sampler used internally
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Sampler
+     *
+     * Sampler used internally
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public Reflect setSampler(String value)
     {
 	
@@ -138,38 +142,38 @@ Acceptable Range:
         return this;
     }
 
-/** Sampler
-
-Sampler used internally
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Sampler
+     *
+     * Sampler used internally
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public String getSampler()
     {
         return m_Sampler;
     }
 
 
-/** x
-
-Direction vector's X component
-
-Unit: 
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** x
+     *
+     * Direction vector's X component
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range:  
+     * */
     private double m_X  = 0.00;
 
-/** x
-
-Direction vector's X component
-
-Unit: 
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** x
+     *
+     * Direction vector's X component
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range:  
+     */
     public Reflect setX(double value)
     {
 	
@@ -178,38 +182,38 @@ Acceptable Range:
         return this;
     }
 
-/** x
-
-Direction vector's X component
-
-Unit: 
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** x
+     *
+     * Direction vector's X component
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range:  
+     */
     public double getX()
     {
         return m_X;
     }
 
 
-/** y
-
-Direction vector's Y component
-
-Unit: 
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** y
+     *
+     * Direction vector's Y component
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range:  
+     * */
     private double m_Y  = 0.00;
 
-/** y
-
-Direction vector's Y component
-
-Unit: 
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** y
+     *
+     * Direction vector's Y component
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range:  
+     */
     public Reflect setY(double value)
     {
 	
@@ -218,19 +222,27 @@ Acceptable Range:
         return this;
     }
 
-/** y
-
-Direction vector's Y component
-
-Unit: 
-Default value: 0.00
-Acceptable Range:  
-*/
+    /** y
+     *
+     * Direction vector's Y component
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range:  
+     */
     public double getY()
     {
         return m_Y;
     }
 
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

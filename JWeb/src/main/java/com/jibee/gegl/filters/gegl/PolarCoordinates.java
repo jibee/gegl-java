@@ -1,56 +1,60 @@
 package com.jibee.gegl.filters.gegl;
-import com.jibee.gegl.GeglFilter;
 
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.InputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Polar Coordinates
-
-Convert image to or from polar coordinates
-
-License: GPL3+
-Supports OpenCL: 
-Position Dependant: true
-*/
+ * Polar Coordinates
+ *
+ * Convert image to or from polar coordinates
+ * 
+ * License: GPL3+
+ * Supports OpenCL: false
+ * Position Dependant: true
+ */
+@Filter(license="GPL3+", opencl=false, position_dependant=true, categories={"transform", "map"})
 public class PolarCoordinates extends GeglFilter
 {
-/** Constructs a Polar Coordinates.
-
-Convert image to or from polar coordinates
-*/
+    /** Constructs a Polar Coordinates.
+     *
+     * Convert image to or from polar coordinates
+     */
     public PolarCoordinates(GeglNode container)
     {
         super(container, "gegl:polar-coordinates");
     }
-/** Constructs a Polar Coordinates.
-
-Convert image to or from polar coordinates
-*/
+    /** Constructs a Polar Coordinates.
+     *
+     * Convert image to or from polar coordinates
+     */
     public PolarCoordinates(GeglFilter parent)
     {
         super(parent, "gegl:polar-coordinates");
     }
 
     
-/** Circle depth in percent
-
-
-
-Unit: percent
-Default value: 100.00
-Acceptable Range: 0.00 100.00
-*/
+    /** Circle depth in percent
+     *
+     * 
+     *
+     * Unit: percent
+     * Default value: 100.00
+     * Acceptable Range: 0.00 100.00
+     * */
     private double m_Depth  = 100.00;
 
-/** Circle depth in percent
-
-
-
-Unit: percent
-Default value: 100.00
-Acceptable Range: 0.00 100.00
-*/
+    /** Circle depth in percent
+     *
+     * 
+     *
+     * Unit: percent
+     * Default value: 100.00
+     * Acceptable Range: 0.00 100.00
+     */
     public PolarCoordinates setDepth(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 0.00)
@@ -63,38 +67,38 @@ Acceptable Range: 0.00 100.00
         return this;
     }
 
-/** Circle depth in percent
-
-
-
-Unit: percent
-Default value: 100.00
-Acceptable Range: 0.00 100.00
-*/
+    /** Circle depth in percent
+     *
+     * 
+     *
+     * Unit: percent
+     * Default value: 100.00
+     * Acceptable Range: 0.00 100.00
+     */
     public double getDepth()
     {
         return m_Depth;
     }
 
 
-/** Offset angle
-
-
-
-Unit: degree
-Default value: 0.00
-Acceptable Range: 0.00 360.00
-*/
+    /** Offset angle
+     *
+     * 
+     *
+     * Unit: degree
+     * Default value: 0.00
+     * Acceptable Range: 0.00 360.00
+     * */
     private double m_Angle  = 0.00;
 
-/** Offset angle
-
-
-
-Unit: degree
-Default value: 0.00
-Acceptable Range: 0.00 360.00
-*/
+    /** Offset angle
+     *
+     * 
+     *
+     * Unit: degree
+     * Default value: 0.00
+     * Acceptable Range: 0.00 360.00
+     */
     public PolarCoordinates setAngle(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
@@ -107,38 +111,38 @@ Acceptable Range: 0.00 360.00
         return this;
     }
 
-/** Offset angle
-
-
-
-Unit: degree
-Default value: 0.00
-Acceptable Range: 0.00 360.00
-*/
+    /** Offset angle
+     *
+     * 
+     *
+     * Unit: degree
+     * Default value: 0.00
+     * Acceptable Range: 0.00 360.00
+     */
     public double getAngle()
     {
         return m_Angle;
     }
 
 
-/** Map backwards
-
-Start from the right instead of the left
-
-Unit: 
-Default value: false
-Acceptable Range:  
-*/
+    /** Map backwards
+     *
+     * Start from the right instead of the left
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     * */
     private boolean m_Bw  = false;
 
-/** Map backwards
-
-Start from the right instead of the left
-
-Unit: 
-Default value: false
-Acceptable Range:  
-*/
+    /** Map backwards
+     *
+     * Start from the right instead of the left
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
     public PolarCoordinates setBw(boolean value)
     {
 	
@@ -147,38 +151,38 @@ Acceptable Range:
         return this;
     }
 
-/** Map backwards
-
-Start from the right instead of the left
-
-Unit: 
-Default value: false
-Acceptable Range:  
-*/
+    /** Map backwards
+     *
+     * Start from the right instead of the left
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
     public boolean getBw()
     {
         return m_Bw;
     }
 
 
-/** Map from top
-
-Put the top row in the middle and the bottom row on the outside
-
-Unit: 
-Default value: true
-Acceptable Range:  
-*/
+    /** Map from top
+     *
+     * Put the top row in the middle and the bottom row on the outside
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     * */
     private boolean m_Top  = true;
 
-/** Map from top
-
-Put the top row in the middle and the bottom row on the outside
-
-Unit: 
-Default value: true
-Acceptable Range:  
-*/
+    /** Map from top
+     *
+     * Put the top row in the middle and the bottom row on the outside
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     */
     public PolarCoordinates setTop(boolean value)
     {
 	
@@ -187,38 +191,38 @@ Acceptable Range:
         return this;
     }
 
-/** Map from top
-
-Put the top row in the middle and the bottom row on the outside
-
-Unit: 
-Default value: true
-Acceptable Range:  
-*/
+    /** Map from top
+     *
+     * Put the top row in the middle and the bottom row on the outside
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     */
     public boolean getTop()
     {
         return m_Top;
     }
 
 
-/** To polar
-
-Map the image to a circle
-
-Unit: 
-Default value: true
-Acceptable Range:  
-*/
+    /** To polar
+     *
+     * Map the image to a circle
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     * */
     private boolean m_Polar  = true;
 
-/** To polar
-
-Map the image to a circle
-
-Unit: 
-Default value: true
-Acceptable Range:  
-*/
+    /** To polar
+     *
+     * Map the image to a circle
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     */
     public PolarCoordinates setPolar(boolean value)
     {
 	
@@ -227,38 +231,38 @@ Acceptable Range:
         return this;
     }
 
-/** To polar
-
-Map the image to a circle
-
-Unit: 
-Default value: true
-Acceptable Range:  
-*/
+    /** To polar
+     *
+     * Map the image to a circle
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     */
     public boolean getPolar()
     {
         return m_Polar;
     }
 
 
-/** X
-
-Origin point for the polar coordinates
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** X
+     *
+     * Origin point for the polar coordinates
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private int m_PoleX ;
 
-/** X
-
-Origin point for the polar coordinates
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** X
+     *
+     * Origin point for the polar coordinates
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     */
     public PolarCoordinates setPoleX(int value)
     {
 	
@@ -267,38 +271,38 @@ Acceptable Range:
         return this;
     }
 
-/** X
-
-Origin point for the polar coordinates
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** X
+     *
+     * Origin point for the polar coordinates
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     */
     public int getPoleX()
     {
         return m_PoleX;
     }
 
 
-/** Y
-
-Origin point for the polar coordinates
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Y
+     *
+     * Origin point for the polar coordinates
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private int m_PoleY ;
 
-/** Y
-
-Origin point for the polar coordinates
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Y
+     *
+     * Origin point for the polar coordinates
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     */
     public PolarCoordinates setPoleY(int value)
     {
 	
@@ -307,38 +311,38 @@ Acceptable Range:
         return this;
     }
 
-/** Y
-
-Origin point for the polar coordinates
-
-Unit: pixel-coordinate
-Default value: 
-Acceptable Range:  
-*/
+    /** Y
+     *
+     * Origin point for the polar coordinates
+     *
+     * Unit: pixel-coordinate
+     * Default value: 
+     * Acceptable Range:  
+     */
     public int getPoleY()
     {
         return m_PoleY;
     }
 
 
-/** Choose middle
-
-Let origin point to be the middle one
-
-Unit: 
-Default value: true
-Acceptable Range:  
-*/
+    /** Choose middle
+     *
+     * Let origin point to be the middle one
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     * */
     private boolean m_Middle  = true;
 
-/** Choose middle
-
-Let origin point to be the middle one
-
-Unit: 
-Default value: true
-Acceptable Range:  
-*/
+    /** Choose middle
+     *
+     * Let origin point to be the middle one
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     */
     public PolarCoordinates setMiddle(boolean value)
     {
 	
@@ -347,19 +351,27 @@ Acceptable Range:
         return this;
     }
 
-/** Choose middle
-
-Let origin point to be the middle one
-
-Unit: 
-Default value: true
-Acceptable Range:  
-*/
+    /** Choose middle
+     *
+     * Let origin point to be the middle one
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     */
     public boolean getMiddle()
     {
         return m_Middle;
     }
 
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

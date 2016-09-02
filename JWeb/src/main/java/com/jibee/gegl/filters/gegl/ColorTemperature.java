@@ -1,56 +1,60 @@
 package com.jibee.gegl.filters.gegl;
-import com.jibee.gegl.GeglFilter;
 
+import com.jibee.gegl.InputPad;
+import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Color Temperature
-
-Change the color temperature of the image, from an assumed original color temperature to an intended one.
-
-License: 
-Supports OpenCL: true
-Position Dependant: 
-*/
+ * Color Temperature
+ *
+ * Change the color temperature of the image, from an assumed original color temperature to an intended one.
+ * 
+ * License: 
+ * Supports OpenCL: true
+ * Position Dependant: false
+ */
+@Filter(license="", opencl=true, position_dependant=false, categories={"color"})
 public class ColorTemperature extends GeglFilter
 {
-/** Constructs a Color Temperature.
-
-Change the color temperature of the image, from an assumed original color temperature to an intended one.
-*/
+    /** Constructs a Color Temperature.
+     *
+     * Change the color temperature of the image, from an assumed original color temperature to an intended one.
+     */
     public ColorTemperature(GeglNode container)
     {
         super(container, "gegl:color-temperature");
     }
-/** Constructs a Color Temperature.
-
-Change the color temperature of the image, from an assumed original color temperature to an intended one.
-*/
+    /** Constructs a Color Temperature.
+     *
+     * Change the color temperature of the image, from an assumed original color temperature to an intended one.
+     */
     public ColorTemperature(GeglFilter parent)
     {
         super(parent, "gegl:color-temperature");
     }
 
     
-/** Original temperature
-
-Estimated temperature of the light source in Kelvin the image was taken with.
-
-Unit: kelvin
-Default value: 6500.00
-Acceptable Range: 1000.00 12000.00
-*/
+    /** Original temperature
+     *
+     * Estimated temperature of the light source in Kelvin the image was taken with.
+     *
+     * Unit: kelvin
+     * Default value: 6500.00
+     * Acceptable Range: 1000.00 12000.00
+     * */
     private double m_OriginalTemperature  = 6500.00;
 
-/** Original temperature
-
-Estimated temperature of the light source in Kelvin the image was taken with.
-
-Unit: kelvin
-Default value: 6500.00
-Acceptable Range: 1000.00 12000.00
-*/
+    /** Original temperature
+     *
+     * Estimated temperature of the light source in Kelvin the image was taken with.
+     *
+     * Unit: kelvin
+     * Default value: 6500.00
+     * Acceptable Range: 1000.00 12000.00
+     */
     public ColorTemperature setOriginalTemperature(double value) throws ParameterOutOfRangeException
     {
 		if(value > 12000.00 || value < 1000.00)
@@ -63,38 +67,38 @@ Acceptable Range: 1000.00 12000.00
         return this;
     }
 
-/** Original temperature
-
-Estimated temperature of the light source in Kelvin the image was taken with.
-
-Unit: kelvin
-Default value: 6500.00
-Acceptable Range: 1000.00 12000.00
-*/
+    /** Original temperature
+     *
+     * Estimated temperature of the light source in Kelvin the image was taken with.
+     *
+     * Unit: kelvin
+     * Default value: 6500.00
+     * Acceptable Range: 1000.00 12000.00
+     */
     public double getOriginalTemperature()
     {
         return m_OriginalTemperature;
     }
 
 
-/** Intended temperature
-
-Corrected estimation of the temperature of the light source in Kelvin.
-
-Unit: kelvin
-Default value: 6500.00
-Acceptable Range: 1000.00 12000.00
-*/
+    /** Intended temperature
+     *
+     * Corrected estimation of the temperature of the light source in Kelvin.
+     *
+     * Unit: kelvin
+     * Default value: 6500.00
+     * Acceptable Range: 1000.00 12000.00
+     * */
     private double m_IntendedTemperature  = 6500.00;
 
-/** Intended temperature
-
-Corrected estimation of the temperature of the light source in Kelvin.
-
-Unit: kelvin
-Default value: 6500.00
-Acceptable Range: 1000.00 12000.00
-*/
+    /** Intended temperature
+     *
+     * Corrected estimation of the temperature of the light source in Kelvin.
+     *
+     * Unit: kelvin
+     * Default value: 6500.00
+     * Acceptable Range: 1000.00 12000.00
+     */
     public ColorTemperature setIntendedTemperature(double value) throws ParameterOutOfRangeException
     {
 		if(value > 12000.00 || value < 1000.00)
@@ -107,19 +111,27 @@ Acceptable Range: 1000.00 12000.00
         return this;
     }
 
-/** Intended temperature
-
-Corrected estimation of the temperature of the light source in Kelvin.
-
-Unit: kelvin
-Default value: 6500.00
-Acceptable Range: 1000.00 12000.00
-*/
+    /** Intended temperature
+     *
+     * Corrected estimation of the temperature of the light source in Kelvin.
+     *
+     * Unit: kelvin
+     * Default value: 6500.00
+     * Acceptable Range: 1000.00 12000.00
+     */
     public double getIntendedTemperature()
     {
         return m_IntendedTemperature;
     }
 
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
+    public OutputPad output()
+    {
+        return new OutputPad(this, "output");
+    }
 
 }
 

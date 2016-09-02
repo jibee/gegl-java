@@ -1,55 +1,59 @@
 package com.jibee.gegl.filters.gegl;
+
 import com.jibee.gegl.GeglFilter;
 import com.sun.jna.Pointer;
+import com.jibee.gegl.InputPad;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
-Buffer Sink
-
-Create a new GEGL buffer to write the resulting rendering.
-
-License: 
-Supports OpenCL: 
-Position Dependant: 
-*/
+ * Buffer Sink
+ *
+ * Create a new GEGL buffer to write the resulting rendering.
+ * 
+ * License: 
+ * Supports OpenCL: false
+ * Position Dependant: false
+ */
+@Filter(license="", opencl=false, position_dependant=false, categories={"programming", "output"})
 public class BufferSink extends GeglFilter
 {
-/** Constructs a Buffer Sink.
-
-Create a new GEGL buffer to write the resulting rendering.
-*/
+    /** Constructs a Buffer Sink.
+     *
+     * Create a new GEGL buffer to write the resulting rendering.
+     */
     public BufferSink(GeglNode container)
     {
         super(container, "gegl:buffer-sink");
     }
-/** Constructs a Buffer Sink.
-
-Create a new GEGL buffer to write the resulting rendering.
-*/
+    /** Constructs a Buffer Sink.
+     *
+     * Create a new GEGL buffer to write the resulting rendering.
+     */
     public BufferSink(GeglFilter parent)
     {
         super(parent, "gegl:buffer-sink");
     }
 
     
-/** Buffer location
-
-
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Buffer location
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private Pointer m_Buffer ;
 
-/** Buffer location
-
-
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Buffer location
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public BufferSink setBuffer(Pointer value)
     {
 	
@@ -58,38 +62,38 @@ Acceptable Range:
         return this;
     }
 
-/** Buffer location
-
-
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** Buffer location
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public Pointer getBuffer()
     {
         return m_Buffer;
     }
 
 
-/** babl format
-
-
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** babl format
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
     private Pointer m_Format ;
 
-/** babl format
-
-
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** babl format
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public BufferSink setFormat(Pointer value)
     {
 	
@@ -98,19 +102,23 @@ Acceptable Range:
         return this;
     }
 
-/** babl format
-
-
-
-Unit: 
-Default value: 
-Acceptable Range:  
-*/
+    /** babl format
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
     public Pointer getFormat()
     {
         return m_Format;
     }
 
+    public InputPad input()
+    {
+        return new InputPad(this, "input");
+    }
 
 }
 
