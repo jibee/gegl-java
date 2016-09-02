@@ -146,21 +146,22 @@ public class $className extends GeglFilter
 
 EOF
 
-my $target_file = "JWeb/src/main/java/".$namespace;
-$target_file =~s/\./\//g;
-warn($target_file) unless -d $target_file;
-$target_file.="/".$className.".java";
+    my $target_file = "JWeb/src/main/java/".$namespace;
+    $target_file =~s/\./\//g;
+    warn($target_file) unless -d $target_file;
+    $target_file.="/".$className.".java";
 
-my $file = new IO::File($target_file, "w");
-print $file $class_contents;
-close $file;
+    my $file = new IO::File($target_file, "w");
+    print $file $class_contents;
+    close $file;
 }
 
 sub processPad
 {
     my ($padspec, $class)=@_;
+    my $padName=make_wikiname($padspec);
     my $text = <<"EOF";
-    public $class $padspec()
+    public $class $padName()
     {
         return new $class(this, "$padspec");
     }
@@ -229,6 +230,7 @@ sub parse_property
 	}
 	if($java_type eq "String")
 	{
+            $default =~ s/\n/\\n"+\n"/g;
 	    $default = '"'.$default.'"';
 	}
 	if($java_type eq "double")
