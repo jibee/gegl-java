@@ -1,4 +1,4 @@
-#!/bin/perl
+#!/usr/bin/perl
 
 use common::sense;
 use JSON::XS;
@@ -45,6 +45,8 @@ my $className = make_wikiname($filter_name);
 
 # input pads
 #say join(", ", @{$operation_spec->{"input-pads"}}) if $operation_spec->{"input-pads"};
+    my $inputPads = processPads($operation_spec->{"input-pads"}, "InputPad");
+    my $outputPads = processPads($operation_spec->{"output-pads"}, "OutputPad");
     delete $operation_spec->{"input-pads"};
 #say join(", ", @{$operation_spec->{"output-pads"}}) if $operation_spec->{"output-pads"};
     delete $operation_spec->{"output-pads"};
@@ -56,8 +58,7 @@ my $className = make_wikiname($filter_name);
     delete $operation_spec->{"source"};
 
 # Filter categories
-#say join(", ", @{$operation_spec->{"categories"}});
-    delete $operation_spec->{"categories"};
+    my $categories = arrayRefToJavaArray($operation_spec->{'categories'});
 # Filter friendly name. Not always there
     my $title = $operation_spec->{title};
 
@@ -69,7 +70,12 @@ my $className = make_wikiname($filter_name);
     my $property_declarations = $props->{declaration};
     my $used_types = $props->{used_types};
     $used_types->{GeglFilter}=1;
+    $used_types->{InputPad}=1 if $inputPads;
+    $used_types->{OutputPad}=1 if $outputPads;
+
     my %type_import_specs = (
+	    "OutputPad"=>"import com.jibee.gegl.OutputPad;",
+	    "InputPad"=>"import com.jibee.gegl.InputPad;",
 	    "GeglFilter"=>"import com.jibee.gegl.GeglFilter;",
 	    "Pointer"=>"import com.sun.jna.Pointer;",
 	    "Babl"=>"import com.jibee.gegl.Babl;",
@@ -90,11 +96,11 @@ my $className = make_wikiname($filter_name);
 
 # Position dependent flag. Not sure what it means
 #say $operation_spec->{"position-dependent"} if $operation_spec->{'position-dependent'};
-    my $position_dependant = $operation_spec->{'position-dependent'};
+    my $position_dependant = $operation_spec->{'position-dependent'}?"true":"false";
 # Indicates if the filter supports OpenCL accelerated calculation
 #say $operation_spec->{"opencl-support"} if $operation_spec->{'opencl-support'};
-    my $support_openCL = $operation_spec->{'opencl-support'};
-
+    my $support_openCL = $operation_spec->{'opencl-support'}?"true":"false";
+    delete $operation_spec->{'opencl-support'};
 # exemple of invocation of the filter in a XML representation
 #say $operation_spec->{"reference-composition"} if $operation_spec->{'reference-composition'};
     delete $operation_spec->{'reference-composition'};
@@ -104,6 +110,7 @@ package $namespace;
 
 $type_imports
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.Filter;
 
 /**
  * $title
@@ -114,27 +121,27 @@ import com.jibee.gegl.GeglNode;
  * Supports OpenCL: $support_openCL
  * Position Dependant: $position_dependant
  */
-\@Filter(license="$license", opencl=$support_openCL, position_dependant=$position_dependant)
+\@Filter(license="$license", opencl=$support_openCL, position_dependant=$position_dependant, categories={$categories})
 public class $className extends GeglFilter
 {
-/** Constructs a $title.
-
-$description
-*/
+    /** Constructs a $title.
+     *
+     * $description
+     */
     public $className(GeglNode container)
     {
         super(container, "$operation_id");
     }
-/** Constructs a $title.
-
-$description
-*/
+    /** Constructs a $title.
+     *
+     * $description
+     */
     public $className(GeglFilter parent)
     {
         super(parent, "$operation_id");
     }
 
-    $property_declarations
+    $property_declarations$inputPads$outputPads
 }
 
 EOF
@@ -147,6 +154,33 @@ $target_file.="/".$className.".java";
 my $file = new IO::File($target_file, "w");
 print $file $class_contents;
 close $file;
+}
+
+sub processPad
+{
+    my ($padspec, $class)=@_;
+    my $text = <<"EOF";
+    public $class $padspec()
+    {
+        return new $class(this, "$padspec");
+    }
+EOF
+
+    return $text;
+}
+
+sub processPads
+{
+    my ($padspecs, $class)=@_;
+    return "" unless $padspecs;
+    return join("\n", map{processPad($_, $class)} @$padspecs);
+}
+
+sub arrayRefToJavaArray
+{
+    my $ref = shift;
+    my @elements= $ref?@{$ref}:();
+    return join(", ", map { "\"".$_."\"" } @elements);
 }
 
 sub parse_properties
@@ -266,24 +300,24 @@ EOF
 #say join(", ", keys %$op) if %$op;
     my $property_declaration = <<"EOF";
 
-/** $label
-
-$description
-
-Unit: $unit
-Default value: $default
-Acceptable Range: $minimum $maximum
-*/
+    /** $label
+     *
+     * $description
+     *
+     * Unit: $unit
+     * Default value: $default
+     * Acceptable Range: $minimum $maximum
+     * */
     private $java_type $fieldname $default_value_init;
 
-/** $label
-
-$description
-
-Unit: $unit
-Default value: $default
-Acceptable Range: $minimum $maximum
-*/
+    /** $label
+     *
+     * $description
+     *
+     * Unit: $unit
+     * Default value: $default
+     * Acceptable Range: $minimum $maximum
+     */
     public $className set$shortName($java_type value)$exception_declaration
     {
 	$allowed_range_check
@@ -292,14 +326,14 @@ Acceptable Range: $minimum $maximum
         return this;
     }
 
-/** $label
-
-$description
-
-Unit: $unit
-Default value: $default
-Acceptable Range: $minimum $maximum
-*/
+    /** $label
+     *
+     * $description
+     *
+     * Unit: $unit
+     * Default value: $default
+     * Acceptable Range: $minimum $maximum
+     */
     public $java_type get$shortName()
     {
         return $fieldname;
