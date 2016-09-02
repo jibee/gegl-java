@@ -7,7 +7,8 @@ use Unicode::Normalize;
 
 my $json_text_handle=new IO::File("3rdParty/src/gegl-build/docs/operations.json", "r");
 my $json_text = join("", <$json_text_handle>);
-
+$json_text=~s/^window.opdb=//;
+$json_text=~s/\[Invalid UTF-8\] \\x[a-z0-9]{2}//gc;
 my $data = decode_json($json_text);
 
 my %java_type_map=(
@@ -64,7 +65,7 @@ my $className = make_wikiname($filter_name);
     delete $operation_spec->{image};
 
 # Properties. We really need to parse this...
-    my $props = parse_properties($operation_spec->{properties});
+    my $props = parse_properties($className, $operation_spec->{properties});
     my $property_declarations = $props->{declaration};
     my $used_types = $props->{used_types};
     $used_types->{GeglFilter}=1;
@@ -101,6 +102,7 @@ my $className = make_wikiname($filter_name);
 my $class_contents = <<"EOF";
 package $namespace;
 $type_imports
+import com.jibee.gegl.GeglNode;
 
 /**
 $title
@@ -113,9 +115,21 @@ Position Dependant: $position_dependant
 */
 public class $className extends GeglFilter
 {
-    public $className()
+/** Constructs a $title.
+
+$description
+*/
+    public $className(GeglNode container)
     {
-	super("$operation_id");
+        super(container, "$operation_id");
+    }
+/** Constructs a $title.
+
+$description
+*/
+    public $className(GeglFilter parent)
+    {
+        super(parent, "$operation_id");
     }
 
     $property_declarations
@@ -135,12 +149,12 @@ close $file;
 
 sub parse_properties
 {
-    my ($ops)=@_;
+    my ($className, $ops)=@_;
     my $retval = "";
     my %used_types = ();
     foreach my $op (@$ops)
     {
-	my $props = parse_property($op);
+	my $props = parse_property($className, $op);
 	$retval .= $props->{declaration};
 	%used_types = (%used_types, %{$props->{used_types}});
 
@@ -151,7 +165,7 @@ sub parse_properties
 
 sub parse_property
 {
-    my ($op)=@_;
+    my ($className, $op)=@_;
     my $name = $op->{name};
     my $type = $op->{type};
     my $label = $op->{label};
@@ -255,20 +269,38 @@ EOF
 $description
 
 Unit: $unit
-
+Default value: $default
+Acceptable Range: $minimum $maximum
 */
     private $java_type $fieldname $default_value_init;
 
-    public void set$shortName($java_type value)$exception_declaration
+/** $label
+
+$description
+
+Unit: $unit
+Default value: $default
+Acceptable Range: $minimum $maximum
+*/
+    public $className set$shortName($java_type value)$exception_declaration
     {
 	$allowed_range_check
-	$fieldname = value;
-	setProperty("$name", value);
+        $fieldname = value;
+        setProperty("$name", value);
+        return this;
     }
 
+/** $label
+
+$description
+
+Unit: $unit
+Default value: $default
+Acceptable Range: $minimum $maximum
+*/
     public $java_type get$shortName()
     {
-	return $fieldname;
+        return $fieldname;
     }
 
 EOF
