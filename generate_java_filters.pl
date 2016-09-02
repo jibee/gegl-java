@@ -80,7 +80,7 @@ my $className = make_wikiname($filter_name);
 	    "ParameterOutOfRangeException"=>"import com.jibee.gegl.ParameterOutOfRangeException;"
 	    );
     my %types = map { $type_import_specs{$_}=>1 } keys(%$used_types);
-    my $type_imports = join("\n", keys(%types));
+    my $type_imports = join("\n", grep {$_} keys(%types));
 
 # Aternative name for this filter
     delete $operation_spec->{"compat-op"};
@@ -101,6 +101,7 @@ my $className = make_wikiname($filter_name);
 
 my $class_contents = <<"EOF";
 package $namespace;
+
 $type_imports
 import com.jibee.gegl.GeglNode;
 
