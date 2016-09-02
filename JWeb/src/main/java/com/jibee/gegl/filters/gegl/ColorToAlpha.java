@@ -1,11 +1,11 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.OutputPad;
-import com.jibee.gegl.InputPad;
+import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglColor;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
-import com.jibee.gegl.Filter;
+import com.jibee.gegl.InputPad;
+import com.jibee.gegl.OutputPad;
 
 /**
  * Color to Alpha
@@ -76,11 +76,11 @@ public class ColorToAlpha extends GeglFilter
         return m_Color;
     }
 
-    public InputPad input()
+    public InputPad Input()
     {
         return new InputPad(this, "input");
     }
-    public OutputPad output()
+    public OutputPad Output()
     {
         return new OutputPad(this, "output");
     }

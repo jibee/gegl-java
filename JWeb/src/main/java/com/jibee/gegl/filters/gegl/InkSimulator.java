@@ -1,11 +1,11 @@
 package com.jibee.gegl.filters.gegl;
 
+import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
-import com.jibee.gegl.GeglNode;
-import com.jibee.gegl.Filter;
 
 /**
  * Ink Simulator
@@ -42,38 +42,38 @@ public class InkSimulator extends GeglFilter
      * Textual desciption of inks used for simulated print-job
      *
      * Unit: 
-     * Default value: "
-substrate=white
-black=rgb 0 0 0
-ink1=black
-ink2=red
-ink2.black=black
-
-"
+     * Default value: "\n"+
+"substrate=white\n"+
+"black=rgb 0 0 0\n"+
+"ink1=black\n"+
+"ink2=red\n"+
+"ink2.black=black\n"+
+"\n"+
+""
      * Acceptable Range:  
      * */
-    private String m_Config  = "
-substrate=white
-black=rgb 0 0 0
-ink1=black
-ink2=red
-ink2.black=black
-
-";
+    private String m_Config  = "\n"+
+"substrate=white\n"+
+"black=rgb 0 0 0\n"+
+"ink1=black\n"+
+"ink2=red\n"+
+"ink2.black=black\n"+
+"\n"+
+"";
 
     /** Ink configuration
      *
      * Textual desciption of inks used for simulated print-job
      *
      * Unit: 
-     * Default value: "
-substrate=white
-black=rgb 0 0 0
-ink1=black
-ink2=red
-ink2.black=black
-
-"
+     * Default value: "\n"+
+"substrate=white\n"+
+"black=rgb 0 0 0\n"+
+"ink1=black\n"+
+"ink2=red\n"+
+"ink2.black=black\n"+
+"\n"+
+""
      * Acceptable Range:  
      */
     public InkSimulator setConfig(String value)
@@ -89,14 +89,14 @@ ink2.black=black
      * Textual desciption of inks used for simulated print-job
      *
      * Unit: 
-     * Default value: "
-substrate=white
-black=rgb 0 0 0
-ink1=black
-ink2=red
-ink2.black=black
-
-"
+     * Default value: "\n"+
+"substrate=white\n"+
+"black=rgb 0 0 0\n"+
+"ink1=black\n"+
+"ink2=red\n"+
+"ink2.black=black\n"+
+"\n"+
+""
      * Acceptable Range:  
      */
     public String getConfig()
@@ -188,11 +188,11 @@ ink2.black=black
         return m_DebugWidth;
     }
 
-    public InputPad input()
+    public InputPad Input()
     {
         return new InputPad(this, "input");
     }
-    public OutputPad output()
+    public OutputPad Output()
     {
         return new OutputPad(this, "output");
     }

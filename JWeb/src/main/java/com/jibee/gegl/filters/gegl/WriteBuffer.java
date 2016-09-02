@@ -1,10 +1,10 @@
 package com.jibee.gegl.filters.gegl;
 
+import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglBuffer;
-import com.jibee.gegl.InputPad;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
-import com.jibee.gegl.Filter;
+import com.jibee.gegl.InputPad;
 
 /**
  * Write Buffer
@@ -75,7 +75,7 @@ public class WriteBuffer extends GeglFilter
         return m_Buffer;
     }
 
-    public InputPad input()
+    public InputPad Input()
     {
         return new InputPad(this, "input");
     }

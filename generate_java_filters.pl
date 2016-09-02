@@ -70,6 +70,8 @@ my $className = make_wikiname($filter_name);
     my $property_declarations = $props->{declaration};
     my $used_types = $props->{used_types};
     $used_types->{GeglFilter}=1;
+    $used_types->{GeglNode}=1;
+    $used_types->{Filter}=1;
     $used_types->{InputPad}=1 if $inputPads;
     $used_types->{OutputPad}=1 if $outputPads;
 
@@ -77,6 +79,8 @@ my $className = make_wikiname($filter_name);
 	    "OutputPad"=>"import com.jibee.gegl.OutputPad;",
 	    "InputPad"=>"import com.jibee.gegl.InputPad;",
 	    "GeglFilter"=>"import com.jibee.gegl.GeglFilter;",
+	    "Filter"=>"import com.jibee.gegl.Filter;",
+	    "GeglNode"=>"import com.jibee.gegl.GeglNode;",
 	    "Pointer"=>"import com.sun.jna.Pointer;",
 	    "Babl"=>"import com.jibee.gegl.Babl;",
 	    "GeglBuffer"=>"import com.jibee.gegl.GeglBuffer;",
@@ -86,7 +90,7 @@ my $className = make_wikiname($filter_name);
 	    "ParameterOutOfRangeException"=>"import com.jibee.gegl.ParameterOutOfRangeException;"
 	    );
     my %types = map { $type_import_specs{$_}=>1 } keys(%$used_types);
-    my $type_imports = join("\n", grep {$_} keys(%types));
+    my $type_imports = join("\n", grep {$_} sort keys(%types));
 
 # Aternative name for this filter
     delete $operation_spec->{"compat-op"};
@@ -109,8 +113,6 @@ my $class_contents = <<"EOF";
 package $namespace;
 
 $type_imports
-import com.jibee.gegl.GeglNode;
-import com.jibee.gegl.Filter;
 
 /**
  * $title

@@ -1,10 +1,10 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.ParameterOutOfRangeException;
-import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
-import com.jibee.gegl.Filter;
+import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.ParameterOutOfRangeException;
 
 /**
  * Solid Noise
@@ -367,7 +367,7 @@ public class NoiseSolid extends GeglFilter
         return m_Height;
     }
 
-    public OutputPad output()
+    public OutputPad Output()
     {
         return new OutputPad(this, "output");
     }

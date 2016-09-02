@@ -1,10 +1,10 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.GeglFilter;
-import com.sun.jna.Pointer;
-import com.jibee.gegl.InputPad;
-import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.Filter;
+import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.InputPad;
+import com.sun.jna.Pointer;
 
 /**
  * Buffer Sink
@@ -115,7 +115,7 @@ public class BufferSink extends GeglFilter
         return m_Format;
     }
 
-    public InputPad input()
+    public InputPad Input()
     {
         return new InputPad(this, "input");
     }

@@ -1,11 +1,11 @@
 package com.jibee.gegl.filters.gegl;
 
+import com.jibee.gegl.Filter;
+import com.jibee.gegl.GeglFilter;
+import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
-import com.jibee.gegl.GeglFilter;
-import com.jibee.gegl.InputPad;
-import com.jibee.gegl.GeglNode;
-import com.jibee.gegl.Filter;
 
 /**
  * 
@@ -1400,11 +1400,11 @@ public class ConvolutionMatrix extends GeglFilter
         return m_Border;
     }
 
-    public InputPad input()
+    public InputPad Input()
     {
         return new InputPad(this, "input");
     }
-    public OutputPad output()
+    public OutputPad Output()
     {
         return new OutputPad(this, "output");
     }

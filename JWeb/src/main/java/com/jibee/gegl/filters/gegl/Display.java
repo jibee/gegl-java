@@ -1,9 +1,9 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.InputPad;
+import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
-import com.jibee.gegl.Filter;
+import com.jibee.gegl.InputPad;
 
 /**
  * 
@@ -74,7 +74,7 @@ public class Display extends GeglFilter
         return m_WindowTitle;
     }
 
-    public InputPad input()
+    public InputPad Input()
     {
         return new InputPad(this, "input");
     }
