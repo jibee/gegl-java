@@ -5,6 +5,8 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * Video Degradation
@@ -16,7 +18,7 @@ import com.jibee.gegl.OutputPad;
  * Position Dependant: false
  */
 @Filter(license="GPL3+", opencl=false, position_dependant=false, categories={"distort"})
-public class VideoDegradation extends GeglFilter
+public class VideoDegradation extends GeglFilter implements Source, Sink
 {
     /** Constructs a Video Degradation.
      *

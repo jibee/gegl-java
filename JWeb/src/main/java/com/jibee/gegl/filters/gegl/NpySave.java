@@ -4,6 +4,7 @@ import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
+import com.jibee.gegl.Sink;
 
 /**
  * NPY File Saver
@@ -15,7 +16,7 @@ import com.jibee.gegl.InputPad;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"output"})
-public class NpySave extends GeglFilter
+public class NpySave extends GeglFilter implements Sink
 {
     /** Constructs a NPY File Saver.
      *

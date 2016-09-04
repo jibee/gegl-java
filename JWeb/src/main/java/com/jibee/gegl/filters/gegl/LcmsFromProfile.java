@@ -5,6 +5,8 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 import com.sun.jna.Pointer;
 
 /**
@@ -17,7 +19,7 @@ import com.sun.jna.Pointer;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"color"})
-public class LcmsFromProfile extends GeglFilter
+public class LcmsFromProfile extends GeglFilter implements Source, Sink
 {
     /** Constructs a LCMS From Profile.
      *

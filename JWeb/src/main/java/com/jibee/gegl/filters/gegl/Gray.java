@@ -5,6 +5,8 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * Make Grey
@@ -16,7 +18,7 @@ import com.jibee.gegl.OutputPad;
  * Position Dependant: false
  */
 @Filter(license="", opencl=true, position_dependant=false, categories={"grayscale", "color"})
-public class Gray extends GeglFilter
+public class Gray extends GeglFilter implements Source, Sink
 {
     /** Constructs a Make Grey.
      *

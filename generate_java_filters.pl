@@ -47,6 +47,8 @@ my $className = make_wikiname($filter_name);
 #say join(", ", @{$operation_spec->{"input-pads"}}) if $operation_spec->{"input-pads"};
     my $inputPads = processPads($operation_spec->{"input-pads"}, "InputPad");
     my $outputPads = processPads($operation_spec->{"output-pads"}, "OutputPad");
+    my $implements_spec = prepareImplements($operation_spec->{"input-pads"}, $operation_spec->{"output-pads"});
+    my $implements = $implements_spec->{text};
     delete $operation_spec->{"input-pads"};
 #say join(", ", @{$operation_spec->{"output-pads"}}) if $operation_spec->{"output-pads"};
     delete $operation_spec->{"output-pads"};
@@ -74,8 +76,12 @@ my $className = make_wikiname($filter_name);
     $used_types->{Filter}=1;
     $used_types->{InputPad}=1 if $inputPads;
     $used_types->{OutputPad}=1 if $outputPads;
+    $used_types->{$_}=1 foreach @{$implements_spec->{imports}};
 
     my %type_import_specs = (
+	    "Sink"=>"import com.jibee.gegl.Sink;",
+	    "DualSink"=>"import com.jibee.gegl.DualSink;",
+	    "Source"=>"import com.jibee.gegl.Source;",
 	    "OutputPad"=>"import com.jibee.gegl.OutputPad;",
 	    "InputPad"=>"import com.jibee.gegl.InputPad;",
 	    "GeglFilter"=>"import com.jibee.gegl.GeglFilter;",
@@ -124,7 +130,7 @@ $type_imports
  * Position Dependant: $position_dependant
  */
 \@Filter(license="$license", opencl=$support_openCL, position_dependant=$position_dependant, categories={$categories})
-public class $className extends GeglFilter
+public class $className extends GeglFilter$implements
 {
     /** Constructs a $title.
      *
@@ -156,6 +162,39 @@ EOF
     my $file = new IO::File($target_file, "w");
     print $file $class_contents;
     close $file;
+}
+
+sub prepareImplements
+{
+    my ($ins, $outs)=@_;
+    my %pads = map {$_=>1} (
+        $ins?@$ins:(),
+        $outs?@$outs:()
+    );
+    my @implements = ();
+    if($pads{output})
+    {
+        push @implements, "Source";
+    }
+    if($pads{input})
+    {
+        if($pads{aux})
+        {
+            push @implements, "DualSink";
+        }
+        else
+        {
+            push @implements, "Sink";
+        }
+    }
+    if(@implements)
+    {
+        return {text=>" implements ".join(", ", @implements), imports=>[@implements]}
+    }
+    else
+    {
+        return {text=>"", imports=>[]};
+    }
 }
 
 sub processPad

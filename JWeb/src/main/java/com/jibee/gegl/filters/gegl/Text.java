@@ -6,6 +6,7 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Source;
 
 /**
  * Render Text
@@ -17,7 +18,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"render"})
-public class Text extends GeglFilter
+public class Text extends GeglFilter implements Source
 {
     /** Constructs a Render Text.
      *

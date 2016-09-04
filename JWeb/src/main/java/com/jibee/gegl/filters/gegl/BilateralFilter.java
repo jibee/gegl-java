@@ -6,6 +6,8 @@ import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * Bilateral Filter
@@ -17,7 +19,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: false
  */
 @Filter(license="", opencl=true, position_dependant=false, categories={"enhance", "noise-reduction"})
-public class BilateralFilter extends GeglFilter
+public class BilateralFilter extends GeglFilter implements Source, Sink
 {
     /** Constructs a Bilateral Filter.
      *

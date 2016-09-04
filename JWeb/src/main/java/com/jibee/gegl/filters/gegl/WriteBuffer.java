@@ -5,6 +5,7 @@ import com.jibee.gegl.GeglBuffer;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
+import com.jibee.gegl.Sink;
 
 /**
  * Write Buffer
@@ -16,7 +17,7 @@ import com.jibee.gegl.InputPad;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"programming", "output"})
-public class WriteBuffer extends GeglFilter
+public class WriteBuffer extends GeglFilter implements Sink
 {
     /** Constructs a Write Buffer.
      *

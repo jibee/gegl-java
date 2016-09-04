@@ -4,6 +4,7 @@ import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.Source;
 
 /**
  * JPEG File Loader
@@ -15,7 +16,7 @@ import com.jibee.gegl.OutputPad;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"hidden"})
-public class JpgLoad extends GeglFilter
+public class JpgLoad extends GeglFilter implements Source
 {
     /** Constructs a JPEG File Loader.
      *

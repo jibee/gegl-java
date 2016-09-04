@@ -5,6 +5,8 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * 
@@ -16,7 +18,7 @@ import com.jibee.gegl.OutputPad;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"transform"})
-public class Translate extends GeglFilter
+public class Translate extends GeglFilter implements Source, Sink
 {
     /** Constructs a .
      *

@@ -5,6 +5,8 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * Stretch Contrast HSV
@@ -16,7 +18,7 @@ import com.jibee.gegl.OutputPad;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"color", "enhance"})
-public class StretchContrastHsv extends GeglFilter
+public class StretchContrastHsv extends GeglFilter implements Source, Sink
 {
     /** Constructs a Stretch Contrast HSV.
      *

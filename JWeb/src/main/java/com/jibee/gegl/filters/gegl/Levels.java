@@ -6,6 +6,8 @@ import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * Levels
@@ -17,7 +19,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: false
  */
 @Filter(license="", opencl=true, position_dependant=false, categories={"color"})
-public class Levels extends GeglFilter
+public class Levels extends GeglFilter implements Source, Sink
 {
     /** Constructs a Levels.
      *

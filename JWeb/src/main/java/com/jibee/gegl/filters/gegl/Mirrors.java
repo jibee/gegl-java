@@ -6,6 +6,8 @@ import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * Kaleidoscopic Mirroring
@@ -17,7 +19,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: true
  */
 @Filter(license="", opencl=false, position_dependant=true, categories={"blur"})
-public class Mirrors extends GeglFilter
+public class Mirrors extends GeglFilter implements Source, Sink
 {
     /** Constructs a Kaleidoscopic Mirroring.
      *

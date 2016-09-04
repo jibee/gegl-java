@@ -4,6 +4,7 @@ import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
+import com.jibee.gegl.Sink;
 import com.sun.jna.Pointer;
 
 /**
@@ -16,7 +17,7 @@ import com.sun.jna.Pointer;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"programming", "output"})
-public class BufferSink extends GeglFilter
+public class BufferSink extends GeglFilter implements Sink
 {
     /** Constructs a Buffer Sink.
      *

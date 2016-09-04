@@ -7,6 +7,8 @@ import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * Lens Distortion
@@ -18,7 +20,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: true
  */
 @Filter(license="GPL3+", opencl=false, position_dependant=true, categories={"blur"})
-public class LensDistortion extends GeglFilter
+public class LensDistortion extends GeglFilter implements Source, Sink
 {
     /** Constructs a Lens Distortion.
      *

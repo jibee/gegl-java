@@ -4,6 +4,7 @@ import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
+import com.jibee.gegl.Sink;
 
 /**
  * RGBE File Saver
@@ -15,7 +16,7 @@ import com.jibee.gegl.InputPad;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"output"})
-public class RgbeSave extends GeglFilter
+public class RgbeSave extends GeglFilter implements Sink
 {
     /** Constructs a RGBE File Saver.
      *

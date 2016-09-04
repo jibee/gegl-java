@@ -7,6 +7,7 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Source;
 
 /**
  * Checkerboard
@@ -18,7 +19,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: true
  */
 @Filter(license="", opencl=false, position_dependant=true, categories={"render"})
-public class Checkerboard extends GeglFilter
+public class Checkerboard extends GeglFilter implements Source
 {
     /** Constructs a Checkerboard.
      *

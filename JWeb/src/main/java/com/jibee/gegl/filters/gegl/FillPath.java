@@ -8,6 +8,8 @@ import com.jibee.gegl.GeglVector;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * Fill Path
@@ -19,7 +21,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"render"})
-public class FillPath extends GeglFilter
+public class FillPath extends GeglFilter implements Source, Sink
 {
     /** Constructs a Fill Path.
      *

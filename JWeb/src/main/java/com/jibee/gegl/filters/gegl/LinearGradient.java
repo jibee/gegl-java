@@ -5,6 +5,7 @@ import com.jibee.gegl.GeglColor;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.Source;
 
 /**
  * Linear Gradient
@@ -16,7 +17,7 @@ import com.jibee.gegl.OutputPad;
  * Position Dependant: true
  */
 @Filter(license="", opencl=false, position_dependant=true, categories={"render", "gradient"})
-public class LinearGradient extends GeglFilter
+public class LinearGradient extends GeglFilter implements Source
 {
     /** Constructs a Linear Gradient.
      *

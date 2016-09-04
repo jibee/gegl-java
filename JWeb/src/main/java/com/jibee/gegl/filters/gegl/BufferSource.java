@@ -5,6 +5,7 @@ import com.jibee.gegl.GeglBuffer;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.Source;
 
 /**
  * Buffer Source
@@ -16,7 +17,7 @@ import com.jibee.gegl.OutputPad;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"programming", "input"})
-public class BufferSource extends GeglFilter
+public class BufferSource extends GeglFilter implements Source
 {
     /** Constructs a Buffer Source.
      *

@@ -4,6 +4,7 @@ import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.Source;
 
 /**
  * Load Image
@@ -15,7 +16,7 @@ import com.jibee.gegl.OutputPad;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"meta", "input"})
-public class Load extends GeglFilter
+public class Load extends GeglFilter implements Source
 {
     /** Constructs a Load Image.
      *

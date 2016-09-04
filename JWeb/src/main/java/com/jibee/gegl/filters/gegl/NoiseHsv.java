@@ -6,6 +6,8 @@ import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * Add HSV Noise
@@ -17,7 +19,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"noise"})
-public class NoiseHsv extends GeglFilter
+public class NoiseHsv extends GeglFilter implements Source, Sink
 {
     /** Constructs a Add HSV Noise.
      *

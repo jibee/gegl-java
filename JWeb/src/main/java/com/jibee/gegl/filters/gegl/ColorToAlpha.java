@@ -6,6 +6,8 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * Color to Alpha
@@ -17,7 +19,7 @@ import com.jibee.gegl.OutputPad;
  * Position Dependant: false
  */
 @Filter(license="GPL3+", opencl=true, position_dependant=false, categories={"color"})
-public class ColorToAlpha extends GeglFilter
+public class ColorToAlpha extends GeglFilter implements Source, Sink
 {
     /** Constructs a Color to Alpha.
      *

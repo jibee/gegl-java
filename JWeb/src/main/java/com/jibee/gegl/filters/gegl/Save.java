@@ -4,6 +4,7 @@ import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
+import com.jibee.gegl.Sink;
 
 /**
  * Save
@@ -15,7 +16,7 @@ import com.jibee.gegl.InputPad;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"meta", "output"})
-public class Save extends GeglFilter
+public class Save extends GeglFilter implements Sink
 {
     /** Constructs a Save.
      *

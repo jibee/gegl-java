@@ -7,6 +7,8 @@ import com.jibee.gegl.GeglVector;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * Warp
@@ -18,7 +20,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: true
  */
 @Filter(license="", opencl=false, position_dependant=true, categories={"transform"})
-public class Warp extends GeglFilter
+public class Warp extends GeglFilter implements Source, Sink
 {
     /** Constructs a Warp.
      *

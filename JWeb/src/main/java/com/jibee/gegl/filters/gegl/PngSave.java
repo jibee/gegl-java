@@ -5,6 +5,7 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Sink;
 
 /**
  * PNG File Saver
@@ -16,7 +17,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"output"})
-public class PngSave extends GeglFilter
+public class PngSave extends GeglFilter implements Sink
 {
     /** Constructs a PNG File Saver.
      *

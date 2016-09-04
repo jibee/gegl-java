@@ -6,6 +6,7 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Source;
 
 /**
  * Sinus
@@ -17,7 +18,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: true
  */
 @Filter(license="GPL3+", opencl=false, position_dependant=true, categories={"render"})
-public class Sinus extends GeglFilter
+public class Sinus extends GeglFilter implements Source
 {
     /** Constructs a Sinus.
      *

@@ -6,6 +6,8 @@ import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * Photocopy
@@ -17,7 +19,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: false
  */
 @Filter(license="GPL3+", opencl=false, position_dependant=false, categories={"artistic"})
-public class Photocopy extends GeglFilter
+public class Photocopy extends GeglFilter implements Source, Sink
 {
     /** Constructs a Photocopy.
      *

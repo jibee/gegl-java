@@ -5,6 +5,7 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Source;
 
 /**
  * Perlin Noise
@@ -16,7 +17,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: true
  */
 @Filter(license="", opencl=false, position_dependant=true, categories={"render"})
-public class PerlinNoise extends GeglFilter
+public class PerlinNoise extends GeglFilter implements Source
 {
     /** Constructs a Perlin Noise.
      *

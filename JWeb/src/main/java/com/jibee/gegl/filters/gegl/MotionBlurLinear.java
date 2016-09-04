@@ -6,6 +6,8 @@ import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Sink;
+import com.jibee.gegl.Source;
 
 /**
  * Linear Motion Blur
@@ -17,7 +19,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: false
  */
 @Filter(license="", opencl=true, position_dependant=false, categories={"blur"})
-public class MotionBlurLinear extends GeglFilter
+public class MotionBlurLinear extends GeglFilter implements Source, Sink
 {
     /** Constructs a Linear Motion Blur.
      *

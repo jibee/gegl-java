@@ -5,6 +5,7 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Source;
 
 /**
  * Plasma
@@ -16,7 +17,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: true
  */
 @Filter(license="GPL3+", opencl=false, position_dependant=true, categories={"render"})
-public class Plasma extends GeglFilter
+public class Plasma extends GeglFilter implements Source
 {
     /** Constructs a Plasma.
      *

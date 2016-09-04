@@ -1,10 +1,12 @@
 package com.jibee.gegl.filters.gegl;
 
+import com.jibee.gegl.DualSink;
 import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.Source;
 
 /**
  * Map Absolute
@@ -16,7 +18,7 @@ import com.jibee.gegl.OutputPad;
  * Position Dependant: true
  */
 @Filter(license="", opencl=false, position_dependant=true, categories={"map"})
-public class MapAbsolute extends GeglFilter
+public class MapAbsolute extends GeglFilter implements Source, DualSink
 {
     /** Constructs a Map Absolute.
      *

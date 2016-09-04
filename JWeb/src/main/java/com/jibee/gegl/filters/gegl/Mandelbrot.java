@@ -5,6 +5,7 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Source;
 
 /**
  * 
@@ -16,7 +17,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"render"})
-public class Mandelbrot extends GeglFilter
+public class Mandelbrot extends GeglFilter implements Source
 {
     /** Constructs a .
      *
