@@ -37,10 +37,12 @@ public class ColorEnhance extends GeglFilter implements Source, Sink
         super(parent, "gegl:color-enhance");
     }
 
-        public InputPad Input()
+        @Override
+    public InputPad Input()
     {
         return new InputPad(this, "input");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

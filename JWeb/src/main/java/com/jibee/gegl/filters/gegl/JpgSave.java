@@ -284,6 +284,7 @@ public class JpgSave extends GeglFilter implements Sink
         return m_Grayscale;
     }
 
+    @Override
     public InputPad Input()
     {
         return new InputPad(this, "input");

@@ -77,15 +77,18 @@ public class Add extends GeglFilter implements Source, DualSink
         return m_Value;
     }
 
+    @Override
     public InputPad Aux()
     {
         return new InputPad(this, "aux");
     }
 
+    @Override
     public InputPad Input()
     {
         return new InputPad(this, "input");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

@@ -160,6 +160,7 @@ public class PpmSave extends GeglFilter implements Sink
         return m_Bitdepth;
     }
 
+    @Override
     public InputPad Input()
     {
         return new InputPad(this, "input");

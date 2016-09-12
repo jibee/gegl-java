@@ -76,6 +76,7 @@ public class BufferSource extends GeglFilter implements Source
         return m_Buffer;
     }
 
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

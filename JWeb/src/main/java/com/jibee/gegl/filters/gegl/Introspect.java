@@ -76,6 +76,7 @@ public class Introspect extends GeglFilter implements Source
         return m_Node;
     }
 
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

@@ -245,6 +245,7 @@ public class Rectangle extends GeglFilter implements Source
         return m_Color;
     }
 
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

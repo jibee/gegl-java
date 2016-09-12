@@ -197,15 +197,18 @@ public class ImageCompare extends GeglFilter implements Source, DualSink
         return m_AvgDiffTotal;
     }
 
+    @Override
     public InputPad Aux()
     {
         return new InputPad(this, "aux");
     }
 
+    @Override
     public InputPad Input()
     {
         return new InputPad(this, "input");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

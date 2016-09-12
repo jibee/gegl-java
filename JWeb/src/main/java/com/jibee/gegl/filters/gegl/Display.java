@@ -75,6 +75,7 @@ public class Display extends GeglFilter implements Sink
         return m_WindowTitle;
     }
 
+    @Override
     public InputPad Input()
     {
         return new InputPad(this, "input");

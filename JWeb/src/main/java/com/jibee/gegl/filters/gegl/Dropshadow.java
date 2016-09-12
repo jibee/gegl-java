@@ -247,10 +247,12 @@ public class Dropshadow extends GeglFilter implements Source, Sink
         return m_Opacity;
     }
 
+    @Override
     public InputPad Input()
     {
         return new InputPad(this, "input");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

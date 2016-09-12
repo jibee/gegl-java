@@ -469,10 +469,12 @@ Change to this: Change gray colors to this hue and saturation
         return m_Saturation;
     }
 
+    @Override
     public InputPad Input()
     {
         return new InputPad(this, "input");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

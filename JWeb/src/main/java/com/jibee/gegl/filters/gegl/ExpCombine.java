@@ -664,6 +664,7 @@ public class ExpCombine extends GeglFilter implements Source
     {
         return new InputPad(this, "exposure-0");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

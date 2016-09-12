@@ -788,6 +788,7 @@ public class FractalExplorer extends GeglFilter implements Source
         return m_Useloglog;
     }
 
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

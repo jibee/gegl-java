@@ -474,10 +474,12 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
         return m_BbGain;
     }
 
+    @Override
     public InputPad Input()
     {
         return new InputPad(this, "input");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

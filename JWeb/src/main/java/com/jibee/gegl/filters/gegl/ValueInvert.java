@@ -37,10 +37,12 @@ public class ValueInvert extends GeglFilter implements Source, Sink
         super(parent, "gegl:value-invert");
     }
 
-        public InputPad Input()
+        @Override
+    public InputPad Input()
     {
         return new InputPad(this, "input");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

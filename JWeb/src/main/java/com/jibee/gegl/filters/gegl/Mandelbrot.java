@@ -212,6 +212,7 @@ public class Mandelbrot extends GeglFilter implements Source
         return m_Maxiter;
     }
 
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

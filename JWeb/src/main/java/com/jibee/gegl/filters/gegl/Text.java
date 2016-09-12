@@ -369,6 +369,7 @@ public class Text extends GeglFilter implements Source
         return m_Height;
     }
 
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

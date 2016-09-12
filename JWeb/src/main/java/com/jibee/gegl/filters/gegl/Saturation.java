@@ -82,10 +82,12 @@ public class Saturation extends GeglFilter implements Source, Sink
         return m_Scale;
     }
 
+    @Override
     public InputPad Input()
     {
         return new InputPad(this, "input");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

@@ -276,6 +276,7 @@ public class RadialGradient extends GeglFilter implements Source
         return m_EndColor;
     }
 
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

@@ -210,10 +210,12 @@ public class Emboss extends GeglFilter implements Source, Sink
         return m_Depth;
     }
 
+    @Override
     public InputPad Input()
     {
         return new InputPad(this, "input");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

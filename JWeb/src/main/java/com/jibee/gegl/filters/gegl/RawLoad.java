@@ -155,6 +155,7 @@ public class RawLoad extends GeglFilter implements Source
         return m_Quality;
     }
 
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

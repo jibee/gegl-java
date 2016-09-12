@@ -37,10 +37,12 @@ public class Gray extends GeglFilter implements Source, Sink
         super(parent, "gegl:gray");
     }
 
-        public InputPad Input()
+        @Override
+    public InputPad Input()
     {
         return new InputPad(this, "input");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

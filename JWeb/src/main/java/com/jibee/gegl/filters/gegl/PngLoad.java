@@ -115,6 +115,7 @@ public class PngLoad extends GeglFilter implements Source
         return m_Uri;
     }
 
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

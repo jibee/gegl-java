@@ -208,6 +208,7 @@ sub processPad
     }
 EOF
 
+    $text="    \@Override\n".$text if($padspec=~/^(input|output|aux)$/);
     return $text;
 }
 

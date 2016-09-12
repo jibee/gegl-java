@@ -325,6 +325,7 @@ public class Grid extends GeglFilter implements Source
         return m_LineColor;
     }
 
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

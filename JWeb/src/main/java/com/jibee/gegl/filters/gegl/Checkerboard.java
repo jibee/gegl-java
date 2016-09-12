@@ -326,6 +326,7 @@ public class Checkerboard extends GeglFilter implements Source
         return m_Format;
     }
 
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

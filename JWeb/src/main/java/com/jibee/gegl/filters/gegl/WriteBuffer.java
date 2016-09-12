@@ -76,6 +76,7 @@ public class WriteBuffer extends GeglFilter implements Sink
         return m_Buffer;
     }
 
+    @Override
     public InputPad Input()
     {
         return new InputPad(this, "input");

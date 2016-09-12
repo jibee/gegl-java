@@ -78,10 +78,12 @@ public class ColorToAlpha extends GeglFilter implements Source, Sink
         return m_Color;
     }
 
+    @Override
     public InputPad Input()
     {
         return new InputPad(this, "input");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

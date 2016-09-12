@@ -37,15 +37,18 @@ public class BlendReflect extends GeglFilter implements Source, DualSink
         super(parent, "gegl:blend-reflect");
     }
 
-        public InputPad Aux()
+        @Override
+    public InputPad Aux()
     {
         return new InputPad(this, "aux");
     }
 
+    @Override
     public InputPad Input()
     {
         return new InputPad(this, "input");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");

@@ -37,10 +37,12 @@ public class SvgLuminancetoalpha extends GeglFilter implements Source, Sink
         super(parent, "gegl:svg-luminancetoalpha");
     }
 
-        public InputPad Input()
+        @Override
+    public InputPad Input()
     {
         return new InputPad(this, "input");
     }
+    @Override
     public OutputPad Output()
     {
         return new OutputPad(this, "output");
