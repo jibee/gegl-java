@@ -192,4 +192,8 @@ public class Render extends IMongoObject{
 	public int getHeight() {
 		return m_height;
 	}
+
+	public RenderSize getRenderProfile() {
+		return m_renderProfile;
+	}
 }

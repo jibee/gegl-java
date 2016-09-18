@@ -1,12 +1,16 @@
 package com.jibee.gegl;
 
-public class Pad {
-	private GeglFilter m_source;
-	private String m_padname;
+import lombok.Data;
 
-	public Pad(GeglFilter filter, String padName) {
-		m_source=filter;
-		m_padname=padName;
+@Data
+public class Pad {
+	private final GeglFilter filter;
+	private final String name;
+
+	
+	public Pad(GeglFilter f, String n) {
+		filter=f;
+		name=n;
 	}
 
 }

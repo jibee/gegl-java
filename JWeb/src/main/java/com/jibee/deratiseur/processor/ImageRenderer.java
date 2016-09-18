@@ -11,6 +11,7 @@ import java.util.Base64.Encoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.jibee.deratiseur.web.model.IImage.RenderSize;
 import com.jibee.deratiseur.web.model.persistance.Original;
 import com.jibee.deratiseur.web.model.persistance.Render;
 import com.jibee.deratiseur.web.model.persistance.Render.RenderStatus;
@@ -18,16 +19,21 @@ import com.jibee.deratiseur.web.model.persistance.Render.StorageEngine;
 import com.jibee.gegl.Gegl;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
+import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
+import com.jibee.gegl.Source;
 import com.jibee.gegl.filters.gegl.Crop;
 import com.jibee.gegl.filters.gegl.DcrawLoad;
 import com.jibee.gegl.filters.gegl.JpgLoad;
 import com.jibee.gegl.filters.gegl.JpgSave;
 import com.jibee.gegl.filters.gegl.PngSave;
+import com.jibee.gegl.filters.gegl.RawLoad;
 import com.jibee.gegl.filters.gegl.ScaleSize;
 import com.jibee.gegl.filters.gegl.Text;
 import com.jibee.gegl.filters.gegl.Translate;
 import com.jibee.gegl.filters.svg.SrcOver;
+
+import lombok.Value;
 
 public class ImageRenderer {
 	private static final ImageRenderer instance = new ImageRenderer();
@@ -39,6 +45,7 @@ public class ImageRenderer {
 		try {
 			m_prng = SecureRandom.getInstance("SHA1PRNG");
 			m_sha = MessageDigest.getInstance("SHA-1");
+			instance.setForceRescale(false);
 		} catch (NoSuchAlgorithmException e) {
 		}
 	}
@@ -47,10 +54,18 @@ public class ImageRenderer {
 	{
 		return instance;
 	}
+	private boolean m_forceRescale;
+	boolean getForceRescale()
+	{
+		return m_forceRescale;
+	}
+	void setForceRescale(boolean value)
+	{
+		m_forceRescale = value;
+	}
 
-	public void render(Render r) {
+	public synchronized void render(Render r) {
 		r.setMimeType("image/jpg");
-		GeglNode rootNode = com.jibee.gegl.Gegl.newNode();
 		String extension;
 		switch(r.getMimeType())
 		{
@@ -78,13 +93,17 @@ public class ImageRenderer {
 		r.calculateTargetDimensions();
 		Original o = r.getImage().getImage().getOriginal();
 		String filename = o.getPath();
-
-		GeglFilter loader = null;
+		
+		GeglNode rootNode = com.jibee.gegl.Gegl.newNode();
+		OutputPad loader = null;
 
 		if(filename.toLowerCase().endsWith(".jpg"))
-			loader = new JpgLoad(rootNode).setPath(filename);
-		else if(filename.toLowerCase().endsWith(".cr2"))
-			loader = new DcrawLoad(rootNode).setPath(filename);
+			loader = new JpgLoad(rootNode).setPath(filename).Output();
+		else if(filename.toLowerCase().endsWith(".cr2")||filename.toLowerCase().endsWith(".nef"))
+		{
+			RawLoad rr = new RawLoad(rootNode).setPath(filename);
+			loader = rr.Output();
+		}
 		else
 		{
 			logger.error("No input filter for {}", filename);
@@ -99,13 +118,15 @@ public class ImageRenderer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		GeglFilter previous = text;
-		for(int i = 0; i<3; ++i)
+		Source previous = text;
+		for(int i = 1; i<5; ++i)
 		{
-			Translate t = new Translate(rootNode).setX(400).setY(400);
+			Translate t = new Translate(rootNode).setX(400*i).setY(400*i);
 			text.connectTo(t);
 			SrcOver sub_over = new SrcOver(rootNode);
-
+			previous.Output().connectTo(sub_over.Input());
+			t.Output().connectTo(sub_over.Aux());
+			previous=sub_over;
 		}
 
 		SrcOver over = new SrcOver(rootNode);
@@ -126,9 +147,19 @@ public class ImageRenderer {
 			saver = new JpgSave(rootNode).setPath(output_file);
 			break;
 		}
-		loader.connectTo(over).connectTo(scaler).connectTo(crop).connectTo(saver);
+		loader.connectTo(over.Input());
+		if(r.getRenderProfile()!=RenderSize.FullResolution || m_forceRescale)
+		{
+			over.connectTo(scaler);
+			scaler.connectTo(saver);
+		}
+		else
+		{
+			over.connectTo(saver);
+		}
+//		crop.connectTo(saver);
 
-		text.connectTo(over, "output", "aux");
+		previous.Output().connectTo(over.Aux());
 		saver.process();
 		r.setStatus(RenderStatus.Succeeded);
 	}

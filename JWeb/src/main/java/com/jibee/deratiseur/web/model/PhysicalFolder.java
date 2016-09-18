@@ -58,6 +58,8 @@ public class PhysicalFolder implements iFolder {
 					// TODO expand list of extensions
 					if(file.getName().endsWith(".CR2"))
 						return true;
+					if(file.getName().endsWith(".NEF"))
+						return true;
 				}
 				return false;
 			}

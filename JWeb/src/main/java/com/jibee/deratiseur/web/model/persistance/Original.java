@@ -85,7 +85,7 @@ public class Original extends IMongoObject{
 			logger.info("Orientation: {}", m_orientation);
 			for(Directory d: m.getDirectories())
 			{
-				//logger.info("Found directory {}", d.getName());
+				logger.info("Found directory {}: {}", d.getName(), d.toString());
 			}
 		} catch (ImageProcessingException | IOException e) {
 			// TODO Auto-generated catch block
