@@ -1,5 +1,6 @@
 package com.jibee.gegl;
 
+import com.jibee.gegl.priv.GeglRectangle;
 
 public class Gegl {
 	static
@@ -20,5 +21,9 @@ public class Gegl {
 	public static GeglColor makeColor(String string) {
 		return com.jibee.gegl.priv.Gegl.INSTANCE.gegl_color_new(string);
 	}
-
+	
+	public static GeglBuffer newBuffer(GeglRectangle extent, Babl format)
+	{
+		return com.jibee.gegl.priv.Gegl.INSTANCE.gegl_buffer_new(extent, format.getPointer());
+	}
 }

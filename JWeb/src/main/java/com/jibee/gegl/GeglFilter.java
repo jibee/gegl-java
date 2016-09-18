@@ -65,9 +65,17 @@ public class GeglFilter {
 		return receiver;
 		
 	}
+	public GeglFilter connectTo(String outputPadName, InputPad pad)
+	{
+		connectTo(pad.getFilter(), outputPadName, pad.getName());
+		return pad.getFilter();
+	}
 	public void process() {
 		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_process(getImplementation());
 	}
-
+	public byte[] blit()
+	{
+		return m_implementation.blit();
+	}
 
 }

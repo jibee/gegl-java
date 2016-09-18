@@ -340,8 +340,8 @@ public interface Gegl extends Library {
 void gegl_node_blit (GeglNode node,
  double scale,
  GeglRectangle roi,
- Babl format,
- Pointer destination_buf,
+ TypedPointer<Babl> format,
+ byte[] buf,
  int rowstride,
  int flags);
 
@@ -494,7 +494,7 @@ GParamSpec * gegl_node_find_property (GeglNode node,
  * Returns the position and dimensions of a rectangle spanning the area
  * defined by a node.
  */
-GeglRectangle gegl_node_get_bounding_box (GeglNode node);
+GeglRectangle.ByValue gegl_node_get_bounding_box (GeglNode node);
 
 /**
  * gegl_node_get_children:
@@ -896,7 +896,7 @@ GeglColor gegl_param_spec_color_get_default (GParamSpec self);
  * possible to pass in NULL for both extent and format, a NULL extent creates
  * an empty buffer and a NULL format makes the buffer default to "RGBA float".
  */
-GeglBuffer gegl_buffer_new(GeglRectangle extent, Babl format);
+GeglBuffer gegl_buffer_new(GeglRectangle extent, TypedPointer<Babl> format);
 
 /**
  * gegl_buffer_new_for_backend:
@@ -993,7 +993,7 @@ GeglBuffer gegl_buffer_create_sub_buffer (GeglBuffer buffer, GeglRectangle exten
  * specific GeglBuffer, this is also the default width/height of buffers passed
  * in to gegl_buffer_set and gegl_buffer_get (with a scale of 1.0 at least).
  */
-GeglRectangle gegl_buffer_get_extent (GeglBuffer buffer);
+GeglRectangle gegl_buffer_get_extent (GeglBuffer geglBuffer);
 
 
 /**
@@ -1056,7 +1056,7 @@ void            gegl_buffer_get               (GeglBuffer buffer,
                                                GeglRectangle rect,
                                                double              scale,
                                                Babl format,
-                                               Pointer             dest,
+                                               byte[]             dest,
                                                int                 rowstride,
                                                int      repeat_mode);
 
@@ -1489,7 +1489,4 @@ long gegl_buffer_signal_connect (GeglBuffer buffer,
                                   String detailed_signal,
                                   GCallback   c_handler,
                                   Pointer    data);
-
-
-
 }
