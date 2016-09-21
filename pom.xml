@@ -1,31 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jibee</groupId>
-  <artifactId>deratiseur</artifactId>
+  <artifactId>gegl</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Deratiseur Web</name>
+  <name>GEGL Java bindings</name>
   <dependencies>
-    <dependency>
-      <groupId>eu.webtoolkit</groupId>
-      <artifactId>jwt</artifactId>
-      <version>3.3.4</version>
-    </dependency>
-
-    <dependency>
-    	<groupId>org.eclipse.jetty</groupId>
-    	<artifactId>jetty-server</artifactId>
-    	<version>9.3.0.v20150612</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.eclipse.jetty</groupId>
-    	<artifactId>jetty-servlet</artifactId>
-    	<version>9.3.0.v20150612</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.eclipse.jetty</groupId>
-    	<artifactId>jetty-webapp</artifactId>
-    	<version>9.3.0.v20150612</version>
-    </dependency>
     <dependency>
     	<groupId>com.googlecode.gstreamer-java</groupId>
     	<artifactId>gstreamer-java</artifactId>
@@ -38,17 +17,17 @@
     	<version>2.8.1</version>
     </dependency>
     <dependency>
-    	<groupId>org.mongodb.morphia</groupId>
-    	<artifactId>morphia</artifactId>
-    	<version>1.2.1</version>
-    </dependency>
-	<dependency>
 	<groupId>org.projectlombok</groupId>
 	<artifactId>lombok</artifactId>
 	<version>1.16.10</version>
 	<scope>provided</scope>
-</dependency>
-	</dependencies>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-api</artifactId>
+    	<version>1.7.21</version>
+    </dependency>
+  </dependencies>
 
 <repositories>
     <repository>
