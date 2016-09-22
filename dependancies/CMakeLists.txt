@@ -5,7 +5,7 @@ babl
 SOURCE_DIR babl
 GIT_REPOSITORY http://git.gnome.org/browse/babl
 PREFIX ${CMAKE_HOME_DIRECTORY}/3rdParty
-CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=<INSTALL_DIR>
+CONFIGURE_COMMAND <SOURCE_DIR>/autogen.sh --prefix=<INSTALL_DIR>
 
 )
 ExternalProject_Add(
