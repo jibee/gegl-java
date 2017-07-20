@@ -5,8 +5,19 @@ use JSON::XS;
 use IO::File;
 use Unicode::Normalize;
 
+
 my $json_text_handle=new IO::File("3rdParty/src/gegl-build/docs/operations.json", "r");
-my $json_text = join("", <$json_text_handle>);
+my $json_text = "";
+
+if($json_text_handle)
+{
+    $json_text = join("", <$json_text_handle>);
+}
+else
+{
+    $json_text = `./3rdParty/src/gegl-build/tools/operation_reference`;
+}
+
 $json_text=~s/^window.opdb=//;
 $json_text=~s/\[Invalid UTF-8\] \\x[a-z0-9]{2}//gc;
 my $data = decode_json($json_text);
@@ -154,7 +165,7 @@ public class $className extends GeglFilter$implements
 
 EOF
 
-    my $target_file = "JWeb/src/main/java/".$namespace;
+    my $target_file = "src/main/java/".$namespace;
     $target_file =~s/\./\//g;
     warn($target_file) unless -d $target_file;
     $target_file.="/".$className.".java";
