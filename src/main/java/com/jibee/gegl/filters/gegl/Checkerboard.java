@@ -12,7 +12,7 @@ import com.jibee.gegl.Source;
 /**
  * Checkerboard
  *
- * Create a checkerboard pattern
+ * Render a checkerboard pattern
  * 
  * License: 
  * Supports OpenCL: false
@@ -23,7 +23,7 @@ public class Checkerboard extends GeglFilter implements Source
 {
     /** Constructs a Checkerboard.
      *
-     * Create a checkerboard pattern
+     * Render a checkerboard pattern
      */
     public Checkerboard(GeglNode container)
     {
@@ -31,7 +31,7 @@ public class Checkerboard extends GeglFilter implements Source
     }
     /** Constructs a Checkerboard.
      *
-     * Create a checkerboard pattern
+     * Render a checkerboard pattern
      */
     public Checkerboard(GeglFilter parent)
     {

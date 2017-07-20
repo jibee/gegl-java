@@ -214,7 +214,7 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
 
     /** Color
      *
-     * Color to use for the "Only color" and "Color to peaks" modes
+     * ''
      *
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
@@ -224,7 +224,7 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
 
     /** Color
      *
-     * Color to use for the "Only color" and "Color to peaks" modes
+     * ''
      *
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
@@ -240,7 +240,7 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
 
     /** Color
      *
-     * Color to use for the "Only color" and "Color to peaks" modes
+     * ''
      *
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")

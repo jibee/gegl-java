@@ -10,7 +10,7 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Gaussian Blur
  *
  * Performs an averaging of neighboring pixels with the normal distribution as weighting
  * 
@@ -21,7 +21,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"blur"})
 public class GaussianBlur extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a Gaussian Blur.
      *
      * Performs an averaging of neighboring pixels with the normal distribution as weighting
      */
@@ -29,7 +29,7 @@ public class GaussianBlur extends GeglFilter implements Source, Sink
     {
         super(container, "gegl:gaussian-blur");
     }
-    /** Constructs a .
+    /** Constructs a Gaussian Blur.
      *
      * Performs an averaging of neighboring pixels with the normal distribution as weighting
      */

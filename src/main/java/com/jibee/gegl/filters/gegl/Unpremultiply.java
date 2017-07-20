@@ -9,32 +9,32 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Unpremultiply alpha
  *
- * Unpremultiplies a buffer that contains pre-multiplied colors (but is marked as not having it)
+ * Unpremultiplies a buffer that contains pre-multiplied colors (but according to the babl format is not.)
  * 
  * License: 
  * Supports OpenCL: false
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"color"})
-public class Unpremul extends GeglFilter implements Source, Sink
+public class Unpremultiply extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a Unpremultiply alpha.
      *
-     * Unpremultiplies a buffer that contains pre-multiplied colors (but is marked as not having it)
+     * Unpremultiplies a buffer that contains pre-multiplied colors (but according to the babl format is not.)
      */
-    public Unpremul(GeglNode container)
+    public Unpremultiply(GeglNode container)
     {
-        super(container, "gegl:unpremul");
+        super(container, "gegl:unpremultiply");
     }
-    /** Constructs a .
+    /** Constructs a Unpremultiply alpha.
      *
-     * Unpremultiplies a buffer that contains pre-multiplied colors (but is marked as not having it)
+     * Unpremultiplies a buffer that contains pre-multiplied colors (but according to the babl format is not.)
      */
-    public Unpremul(GeglFilter parent)
+    public Unpremultiply(GeglFilter parent)
     {
-        super(parent, "gegl:unpremul");
+        super(parent, "gegl:unpremultiply");
     }
 
         @Override

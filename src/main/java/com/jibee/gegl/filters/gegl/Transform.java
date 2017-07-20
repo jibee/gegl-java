@@ -9,9 +9,9 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Transform
  *
- * Transforms the group (used by svg).
+ * Do a transformation using SVG syntax transformation.
  * 
  * License: 
  * Supports OpenCL: false
@@ -20,17 +20,17 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"transform"})
 public class Transform extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a Transform.
      *
-     * Transforms the group (used by svg).
+     * Do a transformation using SVG syntax transformation.
      */
     public Transform(GeglNode container)
     {
         super(container, "gegl:transform");
     }
-    /** Constructs a .
+    /** Constructs a Transform.
      *
-     * Transforms the group (used by svg).
+     * Do a transformation using SVG syntax transformation.
      */
     public Transform(GeglFilter parent)
     {
@@ -158,9 +158,49 @@ public class Transform extends GeglFilter implements Source, Sink
     }
 
 
-    /** transform
+    /** Clip to input
      *
-     * Transformation string
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     * */
+    private boolean m_ClipToInput  = false;
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public Transform setClipToInput(boolean value)
+    {
+	
+        m_ClipToInput = value;
+        setProperty("clip-to-input", value);
+        return this;
+    }
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public boolean getClipToInput()
+    {
+        return m_ClipToInput;
+    }
+
+
+    /** Transform
+     *
+     * Transformation SVG syntax transformation string
      *
      * Unit: 
      * Default value: 
@@ -168,9 +208,9 @@ public class Transform extends GeglFilter implements Source, Sink
      * */
     private String m_Transform ;
 
-    /** transform
+    /** Transform
      *
-     * Transformation string
+     * Transformation SVG syntax transformation string
      *
      * Unit: 
      * Default value: 
@@ -184,9 +224,9 @@ public class Transform extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** transform
+    /** Transform
      *
-     * Transformation string
+     * Transformation SVG syntax transformation string
      *
      * Unit: 
      * Default value: 

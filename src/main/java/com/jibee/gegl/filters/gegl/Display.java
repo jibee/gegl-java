@@ -7,7 +7,7 @@ import com.jibee.gegl.InputPad;
 import com.jibee.gegl.Sink;
 
 /**
- * 
+ * Display
  *
  * Display the input buffer in a window.
  * 
@@ -18,7 +18,7 @@ import com.jibee.gegl.Sink;
 @Filter(license="", opencl=false, position_dependant=false, categories={"meta", "display"})
 public class Display extends GeglFilter implements Sink
 {
-    /** Constructs a .
+    /** Constructs a Display.
      *
      * Display the input buffer in a window.
      */
@@ -26,7 +26,7 @@ public class Display extends GeglFilter implements Sink
     {
         super(container, "gegl:display");
     }
-    /** Constructs a .
+    /** Constructs a Display.
      *
      * Display the input buffer in a window.
      */

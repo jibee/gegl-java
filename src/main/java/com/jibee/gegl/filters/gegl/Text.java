@@ -122,9 +122,9 @@ public class Text extends GeglFilter implements Source
      *
      * Font size in pixels.
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: 10.00
-     * Acceptable Range: 1.00 2048.00
+     * Acceptable Range: 0.00 2048.00
      * */
     private double m_Size  = 10.00;
 
@@ -132,15 +132,15 @@ public class Text extends GeglFilter implements Source
      *
      * Font size in pixels.
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: 10.00
-     * Acceptable Range: 1.00 2048.00
+     * Acceptable Range: 0.00 2048.00
      */
     public Text setSize(double value) throws ParameterOutOfRangeException
     {
-		if(value > 2048.00 || value < 1.00)
+		if(value > 2048.00 || value < 0.00)
 	{
-	    throw new ParameterOutOfRangeException(value, 1.00, 2048.00);
+	    throw new ParameterOutOfRangeException(value, 0.00, 2048.00);
 	}
 
         m_Size = value;
@@ -152,9 +152,9 @@ public class Text extends GeglFilter implements Source
      *
      * Font size in pixels.
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: 10.00
-     * Acceptable Range: 1.00 2048.00
+     * Acceptable Range: 0.00 2048.00
      */
     public double getSize()
     {
@@ -164,7 +164,7 @@ public class Text extends GeglFilter implements Source
 
     /** Color
      *
-     * Color for the text (defaults to 'white')
+     * Color for the text (defaults to 'black')
      *
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
@@ -174,7 +174,7 @@ public class Text extends GeglFilter implements Source
 
     /** Color
      *
-     * Color for the text (defaults to 'white')
+     * Color for the text (defaults to 'black')
      *
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
@@ -190,7 +190,7 @@ public class Text extends GeglFilter implements Source
 
     /** Color
      *
-     * Color for the text (defaults to 'white')
+     * Color for the text (defaults to 'black')
      *
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
@@ -206,7 +206,7 @@ public class Text extends GeglFilter implements Source
      *
      * Sets the width in pixels at which long lines will wrap. Use -1 for no wrapping.
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: -1
      * Acceptable Range: -1 1000000
      * */
@@ -216,7 +216,7 @@ public class Text extends GeglFilter implements Source
      *
      * Sets the width in pixels at which long lines will wrap. Use -1 for no wrapping.
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: -1
      * Acceptable Range: -1 1000000
      */
@@ -236,13 +236,57 @@ public class Text extends GeglFilter implements Source
      *
      * Sets the width in pixels at which long lines will wrap. Use -1 for no wrapping.
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: -1
      * Acceptable Range: -1 1000000
      */
     public int getWrap()
     {
         return m_Wrap;
+    }
+
+
+    /** Wrap height
+     *
+     * Sets the height in pixels according to which the text is vertically justified. Use -1 for no vertical justification.
+     *
+     * Unit: pixel-distance
+     * Default value: 
+     * Acceptable Range: -1 1000000
+     * */
+    private int m_VerticalWrap ;
+
+    /** Wrap height
+     *
+     * Sets the height in pixels according to which the text is vertically justified. Use -1 for no vertical justification.
+     *
+     * Unit: pixel-distance
+     * Default value: 
+     * Acceptable Range: -1 1000000
+     */
+    public Text setVerticalWrap(int value) throws ParameterOutOfRangeException
+    {
+		if(value > 1000000 || value < -1)
+	{
+	    throw new ParameterOutOfRangeException(value, -1, 1000000);
+	}
+
+        m_VerticalWrap = value;
+        setProperty("vertical-wrap", value);
+        return this;
+    }
+
+    /** Wrap height
+     *
+     * Sets the height in pixels according to which the text is vertically justified. Use -1 for no vertical justification.
+     *
+     * Unit: pixel-distance
+     * Default value: 
+     * Acceptable Range: -1 1000000
+     */
+    public int getVerticalWrap()
+    {
+        return m_VerticalWrap;
     }
 
 
@@ -287,6 +331,50 @@ public class Text extends GeglFilter implements Source
     public int getAlignment()
     {
         return m_Alignment;
+    }
+
+
+    /** Vertical justification
+     *
+     * Vertical text alignment (0=Top, 1=Middle, 2=Bottom)
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  2
+     * */
+    private int m_VerticalAlignment ;
+
+    /** Vertical justification
+     *
+     * Vertical text alignment (0=Top, 1=Middle, 2=Bottom)
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  2
+     */
+    public Text setVerticalAlignment(int value) throws ParameterOutOfRangeException
+    {
+		if(value > 2)
+	{
+	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 2);
+	}
+
+        m_VerticalAlignment = value;
+        setProperty("vertical-alignment", value);
+        return this;
+    }
+
+    /** Vertical justification
+     *
+     * Vertical text alignment (0=Top, 1=Middle, 2=Bottom)
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  2
+     */
+    public int getVerticalAlignment()
+    {
+        return m_VerticalAlignment;
     }
 
 

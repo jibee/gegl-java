@@ -7,32 +7,32 @@ import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.Source;
 
 /**
- * JPEG 2000 File Loader
+ * WebP File Loader
  *
- * JPEG 2000 image loader using jasper.
+ * WebP image loader.
  * 
  * License: 
  * Supports OpenCL: false
  * Position Dependant: false
  */
 @Filter(license="", opencl=false, position_dependant=false, categories={"hidden"})
-public class Jp2Load extends GeglFilter implements Source
+public class WebpLoad extends GeglFilter implements Source
 {
-    /** Constructs a JPEG 2000 File Loader.
+    /** Constructs a WebP File Loader.
      *
-     * JPEG 2000 image loader using jasper.
+     * WebP image loader.
      */
-    public Jp2Load(GeglNode container)
+    public WebpLoad(GeglNode container)
     {
-        super(container, "gegl:jp2-load");
+        super(container, "gegl:webp-load");
     }
-    /** Constructs a JPEG 2000 File Loader.
+    /** Constructs a WebP File Loader.
      *
-     * JPEG 2000 image loader using jasper.
+     * WebP image loader.
      */
-    public Jp2Load(GeglFilter parent)
+    public WebpLoad(GeglFilter parent)
     {
-        super(parent, "gegl:jp2-load");
+        super(parent, "gegl:webp-load");
     }
 
     
@@ -54,7 +54,7 @@ public class Jp2Load extends GeglFilter implements Source
      * Default value: 
      * Acceptable Range:  
      */
-    public Jp2Load setPath(String value)
+    public WebpLoad setPath(String value)
     {
 	
         m_Path = value;
@@ -94,7 +94,7 @@ public class Jp2Load extends GeglFilter implements Source
      * Default value: 
      * Acceptable Range:  
      */
-    public Jp2Load setUri(String value)
+    public WebpLoad setUri(String value)
     {
 	
         m_Uri = value;

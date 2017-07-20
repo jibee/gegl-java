@@ -9,7 +9,7 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * SVG Hue Rotate
  *
  * SVG color matrix operation svg_huerotate
  * 
@@ -20,7 +20,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"compositors", "svgfilter"})
 public class SvgHuerotate extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a SVG Hue Rotate.
      *
      * SVG color matrix operation svg_huerotate
      */
@@ -28,7 +28,7 @@ public class SvgHuerotate extends GeglFilter implements Source, Sink
     {
         super(container, "gegl:svg-huerotate");
     }
-    /** Constructs a .
+    /** Constructs a SVG Hue Rotate.
      *
      * SVG color matrix operation svg_huerotate
      */

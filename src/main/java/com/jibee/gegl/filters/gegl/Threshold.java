@@ -41,7 +41,7 @@ public class Threshold extends GeglFilter implements Source, DualSink
     
     /** Threshold
      *
-     * Scalar threshold level (overriden if an auxiliary input buffer is provided.).
+     * Scalar threshold level (overridden if an auxiliary input buffer is provided.).
      *
      * Unit: 
      * Default value: 0.50
@@ -51,7 +51,7 @@ public class Threshold extends GeglFilter implements Source, DualSink
 
     /** Threshold
      *
-     * Scalar threshold level (overriden if an auxiliary input buffer is provided.).
+     * Scalar threshold level (overridden if an auxiliary input buffer is provided.).
      *
      * Unit: 
      * Default value: 0.50
@@ -71,7 +71,7 @@ public class Threshold extends GeglFilter implements Source, DualSink
 
     /** Threshold
      *
-     * Scalar threshold level (overriden if an auxiliary input buffer is provided.).
+     * Scalar threshold level (overridden if an auxiliary input buffer is provided.).
      *
      * Unit: 
      * Default value: 0.50

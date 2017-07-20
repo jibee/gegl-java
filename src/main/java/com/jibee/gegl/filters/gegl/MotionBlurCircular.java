@@ -15,10 +15,10 @@ import com.jibee.gegl.Source;
  * Circular motion blur
  * 
  * License: GPL3+
- * Supports OpenCL: false
+ * Supports OpenCL: true
  * Position Dependant: true
  */
-@Filter(license="GPL3+", opencl=false, position_dependant=true, categories={"blur"})
+@Filter(license="GPL3+", opencl=true, position_dependant=true, categories={"blur"})
 public class MotionBlurCircular extends GeglFilter implements Source, Sink
 {
     /** Constructs a Circular Motion Blur.

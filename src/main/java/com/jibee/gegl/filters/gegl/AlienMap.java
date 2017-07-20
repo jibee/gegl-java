@@ -79,7 +79,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
     }
 
 
-    /** Component 1 frequency
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -89,7 +89,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * */
     private double m_Cpn1Frequency  = 1.00;
 
-    /** Component 1 frequency
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -109,7 +109,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** Component 1 frequency
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -123,7 +123,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
     }
 
 
-    /** Component 2 frequency
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -133,7 +133,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * */
     private double m_Cpn2Frequency  = 1.00;
 
-    /** Component 2 frequency
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -153,7 +153,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** Component 2 frequency
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -167,7 +167,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
     }
 
 
-    /** Component 3 frequency
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -177,7 +177,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * */
     private double m_Cpn3Frequency  = 1.00;
 
-    /** Component 3 frequency
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -197,7 +197,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** Component 3 frequency
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -211,7 +211,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
     }
 
 
-    /** Component 1 phase shift
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -221,7 +221,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * */
     private double m_Cpn1Phaseshift  = 0.00;
 
-    /** Component 1 phase shift
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -241,7 +241,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** Component 1 phase shift
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -255,7 +255,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
     }
 
 
-    /** Component 2 phase shift
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -265,7 +265,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * */
     private double m_Cpn2Phaseshift  = 0.00;
 
-    /** Component 2 phase shift
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -285,7 +285,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** Component 2 phase shift
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -299,7 +299,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
     }
 
 
-    /** Component 3 phase shift
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -309,7 +309,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * */
     private double m_Cpn3Phaseshift  = 0.00;
 
-    /** Component 3 phase shift
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -329,7 +329,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** Component 3 phase shift
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -343,7 +343,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
     }
 
 
-    /** Keep component 1
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -353,7 +353,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * */
     private boolean m_Cpn1Keep  = false;
 
-    /** Keep component 1
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -369,7 +369,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** Keep component 1
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -383,7 +383,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
     }
 
 
-    /** Keep component 2
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -393,7 +393,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * */
     private boolean m_Cpn2Keep  = false;
 
-    /** Keep component 2
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -409,7 +409,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** Keep component 2
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -423,7 +423,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
     }
 
 
-    /** Keep component 3
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -433,7 +433,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * */
     private boolean m_Cpn3Keep  = false;
 
-    /** Keep component 3
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *
@@ -449,7 +449,7 @@ public class AlienMap extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** Keep component 3
+    /** [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
      *
      * 
      *

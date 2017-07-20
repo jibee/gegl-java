@@ -9,7 +9,7 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * SVG Matrix
  *
  * SVG color matrix operation svg_matrix
  * 
@@ -20,7 +20,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"compositors", "svgfilter"})
 public class SvgMatrix extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a SVG Matrix.
      *
      * SVG color matrix operation svg_matrix
      */
@@ -28,7 +28,7 @@ public class SvgMatrix extends GeglFilter implements Source, Sink
     {
         super(container, "gegl:svg-matrix");
     }
-    /** Constructs a .
+    /** Constructs a SVG Matrix.
      *
      * SVG color matrix operation svg_matrix
      */

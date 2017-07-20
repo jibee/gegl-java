@@ -9,32 +9,32 @@ import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Watershed Transform
  *
- * Horizontally stack inputs, (in "output" "aux" is placed to the right of "input")
+ * Labels propagation by watershed transformation
  * 
  * License: 
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="", opencl=false, position_dependant=false, categories={"misc"})
-public class Hstack extends GeglFilter implements Source, DualSink
+@Filter(license="", opencl=false, position_dependant=false, categories={"hidden"})
+public class WatershedTransform extends GeglFilter implements Source, DualSink
 {
-    /** Constructs a .
+    /** Constructs a Watershed Transform.
      *
-     * Horizontally stack inputs, (in "output" "aux" is placed to the right of "input")
+     * Labels propagation by watershed transformation
      */
-    public Hstack(GeglNode container)
+    public WatershedTransform(GeglNode container)
     {
-        super(container, "gegl:hstack");
+        super(container, "gegl:watershed-transform");
     }
-    /** Constructs a .
+    /** Constructs a Watershed Transform.
      *
-     * Horizontally stack inputs, (in "output" "aux" is placed to the right of "input")
+     * Labels propagation by watershed transformation
      */
-    public Hstack(GeglFilter parent)
+    public WatershedTransform(GeglFilter parent)
     {
-        super(parent, "gegl:hstack");
+        super(parent, "gegl:watershed-transform");
     }
 
         @Override

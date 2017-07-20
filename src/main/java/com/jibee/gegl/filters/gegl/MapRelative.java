@@ -122,6 +122,46 @@ public class MapRelative extends GeglFilter implements Source, DualSink
         return m_SamplerType;
     }
 
+
+    /** Abyss policy
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
+    private String m_AbyssPolicy ;
+
+    /** Abyss policy
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
+    public MapRelative setAbyssPolicy(String value)
+    {
+	
+        m_AbyssPolicy = value;
+        setProperty("abyss-policy", value);
+        return this;
+    }
+
+    /** Abyss policy
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
+    public String getAbyssPolicy()
+    {
+        return m_AbyssPolicy;
+    }
+
     @Override
     public InputPad Aux()
     {

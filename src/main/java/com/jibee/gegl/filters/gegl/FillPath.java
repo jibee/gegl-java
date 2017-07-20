@@ -20,7 +20,7 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="", opencl=false, position_dependant=false, categories={"render"})
+@Filter(license="", opencl=false, position_dependant=false, categories={"render", "vector"})
 public class FillPath extends GeglFilter implements Source, Sink
 {
     /** Constructs a Fill Path.
@@ -243,6 +243,7 @@ public class FillPath extends GeglFilter implements Source, Sink
     {
         return m_D;
     }
+
     @Override
     public InputPad Input()
     {

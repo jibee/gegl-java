@@ -11,7 +11,7 @@ import com.jibee.gegl.Source;
 /**
  * Invert in Perceptual space
  *
- * Inverts the components (except alpha), the result is the corresponding "negative" image.
+ * Invert the components (except alpha) perceptually, the result is the corresponding "negative" image.
  * 
  * License: 
  * Supports OpenCL: false
@@ -22,7 +22,7 @@ public class InvertGamma extends GeglFilter implements Source, Sink
 {
     /** Constructs a Invert in Perceptual space.
      *
-     * Inverts the components (except alpha), the result is the corresponding "negative" image.
+     * Invert the components (except alpha) perceptually, the result is the corresponding "negative" image.
      */
     public InvertGamma(GeglNode container)
     {
@@ -30,7 +30,7 @@ public class InvertGamma extends GeglFilter implements Source, Sink
     }
     /** Constructs a Invert in Perceptual space.
      *
-     * Inverts the components (except alpha), the result is the corresponding "negative" image.
+     * Invert the components (except alpha) perceptually, the result is the corresponding "negative" image.
      */
     public InvertGamma(GeglFilter parent)
     {

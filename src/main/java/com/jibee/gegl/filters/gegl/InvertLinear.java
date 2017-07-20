@@ -11,7 +11,7 @@ import com.jibee.gegl.Source;
 /**
  * Invert
  *
- * Inverts the components (except alpha), the result is the corresponding "negative" image.
+ * Invert the components (except alpha) in linear light, the result is the corresponding "negative" image.
  * 
  * License: 
  * Supports OpenCL: false
@@ -22,7 +22,7 @@ public class InvertLinear extends GeglFilter implements Source, Sink
 {
     /** Constructs a Invert.
      *
-     * Inverts the components (except alpha), the result is the corresponding "negative" image.
+     * Invert the components (except alpha) in linear light, the result is the corresponding "negative" image.
      */
     public InvertLinear(GeglNode container)
     {
@@ -30,7 +30,7 @@ public class InvertLinear extends GeglFilter implements Source, Sink
     }
     /** Constructs a Invert.
      *
-     * Inverts the components (except alpha), the result is the corresponding "negative" image.
+     * Invert the components (except alpha) in linear light, the result is the corresponding "negative" image.
      */
     public InvertLinear(GeglFilter parent)
     {

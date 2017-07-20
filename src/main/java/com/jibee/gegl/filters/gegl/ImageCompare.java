@@ -11,7 +11,7 @@ import com.jibee.gegl.Source;
 /**
  * 
  *
- * Compares if input and aux buffers are different. Results are saved in the properties.
+ * Compares if input and aux buffers are different. Global statistics are saved in the properties and a visual difference image is produced as a visual result. 
  * 
  * License: 
  * Supports OpenCL: false
@@ -22,7 +22,7 @@ public class ImageCompare extends GeglFilter implements Source, DualSink
 {
     /** Constructs a .
      *
-     * Compares if input and aux buffers are different. Results are saved in the properties.
+     * Compares if input and aux buffers are different. Global statistics are saved in the properties and a visual difference image is produced as a visual result. 
      */
     public ImageCompare(GeglNode container)
     {
@@ -30,7 +30,7 @@ public class ImageCompare extends GeglFilter implements Source, DualSink
     }
     /** Constructs a .
      *
-     * Compares if input and aux buffers are different. Results are saved in the properties.
+     * Compares if input and aux buffers are different. Global statistics are saved in the properties and a visual difference image is produced as a visual result. 
      */
     public ImageCompare(GeglFilter parent)
     {

@@ -13,10 +13,10 @@ import com.jibee.gegl.Source;
  * Generate diffraction patterns
  * 
  * License: GPL3+
- * Supports OpenCL: false
+ * Supports OpenCL: true
  * Position Dependant: true
  */
-@Filter(license="GPL3+", opencl=false, position_dependant=true, categories={"render"})
+@Filter(license="GPL3+", opencl=true, position_dependant=true, categories={"render"})
 public class DiffractionPatterns extends GeglFilter implements Source
 {
     /** Constructs a Diffraction Patterns.

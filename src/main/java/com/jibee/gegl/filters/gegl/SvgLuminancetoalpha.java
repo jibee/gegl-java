@@ -9,7 +9,7 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * SVG Luminance to Alpha
  *
  * SVG color matrix operation svg_luminancetoalpha
  * 
@@ -20,7 +20,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"compositors", "svgfilter"})
 public class SvgLuminancetoalpha extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a SVG Luminance to Alpha.
      *
      * SVG color matrix operation svg_luminancetoalpha
      */
@@ -28,7 +28,7 @@ public class SvgLuminancetoalpha extends GeglFilter implements Source, Sink
     {
         super(container, "gegl:svg-luminancetoalpha");
     }
-    /** Constructs a .
+    /** Constructs a SVG Luminance to Alpha.
      *
      * SVG color matrix operation svg_luminancetoalpha
      */

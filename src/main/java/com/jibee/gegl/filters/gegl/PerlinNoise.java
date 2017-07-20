@@ -200,46 +200,6 @@ public class PerlinNoise extends GeglFilter implements Source
         return m_N;
     }
 
-
-    /** Random seed
-     *
-     * 
-     *
-     * Unit: 
-     * Default value: 0.00
-     * Acceptable Range:  
-     * */
-    private double m_Seed  = 0.00;
-
-    /** Random seed
-     *
-     * 
-     *
-     * Unit: 
-     * Default value: 0.00
-     * Acceptable Range:  
-     */
-    public PerlinNoise setSeed(double value)
-    {
-	
-        m_Seed = value;
-        setProperty("seed", value);
-        return this;
-    }
-
-    /** Random seed
-     *
-     * 
-     *
-     * Unit: 
-     * Default value: 0.00
-     * Acceptable Range:  
-     */
-    public double getSeed()
-    {
-        return m_Seed;
-    }
-
     @Override
     public OutputPad Output()
     {

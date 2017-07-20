@@ -10,7 +10,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Matting Global
  *
  * Given a sparse user supplied tri-map and an input image, create a foreground alpha matte. Set white as foreground, black as background for the tri-map. Everything else will be treated as unknown and filled in.
  * 
@@ -21,7 +21,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"matting"})
 public class MattingGlobal extends GeglFilter implements Source, DualSink
 {
-    /** Constructs a .
+    /** Constructs a Matting Global.
      *
      * Given a sparse user supplied tri-map and an input image, create a foreground alpha matte. Set white as foreground, black as background for the tri-map. Everything else will be treated as unknown and filled in.
      */
@@ -29,7 +29,7 @@ public class MattingGlobal extends GeglFilter implements Source, DualSink
     {
         super(container, "gegl:matting-global");
     }
-    /** Constructs a .
+    /** Constructs a Matting Global.
      *
      * Given a sparse user supplied tri-map and an input image, create a foreground alpha matte. Set white as foreground, black as background for the tri-map. Everything else will be treated as unknown and filled in.
      */

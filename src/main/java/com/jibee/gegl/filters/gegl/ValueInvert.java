@@ -11,7 +11,7 @@ import com.jibee.gegl.Source;
 /**
  * Value Invert
  *
- * Inverts just the value component, the result is the corresponding 'inverted' image.
+ * Invert the value component, the result has the brightness inverted, keeping the color.
  * 
  * License: 
  * Supports OpenCL: false
@@ -22,7 +22,7 @@ public class ValueInvert extends GeglFilter implements Source, Sink
 {
     /** Constructs a Value Invert.
      *
-     * Inverts just the value component, the result is the corresponding 'inverted' image.
+     * Invert the value component, the result has the brightness inverted, keeping the color.
      */
     public ValueInvert(GeglNode container)
     {
@@ -30,7 +30,7 @@ public class ValueInvert extends GeglFilter implements Source, Sink
     }
     /** Constructs a Value Invert.
      *
-     * Inverts just the value component, the result is the corresponding 'inverted' image.
+     * Invert the value component, the result has the brightness inverted, keeping the color.
      */
     public ValueInvert(GeglFilter parent)
     {

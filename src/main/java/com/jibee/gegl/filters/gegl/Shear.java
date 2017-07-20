@@ -9,9 +9,9 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Shear
  *
- * Shears the buffer
+ * Shears the buffer. 
  * 
  * License: 
  * Supports OpenCL: false
@@ -20,17 +20,17 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"transform"})
 public class Shear extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a Shear.
      *
-     * Shears the buffer
+     * Shears the buffer. 
      */
     public Shear(GeglNode container)
     {
         super(container, "gegl:shear");
     }
-    /** Constructs a .
+    /** Constructs a Shear.
      *
-     * Shears the buffer
+     * Shears the buffer. 
      */
     public Shear(GeglFilter parent)
     {
@@ -158,7 +158,47 @@ public class Shear extends GeglFilter implements Source, Sink
     }
 
 
-    /** x
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     * */
+    private boolean m_ClipToInput  = false;
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public Shear setClipToInput(boolean value)
+    {
+	
+        m_ClipToInput = value;
+        setProperty("clip-to-input", value);
+        return this;
+    }
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public boolean getClipToInput()
+    {
+        return m_ClipToInput;
+    }
+
+
+    /** X
      *
      * Horizontal shear amount
      *
@@ -168,7 +208,7 @@ public class Shear extends GeglFilter implements Source, Sink
      * */
     private double m_X  = 0.00;
 
-    /** x
+    /** X
      *
      * Horizontal shear amount
      *
@@ -184,7 +224,7 @@ public class Shear extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** x
+    /** X
      *
      * Horizontal shear amount
      *
@@ -198,7 +238,7 @@ public class Shear extends GeglFilter implements Source, Sink
     }
 
 
-    /** y
+    /** Y
      *
      * Vertical shear amount
      *
@@ -208,7 +248,7 @@ public class Shear extends GeglFilter implements Source, Sink
      * */
     private double m_Y  = 0.00;
 
-    /** y
+    /** Y
      *
      * Vertical shear amount
      *
@@ -224,7 +264,7 @@ public class Shear extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** y
+    /** Y
      *
      * Vertical shear amount
      *

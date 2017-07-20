@@ -124,9 +124,9 @@ public class Supernova extends GeglFilter implements Source, Sink
      *
      * Radius of supernova
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: 20
-     * Acceptable Range: 1 3000
+     * Acceptable Range: 1 20000
      * */
     private int m_Radius  = 20;
 
@@ -134,15 +134,15 @@ public class Supernova extends GeglFilter implements Source, Sink
      *
      * Radius of supernova
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: 20
-     * Acceptable Range: 1 3000
+     * Acceptable Range: 1 20000
      */
     public Supernova setRadius(int value) throws ParameterOutOfRangeException
     {
-		if(value > 3000 || value < 1)
+		if(value > 20000 || value < 1)
 	{
-	    throw new ParameterOutOfRangeException(value, 1, 3000);
+	    throw new ParameterOutOfRangeException(value, 1, 20000);
 	}
 
         m_Radius = value;
@@ -154,9 +154,9 @@ public class Supernova extends GeglFilter implements Source, Sink
      *
      * Radius of supernova
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: 20
-     * Acceptable Range: 1 3000
+     * Acceptable Range: 1 20000
      */
     public int getRadius()
     {

@@ -10,7 +10,7 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Convolution Matrix
  *
  * Apply a generic 5x5 convolution matrix
  * 
@@ -21,7 +21,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"generic"})
 public class ConvolutionMatrix extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a Convolution Matrix.
      *
      * Apply a generic 5x5 convolution matrix
      */
@@ -29,7 +29,7 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
     {
         super(container, "gegl:convolution-matrix");
     }
-    /** Constructs a .
+    /** Constructs a Convolution Matrix.
      *
      * Apply a generic 5x5 convolution matrix
      */

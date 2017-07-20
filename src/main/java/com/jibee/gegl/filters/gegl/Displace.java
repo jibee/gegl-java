@@ -159,9 +159,9 @@ public class Displace extends GeglFilter implements Source, DualSink
     }
 
 
-    /** X displacement
+    /** [displace-mode {cartesian} : cartesian-label, displace-mode {polar}     : polar-label]
      *
-     * Displace multiplier for X or radial direction
+     * [displace-mode {cartesian} : cartesian-description, displace-mode {polar}     : polar-description]
      *
      * Unit: pixel-distance
      * Default value: 0.00
@@ -169,9 +169,9 @@ public class Displace extends GeglFilter implements Source, DualSink
      * */
     private double m_AmountX  = 0.00;
 
-    /** X displacement
+    /** [displace-mode {cartesian} : cartesian-label, displace-mode {polar}     : polar-label]
      *
-     * Displace multiplier for X or radial direction
+     * [displace-mode {cartesian} : cartesian-description, displace-mode {polar}     : polar-description]
      *
      * Unit: pixel-distance
      * Default value: 0.00
@@ -189,9 +189,9 @@ public class Displace extends GeglFilter implements Source, DualSink
         return this;
     }
 
-    /** X displacement
+    /** [displace-mode {cartesian} : cartesian-label, displace-mode {polar}     : polar-label]
      *
-     * Displace multiplier for X or radial direction
+     * [displace-mode {cartesian} : cartesian-description, displace-mode {polar}     : polar-description]
      *
      * Unit: pixel-distance
      * Default value: 0.00
@@ -203,9 +203,9 @@ public class Displace extends GeglFilter implements Source, DualSink
     }
 
 
-    /** Y displacement
+    /** [displace-mode {cartesian} : cartesian-label, displace-mode {polar}     : polar-label]
      *
-     * Displace multiplier for Y or tangent (degrees) direction
+     * [displace-mode {cartesian} : cartesian-description, displace-mode {polar}     : polar-description]
      *
      * Unit: pixel-distance
      * Default value: 0.00
@@ -213,9 +213,9 @@ public class Displace extends GeglFilter implements Source, DualSink
      * */
     private double m_AmountY  = 0.00;
 
-    /** Y displacement
+    /** [displace-mode {cartesian} : cartesian-label, displace-mode {polar}     : polar-label]
      *
-     * Displace multiplier for Y or tangent (degrees) direction
+     * [displace-mode {cartesian} : cartesian-description, displace-mode {polar}     : polar-description]
      *
      * Unit: pixel-distance
      * Default value: 0.00
@@ -233,9 +233,9 @@ public class Displace extends GeglFilter implements Source, DualSink
         return this;
     }
 
-    /** Y displacement
+    /** [displace-mode {cartesian} : cartesian-label, displace-mode {polar}     : polar-label]
      *
-     * Displace multiplier for Y or tangent (degrees) direction
+     * [displace-mode {cartesian} : cartesian-description, displace-mode {polar}     : polar-description]
      *
      * Unit: pixel-distance
      * Default value: 0.00
@@ -244,6 +244,126 @@ public class Displace extends GeglFilter implements Source, DualSink
     public double getAmountY()
     {
         return m_AmountY;
+    }
+
+
+    /** Center displacement
+     *
+     * Center the displacement around a specified point
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     * */
+    private boolean m_Center  = false;
+
+    /** Center displacement
+     *
+     * Center the displacement around a specified point
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public Displace setCenter(boolean value)
+    {
+	
+        m_Center = value;
+        setProperty("center", value);
+        return this;
+    }
+
+    /** Center displacement
+     *
+     * Center the displacement around a specified point
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public boolean getCenter()
+    {
+        return m_Center;
+    }
+
+
+    /** Center X
+     *
+     * X coordinate of the displacement center
+     *
+     * Unit: relative-coordinate
+     * Default value: 0.50
+     * Acceptable Range:  
+     * */
+    private double m_CenterX  = 0.50;
+
+    /** Center X
+     *
+     * X coordinate of the displacement center
+     *
+     * Unit: relative-coordinate
+     * Default value: 0.50
+     * Acceptable Range:  
+     */
+    public Displace setCenterX(double value)
+    {
+	
+        m_CenterX = value;
+        setProperty("center-x", value);
+        return this;
+    }
+
+    /** Center X
+     *
+     * X coordinate of the displacement center
+     *
+     * Unit: relative-coordinate
+     * Default value: 0.50
+     * Acceptable Range:  
+     */
+    public double getCenterX()
+    {
+        return m_CenterX;
+    }
+
+
+    /** Center Y
+     *
+     * Y coordinate of the displacement center
+     *
+     * Unit: relative-coordinate
+     * Default value: 0.50
+     * Acceptable Range:  
+     * */
+    private double m_CenterY  = 0.50;
+
+    /** Center Y
+     *
+     * Y coordinate of the displacement center
+     *
+     * Unit: relative-coordinate
+     * Default value: 0.50
+     * Acceptable Range:  
+     */
+    public Displace setCenterY(double value)
+    {
+	
+        m_CenterY = value;
+        setProperty("center-y", value);
+        return this;
+    }
+
+    /** Center Y
+     *
+     * Y coordinate of the displacement center
+     *
+     * Unit: relative-coordinate
+     * Default value: 0.50
+     * Acceptable Range:  
+     */
+    public double getCenterY()
+    {
+        return m_CenterY;
     }
 
     public InputPad Aux2()

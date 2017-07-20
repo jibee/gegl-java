@@ -172,6 +172,50 @@ public class Warp extends GeglFilter implements Source, Sink
     }
 
 
+    /** Spacing
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 0.01
+     * Acceptable Range: 0.00 100.00
+     * */
+    private double m_Spacing  = 0.01;
+
+    /** Spacing
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 0.01
+     * Acceptable Range: 0.00 100.00
+     */
+    public Warp setSpacing(double value) throws ParameterOutOfRangeException
+    {
+		if(value > 100.00 || value < 0.00)
+	{
+	    throw new ParameterOutOfRangeException(value, 0.00, 100.00);
+	}
+
+        m_Spacing = value;
+        setProperty("spacing", value);
+        return this;
+    }
+
+    /** Spacing
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 0.01
+     * Acceptable Range: 0.00 100.00
+     */
+    public double getSpacing()
+    {
+        return m_Spacing;
+    }
+
+
     /** Stroke
      *
      * 

@@ -10,9 +10,9 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * Explicit cache of results at this point of graph.
+ * Cache
  *
- * An explicit caching node
+ * An explicit caching node, caches results and should provide faster recomputation if what is cached by it is expensive but isn't changing.
  * 
  * License: 
  * Supports OpenCL: false
@@ -21,17 +21,17 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"programming"})
 public class Cache extends GeglFilter implements Source, Sink
 {
-    /** Constructs a Explicit cache of results at this point of graph..
+    /** Constructs a Cache.
      *
-     * An explicit caching node
+     * An explicit caching node, caches results and should provide faster recomputation if what is cached by it is expensive but isn't changing.
      */
     public Cache(GeglNode container)
     {
         super(container, "gegl:cache");
     }
-    /** Constructs a Explicit cache of results at this point of graph..
+    /** Constructs a Cache.
      *
-     * An explicit caching node
+     * An explicit caching node, caches results and should provide faster recomputation if what is cached by it is expensive but isn't changing.
      */
     public Cache(GeglFilter parent)
     {

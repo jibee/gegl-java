@@ -15,10 +15,10 @@ import com.jibee.gegl.Source;
  * Randomize hue, saturation and value independently
  * 
  * License: 
- * Supports OpenCL: false
+ * Supports OpenCL: true
  * Position Dependant: false
  */
-@Filter(license="", opencl=false, position_dependant=false, categories={"noise"})
+@Filter(license="", opencl=true, position_dependant=false, categories={"noise"})
 public class NoiseHsv extends GeglFilter implements Source, Sink
 {
     /** Constructs a Add HSV Noise.

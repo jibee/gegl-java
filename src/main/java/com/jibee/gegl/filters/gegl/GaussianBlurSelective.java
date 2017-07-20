@@ -15,10 +15,10 @@ import com.jibee.gegl.Source;
  * Blur neighboring pixels, but only in low-contrast areas
  * 
  * License: GPL3+
- * Supports OpenCL: false
+ * Supports OpenCL: true
  * Position Dependant: false
  */
-@Filter(license="GPL3+", opencl=false, position_dependant=false, categories={"enhance", "noise-reduction"})
+@Filter(license="GPL3+", opencl=true, position_dependant=false, categories={"enhance", "noise-reduction"})
 public class GaussianBlurSelective extends GeglFilter implements Source, DualSink
 {
     /** Constructs a Selective Gaussian Blur.

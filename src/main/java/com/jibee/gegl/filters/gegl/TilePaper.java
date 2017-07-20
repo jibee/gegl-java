@@ -371,6 +371,46 @@ public class TilePaper extends GeglFilter implements Source, Sink
         return m_BgColor;
     }
 
+
+    /** Random seed
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
+    private int m_Seed ;
+
+    /** Random seed
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
+    public TilePaper setSeed(int value)
+    {
+	
+        m_Seed = value;
+        setProperty("seed", value);
+        return this;
+    }
+
+    /** Random seed
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
+    public int getSeed()
+    {
+        return m_Seed;
+    }
+
     @Override
     public InputPad Input()
     {

@@ -5,11 +5,12 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Scale size keep aspect
  *
  * Scales the buffer to a size, preserving aspect ratio
  * 
@@ -20,7 +21,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"transform"})
 public class ScaleSizeKeepaspect extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a Scale size keep aspect.
      *
      * Scales the buffer to a size, preserving aspect ratio
      */
@@ -28,7 +29,7 @@ public class ScaleSizeKeepaspect extends GeglFilter implements Source, Sink
     {
         super(container, "gegl:scale-size-keepaspect");
     }
-    /** Constructs a .
+    /** Constructs a Scale size keep aspect.
      *
      * Scales the buffer to a size, preserving aspect ratio
      */
@@ -158,39 +159,83 @@ public class ScaleSizeKeepaspect extends GeglFilter implements Source, Sink
     }
 
 
-    /** x
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     * */
+    private boolean m_ClipToInput  = false;
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public ScaleSizeKeepaspect setClipToInput(boolean value)
+    {
+	
+        m_ClipToInput = value;
+        setProperty("clip-to-input", value);
+        return this;
+    }
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public boolean getClipToInput()
+    {
+        return m_ClipToInput;
+    }
+
+
+    /** X
      *
      * Horizontal size
      *
      * Unit: 
      * Default value: -1.00
-     * Acceptable Range:  
+     * Acceptable Range: -9000.00 9000.00
      * */
     private double m_X  = -1.00;
 
-    /** x
+    /** X
      *
      * Horizontal size
      *
      * Unit: 
      * Default value: -1.00
-     * Acceptable Range:  
+     * Acceptable Range: -9000.00 9000.00
      */
-    public ScaleSizeKeepaspect setX(double value)
+    public ScaleSizeKeepaspect setX(double value) throws ParameterOutOfRangeException
     {
-	
+		if(value > 9000.00 || value < -9000.00)
+	{
+	    throw new ParameterOutOfRangeException(value, -9000.00, 9000.00);
+	}
+
         m_X = value;
         setProperty("x", value);
         return this;
     }
 
-    /** x
+    /** X
      *
      * Horizontal size
      *
      * Unit: 
      * Default value: -1.00
-     * Acceptable Range:  
+     * Acceptable Range: -9000.00 9000.00
      */
     public double getX()
     {
@@ -198,39 +243,43 @@ public class ScaleSizeKeepaspect extends GeglFilter implements Source, Sink
     }
 
 
-    /** y
+    /** Y
      *
      * Vertical size
      *
      * Unit: 
      * Default value: -1.00
-     * Acceptable Range:  
+     * Acceptable Range: -9000.00 9000.00
      * */
     private double m_Y  = -1.00;
 
-    /** y
+    /** Y
      *
      * Vertical size
      *
      * Unit: 
      * Default value: -1.00
-     * Acceptable Range:  
+     * Acceptable Range: -9000.00 9000.00
      */
-    public ScaleSizeKeepaspect setY(double value)
+    public ScaleSizeKeepaspect setY(double value) throws ParameterOutOfRangeException
     {
-	
+		if(value > 9000.00 || value < -9000.00)
+	{
+	    throw new ParameterOutOfRangeException(value, -9000.00, 9000.00);
+	}
+
         m_Y = value;
         setProperty("y", value);
         return this;
     }
 
-    /** y
+    /** Y
      *
      * Vertical size
      *
      * Unit: 
      * Default value: -1.00
-     * Acceptable Range:  
+     * Acceptable Range: -9000.00 9000.00
      */
     public double getY()
     {

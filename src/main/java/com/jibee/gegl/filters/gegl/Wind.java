@@ -246,6 +246,46 @@ public class Wind extends GeglFilter implements Source, Sink
         return m_Strength;
     }
 
+
+    /** Random seed
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
+    private int m_Seed ;
+
+    /** Random seed
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
+    public Wind setSeed(int value)
+    {
+	
+        m_Seed = value;
+        setProperty("seed", value);
+        return this;
+    }
+
+    /** Random seed
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     */
+    public int getSeed()
+    {
+        return m_Seed;
+    }
+
     @Override
     public InputPad Input()
     {

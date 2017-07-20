@@ -247,7 +247,7 @@ public class FractalExplorer extends GeglFilter implements Source
 
     /** CX
      *
-     * CX (No effect in Mandelbrot and Sierpinski)
+     * ''
      *
      * Unit: 
      * Default value: -0.75
@@ -257,7 +257,7 @@ public class FractalExplorer extends GeglFilter implements Source
 
     /** CX
      *
-     * CX (No effect in Mandelbrot and Sierpinski)
+     * ''
      *
      * Unit: 
      * Default value: -0.75
@@ -277,7 +277,7 @@ public class FractalExplorer extends GeglFilter implements Source
 
     /** CX
      *
-     * CX (No effect in Mandelbrot and Sierpinski)
+     * ''
      *
      * Unit: 
      * Default value: -0.75
@@ -291,7 +291,7 @@ public class FractalExplorer extends GeglFilter implements Source
 
     /** CY
      *
-     * CY (No effect in Mandelbrot and Sierpinski)
+     * ''
      *
      * Unit: 
      * Default value: -0.20
@@ -301,7 +301,7 @@ public class FractalExplorer extends GeglFilter implements Source
 
     /** CY
      *
-     * CY (No effect in Mandelbrot and Sierpinski)
+     * ''
      *
      * Unit: 
      * Default value: -0.20
@@ -321,7 +321,7 @@ public class FractalExplorer extends GeglFilter implements Source
 
     /** CY
      *
-     * CY (No effect in Mandelbrot and Sierpinski)
+     * ''
      *
      * Unit: 
      * Default value: -0.20

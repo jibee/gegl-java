@@ -9,7 +9,7 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * SVG Saturate
  *
  * SVG color matrix operation svg_saturate
  * 
@@ -20,7 +20,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"compositors", "svgfilter"})
 public class SvgSaturate extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a SVG Saturate.
      *
      * SVG color matrix operation svg_saturate
      */
@@ -28,7 +28,7 @@ public class SvgSaturate extends GeglFilter implements Source, Sink
     {
         super(container, "gegl:svg-saturate");
     }
-    /** Constructs a .
+    /** Constructs a SVG Saturate.
      *
      * SVG color matrix operation svg_saturate
      */

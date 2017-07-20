@@ -19,7 +19,7 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: true
  */
-@Filter(license="GPL3+", opencl=false, position_dependant=true, categories={"blur"})
+@Filter(license="GPL3+", opencl=false, position_dependant=true, categories={"distort"})
 public class LensDistortion extends GeglFilter implements Source, Sink
 {
     /** Constructs a Lens Distortion.
@@ -309,17 +309,17 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * 
      *
      * Unit: 
-     * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
+     * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
      * */
-    private GeglColor m_Background  = makeColor("rgb(1.0000, 1.0000, 1.0000)");
+    private GeglColor m_Background  = makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)");
 
     /** Background color
      *
      * 
      *
      * Unit: 
-     * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
+     * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
      */
     public LensDistortion setBackground(GeglColor value)
@@ -335,7 +335,7 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * 
      *
      * Unit: 
-     * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
+     * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
      */
     public GeglColor getBackground()

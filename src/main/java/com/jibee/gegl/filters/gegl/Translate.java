@@ -9,7 +9,7 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Translate
  *
  * Repositions the buffer (with subpixel precision), if integer coordinates are passed a fast-path without resampling is used
  * 
@@ -20,7 +20,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"transform"})
 public class Translate extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a Translate.
      *
      * Repositions the buffer (with subpixel precision), if integer coordinates are passed a fast-path without resampling is used
      */
@@ -28,7 +28,7 @@ public class Translate extends GeglFilter implements Source, Sink
     {
         super(container, "gegl:translate");
     }
-    /** Constructs a .
+    /** Constructs a Translate.
      *
      * Repositions the buffer (with subpixel precision), if integer coordinates are passed a fast-path without resampling is used
      */
@@ -158,21 +158,61 @@ public class Translate extends GeglFilter implements Source, Sink
     }
 
 
-    /** x
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     * */
+    private boolean m_ClipToInput  = false;
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public Translate setClipToInput(boolean value)
+    {
+	
+        m_ClipToInput = value;
+        setProperty("clip-to-input", value);
+        return this;
+    }
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public boolean getClipToInput()
+    {
+        return m_ClipToInput;
+    }
+
+
+    /** X
      *
      * Horizontal translation
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range:  
      * */
     private double m_X  = 0.00;
 
-    /** x
+    /** X
      *
      * Horizontal translation
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range:  
      */
@@ -184,11 +224,11 @@ public class Translate extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** x
+    /** X
      *
      * Horizontal translation
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range:  
      */
@@ -198,21 +238,21 @@ public class Translate extends GeglFilter implements Source, Sink
     }
 
 
-    /** y
+    /** Y
      *
      * Vertical translation
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range:  
      * */
     private double m_Y  = 0.00;
 
-    /** y
+    /** Y
      *
      * Vertical translation
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range:  
      */
@@ -224,11 +264,11 @@ public class Translate extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** y
+    /** Y
      *
      * Vertical translation
      *
-     * Unit: 
+     * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range:  
      */

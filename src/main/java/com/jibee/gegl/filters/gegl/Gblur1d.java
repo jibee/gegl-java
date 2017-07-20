@@ -10,7 +10,7 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * 1D Gaussian-blur
  *
  * Performs an averaging of neighboring pixels with the normal distribution as weighting
  * 
@@ -21,7 +21,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=true, position_dependant=false, categories={"hidden", "blur"})
 public class Gblur1d extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a 1D Gaussian-blur.
      *
      * Performs an averaging of neighboring pixels with the normal distribution as weighting
      */
@@ -29,7 +29,7 @@ public class Gblur1d extends GeglFilter implements Source, Sink
     {
         super(container, "gegl:gblur-1d");
     }
-    /** Constructs a .
+    /** Constructs a 1D Gaussian-blur.
      *
      * Performs an averaging of neighboring pixels with the normal distribution as weighting
      */

@@ -9,7 +9,7 @@ import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Remap
  *
  * stretch components of pixels individually based on luminance envelopes
  * 
@@ -20,7 +20,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"compositors"})
 public class Remap extends GeglFilter implements Source, DualSink
 {
-    /** Constructs a .
+    /** Constructs a Remap.
      *
      * stretch components of pixels individually based on luminance envelopes
      */
@@ -28,7 +28,7 @@ public class Remap extends GeglFilter implements Source, DualSink
     {
         super(container, "gegl:remap");
     }
-    /** Constructs a .
+    /** Constructs a Remap.
      *
      * stretch components of pixels individually based on luminance envelopes
      */

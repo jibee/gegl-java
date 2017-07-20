@@ -12,7 +12,7 @@ import com.jibee.gegl.Source;
 /**
  * Panorama Projection
  *
- * Perform a equlinear/gnomonic or little planet/stereographic projection of a equirectangular input image.
+ * Perform an equilinear/gnomonic or little planet/stereographic projection of an equirectangular input image.
  * 
  * License: 
  * Supports OpenCL: false
@@ -23,7 +23,7 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
 {
     /** Constructs a Panorama Projection.
      *
-     * Perform a equlinear/gnomonic or little planet/stereographic projection of a equirectangular input image.
+     * Perform an equilinear/gnomonic or little planet/stereographic projection of an equirectangular input image.
      */
     public PanoramaProjection(GeglNode container)
     {
@@ -31,7 +31,7 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
     }
     /** Constructs a Panorama Projection.
      *
-     * Perform a equlinear/gnomonic or little planet/stereographic projection of a equirectangular input image.
+     * Perform an equilinear/gnomonic or little planet/stereographic projection of an equirectangular input image.
      */
     public PanoramaProjection(GeglFilter parent)
     {

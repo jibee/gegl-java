@@ -10,7 +10,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Layer
  *
  * A layer in the traditional sense
  * 
@@ -21,7 +21,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"meta"})
 public class Layer extends GeglFilter implements Source, DualSink
 {
-    /** Constructs a .
+    /** Constructs a Layer.
      *
      * A layer in the traditional sense
      */
@@ -29,7 +29,7 @@ public class Layer extends GeglFilter implements Source, DualSink
     {
         super(container, "gegl:layer");
     }
-    /** Constructs a .
+    /** Constructs a Layer.
      *
      * A layer in the traditional sense
      */

@@ -5,11 +5,12 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Rotate
  *
  * Rotate the buffer around the specified origin.
  * 
@@ -20,7 +21,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"transform"})
 public class Rotate extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a Rotate.
      *
      * Rotate the buffer around the specified origin.
      */
@@ -28,7 +29,7 @@ public class Rotate extends GeglFilter implements Source, Sink
     {
         super(container, "gegl:rotate");
     }
-    /** Constructs a .
+    /** Constructs a Rotate.
      *
      * Rotate the buffer around the specified origin.
      */
@@ -158,39 +159,83 @@ public class Rotate extends GeglFilter implements Source, Sink
     }
 
 
-    /** degrees
+    /** Clip to input
      *
-     * Angle to rotate (clockwise)
+     * Force output bounding box to be input bounding box.
      *
      * Unit: 
-     * Default value: 0.00
+     * Default value: false
      * Acceptable Range:  
+     * */
+    private boolean m_ClipToInput  = false;
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public Rotate setClipToInput(boolean value)
+    {
+	
+        m_ClipToInput = value;
+        setProperty("clip-to-input", value);
+        return this;
+    }
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public boolean getClipToInput()
+    {
+        return m_ClipToInput;
+    }
+
+
+    /** Degrees
+     *
+     * Angle to rotate (counter-clockwise)
+     *
+     * Unit: degree
+     * Default value: 0.00
+     * Acceptable Range: -720.00 720.00
      * */
     private double m_Degrees  = 0.00;
 
-    /** degrees
+    /** Degrees
      *
-     * Angle to rotate (clockwise)
+     * Angle to rotate (counter-clockwise)
      *
-     * Unit: 
+     * Unit: degree
      * Default value: 0.00
-     * Acceptable Range:  
+     * Acceptable Range: -720.00 720.00
      */
-    public Rotate setDegrees(double value)
+    public Rotate setDegrees(double value) throws ParameterOutOfRangeException
     {
-	
+		if(value > 720.00 || value < -720.00)
+	{
+	    throw new ParameterOutOfRangeException(value, -720.00, 720.00);
+	}
+
         m_Degrees = value;
         setProperty("degrees", value);
         return this;
     }
 
-    /** degrees
+    /** Degrees
      *
-     * Angle to rotate (clockwise)
+     * Angle to rotate (counter-clockwise)
      *
-     * Unit: 
+     * Unit: degree
      * Default value: 0.00
-     * Acceptable Range:  
+     * Acceptable Range: -720.00 720.00
      */
     public double getDegrees()
     {

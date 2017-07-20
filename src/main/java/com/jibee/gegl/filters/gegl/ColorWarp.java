@@ -12,7 +12,7 @@ import com.jibee.gegl.Source;
 /**
  * Color warp
  *
- * Warps the colors of an image between colors with weighted distortion factors.
+ * Warps the colors of an image between colors with weighted distortion factors, color pairs which are black to black get ignored when constructing the mapping.
  * 
  * License: 
  * Supports OpenCL: false
@@ -23,7 +23,7 @@ public class ColorWarp extends GeglFilter implements Source, Sink
 {
     /** Constructs a Color warp.
      *
-     * Warps the colors of an image between colors with weighted distortion factors.
+     * Warps the colors of an image between colors with weighted distortion factors, color pairs which are black to black get ignored when constructing the mapping.
      */
     public ColorWarp(GeglNode container)
     {
@@ -31,7 +31,7 @@ public class ColorWarp extends GeglFilter implements Source, Sink
     }
     /** Constructs a Color warp.
      *
-     * Warps the colors of an image between colors with weighted distortion factors.
+     * Warps the colors of an image between colors with weighted distortion factors, color pairs which are black to black get ignored when constructing the mapping.
      */
     public ColorWarp(GeglFilter parent)
     {

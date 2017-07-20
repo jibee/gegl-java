@@ -9,7 +9,7 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Rotate on center
  *
  * Rotate the buffer around its center, taking care of possible offsets.
  * 
@@ -20,7 +20,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"transform"})
 public class RotateOnCenter extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a Rotate on center.
      *
      * Rotate the buffer around its center, taking care of possible offsets.
      */
@@ -28,7 +28,7 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
     {
         super(container, "gegl:rotate-on-center");
     }
-    /** Constructs a .
+    /** Constructs a Rotate on center.
      *
      * Rotate the buffer around its center, taking care of possible offsets.
      */
@@ -78,9 +78,49 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
     }
 
 
-    /** degrees
+    /** Clip to input
      *
-     * Angle to rotate (clockwise)
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     * */
+    private boolean m_ClipToInput  = false;
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public RotateOnCenter setClipToInput(boolean value)
+    {
+	
+        m_ClipToInput = value;
+        setProperty("clip-to-input", value);
+        return this;
+    }
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public boolean getClipToInput()
+    {
+        return m_ClipToInput;
+    }
+
+
+    /** Degrees
+     *
+     * Angle to rotate (counter-clockwise)
      *
      * Unit: 
      * Default value: 0.00
@@ -88,9 +128,9 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
      * */
     private double m_Degrees  = 0.00;
 
-    /** degrees
+    /** Degrees
      *
-     * Angle to rotate (clockwise)
+     * Angle to rotate (counter-clockwise)
      *
      * Unit: 
      * Default value: 0.00
@@ -104,9 +144,9 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** degrees
+    /** Degrees
      *
-     * Angle to rotate (clockwise)
+     * Angle to rotate (counter-clockwise)
      *
      * Unit: 
      * Default value: 0.00
@@ -118,7 +158,7 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
     }
 
 
-    /** origin_x
+    /** origin-x
      *
      * Ignored. Always uses center of input buffer
      *
@@ -128,7 +168,7 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
      * */
     private double m_OriginX  = 0.00;
 
-    /** origin_x
+    /** origin-x
      *
      * Ignored. Always uses center of input buffer
      *
@@ -144,7 +184,7 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** origin_x
+    /** origin-x
      *
      * Ignored. Always uses center of input buffer
      *
@@ -158,7 +198,7 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
     }
 
 
-    /** origin_y
+    /** origin-y
      *
      * Ignored. Always uses center of input buffer
      *
@@ -168,7 +208,7 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
      * */
     private double m_OriginY  = 0.00;
 
-    /** origin_y
+    /** origin-y
      *
      * Ignored. Always uses center of input buffer
      *
@@ -184,7 +224,7 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** origin_y
+    /** origin-y
      *
      * Ignored. Always uses center of input buffer
      *

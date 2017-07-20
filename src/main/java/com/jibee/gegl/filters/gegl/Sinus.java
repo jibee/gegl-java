@@ -412,7 +412,7 @@ public class Sinus extends GeglFilter implements Source
 
     /** Exponent
      *
-     * Power used to strech the blend
+     * Power used to stretch the blend
      *
      * Unit: 
      * Default value: 0.00
@@ -422,7 +422,7 @@ public class Sinus extends GeglFilter implements Source
 
     /** Exponent
      *
-     * Power used to strech the blend
+     * Power used to stretch the blend
      *
      * Unit: 
      * Default value: 0.00
@@ -442,7 +442,7 @@ public class Sinus extends GeglFilter implements Source
 
     /** Exponent
      *
-     * Power used to strech the blend
+     * Power used to stretch the blend
      *
      * Unit: 
      * Default value: 0.00

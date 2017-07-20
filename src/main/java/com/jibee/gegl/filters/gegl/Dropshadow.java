@@ -11,7 +11,7 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Dropshadow
  *
  * Creates a dropshadow effect on the input buffer
  * 
@@ -19,10 +19,10 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="", opencl=false, position_dependant=false, categories={"effects", "light"})
+@Filter(license="", opencl=false, position_dependant=false, categories={"light"})
 public class Dropshadow extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a Dropshadow.
      *
      * Creates a dropshadow effect on the input buffer
      */
@@ -30,7 +30,7 @@ public class Dropshadow extends GeglFilter implements Source, Sink
     {
         super(container, "gegl:dropshadow");
     }
-    /** Constructs a .
+    /** Constructs a Dropshadow.
      *
      * Creates a dropshadow effect on the input buffer
      */

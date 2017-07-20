@@ -9,9 +9,9 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Reflect
  *
- * 
+ * Reflect an image about a line, whose direction is specified by the vector that is defined by the x and y properties. 
  * 
  * License: 
  * Supports OpenCL: false
@@ -20,17 +20,17 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"transform"})
 public class Reflect extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a Reflect.
      *
-     * 
+     * Reflect an image about a line, whose direction is specified by the vector that is defined by the x and y properties. 
      */
     public Reflect(GeglNode container)
     {
         super(container, "gegl:reflect");
     }
-    /** Constructs a .
+    /** Constructs a Reflect.
      *
-     * 
+     * Reflect an image about a line, whose direction is specified by the vector that is defined by the x and y properties. 
      */
     public Reflect(GeglFilter parent)
     {
@@ -158,7 +158,47 @@ public class Reflect extends GeglFilter implements Source, Sink
     }
 
 
-    /** x
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     * */
+    private boolean m_ClipToInput  = false;
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public Reflect setClipToInput(boolean value)
+    {
+	
+        m_ClipToInput = value;
+        setProperty("clip-to-input", value);
+        return this;
+    }
+
+    /** Clip to input
+     *
+     * Force output bounding box to be input bounding box.
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     */
+    public boolean getClipToInput()
+    {
+        return m_ClipToInput;
+    }
+
+
+    /** X
      *
      * Direction vector's X component
      *
@@ -168,7 +208,7 @@ public class Reflect extends GeglFilter implements Source, Sink
      * */
     private double m_X  = 0.00;
 
-    /** x
+    /** X
      *
      * Direction vector's X component
      *
@@ -184,7 +224,7 @@ public class Reflect extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** x
+    /** X
      *
      * Direction vector's X component
      *
@@ -198,7 +238,7 @@ public class Reflect extends GeglFilter implements Source, Sink
     }
 
 
-    /** y
+    /** Y
      *
      * Direction vector's Y component
      *
@@ -208,7 +248,7 @@ public class Reflect extends GeglFilter implements Source, Sink
      * */
     private double m_Y  = 0.00;
 
-    /** y
+    /** Y
      *
      * Direction vector's Y component
      *
@@ -224,7 +264,7 @@ public class Reflect extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** y
+    /** Y
      *
      * Direction vector's Y component
      *

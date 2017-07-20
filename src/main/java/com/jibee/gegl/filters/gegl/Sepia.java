@@ -12,7 +12,7 @@ import com.jibee.gegl.Source;
 /**
  * Sepia
  *
- * Converts the input image to sepia
+ * Apply a sepia tone to the input image
  * 
  * License: 
  * Supports OpenCL: false
@@ -23,7 +23,7 @@ public class Sepia extends GeglFilter implements Source, Sink
 {
     /** Constructs a Sepia.
      *
-     * Converts the input image to sepia
+     * Apply a sepia tone to the input image
      */
     public Sepia(GeglNode container)
     {
@@ -31,7 +31,7 @@ public class Sepia extends GeglFilter implements Source, Sink
     }
     /** Constructs a Sepia.
      *
-     * Converts the input image to sepia
+     * Apply a sepia tone to the input image
      */
     public Sepia(GeglFilter parent)
     {
@@ -39,9 +39,9 @@ public class Sepia extends GeglFilter implements Source, Sink
     }
 
     
-    /** Scale
+    /** Effect strength
      *
-     * Scale, strength of effect
+     * Strength of the sepia effect
      *
      * Unit: 
      * Default value: 1.00
@@ -49,9 +49,9 @@ public class Sepia extends GeglFilter implements Source, Sink
      * */
     private double m_Scale  = 1.00;
 
-    /** Scale
+    /** Effect strength
      *
-     * Scale, strength of effect
+     * Strength of the sepia effect
      *
      * Unit: 
      * Default value: 1.00
@@ -69,9 +69,9 @@ public class Sepia extends GeglFilter implements Source, Sink
         return this;
     }
 
-    /** Scale
+    /** Effect strength
      *
-     * Scale, strength of effect
+     * Strength of the sepia effect
      *
      * Unit: 
      * Default value: 1.00

@@ -7,9 +7,9 @@ import com.jibee.gegl.InputPad;
 import com.jibee.gegl.Sink;
 
 /**
- * NPY File Saver
+ * NumPy File Saver
  *
- * NPY image saver (Numerical python file saver.)
+ * NumPy (Numerical Python) image saver
  * 
  * License: 
  * Supports OpenCL: false
@@ -18,17 +18,17 @@ import com.jibee.gegl.Sink;
 @Filter(license="", opencl=false, position_dependant=false, categories={"output"})
 public class NpySave extends GeglFilter implements Sink
 {
-    /** Constructs a NPY File Saver.
+    /** Constructs a NumPy File Saver.
      *
-     * NPY image saver (Numerical python file saver.)
+     * NumPy (Numerical Python) image saver
      */
     public NpySave(GeglNode container)
     {
         super(container, "gegl:npy-save");
     }
-    /** Constructs a NPY File Saver.
+    /** Constructs a NumPy File Saver.
      *
-     * NPY image saver (Numerical python file saver.)
+     * NumPy (Numerical Python) image saver
      */
     public NpySave(GeglFilter parent)
     {
@@ -38,7 +38,7 @@ public class NpySave extends GeglFilter implements Sink
     
     /** File
      *
-     * Target path and filename, use '-' for stdout.
+     * Target path and filename, use '-' for stdout
      *
      * Unit: 
      * Default value: 
@@ -48,7 +48,7 @@ public class NpySave extends GeglFilter implements Sink
 
     /** File
      *
-     * Target path and filename, use '-' for stdout.
+     * Target path and filename, use '-' for stdout
      *
      * Unit: 
      * Default value: 
@@ -64,7 +64,7 @@ public class NpySave extends GeglFilter implements Sink
 
     /** File
      *
-     * Target path and filename, use '-' for stdout.
+     * Target path and filename, use '-' for stdout
      *
      * Unit: 
      * Default value: 

@@ -81,7 +81,7 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
 
     /** Independent RGB
      *
-     * 
+     * Control amount of noise for each RGB channel separately
      *
      * Unit: 
      * Default value: true
@@ -91,7 +91,7 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
 
     /** Independent RGB
      *
-     * 
+     * Control amount of noise for each RGB channel separately
      *
      * Unit: 
      * Default value: true
@@ -107,7 +107,7 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
 
     /** Independent RGB
      *
-     * 
+     * Control amount of noise for each RGB channel separately
      *
      * Unit: 
      * Default value: true
@@ -116,6 +116,86 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
     public boolean getIndependent()
     {
         return m_Independent;
+    }
+
+
+    /** Linear RGB
+     *
+     * Operate on linearized RGB color data
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     * */
+    private boolean m_Linear  = true;
+
+    /** Linear RGB
+     *
+     * Operate on linearized RGB color data
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     */
+    public NoiseRgb setLinear(boolean value)
+    {
+	
+        m_Linear = value;
+        setProperty("linear", value);
+        return this;
+    }
+
+    /** Linear RGB
+     *
+     * Operate on linearized RGB color data
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     */
+    public boolean getLinear()
+    {
+        return m_Linear;
+    }
+
+
+    /** Gaussian distribution
+     *
+     * Use a gaussian noise distribution, when unticked a linear noise distribution is used instead
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     * */
+    private boolean m_Gaussian  = true;
+
+    /** Gaussian distribution
+     *
+     * Use a gaussian noise distribution, when unticked a linear noise distribution is used instead
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     */
+    public NoiseRgb setGaussian(boolean value)
+    {
+	
+        m_Gaussian = value;
+        setProperty("gaussian", value);
+        return this;
+    }
+
+    /** Gaussian distribution
+     *
+     * Use a gaussian noise distribution, when unticked a linear noise distribution is used instead
+     *
+     * Unit: 
+     * Default value: true
+     * Acceptable Range:  
+     */
+    public boolean getGaussian()
+    {
+        return m_Gaussian;
     }
 
 

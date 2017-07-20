@@ -20,7 +20,7 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="", opencl=false, position_dependant=false, categories={"render"})
+@Filter(license="", opencl=false, position_dependant=false, categories={"render", "vector"})
 public class VectorStroke extends GeglFilter implements Source, Sink
 {
     /** Constructs a Vector Stroke.

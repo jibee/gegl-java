@@ -39,6 +39,50 @@ public class Exposure extends GeglFilter implements Source, Sink
     }
 
     
+    /** Black level
+     *
+     * Adjust the black level
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: -0.10 0.10
+     * */
+    private double m_BlackLevel  = 0.00;
+
+    /** Black level
+     *
+     * Adjust the black level
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: -0.10 0.10
+     */
+    public Exposure setBlackLevel(double value) throws ParameterOutOfRangeException
+    {
+		if(value > 0.10 || value < -0.10)
+	{
+	    throw new ParameterOutOfRangeException(value, -0.10, 0.10);
+	}
+
+        m_BlackLevel = value;
+        setProperty("black-level", value);
+        return this;
+    }
+
+    /** Black level
+     *
+     * Adjust the black level
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: -0.10 0.10
+     */
+    public double getBlackLevel()
+    {
+        return m_BlackLevel;
+    }
+
+
     /** Exposure
      *
      * Relative brightness change in stops
@@ -76,94 +120,6 @@ public class Exposure extends GeglFilter implements Source, Sink
     public double getExposure()
     {
         return m_Exposure;
-    }
-
-
-    /** Offset
-     *
-     * Offset value added
-     *
-     * Unit: 
-     * Default value: 0.00
-     * Acceptable Range: -0.50 0.50
-     * */
-    private double m_Offset  = 0.00;
-
-    /** Offset
-     *
-     * Offset value added
-     *
-     * Unit: 
-     * Default value: 0.00
-     * Acceptable Range: -0.50 0.50
-     */
-    public Exposure setOffset(double value) throws ParameterOutOfRangeException
-    {
-		if(value > 0.50 || value < -0.50)
-	{
-	    throw new ParameterOutOfRangeException(value, -0.50, 0.50);
-	}
-
-        m_Offset = value;
-        setProperty("offset", value);
-        return this;
-    }
-
-    /** Offset
-     *
-     * Offset value added
-     *
-     * Unit: 
-     * Default value: 0.00
-     * Acceptable Range: -0.50 0.50
-     */
-    public double getOffset()
-    {
-        return m_Offset;
-    }
-
-
-    /** Gamma adjustment
-     *
-     * 
-     *
-     * Unit: 
-     * Default value: 1.00
-     * Acceptable Range: 0.01 10.00
-     * */
-    private double m_Gamma  = 1.00;
-
-    /** Gamma adjustment
-     *
-     * 
-     *
-     * Unit: 
-     * Default value: 1.00
-     * Acceptable Range: 0.01 10.00
-     */
-    public Exposure setGamma(double value) throws ParameterOutOfRangeException
-    {
-		if(value > 10.00 || value < 0.01)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.01, 10.00);
-	}
-
-        m_Gamma = value;
-        setProperty("gamma", value);
-        return this;
-    }
-
-    /** Gamma adjustment
-     *
-     * 
-     *
-     * Unit: 
-     * Default value: 1.00
-     * Acceptable Range: 0.01 10.00
-     */
-    public double getGamma()
-    {
-        return m_Gamma;
     }
 
     @Override

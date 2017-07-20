@@ -10,7 +10,7 @@ import com.jibee.gegl.Sink;
 import com.jibee.gegl.Source;
 
 /**
- * 
+ * Color Rotate
  *
  * Replace a range of colors with another
  * 
@@ -21,7 +21,7 @@ import com.jibee.gegl.Source;
 @Filter(license="", opencl=false, position_dependant=false, categories={"color"})
 public class ColorRotate extends GeglFilter implements Source, Sink
 {
-    /** Constructs a .
+    /** Constructs a Color Rotate.
      *
      * Replace a range of colors with another
      */
@@ -29,7 +29,7 @@ public class ColorRotate extends GeglFilter implements Source, Sink
     {
         super(container, "gegl:color-rotate");
     }
-    /** Constructs a .
+    /** Constructs a Color Rotate.
      *
      * Replace a range of colors with another
      */

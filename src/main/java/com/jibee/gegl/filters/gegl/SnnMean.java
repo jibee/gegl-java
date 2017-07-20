@@ -12,7 +12,7 @@ import com.jibee.gegl.Source;
 /**
  * Symmetric Nearest Neighbour
  *
- * Noise reducing edge preserving blur filter based  on Symmetric Nearest Neighbours
+ * Noise reducing edge preserving blur filter based on Symmetric Nearest Neighbours
  * 
  * License: 
  * Supports OpenCL: true
@@ -23,7 +23,7 @@ public class SnnMean extends GeglFilter implements Source, Sink
 {
     /** Constructs a Symmetric Nearest Neighbour.
      *
-     * Noise reducing edge preserving blur filter based  on Symmetric Nearest Neighbours
+     * Noise reducing edge preserving blur filter based on Symmetric Nearest Neighbours
      */
     public SnnMean(GeglNode container)
     {
@@ -31,7 +31,7 @@ public class SnnMean extends GeglFilter implements Source, Sink
     }
     /** Constructs a Symmetric Nearest Neighbour.
      *
-     * Noise reducing edge preserving blur filter based  on Symmetric Nearest Neighbours
+     * Noise reducing edge preserving blur filter based on Symmetric Nearest Neighbours
      */
     public SnnMean(GeglFilter parent)
     {

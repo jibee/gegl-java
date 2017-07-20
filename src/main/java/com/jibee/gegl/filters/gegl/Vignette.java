@@ -19,7 +19,7 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: true
  * Position Dependant: true
  */
-@Filter(license="", opencl=true, position_dependant=true, categories={"render", "photo"})
+@Filter(license="", opencl=true, position_dependant=true, categories={"render", "light"})
 public class Vignette extends GeglFilter implements Source, Sink
 {
     /** Constructs a Vignette.

@@ -11,7 +11,7 @@ import com.jibee.gegl.Source;
 /**
  * Clone
  *
- * Clone a buffer
+ * Clone a buffer, this is the same as gegl:nop but can get special treatment to get more human readable references in serializations/UI.
  * 
  * License: 
  * Supports OpenCL: false
@@ -22,7 +22,7 @@ public class Clone extends GeglFilter implements Source, Sink
 {
     /** Constructs a Clone.
      *
-     * Clone a buffer
+     * Clone a buffer, this is the same as gegl:nop but can get special treatment to get more human readable references in serializations/UI.
      */
     public Clone(GeglNode container)
     {
@@ -30,7 +30,7 @@ public class Clone extends GeglFilter implements Source, Sink
     }
     /** Constructs a Clone.
      *
-     * Clone a buffer
+     * Clone a buffer, this is the same as gegl:nop but can get special treatment to get more human readable references in serializations/UI.
      */
     public Clone(GeglFilter parent)
     {
