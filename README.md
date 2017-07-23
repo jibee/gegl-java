@@ -17,3 +17,8 @@ loader.Output().connectTo(saver.Input());
 //saver.process();
 byte[] data = loader.blit();
 
+TODO
+====
+
+Package binary libraries (gegl, babl)
+Improve type mapping where gegl introspection says 'pointer'
