@@ -1,5 +1,8 @@
 package com.jibee.gegl.priv;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.sun.jna.Structure;
 
 public class GeglRectangle extends Structure{
@@ -23,4 +26,9 @@ public class GeglRectangle extends Structure{
 	public int y;
 	public int width;
 	public int height;
+	
+	@Override
+	protected List getFieldOrder() {
+		return Arrays.asList(new String[] {"x","y", "width", "height"});
+	}
 }
