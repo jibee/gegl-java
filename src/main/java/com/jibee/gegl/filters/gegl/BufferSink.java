@@ -5,6 +5,7 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.Sink;
+import com.jibee.gegl.GeglBuffer;
 import com.sun.jna.Pointer;
 
 /**
@@ -45,7 +46,7 @@ public class BufferSink extends GeglFilter implements Sink
      * Default value: 
      * Acceptable Range:  
      * */
-    private Pointer m_Buffer ;
+    private GeglBuffer m_Buffer ;
 
     /** Buffer location
      *
@@ -55,7 +56,7 @@ public class BufferSink extends GeglFilter implements Sink
      * Default value: 
      * Acceptable Range:  
      */
-    public BufferSink setBuffer(Pointer value)
+    public BufferSink setBuffer(GeglBuffer value)
     {
 	
         m_Buffer = value;
@@ -71,7 +72,7 @@ public class BufferSink extends GeglFilter implements Sink
      * Default value: 
      * Acceptable Range:  
      */
-    public Pointer getBuffer()
+    public GeglBuffer getBuffer()
     {
         return m_Buffer;
     }
