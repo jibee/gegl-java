@@ -8,7 +8,7 @@
     <dependency>
     	<groupId>com.googlecode.gstreamer-java</groupId>
     	<artifactId>gstreamer-java</artifactId>
-    	<version>1.5</version>
+    	<version>1.6</version>
     </dependency>
     <dependency>
 	<groupId>org.projectlombok</groupId>
