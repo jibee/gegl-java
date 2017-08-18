@@ -2,6 +2,9 @@ package com.jibee.gegl;
 
 import com.sun.jna.Pointer;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class GeglFilter {
 	private GeglNode m_implementation;
 
@@ -9,7 +12,7 @@ public class GeglFilter {
 		m_implementation = com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_create_child(container, filterClass);
 		
 		String operation = com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_get_operation(m_implementation);
-		System.out.println(operation);
+		log.debug(operation);
 	}
 	public GeglFilter(GeglFilter parent, String filterClass) {
 		this(parent.getImplementation(), filterClass);
