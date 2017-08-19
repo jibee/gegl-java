@@ -6,11 +6,11 @@ import java.lang.annotation.Retention;
 
 @Retention(RUNTIME)
 public @interface Filter {
-String license();
+	String license();
 
-boolean opencl();
+	boolean opencl();
 
-boolean position_dependant();
+	boolean position_dependant();
 
-String[] categories();
+	String[] categories();
 }
