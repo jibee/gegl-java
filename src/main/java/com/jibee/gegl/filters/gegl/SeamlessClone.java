@@ -24,6 +24,8 @@ public class SeamlessClone extends GeglFilter implements Source, DualSink
     /** Constructs a .
      *
      * Seamless cloning operation
+     *
+     * @param container container node
      */
     public SeamlessClone(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class SeamlessClone extends GeglFilter implements Source, DualSink
     /** Constructs a .
      *
      * Seamless cloning operation
+     *
+     * @param parent parent filter node
      */
     public SeamlessClone(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class SeamlessClone extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 5
      * Acceptable Range:  100000
+     *
+     * @param value new value for Refinement scale
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public SeamlessClone setMaxRefineScale(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100000)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 100000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 100000);
+	    }
 
         m_MaxRefineScale = value;
         setProperty("max-refine-scale", value);
@@ -76,6 +84,9 @@ public class SeamlessClone extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 5
      * Acceptable Range:  100000
+     *
+     * @return value of Refinement scale
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getMaxRefineScale()
     {
@@ -100,13 +111,17 @@ public class SeamlessClone extends GeglFilter implements Source, DualSink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range: -100000 100000
+     *
+     * @param value new value for Offset X
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public SeamlessClone setXoff(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100000 || value < -100000)
-	{
-	    throw new ParameterOutOfRangeException(value, -100000, 100000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -100000, 100000);
+	    }
 
         m_Xoff = value;
         setProperty("xoff", value);
@@ -120,6 +135,9 @@ public class SeamlessClone extends GeglFilter implements Source, DualSink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range: -100000 100000
+     *
+     * @return value of Offset X
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getXoff()
     {
@@ -144,13 +162,17 @@ public class SeamlessClone extends GeglFilter implements Source, DualSink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range: -100000 100000
+     *
+     * @param value new value for Offset Y
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public SeamlessClone setYoff(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100000 || value < -100000)
-	{
-	    throw new ParameterOutOfRangeException(value, -100000, 100000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -100000, 100000);
+	    }
 
         m_Yoff = value;
         setProperty("yoff", value);
@@ -164,6 +186,9 @@ public class SeamlessClone extends GeglFilter implements Source, DualSink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range: -100000 100000
+     *
+     * @return value of Offset Y
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getYoff()
     {
@@ -188,6 +213,10 @@ public class SeamlessClone extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Error message
+     * @return this filter (for chaining operations)
+     * 
      */
     public SeamlessClone setErrorMsg(String value)
     {
@@ -204,6 +233,9 @@ public class SeamlessClone extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Error message
+     * 
      */
     public String getErrorMsg()
     {

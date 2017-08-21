@@ -24,6 +24,8 @@ public class Engrave extends GeglFilter implements Source, Sink
     /** Constructs a Engrave.
      *
      * Simulate an antique engraving
+     *
+     * @param container container node
      */
     public Engrave(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Engrave extends GeglFilter implements Source, Sink
     /** Constructs a Engrave.
      *
      * Simulate an antique engraving
+     *
+     * @param parent parent filter node
      */
     public Engrave(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Engrave extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10
      * Acceptable Range: 2 16
+     *
+     * @param value new value for Height
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Engrave setRowHeight(int value) throws ParameterOutOfRangeException
     {
 		if(value > 16 || value < 2)
-	{
-	    throw new ParameterOutOfRangeException(value, 2, 16);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 2, 16);
+	    }
 
         m_RowHeight = value;
         setProperty("row-height", value);
@@ -76,6 +84,9 @@ public class Engrave extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10
      * Acceptable Range: 2 16
+     *
+     * @return value of Height
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getRowHeight()
     {
@@ -100,6 +111,10 @@ public class Engrave extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Limit line width
+     * @return this filter (for chaining operations)
+     * 
      */
     public Engrave setLimit(boolean value)
     {
@@ -116,6 +131,9 @@ public class Engrave extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Limit line width
+     * 
      */
     public boolean getLimit()
     {

@@ -21,6 +21,8 @@ public class NpySave extends GeglFilter implements Sink
     /** Constructs a NumPy File Saver.
      *
      * NumPy (Numerical Python) image saver
+     *
+     * @param container container node
      */
     public NpySave(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class NpySave extends GeglFilter implements Sink
     /** Constructs a NumPy File Saver.
      *
      * NumPy (Numerical Python) image saver
+     *
+     * @param parent parent filter node
      */
     public NpySave(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class NpySave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public NpySave setPath(String value)
     {
@@ -69,6 +77,9 @@ public class NpySave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {

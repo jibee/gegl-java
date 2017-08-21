@@ -24,6 +24,8 @@ public class LcmsFromProfile extends GeglFilter implements Source, Sink
     /** Constructs a LCMS From Profile.
      *
      * Converts the input from an ICC color profile to a well defined babl format. The buffer's data will then be correctly managed by GEGL for further processing.
+     *
+     * @param container container node
      */
     public LcmsFromProfile(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class LcmsFromProfile extends GeglFilter implements Source, Sink
     /** Constructs a LCMS From Profile.
      *
      * Converts the input from an ICC color profile to a well defined babl format. The buffer's data will then be correctly managed by GEGL for further processing.
+     *
+     * @param parent parent filter node
      */
     public LcmsFromProfile(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class LcmsFromProfile extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Source Profile
+     * @return this filter (for chaining operations)
+     * 
      */
     public LcmsFromProfile setSrcProfile(Pointer value)
     {
@@ -72,6 +80,9 @@ public class LcmsFromProfile extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Source Profile
+     * 
      */
     public Pointer getSrcProfile()
     {
@@ -96,6 +107,10 @@ public class LcmsFromProfile extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Rendering intent
+     * @return this filter (for chaining operations)
+     * 
      */
     public LcmsFromProfile setIntent(String value)
     {
@@ -112,6 +127,9 @@ public class LcmsFromProfile extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Rendering intent
+     * 
      */
     public String getIntent()
     {
@@ -136,6 +154,10 @@ public class LcmsFromProfile extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Black point compensation
+     * @return this filter (for chaining operations)
+     * 
      */
     public LcmsFromProfile setBlackPointCompensation(boolean value)
     {
@@ -152,6 +174,9 @@ public class LcmsFromProfile extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Black point compensation
+     * 
      */
     public boolean getBlackPointCompensation()
     {

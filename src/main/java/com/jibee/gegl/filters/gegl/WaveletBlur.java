@@ -24,6 +24,8 @@ public class WaveletBlur extends GeglFilter implements Source, Sink
     /** Constructs a Wavelet Blur.
      *
      * This blur is used for the wavelet decomposition filter, each pixel is computed from another by the HAT transform
+     *
+     * @param container container node
      */
     public WaveletBlur(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class WaveletBlur extends GeglFilter implements Source, Sink
     /** Constructs a Wavelet Blur.
      *
      * This blur is used for the wavelet decomposition filter, each pixel is computed from another by the HAT transform
+     *
+     * @param parent parent filter node
      */
     public WaveletBlur(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class WaveletBlur extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 1.00
      * Acceptable Range: 0.00 1500.00
+     *
+     * @param value new value for Radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public WaveletBlur setRadius(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1500.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1500.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1500.00);
+	    }
 
         m_Radius = value;
         setProperty("radius", value);
@@ -76,6 +84,9 @@ public class WaveletBlur extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 1.00
      * Acceptable Range: 0.00 1500.00
+     *
+     * @return value of Radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRadius()
     {

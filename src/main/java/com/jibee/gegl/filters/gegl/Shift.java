@@ -24,6 +24,8 @@ public class Shift extends GeglFilter implements Source, Sink
     /** Constructs a Shift.
      *
      * Shift each row or column of pixels by a random amount
+     *
+     * @param container container node
      */
     public Shift(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Shift extends GeglFilter implements Source, Sink
     /** Constructs a Shift.
      *
      * Shift each row or column of pixels by a random amount
+     *
+     * @param parent parent filter node
      */
     public Shift(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Shift extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 5
      * Acceptable Range:  200
+     *
+     * @param value new value for Shift
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Shift setShift(int value) throws ParameterOutOfRangeException
     {
 		if(value > 200)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 200);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 200);
+	    }
 
         m_Shift = value;
         setProperty("shift", value);
@@ -76,6 +84,9 @@ public class Shift extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 5
      * Acceptable Range:  200
+     *
+     * @return value of Shift
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getShift()
     {
@@ -100,6 +111,10 @@ public class Shift extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Shift direction
+     * @return this filter (for chaining operations)
+     * 
      */
     public Shift setDirection(String value)
     {
@@ -116,6 +131,9 @@ public class Shift extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Shift direction
+     * 
      */
     public String getDirection()
     {
@@ -140,6 +158,10 @@ public class Shift extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public Shift setSeed(int value)
     {
@@ -156,6 +178,9 @@ public class Shift extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

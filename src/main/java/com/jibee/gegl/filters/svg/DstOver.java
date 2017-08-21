@@ -23,6 +23,8 @@ public class DstOver extends GeglFilter implements Source, DualSink
     /** Constructs a Dst-over.
      *
      * Porter Duff operation dst-over (d = cB + cA * (1.0f - aB))
+     *
+     * @param container container node
      */
     public DstOver(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class DstOver extends GeglFilter implements Source, DualSink
     /** Constructs a Dst-over.
      *
      * Porter Duff operation dst-over (d = cB + cA * (1.0f - aB))
+     *
+     * @param parent parent filter node
      */
     public DstOver(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class DstOver extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public DstOver setSrgb(boolean value)
     {
@@ -71,6 +79,9 @@ public class DstOver extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

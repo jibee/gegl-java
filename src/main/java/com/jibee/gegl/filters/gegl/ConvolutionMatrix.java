@@ -24,6 +24,8 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
     /** Constructs a Convolution Matrix.
      *
      * Apply a generic 5x5 convolution matrix
+     *
+     * @param container container node
      */
     public ConvolutionMatrix(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
     /** Constructs a Convolution Matrix.
      *
      * Apply a generic 5x5 convolution matrix
+     *
+     * @param parent parent filter node
      */
     public ConvolutionMatrix(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (1,1)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setA1(double value)
     {
@@ -72,6 +80,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (1,1)
+     * 
      */
     public double getA1()
     {
@@ -96,6 +107,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (1,2)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setA2(double value)
     {
@@ -112,6 +127,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (1,2)
+     * 
      */
     public double getA2()
     {
@@ -136,6 +154,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (1,3)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setA3(double value)
     {
@@ -152,6 +174,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (1,3)
+     * 
      */
     public double getA3()
     {
@@ -176,6 +201,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (1,4)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setA4(double value)
     {
@@ -192,6 +221,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (1,4)
+     * 
      */
     public double getA4()
     {
@@ -216,6 +248,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (1,5)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setA5(double value)
     {
@@ -232,6 +268,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (1,5)
+     * 
      */
     public double getA5()
     {
@@ -256,6 +295,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (2,1)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setB1(double value)
     {
@@ -272,6 +315,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (2,1)
+     * 
      */
     public double getB1()
     {
@@ -296,6 +342,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (2,2)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setB2(double value)
     {
@@ -312,6 +362,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (2,2)
+     * 
      */
     public double getB2()
     {
@@ -336,6 +389,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (2,3)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setB3(double value)
     {
@@ -352,6 +409,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (2,3)
+     * 
      */
     public double getB3()
     {
@@ -376,6 +436,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (2,4)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setB4(double value)
     {
@@ -392,6 +456,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (2,4)
+     * 
      */
     public double getB4()
     {
@@ -416,6 +483,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (2,5)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setB5(double value)
     {
@@ -432,6 +503,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (2,5)
+     * 
      */
     public double getB5()
     {
@@ -456,6 +530,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (3,1)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setC1(double value)
     {
@@ -472,6 +550,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (3,1)
+     * 
      */
     public double getC1()
     {
@@ -496,6 +577,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (3,2)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setC2(double value)
     {
@@ -512,6 +597,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (3,2)
+     * 
      */
     public double getC2()
     {
@@ -536,6 +624,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range:  
+     *
+     * @param value new value for (3,3)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setC3(double value)
     {
@@ -552,6 +644,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range:  
+     *
+     * @return value of (3,3)
+     * 
      */
     public double getC3()
     {
@@ -576,6 +671,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (3,4)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setC4(double value)
     {
@@ -592,6 +691,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (3,4)
+     * 
      */
     public double getC4()
     {
@@ -616,6 +718,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (3,5)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setC5(double value)
     {
@@ -632,6 +738,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (3,5)
+     * 
      */
     public double getC5()
     {
@@ -656,6 +765,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (4,1)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setD1(double value)
     {
@@ -672,6 +785,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (4,1)
+     * 
      */
     public double getD1()
     {
@@ -696,6 +812,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (4,2)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setD2(double value)
     {
@@ -712,6 +832,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (4,2)
+     * 
      */
     public double getD2()
     {
@@ -736,6 +859,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (4,3)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setD3(double value)
     {
@@ -752,6 +879,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (4,3)
+     * 
      */
     public double getD3()
     {
@@ -776,6 +906,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (4,4)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setD4(double value)
     {
@@ -792,6 +926,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (4,4)
+     * 
      */
     public double getD4()
     {
@@ -816,6 +953,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (4,5)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setD5(double value)
     {
@@ -832,6 +973,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (4,5)
+     * 
      */
     public double getD5()
     {
@@ -856,6 +1000,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (5,1)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setE1(double value)
     {
@@ -872,6 +1020,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (5,1)
+     * 
      */
     public double getE1()
     {
@@ -896,6 +1047,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (5,2)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setE2(double value)
     {
@@ -912,6 +1067,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (5,2)
+     * 
      */
     public double getE2()
     {
@@ -936,6 +1094,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (5,3)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setE3(double value)
     {
@@ -952,6 +1114,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (5,3)
+     * 
      */
     public double getE3()
     {
@@ -976,6 +1141,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (5,4)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setE4(double value)
     {
@@ -992,6 +1161,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (5,4)
+     * 
      */
     public double getE4()
     {
@@ -1016,6 +1188,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for (5,5)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setE5(double value)
     {
@@ -1032,6 +1208,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of (5,5)
+     * 
      */
     public double getE5()
     {
@@ -1056,6 +1235,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range:  
+     *
+     * @param value new value for Divisor
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setDivisor(double value)
     {
@@ -1072,6 +1255,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range:  
+     *
+     * @return value of Divisor
+     * 
      */
     public double getDivisor()
     {
@@ -1096,13 +1282,17 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -1.00 1.00
+     *
+     * @param value new value for Offset
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ConvolutionMatrix setOffset(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < -1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -1.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1.00, 1.00);
+	    }
 
         m_Offset = value;
         setProperty("offset", value);
@@ -1116,6 +1306,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -1.00 1.00
+     *
+     * @return value of Offset
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getOffset()
     {
@@ -1140,6 +1333,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Red channel
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setRed(boolean value)
     {
@@ -1156,6 +1353,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Red channel
+     * 
      */
     public boolean getRed()
     {
@@ -1180,6 +1380,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Green channel
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setGreen(boolean value)
     {
@@ -1196,6 +1400,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Green channel
+     * 
      */
     public boolean getGreen()
     {
@@ -1220,6 +1427,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Blue channel
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setBlue(boolean value)
     {
@@ -1236,6 +1447,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Blue channel
+     * 
      */
     public boolean getBlue()
     {
@@ -1260,6 +1474,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Alpha channel
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setAlpha(boolean value)
     {
@@ -1276,6 +1494,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Alpha channel
+     * 
      */
     public boolean getAlpha()
     {
@@ -1300,6 +1521,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Normalize
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setNormalize(boolean value)
     {
@@ -1316,6 +1541,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Normalize
+     * 
      */
     public boolean getNormalize()
     {
@@ -1340,6 +1568,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Alpha-weighting
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setAlphaWeight(boolean value)
     {
@@ -1356,6 +1588,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Alpha-weighting
+     * 
      */
     public boolean getAlphaWeight()
     {
@@ -1380,6 +1615,10 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Border
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvolutionMatrix setBorder(String value)
     {
@@ -1396,6 +1635,9 @@ public class ConvolutionMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Border
+     * 
      */
     public String getBorder()
     {

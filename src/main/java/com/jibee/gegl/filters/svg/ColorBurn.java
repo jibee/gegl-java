@@ -23,6 +23,8 @@ public class ColorBurn extends GeglFilter implements Source, DualSink
     /** Constructs a Color-burn.
      *
      * SVG blend operation color-burn (<code>if cA * aB + cB * aA <= aA * aB: d = cA * (1 - aB) + cB * (1 - aA) otherwise: d = (cA == 0 ? 1 : (aA * (cA * aB + cB * aA - aA * aB) / cA) + cA * (1 - aB) + cB * (1 - aA))</code>)
+     *
+     * @param container container node
      */
     public ColorBurn(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class ColorBurn extends GeglFilter implements Source, DualSink
     /** Constructs a Color-burn.
      *
      * SVG blend operation color-burn (<code>if cA * aB + cB * aA <= aA * aB: d = cA * (1 - aB) + cB * (1 - aA) otherwise: d = (cA == 0 ? 1 : (aA * (cA * aB + cB * aA - aA * aB) / cA) + cA * (1 - aB) + cB * (1 - aA))</code>)
+     *
+     * @param parent parent filter node
      */
     public ColorBurn(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class ColorBurn extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorBurn setSrgb(boolean value)
     {
@@ -71,6 +79,9 @@ public class ColorBurn extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

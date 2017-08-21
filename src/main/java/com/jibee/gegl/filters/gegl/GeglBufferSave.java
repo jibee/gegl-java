@@ -21,6 +21,8 @@ public class GeglBufferSave extends GeglFilter implements Sink
     /** Constructs a .
      *
      * GeglBuffer file writer.
+     *
+     * @param container container node
      */
     public GeglBufferSave(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class GeglBufferSave extends GeglFilter implements Sink
     /** Constructs a .
      *
      * GeglBuffer file writer.
+     *
+     * @param parent parent filter node
      */
     public GeglBufferSave(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class GeglBufferSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: "/tmp/gegl-buffer.gegl"
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public GeglBufferSave setPath(String value)
     {
@@ -69,6 +77,9 @@ public class GeglBufferSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: "/tmp/gegl-buffer.gegl"
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {

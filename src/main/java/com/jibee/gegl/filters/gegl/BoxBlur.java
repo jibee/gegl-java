@@ -24,6 +24,8 @@ public class BoxBlur extends GeglFilter implements Source, Sink
     /** Constructs a Box Blur.
      *
      * Blur resulting from averaging the colors of a square neighbourhood.
+     *
+     * @param container container node
      */
     public BoxBlur(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class BoxBlur extends GeglFilter implements Source, Sink
     /** Constructs a Box Blur.
      *
      * Blur resulting from averaging the colors of a square neighbourhood.
+     *
+     * @param parent parent filter node
      */
     public BoxBlur(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class BoxBlur extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4
      * Acceptable Range:  1000
+     *
+     * @param value new value for Radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public BoxBlur setRadius(int value) throws ParameterOutOfRangeException
     {
 		if(value > 1000)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 1000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 1000);
+	    }
 
         m_Radius = value;
         setProperty("radius", value);
@@ -76,6 +84,9 @@ public class BoxBlur extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4
      * Acceptable Range:  1000
+     *
+     * @return value of Radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getRadius()
     {

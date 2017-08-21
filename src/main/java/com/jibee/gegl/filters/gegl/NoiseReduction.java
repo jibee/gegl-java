@@ -24,6 +24,8 @@ public class NoiseReduction extends GeglFilter implements Source, Sink
     /** Constructs a Noise Reduction.
      *
      * Anisotropic smoothing operation
+     *
+     * @param container container node
      */
     public NoiseReduction(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class NoiseReduction extends GeglFilter implements Source, Sink
     /** Constructs a Noise Reduction.
      *
      * Anisotropic smoothing operation
+     *
+     * @param parent parent filter node
      */
     public NoiseReduction(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class NoiseReduction extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4
      * Acceptable Range:  32
+     *
+     * @param value new value for Strength
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseReduction setIterations(int value) throws ParameterOutOfRangeException
     {
 		if(value > 32)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 32);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 32);
+	    }
 
         m_Iterations = value;
         setProperty("iterations", value);
@@ -76,6 +84,9 @@ public class NoiseReduction extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4
      * Acceptable Range:  32
+     *
+     * @return value of Strength
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getIterations()
     {

@@ -23,6 +23,8 @@ public class SvgHuerotate extends GeglFilter implements Source, Sink
     /** Constructs a SVG Hue Rotate.
      *
      * SVG color matrix operation svg_huerotate
+     *
+     * @param container container node
      */
     public SvgHuerotate(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class SvgHuerotate extends GeglFilter implements Source, Sink
     /** Constructs a SVG Hue Rotate.
      *
      * SVG color matrix operation svg_huerotate
+     *
+     * @param parent parent filter node
      */
     public SvgHuerotate(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class SvgHuerotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Values
+     * @return this filter (for chaining operations)
+     * 
      */
     public SvgHuerotate setValues(String value)
     {
@@ -71,6 +79,9 @@ public class SvgHuerotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Values
+     * 
      */
     public String getValues()
     {

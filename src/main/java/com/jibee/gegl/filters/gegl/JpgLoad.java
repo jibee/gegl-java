@@ -21,6 +21,8 @@ public class JpgLoad extends GeglFilter implements Source
     /** Constructs a JPEG File Loader.
      *
      * JPEG image loader using libjpeg
+     *
+     * @param container container node
      */
     public JpgLoad(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class JpgLoad extends GeglFilter implements Source
     /** Constructs a JPEG File Loader.
      *
      * JPEG image loader using libjpeg
+     *
+     * @param parent parent filter node
      */
     public JpgLoad(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class JpgLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public JpgLoad setPath(String value)
     {
@@ -69,6 +77,9 @@ public class JpgLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {
@@ -93,6 +104,10 @@ public class JpgLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for URI
+     * @return this filter (for chaining operations)
+     * 
      */
     public JpgLoad setUri(String value)
     {
@@ -109,6 +124,9 @@ public class JpgLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of URI
+     * 
      */
     public String getUri()
     {

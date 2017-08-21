@@ -23,6 +23,8 @@ public class VideoDegradation extends GeglFilter implements Source, Sink
     /** Constructs a Video Degradation.
      *
      * This function simulates the degradation of being on an old low-dotpitch RGB video monitor.
+     *
+     * @param container container node
      */
     public VideoDegradation(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class VideoDegradation extends GeglFilter implements Source, Sink
     /** Constructs a Video Degradation.
      *
      * This function simulates the degradation of being on an old low-dotpitch RGB video monitor.
+     *
+     * @param parent parent filter node
      */
     public VideoDegradation(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class VideoDegradation extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Pattern
+     * @return this filter (for chaining operations)
+     * 
      */
     public VideoDegradation setPattern(String value)
     {
@@ -71,6 +79,9 @@ public class VideoDegradation extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Pattern
+     * 
      */
     public String getPattern()
     {
@@ -95,6 +106,10 @@ public class VideoDegradation extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Additive
+     * @return this filter (for chaining operations)
+     * 
      */
     public VideoDegradation setAdditive(boolean value)
     {
@@ -111,6 +126,9 @@ public class VideoDegradation extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Additive
+     * 
      */
     public boolean getAdditive()
     {
@@ -135,6 +153,10 @@ public class VideoDegradation extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Rotated
+     * @return this filter (for chaining operations)
+     * 
      */
     public VideoDegradation setRotated(boolean value)
     {
@@ -151,6 +173,9 @@ public class VideoDegradation extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Rotated
+     * 
      */
     public boolean getRotated()
     {

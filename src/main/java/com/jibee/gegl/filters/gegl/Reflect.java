@@ -23,6 +23,8 @@ public class Reflect extends GeglFilter implements Source, Sink
     /** Constructs a Reflect.
      *
      * Reflect an image about a line, whose direction is specified by the vector that is defined by the x and y properties. 
+     *
+     * @param container container node
      */
     public Reflect(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Reflect extends GeglFilter implements Source, Sink
     /** Constructs a Reflect.
      *
      * Reflect an image about a line, whose direction is specified by the vector that is defined by the x and y properties. 
+     *
+     * @param parent parent filter node
      */
     public Reflect(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Reflect extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Origin-x
+     * @return this filter (for chaining operations)
+     * 
      */
     public Reflect setOriginX(double value)
     {
@@ -71,6 +79,9 @@ public class Reflect extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Origin-x
+     * 
      */
     public double getOriginX()
     {
@@ -95,6 +106,10 @@ public class Reflect extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Origin-y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Reflect setOriginY(double value)
     {
@@ -111,6 +126,9 @@ public class Reflect extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Origin-y
+     * 
      */
     public double getOriginY()
     {
@@ -135,6 +153,10 @@ public class Reflect extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Sampler
+     * @return this filter (for chaining operations)
+     * 
      */
     public Reflect setSampler(String value)
     {
@@ -151,6 +173,9 @@ public class Reflect extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Sampler
+     * 
      */
     public String getSampler()
     {
@@ -175,6 +200,10 @@ public class Reflect extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Clip to input
+     * @return this filter (for chaining operations)
+     * 
      */
     public Reflect setClipToInput(boolean value)
     {
@@ -191,6 +220,9 @@ public class Reflect extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Clip to input
+     * 
      */
     public boolean getClipToInput()
     {
@@ -215,6 +247,10 @@ public class Reflect extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for X
+     * @return this filter (for chaining operations)
+     * 
      */
     public Reflect setX(double value)
     {
@@ -231,6 +267,9 @@ public class Reflect extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of X
+     * 
      */
     public double getX()
     {
@@ -255,6 +294,10 @@ public class Reflect extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Reflect setY(double value)
     {
@@ -271,6 +314,9 @@ public class Reflect extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Y
+     * 
      */
     public double getY()
     {

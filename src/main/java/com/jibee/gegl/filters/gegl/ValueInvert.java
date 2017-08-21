@@ -23,6 +23,8 @@ public class ValueInvert extends GeglFilter implements Source, Sink
     /** Constructs a Value Invert.
      *
      * Invert the value component, the result has the brightness inverted, keeping the color.
+     *
+     * @param container container node
      */
     public ValueInvert(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class ValueInvert extends GeglFilter implements Source, Sink
     /** Constructs a Value Invert.
      *
      * Invert the value component, the result has the brightness inverted, keeping the color.
+     *
+     * @param parent parent filter node
      */
     public ValueInvert(GeglFilter parent)
     {

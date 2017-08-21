@@ -24,6 +24,8 @@ public class GaussianBlur extends GeglFilter implements Source, Sink
     /** Constructs a Gaussian Blur.
      *
      * Performs an averaging of neighboring pixels with the normal distribution as weighting
+     *
+     * @param container container node
      */
     public GaussianBlur(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class GaussianBlur extends GeglFilter implements Source, Sink
     /** Constructs a Gaussian Blur.
      *
      * Performs an averaging of neighboring pixels with the normal distribution as weighting
+     *
+     * @param parent parent filter node
      */
     public GaussianBlur(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class GaussianBlur extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 1.50
      * Acceptable Range: 0.00 1500.00
+     *
+     * @param value new value for Size X
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public GaussianBlur setStdDevX(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1500.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1500.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1500.00);
+	    }
 
         m_StdDevX = value;
         setProperty("std-dev-x", value);
@@ -76,6 +84,9 @@ public class GaussianBlur extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 1.50
      * Acceptable Range: 0.00 1500.00
+     *
+     * @return value of Size X
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getStdDevX()
     {
@@ -100,13 +111,17 @@ public class GaussianBlur extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 1.50
      * Acceptable Range: 0.00 1500.00
+     *
+     * @param value new value for Size Y
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public GaussianBlur setStdDevY(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1500.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1500.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1500.00);
+	    }
 
         m_StdDevY = value;
         setProperty("std-dev-y", value);
@@ -120,6 +135,9 @@ public class GaussianBlur extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 1.50
      * Acceptable Range: 0.00 1500.00
+     *
+     * @return value of Size Y
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getStdDevY()
     {
@@ -144,6 +162,10 @@ public class GaussianBlur extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Filter
+     * @return this filter (for chaining operations)
+     * 
      */
     public GaussianBlur setFilter(String value)
     {
@@ -160,6 +182,9 @@ public class GaussianBlur extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Filter
+     * 
      */
     public String getFilter()
     {
@@ -184,6 +209,10 @@ public class GaussianBlur extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Abyss policy
+     * @return this filter (for chaining operations)
+     * 
      */
     public GaussianBlur setAbyssPolicy(String value)
     {
@@ -200,6 +229,9 @@ public class GaussianBlur extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Abyss policy
+     * 
      */
     public String getAbyssPolicy()
     {
@@ -224,6 +256,10 @@ public class GaussianBlur extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Clip to the input extent
+     * @return this filter (for chaining operations)
+     * 
      */
     public GaussianBlur setClipExtent(boolean value)
     {
@@ -240,6 +276,9 @@ public class GaussianBlur extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Clip to the input extent
+     * 
      */
     public boolean getClipExtent()
     {

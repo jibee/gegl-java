@@ -23,6 +23,8 @@ public class Remap extends GeglFilter implements Source, DualSink
     /** Constructs a Remap.
      *
      * stretch components of pixels individually based on luminance envelopes
+     *
+     * @param container container node
      */
     public Remap(GeglNode container)
     {
@@ -31,13 +33,19 @@ public class Remap extends GeglFilter implements Source, DualSink
     /** Constructs a Remap.
      *
      * stretch components of pixels individually based on luminance envelopes
+     *
+     * @param parent parent filter node
      */
     public Remap(GeglFilter parent)
     {
         super(parent, "gegl:remap");
     }
 
-        public InputPad Aux2()
+        /** Obtains the InputPad named aux2.
+    * 
+    * @return the InputPad named aux2
+    */
+    public InputPad Aux2()
     {
         return new InputPad(this, "aux2");
     }

@@ -22,6 +22,8 @@ public class SimplexNoise extends GeglFilter implements Source
     /** Constructs a Simplex Noise.
      *
      * Generates a solid noise texture.
+     *
+     * @param container container node
      */
     public SimplexNoise(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class SimplexNoise extends GeglFilter implements Source
     /** Constructs a Simplex Noise.
      *
      * Generates a solid noise texture.
+     *
+     * @param parent parent filter node
      */
     public SimplexNoise(GeglFilter parent)
     {
@@ -54,13 +58,17 @@ public class SimplexNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 20.00
+     *
+     * @param value new value for Scale
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public SimplexNoise setScale(double value) throws ParameterOutOfRangeException
     {
 		if(value > 20.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 20.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 20.00);
+	    }
 
         m_Scale = value;
         setProperty("scale", value);
@@ -74,6 +82,9 @@ public class SimplexNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 20.00
+     *
+     * @return value of Scale
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getScale()
     {
@@ -98,13 +109,17 @@ public class SimplexNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 1
      * Acceptable Range: 1 20
+     *
+     * @param value new value for Iterations
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public SimplexNoise setIterations(int value) throws ParameterOutOfRangeException
     {
 		if(value > 20 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 20);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 20);
+	    }
 
         m_Iterations = value;
         setProperty("iterations", value);
@@ -118,6 +133,9 @@ public class SimplexNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 1
      * Acceptable Range: 1 20
+     *
+     * @return value of Iterations
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getIterations()
     {
@@ -142,6 +160,10 @@ public class SimplexNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public SimplexNoise setSeed(int value)
     {
@@ -158,6 +180,9 @@ public class SimplexNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

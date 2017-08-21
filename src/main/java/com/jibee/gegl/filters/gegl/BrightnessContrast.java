@@ -24,6 +24,8 @@ public class BrightnessContrast extends GeglFilter implements Source, Sink
     /** Constructs a Brightness Contrast.
      *
      * Changes the light level and contrast. This operation operates in linear light, 'contrast' is a scale factor around 50%% gray, and 'brightness' a constant offset to apply after contrast scaling.
+     *
+     * @param container container node
      */
     public BrightnessContrast(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class BrightnessContrast extends GeglFilter implements Source, Sink
     /** Constructs a Brightness Contrast.
      *
      * Changes the light level and contrast. This operation operates in linear light, 'contrast' is a scale factor around 50%% gray, and 'brightness' a constant offset to apply after contrast scaling.
+     *
+     * @param parent parent filter node
      */
     public BrightnessContrast(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class BrightnessContrast extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -5.00 5.00
+     *
+     * @param value new value for Contrast
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public BrightnessContrast setContrast(double value) throws ParameterOutOfRangeException
     {
 		if(value > 5.00 || value < -5.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -5.00, 5.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -5.00, 5.00);
+	    }
 
         m_Contrast = value;
         setProperty("contrast", value);
@@ -76,6 +84,9 @@ public class BrightnessContrast extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -5.00 5.00
+     *
+     * @return value of Contrast
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getContrast()
     {
@@ -100,13 +111,17 @@ public class BrightnessContrast extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -3.00 3.00
+     *
+     * @param value new value for Brightness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public BrightnessContrast setBrightness(double value) throws ParameterOutOfRangeException
     {
 		if(value > 3.00 || value < -3.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -3.00, 3.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -3.00, 3.00);
+	    }
 
         m_Brightness = value;
         setProperty("brightness", value);
@@ -120,6 +135,9 @@ public class BrightnessContrast extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -3.00 3.00
+     *
+     * @return value of Brightness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBrightness()
     {

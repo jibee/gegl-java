@@ -21,6 +21,8 @@ public class RgbeLoad extends GeglFilter implements Source
     /** Constructs a RGBE File Loader.
      *
      * RGBE image loader (Radiance HDR format).
+     *
+     * @param container container node
      */
     public RgbeLoad(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class RgbeLoad extends GeglFilter implements Source
     /** Constructs a RGBE File Loader.
      *
      * RGBE image loader (Radiance HDR format).
+     *
+     * @param parent parent filter node
      */
     public RgbeLoad(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class RgbeLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public RgbeLoad setPath(String value)
     {
@@ -69,6 +77,9 @@ public class RgbeLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {

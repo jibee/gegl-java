@@ -22,6 +22,8 @@ public class TiffLoad extends GeglFilter implements Source
     /** Constructs a TIFF File Loader.
      *
      * TIFF image loader using libtiff
+     *
+     * @param container container node
      */
     public TiffLoad(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class TiffLoad extends GeglFilter implements Source
     /** Constructs a TIFF File Loader.
      *
      * TIFF image loader using libtiff
+     *
+     * @param parent parent filter node
      */
     public TiffLoad(GeglFilter parent)
     {
@@ -54,6 +58,10 @@ public class TiffLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public TiffLoad setPath(String value)
     {
@@ -70,6 +78,9 @@ public class TiffLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {
@@ -94,6 +105,10 @@ public class TiffLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for URI
+     * @return this filter (for chaining operations)
+     * 
      */
     public TiffLoad setUri(String value)
     {
@@ -110,6 +125,9 @@ public class TiffLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of URI
+     * 
      */
     public String getUri()
     {
@@ -134,13 +152,17 @@ public class TiffLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 1
      * Acceptable Range: 1 
+     *
+     * @param value new value for Directory
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public TiffLoad setDirectory(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
+	    }
 
         m_Directory = value;
         setProperty("directory", value);
@@ -154,6 +176,9 @@ public class TiffLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 1
      * Acceptable Range: 1 
+     *
+     * @return value of Directory
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getDirectory()
     {

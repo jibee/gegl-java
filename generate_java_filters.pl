@@ -146,6 +146,8 @@ public class $className extends GeglFilter$implements
     /** Constructs a $title.
      *
      * $description
+     *
+     * \@param container container node
      */
     public $className(GeglNode container)
     {
@@ -154,6 +156,8 @@ public class $className extends GeglFilter$implements
     /** Constructs a $title.
      *
      * $description
+     *
+     * \@param parent parent filter node
      */
     public $className(GeglFilter parent)
     {
@@ -219,7 +223,14 @@ sub processPad
     }
 EOF
 
-    $text="    \@Override\n".$text if($padspec=~/^(input|output|aux)$/);
+    if($padspec=~/^(input|output|aux)$/)
+    {
+	$text="    \@Override\n".$text;
+    }
+    else
+    {
+	$text = "    /** Obtains the $class named $padspec.\n    * \n    * \@return the $class named $padspec\n    */\n".$text;
+    }
     return $text;
 }
 
@@ -306,35 +317,37 @@ sub parse_property
     $minimum = undef if $minimum eq "-inf";
     my $allowed_range_check = "";
     my $exception_declaration = "";
+    my $exception_documentation = "";
     if($minimum or $maximum)
     {
 	$exception_declaration = " throws ParameterOutOfRangeException";
+	$exception_documentation = "\@throws ParameterOutOfRangeException value is outside the acceptable range.";
 	$used_types{ParameterOutOfRangeException}=1;
 	if($minimum and $maximum)
 	{
 	    $allowed_range_check = <<"EOF";
 	if(value > $maximum || value < $minimum)
-	{
-	    throw new ParameterOutOfRangeException(value, $minimum, $maximum);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, $minimum, $maximum);
+	    }
 EOF
 	}
 	elsif($minimum)
 	{
 	    $allowed_range_check = <<"EOF";
 	if(value < $minimum)
-	{
-	    throw new ParameterOutOfRangeException(value, $minimum, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, $minimum, Double.POSITIVE_INFINITY);
+	    }
 EOF
 	}
 	elsif($maximum)
 	{
 	    $allowed_range_check = <<"EOF";
 	if(value > $maximum)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, $maximum);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, $maximum);
+	    }
 EOF
 	}
     }
@@ -372,6 +385,10 @@ EOF
      * Unit: $unit
      * Default value: $default
      * Acceptable Range: $minimum $maximum
+     *
+     * \@param value new value for $label
+     * \@return this filter (for chaining operations)
+     * $exception_documentation
      */
     public $className set$shortName($java_type value)$exception_declaration
     {
@@ -388,6 +405,9 @@ EOF
      * Unit: $unit
      * Default value: $default
      * Acceptable Range: $minimum $maximum
+     *
+     * \@return value of $label
+     * $exception_documentation
      */
     public $java_type get$shortName()
     {

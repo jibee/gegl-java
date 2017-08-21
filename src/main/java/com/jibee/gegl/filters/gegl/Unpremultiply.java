@@ -23,6 +23,8 @@ public class Unpremultiply extends GeglFilter implements Source, Sink
     /** Constructs a Unpremultiply alpha.
      *
      * Unpremultiplies a buffer that contains pre-multiplied colors (but according to the babl format is not.)
+     *
+     * @param container container node
      */
     public Unpremultiply(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Unpremultiply extends GeglFilter implements Source, Sink
     /** Constructs a Unpremultiply alpha.
      *
      * Unpremultiplies a buffer that contains pre-multiplied colors (but according to the babl format is not.)
+     *
+     * @param parent parent filter node
      */
     public Unpremultiply(GeglFilter parent)
     {

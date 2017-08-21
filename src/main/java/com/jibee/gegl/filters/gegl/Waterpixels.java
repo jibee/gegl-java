@@ -24,6 +24,8 @@ public class Waterpixels extends GeglFilter implements Source, Sink
     /** Constructs a Waterpixels.
      *
      * Superpixels based on the watershed transformation
+     *
+     * @param container container node
      */
     public Waterpixels(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Waterpixels extends GeglFilter implements Source, Sink
     /** Constructs a Waterpixels.
      *
      * Superpixels based on the watershed transformation
+     *
+     * @param parent parent filter node
      */
     public Waterpixels(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Waterpixels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 32
      * Acceptable Range: 8 
+     *
+     * @param value new value for Superpixels size
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Waterpixels setSize(int value) throws ParameterOutOfRangeException
     {
 		if(value < 8)
-	{
-	    throw new ParameterOutOfRangeException(value, 8, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 8, Double.POSITIVE_INFINITY);
+	    }
 
         m_Size = value;
         setProperty("size", value);
@@ -76,6 +84,9 @@ public class Waterpixels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 32
      * Acceptable Range: 8 
+     *
+     * @return value of Superpixels size
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getSize()
     {
@@ -100,13 +111,17 @@ public class Waterpixels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @param value new value for Gradient smoothness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Waterpixels setSmoothness(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1000.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
+	    }
 
         m_Smoothness = value;
         setProperty("smoothness", value);
@@ -120,6 +135,9 @@ public class Waterpixels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @return value of Gradient smoothness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getSmoothness()
     {
@@ -144,13 +162,17 @@ public class Waterpixels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  50
+     *
+     * @param value new value for Spatial regularization
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Waterpixels setRegularization(int value) throws ParameterOutOfRangeException
     {
 		if(value > 50)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 50);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 50);
+	    }
 
         m_Regularization = value;
         setProperty("regularization", value);
@@ -164,6 +186,9 @@ public class Waterpixels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  50
+     *
+     * @return value of Spatial regularization
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getRegularization()
     {
@@ -188,6 +213,10 @@ public class Waterpixels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Superpixels color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Waterpixels setFill(String value)
     {
@@ -204,6 +233,9 @@ public class Waterpixels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Superpixels color
+     * 
      */
     public String getFill()
     {

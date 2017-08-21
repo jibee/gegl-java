@@ -23,6 +23,8 @@ public class WeightedBlend extends GeglFilter implements Source, DualSink
     /** Constructs a Weighted Blend.
      *
      * blend two images using alpha values as weights
+     *
+     * @param container container node
      */
     public WeightedBlend(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class WeightedBlend extends GeglFilter implements Source, DualSink
     /** Constructs a Weighted Blend.
      *
      * blend two images using alpha values as weights
+     *
+     * @param parent parent filter node
      */
     public WeightedBlend(GeglFilter parent)
     {

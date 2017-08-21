@@ -24,6 +24,8 @@ public class Oilify extends GeglFilter implements Source, Sink
     /** Constructs a Oilify.
      *
      * Emulate an oil painting
+     *
+     * @param container container node
      */
     public Oilify(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Oilify extends GeglFilter implements Source, Sink
     /** Constructs a Oilify.
      *
      * Emulate an oil painting
+     *
+     * @param parent parent filter node
      */
     public Oilify(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Oilify extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 4
      * Acceptable Range: 1 100
+     *
+     * @param value new value for Mask Radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Oilify setMaskRadius(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 100);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 100);
+	    }
 
         m_MaskRadius = value;
         setProperty("mask-radius", value);
@@ -76,6 +84,9 @@ public class Oilify extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 4
      * Acceptable Range: 1 100
+     *
+     * @return value of Mask Radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getMaskRadius()
     {
@@ -100,13 +111,17 @@ public class Oilify extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 8
      * Acceptable Range: 1 20
+     *
+     * @param value new value for Exponent
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Oilify setExponent(int value) throws ParameterOutOfRangeException
     {
 		if(value > 20 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 20);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 20);
+	    }
 
         m_Exponent = value;
         setProperty("exponent", value);
@@ -120,6 +135,9 @@ public class Oilify extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 8
      * Acceptable Range: 1 20
+     *
+     * @return value of Exponent
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getExponent()
     {
@@ -144,13 +162,17 @@ public class Oilify extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 128
      * Acceptable Range: 8 256
+     *
+     * @param value new value for Number of intensities
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Oilify setIntensities(int value) throws ParameterOutOfRangeException
     {
 		if(value > 256 || value < 8)
-	{
-	    throw new ParameterOutOfRangeException(value, 8, 256);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 8, 256);
+	    }
 
         m_Intensities = value;
         setProperty("intensities", value);
@@ -164,6 +186,9 @@ public class Oilify extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 128
      * Acceptable Range: 8 256
+     *
+     * @return value of Number of intensities
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getIntensities()
     {
@@ -188,6 +213,10 @@ public class Oilify extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Intensity Mode
+     * @return this filter (for chaining operations)
+     * 
      */
     public Oilify setUseInten(boolean value)
     {
@@ -204,6 +233,9 @@ public class Oilify extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Intensity Mode
+     * 
      */
     public boolean getUseInten()
     {

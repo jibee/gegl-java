@@ -23,6 +23,8 @@ public class StretchContrastHsv extends GeglFilter implements Source, Sink
     /** Constructs a Stretch Contrast HSV.
      *
      * Scales the components of the buffer to be in the 0.0-1.0 range. This improves images that make poor use of the available contrast (little contrast, very dark, or very bright images). This version differs from Contrast Autostretch in that it works in HSV space, and preserves hue.
+     *
+     * @param container container node
      */
     public StretchContrastHsv(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class StretchContrastHsv extends GeglFilter implements Source, Sink
     /** Constructs a Stretch Contrast HSV.
      *
      * Scales the components of the buffer to be in the 0.0-1.0 range. This improves images that make poor use of the available contrast (little contrast, very dark, or very bright images). This version differs from Contrast Autostretch in that it works in HSV space, and preserves hue.
+     *
+     * @param parent parent filter node
      */
     public StretchContrastHsv(GeglFilter parent)
     {

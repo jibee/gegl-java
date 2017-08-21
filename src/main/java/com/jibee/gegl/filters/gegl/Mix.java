@@ -23,6 +23,8 @@ public class Mix extends GeglFilter implements Source, DualSink
     /** Constructs a Mix.
      *
      * do a lerp, linear interpolation (lerp) between input and aux
+     *
+     * @param container container node
      */
     public Mix(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Mix extends GeglFilter implements Source, DualSink
     /** Constructs a Mix.
      *
      * do a lerp, linear interpolation (lerp) between input and aux
+     *
+     * @param parent parent filter node
      */
     public Mix(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Mix extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @param value new value for Ratio
+     * @return this filter (for chaining operations)
+     * 
      */
     public Mix setRatio(double value)
     {
@@ -71,6 +79,9 @@ public class Mix extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @return value of Ratio
+     * 
      */
     public double getRatio()
     {

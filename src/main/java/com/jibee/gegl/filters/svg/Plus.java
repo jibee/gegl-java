@@ -23,6 +23,8 @@ public class Plus extends GeglFilter implements Source, DualSink
     /** Constructs a Plus.
      *
      * SVG blend operation plus (<code>d = cA + cB</code>)
+     *
+     * @param container container node
      */
     public Plus(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Plus extends GeglFilter implements Source, DualSink
     /** Constructs a Plus.
      *
      * SVG blend operation plus (<code>d = cA + cB</code>)
+     *
+     * @param parent parent filter node
      */
     public Plus(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Plus extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public Plus setSrgb(boolean value)
     {
@@ -71,6 +79,9 @@ public class Plus extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

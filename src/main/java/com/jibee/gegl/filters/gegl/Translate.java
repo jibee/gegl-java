@@ -23,6 +23,8 @@ public class Translate extends GeglFilter implements Source, Sink
     /** Constructs a Translate.
      *
      * Repositions the buffer (with subpixel precision), if integer coordinates are passed a fast-path without resampling is used
+     *
+     * @param container container node
      */
     public Translate(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Translate extends GeglFilter implements Source, Sink
     /** Constructs a Translate.
      *
      * Repositions the buffer (with subpixel precision), if integer coordinates are passed a fast-path without resampling is used
+     *
+     * @param parent parent filter node
      */
     public Translate(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Translate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Origin-x
+     * @return this filter (for chaining operations)
+     * 
      */
     public Translate setOriginX(double value)
     {
@@ -71,6 +79,9 @@ public class Translate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Origin-x
+     * 
      */
     public double getOriginX()
     {
@@ -95,6 +106,10 @@ public class Translate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Origin-y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Translate setOriginY(double value)
     {
@@ -111,6 +126,9 @@ public class Translate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Origin-y
+     * 
      */
     public double getOriginY()
     {
@@ -135,6 +153,10 @@ public class Translate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Sampler
+     * @return this filter (for chaining operations)
+     * 
      */
     public Translate setSampler(String value)
     {
@@ -151,6 +173,9 @@ public class Translate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Sampler
+     * 
      */
     public String getSampler()
     {
@@ -175,6 +200,10 @@ public class Translate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Clip to input
+     * @return this filter (for chaining operations)
+     * 
      */
     public Translate setClipToInput(boolean value)
     {
@@ -191,6 +220,9 @@ public class Translate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Clip to input
+     * 
      */
     public boolean getClipToInput()
     {
@@ -215,6 +247,10 @@ public class Translate extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for X
+     * @return this filter (for chaining operations)
+     * 
      */
     public Translate setX(double value)
     {
@@ -231,6 +267,9 @@ public class Translate extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of X
+     * 
      */
     public double getX()
     {
@@ -255,6 +294,10 @@ public class Translate extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Translate setY(double value)
     {
@@ -271,6 +314,9 @@ public class Translate extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Y
+     * 
      */
     public double getY()
     {

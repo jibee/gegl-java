@@ -24,6 +24,8 @@ public class DifferenceOfGaussians extends GeglFilter implements Source, Sink
     /** Constructs a Difference of Gaussians.
      *
      * Edge detection with control of edge thickness, based on the difference of two gaussian blurs
+     *
+     * @param container container node
      */
     public DifferenceOfGaussians(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class DifferenceOfGaussians extends GeglFilter implements Source, Sink
     /** Constructs a Difference of Gaussians.
      *
      * Edge detection with control of edge thickness, based on the difference of two gaussian blurs
+     *
+     * @param parent parent filter node
      */
     public DifferenceOfGaussians(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class DifferenceOfGaussians extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @param value new value for Radius 1
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DifferenceOfGaussians setRadius1(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1000.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
+	    }
 
         m_Radius1 = value;
         setProperty("radius1", value);
@@ -76,6 +84,9 @@ public class DifferenceOfGaussians extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @return value of Radius 1
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRadius1()
     {
@@ -100,13 +111,17 @@ public class DifferenceOfGaussians extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @param value new value for Radius 2
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DifferenceOfGaussians setRadius2(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1000.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
+	    }
 
         m_Radius2 = value;
         setProperty("radius2", value);
@@ -120,6 +135,9 @@ public class DifferenceOfGaussians extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @return value of Radius 2
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRadius2()
     {

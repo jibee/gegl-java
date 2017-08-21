@@ -23,6 +23,8 @@ public class StretchContrast extends GeglFilter implements Source, Sink
     /** Constructs a Stretch Contrast.
      *
      * Scales the components of the buffer to be in the 0.0-1.0 range. This improves images that make poor use of the available contrast (little contrast, very dark, or very bright images).
+     *
+     * @param container container node
      */
     public StretchContrast(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class StretchContrast extends GeglFilter implements Source, Sink
     /** Constructs a Stretch Contrast.
      *
      * Scales the components of the buffer to be in the 0.0-1.0 range. This improves images that make poor use of the available contrast (little contrast, very dark, or very bright images).
+     *
+     * @param parent parent filter node
      */
     public StretchContrast(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class StretchContrast extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Keep colors
+     * @return this filter (for chaining operations)
+     * 
      */
     public StretchContrast setKeepColors(boolean value)
     {
@@ -71,6 +79,9 @@ public class StretchContrast extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Keep colors
+     * 
      */
     public boolean getKeepColors()
     {

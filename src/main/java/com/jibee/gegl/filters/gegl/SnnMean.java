@@ -24,6 +24,8 @@ public class SnnMean extends GeglFilter implements Source, Sink
     /** Constructs a Symmetric Nearest Neighbour.
      *
      * Noise reducing edge preserving blur filter based on Symmetric Nearest Neighbours
+     *
+     * @param container container node
      */
     public SnnMean(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class SnnMean extends GeglFilter implements Source, Sink
     /** Constructs a Symmetric Nearest Neighbour.
      *
      * Noise reducing edge preserving blur filter based on Symmetric Nearest Neighbours
+     *
+     * @param parent parent filter node
      */
     public SnnMean(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class SnnMean extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 8
      * Acceptable Range:  100
+     *
+     * @param value new value for Radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public SnnMean setRadius(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 100);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 100);
+	    }
 
         m_Radius = value;
         setProperty("radius", value);
@@ -76,6 +84,9 @@ public class SnnMean extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 8
      * Acceptable Range:  100
+     *
+     * @return value of Radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getRadius()
     {
@@ -100,13 +111,17 @@ public class SnnMean extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2
      * Acceptable Range: 1 2
+     *
+     * @param value new value for Pairs
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public SnnMean setPairs(int value) throws ParameterOutOfRangeException
     {
 		if(value > 2 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 2);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 2);
+	    }
 
         m_Pairs = value;
         setProperty("pairs", value);
@@ -120,6 +135,9 @@ public class SnnMean extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2
      * Acceptable Range: 1 2
+     *
+     * @return value of Pairs
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getPairs()
     {

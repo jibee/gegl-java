@@ -24,6 +24,8 @@ public class Saturation extends GeglFilter implements Source, Sink
     /** Constructs a Saturation.
      *
      * Changes the saturation
+     *
+     * @param container container node
      */
     public Saturation(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Saturation extends GeglFilter implements Source, Sink
     /** Constructs a Saturation.
      *
      * Changes the saturation
+     *
+     * @param parent parent filter node
      */
     public Saturation(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Saturation extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 10.00
+     *
+     * @param value new value for Scale
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Saturation setScale(double value) throws ParameterOutOfRangeException
     {
 		if(value > 10.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 10.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 10.00);
+	    }
 
         m_Scale = value;
         setProperty("scale", value);
@@ -76,6 +84,9 @@ public class Saturation extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 10.00
+     *
+     * @return value of Scale
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getScale()
     {

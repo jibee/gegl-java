@@ -25,6 +25,8 @@ public class Dropshadow extends GeglFilter implements Source, Sink
     /** Constructs a Dropshadow.
      *
      * Creates a dropshadow effect on the input buffer
+     *
+     * @param container container node
      */
     public Dropshadow(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class Dropshadow extends GeglFilter implements Source, Sink
     /** Constructs a Dropshadow.
      *
      * Creates a dropshadow effect on the input buffer
+     *
+     * @param parent parent filter node
      */
     public Dropshadow(GeglFilter parent)
     {
@@ -57,6 +61,10 @@ public class Dropshadow extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 20.00
      * Acceptable Range:  
+     *
+     * @param value new value for X
+     * @return this filter (for chaining operations)
+     * 
      */
     public Dropshadow setX(double value)
     {
@@ -73,6 +81,9 @@ public class Dropshadow extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 20.00
      * Acceptable Range:  
+     *
+     * @return value of X
+     * 
      */
     public double getX()
     {
@@ -97,6 +108,10 @@ public class Dropshadow extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 20.00
      * Acceptable Range:  
+     *
+     * @param value new value for Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Dropshadow setY(double value)
     {
@@ -113,6 +128,9 @@ public class Dropshadow extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 20.00
      * Acceptable Range:  
+     *
+     * @return value of Y
+     * 
      */
     public double getY()
     {
@@ -137,13 +155,17 @@ public class Dropshadow extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range: 0.00 
+     *
+     * @param value new value for Blur radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Dropshadow setRadius(double value) throws ParameterOutOfRangeException
     {
 		if(value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, Double.POSITIVE_INFINITY);
+	    }
 
         m_Radius = value;
         setProperty("radius", value);
@@ -157,6 +179,9 @@ public class Dropshadow extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range: 0.00 
+     *
+     * @return value of Blur radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRadius()
     {
@@ -181,6 +206,10 @@ public class Dropshadow extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Dropshadow setColor(GeglColor value)
     {
@@ -197,6 +226,9 @@ public class Dropshadow extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color
+     * 
      */
     public GeglColor getColor()
     {
@@ -221,13 +253,17 @@ public class Dropshadow extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range: 0.00 2.00
+     *
+     * @param value new value for Opacity
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Dropshadow setOpacity(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 2.00);
+	    }
 
         m_Opacity = value;
         setProperty("opacity", value);
@@ -241,6 +277,9 @@ public class Dropshadow extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range: 0.00 2.00
+     *
+     * @return value of Opacity
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getOpacity()
     {

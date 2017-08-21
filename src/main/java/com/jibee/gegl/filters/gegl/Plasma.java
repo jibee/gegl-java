@@ -22,6 +22,8 @@ public class Plasma extends GeglFilter implements Source
     /** Constructs a Plasma.
      *
      * Creates an image filled with a plasma effect.
+     *
+     * @param container container node
      */
     public Plasma(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class Plasma extends GeglFilter implements Source
     /** Constructs a Plasma.
      *
      * Creates an image filled with a plasma effect.
+     *
+     * @param parent parent filter node
      */
     public Plasma(GeglFilter parent)
     {
@@ -54,13 +58,17 @@ public class Plasma extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 7.00
+     *
+     * @param value new value for Turbulence
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Plasma setTurbulence(double value) throws ParameterOutOfRangeException
     {
 		if(value > 7.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 7.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 7.00);
+	    }
 
         m_Turbulence = value;
         setProperty("turbulence", value);
@@ -74,6 +82,9 @@ public class Plasma extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 7.00
+     *
+     * @return value of Turbulence
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTurbulence()
     {
@@ -98,6 +109,10 @@ public class Plasma extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for X
+     * @return this filter (for chaining operations)
+     * 
      */
     public Plasma setX(int value)
     {
@@ -114,6 +129,9 @@ public class Plasma extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of X
+     * 
      */
     public int getX()
     {
@@ -138,6 +156,10 @@ public class Plasma extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Plasma setY(int value)
     {
@@ -154,6 +176,9 @@ public class Plasma extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Y
+     * 
      */
     public int getY()
     {
@@ -178,6 +203,10 @@ public class Plasma extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 1024
      * Acceptable Range:  
+     *
+     * @param value new value for Width
+     * @return this filter (for chaining operations)
+     * 
      */
     public Plasma setWidth(int value)
     {
@@ -194,6 +223,9 @@ public class Plasma extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 1024
      * Acceptable Range:  
+     *
+     * @return value of Width
+     * 
      */
     public int getWidth()
     {
@@ -218,6 +250,10 @@ public class Plasma extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 768
      * Acceptable Range:  
+     *
+     * @param value new value for Height
+     * @return this filter (for chaining operations)
+     * 
      */
     public Plasma setHeight(int value)
     {
@@ -234,6 +270,9 @@ public class Plasma extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 768
      * Acceptable Range:  
+     *
+     * @return value of Height
+     * 
      */
     public int getHeight()
     {
@@ -258,6 +297,10 @@ public class Plasma extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public Plasma setSeed(int value)
     {
@@ -274,6 +317,9 @@ public class Plasma extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

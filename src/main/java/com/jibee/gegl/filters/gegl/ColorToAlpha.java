@@ -24,6 +24,8 @@ public class ColorToAlpha extends GeglFilter implements Source, Sink
     /** Constructs a Color to Alpha.
      *
      * Convert a specified color to transparency, works best with white.
+     *
+     * @param container container node
      */
     public ColorToAlpha(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class ColorToAlpha extends GeglFilter implements Source, Sink
     /** Constructs a Color to Alpha.
      *
      * Convert a specified color to transparency, works best with white.
+     *
+     * @param parent parent filter node
      */
     public ColorToAlpha(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class ColorToAlpha extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorToAlpha setColor(GeglColor value)
     {
@@ -72,6 +80,9 @@ public class ColorToAlpha extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color
+     * 
      */
     public GeglColor getColor()
     {

@@ -23,6 +23,8 @@ public class Crop extends GeglFilter implements Source, Sink
     /** Constructs a Crop.
      *
      * Crop a buffer
+     *
+     * @param container container node
      */
     public Crop(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Crop extends GeglFilter implements Source, Sink
     /** Constructs a Crop.
      *
      * Crop a buffer
+     *
+     * @param parent parent filter node
      */
     public Crop(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Crop extends GeglFilter implements Source, Sink
      * Unit: pixel-coordinate
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for X
+     * @return this filter (for chaining operations)
+     * 
      */
     public Crop setX(double value)
     {
@@ -71,6 +79,9 @@ public class Crop extends GeglFilter implements Source, Sink
      * Unit: pixel-coordinate
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of X
+     * 
      */
     public double getX()
     {
@@ -95,6 +106,10 @@ public class Crop extends GeglFilter implements Source, Sink
      * Unit: pixel-coordinate
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Crop setY(double value)
     {
@@ -111,6 +126,9 @@ public class Crop extends GeglFilter implements Source, Sink
      * Unit: pixel-coordinate
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Y
+     * 
      */
     public double getY()
     {
@@ -135,6 +153,10 @@ public class Crop extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range:  
+     *
+     * @param value new value for Width
+     * @return this filter (for chaining operations)
+     * 
      */
     public Crop setWidth(double value)
     {
@@ -151,6 +173,9 @@ public class Crop extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range:  
+     *
+     * @return value of Width
+     * 
      */
     public double getWidth()
     {
@@ -175,6 +200,10 @@ public class Crop extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range:  
+     *
+     * @param value new value for Height
+     * @return this filter (for chaining operations)
+     * 
      */
     public Crop setHeight(double value)
     {
@@ -191,6 +220,9 @@ public class Crop extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range:  
+     *
+     * @return value of Height
+     * 
      */
     public double getHeight()
     {
@@ -215,6 +247,10 @@ public class Crop extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Reset origin
+     * @return this filter (for chaining operations)
+     * 
      */
     public Crop setResetOrigin(boolean value)
     {
@@ -231,6 +267,9 @@ public class Crop extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Reset origin
+     * 
      */
     public boolean getResetOrigin()
     {

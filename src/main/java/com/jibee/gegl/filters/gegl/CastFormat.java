@@ -24,6 +24,8 @@ public class CastFormat extends GeglFilter implements Source, Sink
     /** Constructs a Cast Format.
      *
      * Cast the data between input_format and output_format, both formats must have the same bpp
+     *
+     * @param container container node
      */
     public CastFormat(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class CastFormat extends GeglFilter implements Source, Sink
     /** Constructs a Cast Format.
      *
      * Cast the data between input_format and output_format, both formats must have the same bpp
+     *
+     * @param parent parent filter node
      */
     public CastFormat(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class CastFormat extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Input format
+     * @return this filter (for chaining operations)
+     * 
      */
     public CastFormat setInputFormat(Babl value)
     {
@@ -72,6 +80,9 @@ public class CastFormat extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Input format
+     * 
      */
     public Babl getInputFormat()
     {
@@ -96,6 +107,10 @@ public class CastFormat extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Output format
+     * @return this filter (for chaining operations)
+     * 
      */
     public CastFormat setOutputFormat(Babl value)
     {
@@ -112,6 +127,9 @@ public class CastFormat extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Output format
+     * 
      */
     public Babl getOutputFormat()
     {

@@ -24,6 +24,8 @@ public class UnsharpMask extends GeglFilter implements Source, Sink
     /** Constructs a Unsharp Mask.
      *
      * Sharpen image, by adding difference to blurred image, a technique for sharpening originally used in darkrooms.
+     *
+     * @param container container node
      */
     public UnsharpMask(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class UnsharpMask extends GeglFilter implements Source, Sink
     /** Constructs a Unsharp Mask.
      *
      * Sharpen image, by adding difference to blurred image, a technique for sharpening originally used in darkrooms.
+     *
+     * @param parent parent filter node
      */
     public UnsharpMask(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class UnsharpMask extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 0.55
      * Acceptable Range: 0.20 300.00
+     *
+     * @param value new value for Standard Deviation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public UnsharpMask setStdDev(double value) throws ParameterOutOfRangeException
     {
 		if(value > 300.00 || value < 0.20)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.20, 300.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.20, 300.00);
+	    }
 
         m_StdDev = value;
         setProperty("std-dev", value);
@@ -76,6 +84,9 @@ public class UnsharpMask extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 0.55
      * Acceptable Range: 0.20 300.00
+     *
+     * @return value of Standard Deviation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getStdDev()
     {
@@ -100,13 +111,17 @@ public class UnsharpMask extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4.00
      * Acceptable Range: 0.00 300.00
+     *
+     * @param value new value for Scale
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public UnsharpMask setScale(double value) throws ParameterOutOfRangeException
     {
 		if(value > 300.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 300.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 300.00);
+	    }
 
         m_Scale = value;
         setProperty("scale", value);
@@ -120,6 +135,9 @@ public class UnsharpMask extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4.00
      * Acceptable Range: 0.00 300.00
+     *
+     * @return value of Scale
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getScale()
     {

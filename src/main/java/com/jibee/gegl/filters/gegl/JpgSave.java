@@ -22,6 +22,8 @@ public class JpgSave extends GeglFilter implements Sink
     /** Constructs a JPEG File Saver.
      *
      * JPEG image saver, using libjpeg
+     *
+     * @param container container node
      */
     public JpgSave(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class JpgSave extends GeglFilter implements Sink
     /** Constructs a JPEG File Saver.
      *
      * JPEG image saver, using libjpeg
+     *
+     * @param parent parent filter node
      */
     public JpgSave(GeglFilter parent)
     {
@@ -54,6 +58,10 @@ public class JpgSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public JpgSave setPath(String value)
     {
@@ -70,6 +78,9 @@ public class JpgSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {
@@ -94,13 +105,17 @@ public class JpgSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 90
      * Acceptable Range: 1 100
+     *
+     * @param value new value for Quality
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public JpgSave setQuality(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 100);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 100);
+	    }
 
         m_Quality = value;
         setProperty("quality", value);
@@ -114,6 +129,9 @@ public class JpgSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 90
      * Acceptable Range: 1 100
+     *
+     * @return value of Quality
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getQuality()
     {
@@ -138,13 +156,17 @@ public class JpgSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  100
+     *
+     * @param value new value for Smoothing
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public JpgSave setSmoothing(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 100);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 100);
+	    }
 
         m_Smoothing = value;
         setProperty("smoothing", value);
@@ -158,6 +180,9 @@ public class JpgSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  100
+     *
+     * @return value of Smoothing
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getSmoothing()
     {
@@ -182,6 +207,10 @@ public class JpgSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Optimize
+     * @return this filter (for chaining operations)
+     * 
      */
     public JpgSave setOptimize(boolean value)
     {
@@ -198,6 +227,9 @@ public class JpgSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Optimize
+     * 
      */
     public boolean getOptimize()
     {
@@ -222,6 +254,10 @@ public class JpgSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Progressive
+     * @return this filter (for chaining operations)
+     * 
      */
     public JpgSave setProgressive(boolean value)
     {
@@ -238,6 +274,9 @@ public class JpgSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Progressive
+     * 
      */
     public boolean getProgressive()
     {
@@ -262,6 +301,10 @@ public class JpgSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Grayscale
+     * @return this filter (for chaining operations)
+     * 
      */
     public JpgSave setGrayscale(boolean value)
     {
@@ -278,6 +321,9 @@ public class JpgSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Grayscale
+     * 
      */
     public boolean getGrayscale()
     {

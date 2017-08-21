@@ -25,6 +25,8 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
     /** Constructs a Value Propagate.
      *
      * Propagate certain colors to neighboring pixels.
+     *
+     * @param container container node
      */
     public ValuePropagate(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
     /** Constructs a Value Propagate.
      *
      * Propagate certain colors to neighboring pixels.
+     *
+     * @param parent parent filter node
      */
     public ValuePropagate(GeglFilter parent)
     {
@@ -57,6 +61,10 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Mode
+     * @return this filter (for chaining operations)
+     * 
      */
     public ValuePropagate setMode(String value)
     {
@@ -73,6 +81,9 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Mode
+     * 
      */
     public String getMode()
     {
@@ -97,13 +108,17 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Lower threshold
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ValuePropagate setLowerThreshold(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_LowerThreshold = value;
         setProperty("lower-threshold", value);
@@ -117,6 +132,9 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Lower threshold
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getLowerThreshold()
     {
@@ -141,13 +159,17 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Upper threshold
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ValuePropagate setUpperThreshold(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_UpperThreshold = value;
         setProperty("upper-threshold", value);
@@ -161,6 +183,9 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Upper threshold
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getUpperThreshold()
     {
@@ -185,13 +210,17 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Propagating rate
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ValuePropagate setRate(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Rate = value;
         setProperty("rate", value);
@@ -205,6 +234,9 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Propagating rate
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRate()
     {
@@ -229,6 +261,10 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public ValuePropagate setColor(GeglColor value)
     {
@@ -245,6 +281,9 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color
+     * 
      */
     public GeglColor getColor()
     {
@@ -269,6 +308,10 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for To top
+     * @return this filter (for chaining operations)
+     * 
      */
     public ValuePropagate setTop(boolean value)
     {
@@ -285,6 +328,9 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of To top
+     * 
      */
     public boolean getTop()
     {
@@ -309,6 +355,10 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for To left
+     * @return this filter (for chaining operations)
+     * 
      */
     public ValuePropagate setLeft(boolean value)
     {
@@ -325,6 +375,9 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of To left
+     * 
      */
     public boolean getLeft()
     {
@@ -349,6 +402,10 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for To right
+     * @return this filter (for chaining operations)
+     * 
      */
     public ValuePropagate setRight(boolean value)
     {
@@ -365,6 +422,9 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of To right
+     * 
      */
     public boolean getRight()
     {
@@ -389,6 +449,10 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for To bottom
+     * @return this filter (for chaining operations)
+     * 
      */
     public ValuePropagate setBottom(boolean value)
     {
@@ -405,6 +469,9 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of To bottom
+     * 
      */
     public boolean getBottom()
     {
@@ -429,6 +496,10 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Propagating value channel
+     * @return this filter (for chaining operations)
+     * 
      */
     public ValuePropagate setValue(boolean value)
     {
@@ -445,6 +516,9 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Propagating value channel
+     * 
      */
     public boolean getValue()
     {
@@ -469,6 +543,10 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Propagating alpha channel
+     * @return this filter (for chaining operations)
+     * 
      */
     public ValuePropagate setAlpha(boolean value)
     {
@@ -485,6 +563,9 @@ public class ValuePropagate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Propagating alpha channel
+     * 
      */
     public boolean getAlpha()
     {

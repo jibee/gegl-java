@@ -24,6 +24,8 @@ public class Levels extends GeglFilter implements Source, Sink
     /** Constructs a Levels.
      *
      * Remaps the intensity range of the image
+     *
+     * @param container container node
      */
     public Levels(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Levels extends GeglFilter implements Source, Sink
     /** Constructs a Levels.
      *
      * Remaps the intensity range of the image
+     *
+     * @param parent parent filter node
      */
     public Levels(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Levels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -1.00 4.00
+     *
+     * @param value new value for Low input
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Levels setInLow(double value) throws ParameterOutOfRangeException
     {
 		if(value > 4.00 || value < -1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -1.00, 4.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1.00, 4.00);
+	    }
 
         m_InLow = value;
         setProperty("in-low", value);
@@ -76,6 +84,9 @@ public class Levels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -1.00 4.00
+     *
+     * @return value of Low input
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getInLow()
     {
@@ -100,13 +111,17 @@ public class Levels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -1.00 4.00
+     *
+     * @param value new value for High input
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Levels setInHigh(double value) throws ParameterOutOfRangeException
     {
 		if(value > 4.00 || value < -1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -1.00, 4.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1.00, 4.00);
+	    }
 
         m_InHigh = value;
         setProperty("in-high", value);
@@ -120,6 +135,9 @@ public class Levels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -1.00 4.00
+     *
+     * @return value of High input
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getInHigh()
     {
@@ -144,13 +162,17 @@ public class Levels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -1.00 4.00
+     *
+     * @param value new value for Low output
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Levels setOutLow(double value) throws ParameterOutOfRangeException
     {
 		if(value > 4.00 || value < -1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -1.00, 4.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1.00, 4.00);
+	    }
 
         m_OutLow = value;
         setProperty("out-low", value);
@@ -164,6 +186,9 @@ public class Levels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -1.00 4.00
+     *
+     * @return value of Low output
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getOutLow()
     {
@@ -188,13 +213,17 @@ public class Levels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -1.00 4.00
+     *
+     * @param value new value for High output
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Levels setOutHigh(double value) throws ParameterOutOfRangeException
     {
 		if(value > 4.00 || value < -1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -1.00, 4.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1.00, 4.00);
+	    }
 
         m_OutHigh = value;
         setProperty("out-high", value);
@@ -208,6 +237,9 @@ public class Levels extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -1.00 4.00
+     *
+     * @return value of High output
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getOutHigh()
     {

@@ -1,11 +1,11 @@
 package com.jibee.gegl.filters.gegl;
 
 import com.jibee.gegl.Filter;
+import com.jibee.gegl.GeglBuffer;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.Sink;
-import com.jibee.gegl.GeglBuffer;
 import com.sun.jna.Pointer;
 
 /**
@@ -23,6 +23,8 @@ public class BufferSink extends GeglFilter implements Sink
     /** Constructs a Buffer Sink.
      *
      * Create a new GEGL buffer to write the resulting rendering.
+     *
+     * @param container container node
      */
     public BufferSink(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class BufferSink extends GeglFilter implements Sink
     /** Constructs a Buffer Sink.
      *
      * Create a new GEGL buffer to write the resulting rendering.
+     *
+     * @param parent parent filter node
      */
     public BufferSink(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class BufferSink extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Buffer location
+     * @return this filter (for chaining operations)
+     * 
      */
     public BufferSink setBuffer(GeglBuffer value)
     {
@@ -71,6 +79,9 @@ public class BufferSink extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Buffer location
+     * 
      */
     public GeglBuffer getBuffer()
     {
@@ -95,6 +106,10 @@ public class BufferSink extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for babl format
+     * @return this filter (for chaining operations)
+     * 
      */
     public BufferSink setFormat(Pointer value)
     {
@@ -111,6 +126,9 @@ public class BufferSink extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of babl format
+     * 
      */
     public Pointer getFormat()
     {

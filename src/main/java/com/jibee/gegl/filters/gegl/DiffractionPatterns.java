@@ -22,6 +22,8 @@ public class DiffractionPatterns extends GeglFilter implements Source
     /** Constructs a Diffraction Patterns.
      *
      * Generate diffraction patterns
+     *
+     * @param container container node
      */
     public DiffractionPatterns(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class DiffractionPatterns extends GeglFilter implements Source
     /** Constructs a Diffraction Patterns.
      *
      * Generate diffraction patterns
+     *
+     * @param parent parent filter node
      */
     public DiffractionPatterns(GeglFilter parent)
     {
@@ -54,13 +58,17 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.81
      * Acceptable Range: 0.00 20.00
+     *
+     * @param value new value for Red frequency
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DiffractionPatterns setRedFrequency(double value) throws ParameterOutOfRangeException
     {
 		if(value > 20.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 20.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 20.00);
+	    }
 
         m_RedFrequency = value;
         setProperty("red-frequency", value);
@@ -74,6 +82,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.81
      * Acceptable Range: 0.00 20.00
+     *
+     * @return value of Red frequency
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRedFrequency()
     {
@@ -98,13 +109,17 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.22
      * Acceptable Range: 0.00 20.00
+     *
+     * @param value new value for Green frequency
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DiffractionPatterns setGreenFrequency(double value) throws ParameterOutOfRangeException
     {
 		if(value > 20.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 20.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 20.00);
+	    }
 
         m_GreenFrequency = value;
         setProperty("green-frequency", value);
@@ -118,6 +133,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.22
      * Acceptable Range: 0.00 20.00
+     *
+     * @return value of Green frequency
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getGreenFrequency()
     {
@@ -142,13 +160,17 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.12
      * Acceptable Range: 0.00 20.00
+     *
+     * @param value new value for Blue frequency
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DiffractionPatterns setBlueFrequency(double value) throws ParameterOutOfRangeException
     {
 		if(value > 20.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 20.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 20.00);
+	    }
 
         m_BlueFrequency = value;
         setProperty("blue-frequency", value);
@@ -162,6 +184,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.12
      * Acceptable Range: 0.00 20.00
+     *
+     * @return value of Blue frequency
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBlueFrequency()
     {
@@ -186,13 +211,17 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.82
      * Acceptable Range: 0.00 10.00
+     *
+     * @param value new value for Red contours
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DiffractionPatterns setRedContours(double value) throws ParameterOutOfRangeException
     {
 		if(value > 10.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 10.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 10.00);
+	    }
 
         m_RedContours = value;
         setProperty("red-contours", value);
@@ -206,6 +235,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.82
      * Acceptable Range: 0.00 10.00
+     *
+     * @return value of Red contours
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRedContours()
     {
@@ -230,13 +262,17 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.82
      * Acceptable Range: 0.00 10.00
+     *
+     * @param value new value for Green contours
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DiffractionPatterns setGreenContours(double value) throws ParameterOutOfRangeException
     {
 		if(value > 10.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 10.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 10.00);
+	    }
 
         m_GreenContours = value;
         setProperty("green-contours", value);
@@ -250,6 +286,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.82
      * Acceptable Range: 0.00 10.00
+     *
+     * @return value of Green contours
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getGreenContours()
     {
@@ -274,13 +313,17 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.97
      * Acceptable Range: 0.00 10.00
+     *
+     * @param value new value for Blue contours
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DiffractionPatterns setBlueContours(double value) throws ParameterOutOfRangeException
     {
 		if(value > 10.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 10.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 10.00);
+	    }
 
         m_BlueContours = value;
         setProperty("blue-contours", value);
@@ -294,6 +337,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.97
      * Acceptable Range: 0.00 10.00
+     *
+     * @return value of Blue contours
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBlueContours()
     {
@@ -318,13 +364,17 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.61
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Red sharp edges
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DiffractionPatterns setRedSedges(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_RedSedges = value;
         setProperty("red-sedges", value);
@@ -338,6 +388,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.61
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Red sharp edges
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRedSedges()
     {
@@ -362,13 +415,17 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.68
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Green sharp edges
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DiffractionPatterns setGreenSedges(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_GreenSedges = value;
         setProperty("green-sedges", value);
@@ -382,6 +439,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.68
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Green sharp edges
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getGreenSedges()
     {
@@ -406,13 +466,17 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.64
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Blue sharp edges
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DiffractionPatterns setBlueSedges(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_BlueSedges = value;
         setProperty("blue-sedges", value);
@@ -426,6 +490,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.64
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Blue sharp edges
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBlueSedges()
     {
@@ -450,13 +517,17 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.07
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Brightness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DiffractionPatterns setBrightness(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Brightness = value;
         setProperty("brightness", value);
@@ -470,6 +541,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.07
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Brightness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBrightness()
     {
@@ -494,13 +568,17 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 37.13
      * Acceptable Range: 0.00 100.00
+     *
+     * @param value new value for Scattering
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DiffractionPatterns setScattering(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 100.00);
+	    }
 
         m_Scattering = value;
         setProperty("scattering", value);
@@ -514,6 +592,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: 37.13
      * Acceptable Range: 0.00 100.00
+     *
+     * @return value of Scattering
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getScattering()
     {
@@ -538,13 +619,17 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: -0.47
      * Acceptable Range: -1.00 1.00
+     *
+     * @param value new value for Polarization
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public DiffractionPatterns setPolarization(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < -1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -1.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1.00, 1.00);
+	    }
 
         m_Polarization = value;
         setProperty("polarization", value);
@@ -558,6 +643,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: 
      * Default value: -0.47
      * Acceptable Range: -1.00 1.00
+     *
+     * @return value of Polarization
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getPolarization()
     {
@@ -582,6 +670,10 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 200
      * Acceptable Range:  
+     *
+     * @param value new value for Width
+     * @return this filter (for chaining operations)
+     * 
      */
     public DiffractionPatterns setWidth(int value)
     {
@@ -598,6 +690,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 200
      * Acceptable Range:  
+     *
+     * @return value of Width
+     * 
      */
     public int getWidth()
     {
@@ -622,6 +717,10 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 200
      * Acceptable Range:  
+     *
+     * @param value new value for Height
+     * @return this filter (for chaining operations)
+     * 
      */
     public DiffractionPatterns setHeight(int value)
     {
@@ -638,6 +737,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 200
      * Acceptable Range:  
+     *
+     * @return value of Height
+     * 
      */
     public int getHeight()
     {

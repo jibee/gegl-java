@@ -23,6 +23,8 @@ public class Clone extends GeglFilter implements Source, Sink
     /** Constructs a Clone.
      *
      * Clone a buffer, this is the same as gegl:nop but can get special treatment to get more human readable references in serializations/UI.
+     *
+     * @param container container node
      */
     public Clone(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Clone extends GeglFilter implements Source, Sink
     /** Constructs a Clone.
      *
      * Clone a buffer, this is the same as gegl:nop but can get special treatment to get more human readable references in serializations/UI.
+     *
+     * @param parent parent filter node
      */
     public Clone(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Clone extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: "ID"
      * Acceptable Range:  
+     *
+     * @param value new value for Reference
+     * @return this filter (for chaining operations)
+     * 
      */
     public Clone setRef(String value)
     {
@@ -71,6 +79,9 @@ public class Clone extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: "ID"
      * Acceptable Range:  
+     *
+     * @return value of Reference
+     * 
      */
     public String getRef()
     {

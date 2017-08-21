@@ -24,6 +24,8 @@ public class BumpMap extends GeglFilter implements Source, DualSink
     /** Constructs a Bump Map.
      *
      * This plug-in uses the algorithm described by John Schlag, "Fast Embossing Effects on Raster Image Data" in Graphics GEMS IV (ISBN 0-12-336155-9). It takes a buffer to be applied as a bump map to another buffer and produces a nice embossing effect.
+     *
+     * @param container container node
      */
     public BumpMap(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class BumpMap extends GeglFilter implements Source, DualSink
     /** Constructs a Bump Map.
      *
      * This plug-in uses the algorithm described by John Schlag, "Fast Embossing Effects on Raster Image Data" in Graphics GEMS IV (ISBN 0-12-336155-9). It takes a buffer to be applied as a bump map to another buffer and produces a nice embossing effect.
+     *
+     * @param parent parent filter node
      */
     public BumpMap(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Type
+     * @return this filter (for chaining operations)
+     * 
      */
     public BumpMap setType(String value)
     {
@@ -72,6 +80,9 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Type
+     * 
      */
     public String getType()
     {
@@ -96,6 +107,10 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Compensate
+     * @return this filter (for chaining operations)
+     * 
      */
     public BumpMap setCompensate(boolean value)
     {
@@ -112,6 +127,9 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Compensate
+     * 
      */
     public boolean getCompensate()
     {
@@ -136,6 +154,10 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Invert
+     * @return this filter (for chaining operations)
+     * 
      */
     public BumpMap setInvert(boolean value)
     {
@@ -152,6 +174,9 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Invert
+     * 
      */
     public boolean getInvert()
     {
@@ -176,6 +201,10 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Tiled
+     * @return this filter (for chaining operations)
+     * 
      */
     public BumpMap setTiled(boolean value)
     {
@@ -192,6 +221,9 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Tiled
+     * 
      */
     public boolean getTiled()
     {
@@ -216,13 +248,17 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: degree
      * Default value: 135.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for Azimuth
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public BumpMap setAzimuth(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_Azimuth = value;
         setProperty("azimuth", value);
@@ -236,6 +272,9 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: degree
      * Default value: 135.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of Azimuth
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAzimuth()
     {
@@ -260,13 +299,17 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 45.00
      * Acceptable Range: 0.50 90.00
+     *
+     * @param value new value for Elevation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public BumpMap setElevation(double value) throws ParameterOutOfRangeException
     {
 		if(value > 90.00 || value < 0.50)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.50, 90.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.50, 90.00);
+	    }
 
         m_Elevation = value;
         setProperty("elevation", value);
@@ -280,6 +323,9 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 45.00
      * Acceptable Range: 0.50 90.00
+     *
+     * @return value of Elevation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getElevation()
     {
@@ -304,13 +350,17 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 3
      * Acceptable Range: 1 65
+     *
+     * @param value new value for Depth
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public BumpMap setDepth(int value) throws ParameterOutOfRangeException
     {
 		if(value > 65 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 65);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 65);
+	    }
 
         m_Depth = value;
         setProperty("depth", value);
@@ -324,6 +374,9 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 3
      * Acceptable Range: 1 65
+     *
+     * @return value of Depth
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getDepth()
     {
@@ -348,13 +401,17 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range: -20000 20000
+     *
+     * @param value new value for Offset X
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public BumpMap setOffsetX(int value) throws ParameterOutOfRangeException
     {
 		if(value > 20000 || value < -20000)
-	{
-	    throw new ParameterOutOfRangeException(value, -20000, 20000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -20000, 20000);
+	    }
 
         m_OffsetX = value;
         setProperty("offset-x", value);
@@ -368,6 +425,9 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range: -20000 20000
+     *
+     * @return value of Offset X
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getOffsetX()
     {
@@ -392,13 +452,17 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range: -20000 20000
+     *
+     * @param value new value for Offset Y
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public BumpMap setOffsetY(int value) throws ParameterOutOfRangeException
     {
 		if(value > 20000 || value < -20000)
-	{
-	    throw new ParameterOutOfRangeException(value, -20000, 20000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -20000, 20000);
+	    }
 
         m_OffsetY = value;
         setProperty("offset-y", value);
@@ -412,6 +476,9 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range: -20000 20000
+     *
+     * @return value of Offset Y
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getOffsetY()
     {
@@ -436,13 +503,17 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Waterlevel
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public BumpMap setWaterlevel(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Waterlevel = value;
         setProperty("waterlevel", value);
@@ -456,6 +527,9 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Waterlevel
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getWaterlevel()
     {
@@ -480,13 +554,17 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Ambient lighting factor
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public BumpMap setAmbient(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Ambient = value;
         setProperty("ambient", value);
@@ -500,6 +578,9 @@ public class BumpMap extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Ambient lighting factor
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAmbient()
     {

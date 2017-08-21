@@ -23,6 +23,8 @@ public class Color extends GeglFilter implements Source
     /** Constructs a Color.
      *
      * Generates a buffer entirely filled with the specified color, use gegl:crop to get smaller dimensions.
+     *
+     * @param container container node
      */
     public Color(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Color extends GeglFilter implements Source
     /** Constructs a Color.
      *
      * Generates a buffer entirely filled with the specified color, use gegl:crop to get smaller dimensions.
+     *
+     * @param parent parent filter node
      */
     public Color(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Color extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Color setValue(GeglColor value)
     {
@@ -71,6 +79,9 @@ public class Color extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color
+     * 
      */
     public GeglColor getValue()
     {
@@ -95,6 +106,10 @@ public class Color extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Babl Format
+     * @return this filter (for chaining operations)
+     * 
      */
     public Color setFormat(Babl value)
     {
@@ -111,6 +126,9 @@ public class Color extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Babl Format
+     * 
      */
     public Babl getFormat()
     {

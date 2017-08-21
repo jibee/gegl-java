@@ -21,6 +21,8 @@ public class Load extends GeglFilter implements Source
     /** Constructs a Load Image.
      *
      * Multipurpose file loader, that uses other native handlers, and fallback conversion using Image Magick's convert.
+     *
+     * @param container container node
      */
     public Load(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class Load extends GeglFilter implements Source
     /** Constructs a Load Image.
      *
      * Multipurpose file loader, that uses other native handlers, and fallback conversion using Image Magick's convert.
+     *
+     * @param parent parent filter node
      */
     public Load(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class Load extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public Load setPath(String value)
     {
@@ -69,6 +77,9 @@ public class Load extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {
@@ -93,6 +104,10 @@ public class Load extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for URI
+     * @return this filter (for chaining operations)
+     * 
      */
     public Load setUri(String value)
     {
@@ -109,6 +124,9 @@ public class Load extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of URI
+     * 
      */
     public String getUri()
     {

@@ -25,6 +25,8 @@ public class Npd extends GeglFilter implements Source, Sink
     /** Constructs a .
      *
      * Performs n-point image deformation
+     *
+     * @param container container node
      */
     public Npd(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class Npd extends GeglFilter implements Source, Sink
     /** Constructs a .
      *
      * Performs n-point image deformation
+     *
+     * @param parent parent filter node
      */
     public Npd(GeglFilter parent)
     {
@@ -57,6 +61,10 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Model
+     * @return this filter (for chaining operations)
+     * 
      */
     public Npd setModel(Pointer value)
     {
@@ -73,6 +81,9 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Model
+     * 
      */
     public Pointer getModel()
     {
@@ -97,13 +108,17 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 20
      * Acceptable Range: 5 1000
+     *
+     * @param value new value for Square Size
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Npd setSquareSize(int value) throws ParameterOutOfRangeException
     {
 		if(value > 1000 || value < 5)
-	{
-	    throw new ParameterOutOfRangeException(value, 5, 1000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 5, 1000);
+	    }
 
         m_SquareSize = value;
         setProperty("square-size", value);
@@ -117,6 +132,9 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 20
      * Acceptable Range: 5 1000
+     *
+     * @return value of Square Size
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getSquareSize()
     {
@@ -141,13 +159,17 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100
      * Acceptable Range:  10000
+     *
+     * @param value new value for Rigidity
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Npd setRigidity(int value) throws ParameterOutOfRangeException
     {
 		if(value > 10000)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 10000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 10000);
+	    }
 
         m_Rigidity = value;
         setProperty("rigidity", value);
@@ -161,6 +183,9 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100
      * Acceptable Range:  10000
+     *
+     * @return value of Rigidity
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getRigidity()
     {
@@ -185,6 +210,10 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for ASAP Deformation
+     * @return this filter (for chaining operations)
+     * 
      */
     public Npd setAsapDeformation(boolean value)
     {
@@ -201,6 +230,9 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of ASAP Deformation
+     * 
      */
     public boolean getAsapDeformation()
     {
@@ -225,6 +257,10 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for MLS Weights
+     * @return this filter (for chaining operations)
+     * 
      */
     public Npd setMlsWeights(boolean value)
     {
@@ -241,6 +277,9 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of MLS Weights
+     * 
      */
     public boolean getMlsWeights()
     {
@@ -265,13 +304,17 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.10 2.00
+     *
+     * @param value new value for MLS Weights Alpha
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Npd setMlsWeightsAlpha(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < 0.10)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.10, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.10, 2.00);
+	    }
 
         m_MlsWeightsAlpha = value;
         setProperty("mls-weights-alpha", value);
@@ -285,6 +328,9 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.10 2.00
+     *
+     * @return value of MLS Weights Alpha
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getMlsWeightsAlpha()
     {
@@ -309,6 +355,10 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Preserve Model
+     * @return this filter (for chaining operations)
+     * 
      */
     public Npd setPreserveModel(boolean value)
     {
@@ -325,6 +375,9 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Preserve Model
+     * 
      */
     public boolean getPreserveModel()
     {
@@ -349,6 +402,10 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Sampler
+     * @return this filter (for chaining operations)
+     * 
      */
     public Npd setSamplerType(String value)
     {
@@ -365,6 +422,9 @@ public class Npd extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Sampler
+     * 
      */
     public String getSamplerType()
     {

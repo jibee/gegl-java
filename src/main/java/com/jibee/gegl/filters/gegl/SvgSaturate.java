@@ -23,6 +23,8 @@ public class SvgSaturate extends GeglFilter implements Source, Sink
     /** Constructs a SVG Saturate.
      *
      * SVG color matrix operation svg_saturate
+     *
+     * @param container container node
      */
     public SvgSaturate(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class SvgSaturate extends GeglFilter implements Source, Sink
     /** Constructs a SVG Saturate.
      *
      * SVG color matrix operation svg_saturate
+     *
+     * @param parent parent filter node
      */
     public SvgSaturate(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class SvgSaturate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Values
+     * @return this filter (for chaining operations)
+     * 
      */
     public SvgSaturate setValues(String value)
     {
@@ -71,6 +79,9 @@ public class SvgSaturate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Values
+     * 
      */
     public String getValues()
     {

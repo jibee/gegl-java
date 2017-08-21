@@ -23,6 +23,8 @@ public class Antialias extends GeglFilter implements Source, Sink
     /** Constructs a Scale3X Antialiasing.
      *
      * Antialias using the Scale3X edge-extrapolation algorithm
+     *
+     * @param container container node
      */
     public Antialias(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Antialias extends GeglFilter implements Source, Sink
     /** Constructs a Scale3X Antialiasing.
      *
      * Antialias using the Scale3X edge-extrapolation algorithm
+     *
+     * @param parent parent filter node
      */
     public Antialias(GeglFilter parent)
     {

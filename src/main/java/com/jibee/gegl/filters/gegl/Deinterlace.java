@@ -24,6 +24,8 @@ public class Deinterlace extends GeglFilter implements Source, Sink
     /** Constructs a Deinterlace.
      *
      * Fix images where every other row or column is missing
+     *
+     * @param container container node
      */
     public Deinterlace(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Deinterlace extends GeglFilter implements Source, Sink
     /** Constructs a Deinterlace.
      *
      * Fix images where every other row or column is missing
+     *
+     * @param parent parent filter node
      */
     public Deinterlace(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class Deinterlace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Keep
+     * @return this filter (for chaining operations)
+     * 
      */
     public Deinterlace setKeep(String value)
     {
@@ -72,6 +80,9 @@ public class Deinterlace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Keep
+     * 
      */
     public String getKeep()
     {
@@ -96,6 +107,10 @@ public class Deinterlace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Orientation
+     * @return this filter (for chaining operations)
+     * 
      */
     public Deinterlace setOrientation(String value)
     {
@@ -112,6 +127,9 @@ public class Deinterlace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Orientation
+     * 
      */
     public String getOrientation()
     {
@@ -136,13 +154,17 @@ public class Deinterlace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1
      * Acceptable Range:  100
+     *
+     * @param value new value for Block size
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Deinterlace setSize(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 100);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 100);
+	    }
 
         m_Size = value;
         setProperty("size", value);
@@ -156,6 +178,9 @@ public class Deinterlace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1
      * Acceptable Range:  100
+     *
+     * @return value of Block size
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getSize()
     {

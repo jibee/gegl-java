@@ -24,6 +24,8 @@ public class TexturizeCanvas extends GeglFilter implements Source, Sink
     /** Constructs a Texturize Canvas.
      *
      * Textures the image as if it were an artist's canvas.
+     *
+     * @param container container node
      */
     public TexturizeCanvas(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class TexturizeCanvas extends GeglFilter implements Source, Sink
     /** Constructs a Texturize Canvas.
      *
      * Textures the image as if it were an artist's canvas.
+     *
+     * @param parent parent filter node
      */
     public TexturizeCanvas(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class TexturizeCanvas extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Direction
+     * @return this filter (for chaining operations)
+     * 
      */
     public TexturizeCanvas setDirection(String value)
     {
@@ -72,6 +80,9 @@ public class TexturizeCanvas extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Direction
+     * 
      */
     public String getDirection()
     {
@@ -96,13 +107,17 @@ public class TexturizeCanvas extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4
      * Acceptable Range: 1 50
+     *
+     * @param value new value for Depth
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public TexturizeCanvas setDepth(int value) throws ParameterOutOfRangeException
     {
 		if(value > 50 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 50);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 50);
+	    }
 
         m_Depth = value;
         setProperty("depth", value);
@@ -116,6 +131,9 @@ public class TexturizeCanvas extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4
      * Acceptable Range: 1 50
+     *
+     * @return value of Depth
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getDepth()
     {

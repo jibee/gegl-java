@@ -24,6 +24,8 @@ public class Illusion extends GeglFilter implements Source, Sink
     /** Constructs a Illusion.
      *
      * Superimpose many altered copies of the image.
+     *
+     * @param container container node
      */
     public Illusion(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Illusion extends GeglFilter implements Source, Sink
     /** Constructs a Illusion.
      *
      * Superimpose many altered copies of the image.
+     *
+     * @param parent parent filter node
      */
     public Illusion(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Illusion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 8
      * Acceptable Range:  64
+     *
+     * @param value new value for Division
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Illusion setDivision(int value) throws ParameterOutOfRangeException
     {
 		if(value > 64)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 64);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 64);
+	    }
 
         m_Division = value;
         setProperty("division", value);
@@ -76,6 +84,9 @@ public class Illusion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 8
      * Acceptable Range:  64
+     *
+     * @return value of Division
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getDivision()
     {
@@ -100,6 +111,10 @@ public class Illusion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Illusion type
+     * @return this filter (for chaining operations)
+     * 
      */
     public Illusion setIllusionType(String value)
     {
@@ -116,6 +131,9 @@ public class Illusion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Illusion type
+     * 
      */
     public String getIllusionType()
     {

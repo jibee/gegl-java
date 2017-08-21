@@ -21,6 +21,8 @@ public class Save extends GeglFilter implements Sink
     /** Constructs a Save.
      *
      * Multipurpose file saver, that uses other native save handlers depending on extension, use the format specific save ops to specify additional parameters.
+     *
+     * @param container container node
      */
     public Save(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class Save extends GeglFilter implements Sink
     /** Constructs a Save.
      *
      * Multipurpose file saver, that uses other native save handlers depending on extension, use the format specific save ops to specify additional parameters.
+     *
+     * @param parent parent filter node
      */
     public Save(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class Save extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public Save setPath(String value)
     {
@@ -69,6 +77,9 @@ public class Save extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {

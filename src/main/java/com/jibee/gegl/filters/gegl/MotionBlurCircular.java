@@ -24,6 +24,8 @@ public class MotionBlurCircular extends GeglFilter implements Source, Sink
     /** Constructs a Circular Motion Blur.
      *
      * Circular motion blur
+     *
+     * @param container container node
      */
     public MotionBlurCircular(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class MotionBlurCircular extends GeglFilter implements Source, Sink
     /** Constructs a Circular Motion Blur.
      *
      * Circular motion blur
+     *
+     * @param parent parent filter node
      */
     public MotionBlurCircular(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class MotionBlurCircular extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @param value new value for Center X
+     * @return this filter (for chaining operations)
+     * 
      */
     public MotionBlurCircular setCenterX(double value)
     {
@@ -72,6 +80,9 @@ public class MotionBlurCircular extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @return value of Center X
+     * 
      */
     public double getCenterX()
     {
@@ -96,6 +107,10 @@ public class MotionBlurCircular extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @param value new value for Center Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public MotionBlurCircular setCenterY(double value)
     {
@@ -112,6 +127,9 @@ public class MotionBlurCircular extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @return value of Center Y
+     * 
      */
     public double getCenterY()
     {
@@ -136,13 +154,17 @@ public class MotionBlurCircular extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 5.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @param value new value for Angle
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public MotionBlurCircular setAngle(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < -180.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -180.00, 180.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -180.00, 180.00);
+	    }
 
         m_Angle = value;
         setProperty("angle", value);
@@ -156,6 +178,9 @@ public class MotionBlurCircular extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 5.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @return value of Angle
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAngle()
     {

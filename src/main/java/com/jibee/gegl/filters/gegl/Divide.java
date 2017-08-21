@@ -23,6 +23,8 @@ public class Divide extends GeglFilter implements Source, DualSink
     /** Constructs a Divide.
      *
      * Math operation divide, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. (formula: result = value==0.0f?0.0f:input/value)
+     *
+     * @param container container node
      */
     public Divide(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Divide extends GeglFilter implements Source, DualSink
     /** Constructs a Divide.
      *
      * Math operation divide, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. (formula: result = value==0.0f?0.0f:input/value)
+     *
+     * @param parent parent filter node
      */
     public Divide(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Divide extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range:  
+     *
+     * @param value new value for Value
+     * @return this filter (for chaining operations)
+     * 
      */
     public Divide setValue(double value)
     {
@@ -71,6 +79,9 @@ public class Divide extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range:  
+     *
+     * @return value of Value
+     * 
      */
     public double getValue()
     {

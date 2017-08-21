@@ -24,6 +24,8 @@ public class Opacity extends GeglFilter implements Source, DualSink
     /** Constructs a Opacity.
      *
      * Weights the opacity of the input both the value of the aux input and the global value property.
+     *
+     * @param container container node
      */
     public Opacity(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Opacity extends GeglFilter implements Source, DualSink
     /** Constructs a Opacity.
      *
      * Weights the opacity of the input both the value of the aux input and the global value property.
+     *
+     * @param parent parent filter node
      */
     public Opacity(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Opacity extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -10.00 10.00
+     *
+     * @param value new value for Opacity
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Opacity setValue(double value) throws ParameterOutOfRangeException
     {
 		if(value > 10.00 || value < -10.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -10.00, 10.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -10.00, 10.00);
+	    }
 
         m_Value = value;
         setProperty("value", value);
@@ -76,6 +84,9 @@ public class Opacity extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -10.00 10.00
+     *
+     * @return value of Opacity
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getValue()
     {

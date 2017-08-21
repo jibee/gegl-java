@@ -24,6 +24,8 @@ public class MattingGlobal extends GeglFilter implements Source, DualSink
     /** Constructs a Matting Global.
      *
      * Given a sparse user supplied tri-map and an input image, create a foreground alpha matte. Set white as foreground, black as background for the tri-map. Everything else will be treated as unknown and filled in.
+     *
+     * @param container container node
      */
     public MattingGlobal(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class MattingGlobal extends GeglFilter implements Source, DualSink
     /** Constructs a Matting Global.
      *
      * Given a sparse user supplied tri-map and an input image, create a foreground alpha matte. Set white as foreground, black as background for the tri-map. Everything else will be treated as unknown and filled in.
+     *
+     * @param parent parent filter node
      */
     public MattingGlobal(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class MattingGlobal extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 10
      * Acceptable Range: 1 10000
+     *
+     * @param value new value for Iterations
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public MattingGlobal setIterations(int value) throws ParameterOutOfRangeException
     {
 		if(value > 10000 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 10000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 10000);
+	    }
 
         m_Iterations = value;
         setProperty("iterations", value);
@@ -76,6 +84,9 @@ public class MattingGlobal extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 10
      * Acceptable Range: 1 10000
+     *
+     * @return value of Iterations
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getIterations()
     {

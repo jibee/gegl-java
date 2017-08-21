@@ -23,6 +23,8 @@ public class EdgeLaplace extends GeglFilter implements Source, Sink
     /** Constructs a Laplacian Edge Detection.
      *
      * High-resolution edge detection
+     *
+     * @param container container node
      */
     public EdgeLaplace(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class EdgeLaplace extends GeglFilter implements Source, Sink
     /** Constructs a Laplacian Edge Detection.
      *
      * High-resolution edge detection
+     *
+     * @param parent parent filter node
      */
     public EdgeLaplace(GeglFilter parent)
     {

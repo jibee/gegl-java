@@ -23,6 +23,8 @@ public class MapAbsolute extends GeglFilter implements Source, DualSink
     /** Constructs a Map Absolute.
      *
      * sample input with an auxiliary buffer that contain absolute source coordinates
+     *
+     * @param container container node
      */
     public MapAbsolute(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class MapAbsolute extends GeglFilter implements Source, DualSink
     /** Constructs a Map Absolute.
      *
      * sample input with an auxiliary buffer that contain absolute source coordinates
+     *
+     * @param parent parent filter node
      */
     public MapAbsolute(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class MapAbsolute extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Resampling method
+     * @return this filter (for chaining operations)
+     * 
      */
     public MapAbsolute setSamplerType(String value)
     {
@@ -71,6 +79,9 @@ public class MapAbsolute extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Resampling method
+     * 
      */
     public String getSamplerType()
     {
@@ -95,6 +106,10 @@ public class MapAbsolute extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Abyss policy
+     * @return this filter (for chaining operations)
+     * 
      */
     public MapAbsolute setAbyssPolicy(String value)
     {
@@ -111,6 +126,9 @@ public class MapAbsolute extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Abyss policy
+     * 
      */
     public String getAbyssPolicy()
     {

@@ -24,6 +24,8 @@ public class Reinhard05 extends GeglFilter implements Source, Sink
     /** Constructs a Reinhard 2005 Tone Mapping.
      *
      * Adapt an image, which may have a high dynamic range, for presentation using a low dynamic range. This is an efficient global operator derived from simple physiological observations, producing luminance within the range 0.0-1.0
+     *
+     * @param container container node
      */
     public Reinhard05(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Reinhard05 extends GeglFilter implements Source, Sink
     /** Constructs a Reinhard 2005 Tone Mapping.
      *
      * Adapt an image, which may have a high dynamic range, for presentation using a low dynamic range. This is an efficient global operator derived from simple physiological observations, producing luminance within the range 0.0-1.0
+     *
+     * @param parent parent filter node
      */
     public Reinhard05(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Reinhard05 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @param value new value for Brightness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Reinhard05 setBrightness(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < -100.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -100.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -100.00, 100.00);
+	    }
 
         m_Brightness = value;
         setProperty("brightness", value);
@@ -76,6 +84,9 @@ public class Reinhard05 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @return value of Brightness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBrightness()
     {
@@ -100,13 +111,17 @@ public class Reinhard05 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Chromatic adaptation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Reinhard05 setChromatic(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Chromatic = value;
         setProperty("chromatic", value);
@@ -120,6 +135,9 @@ public class Reinhard05 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Chromatic adaptation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getChromatic()
     {
@@ -144,13 +162,17 @@ public class Reinhard05 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Light adaptation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Reinhard05 setLight(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Light = value;
         setProperty("light", value);
@@ -164,6 +186,9 @@ public class Reinhard05 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Light adaptation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getLight()
     {

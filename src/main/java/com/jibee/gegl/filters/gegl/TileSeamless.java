@@ -23,6 +23,8 @@ public class TileSeamless extends GeglFilter implements Source, Sink
     /** Constructs a Make Seamlessly tileable.
      *
      * Make the input buffer seamlessly tileable. The algorithm is not content-aware, so the result may need post-processing.
+     *
+     * @param container container node
      */
     public TileSeamless(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class TileSeamless extends GeglFilter implements Source, Sink
     /** Constructs a Make Seamlessly tileable.
      *
      * Make the input buffer seamlessly tileable. The algorithm is not content-aware, so the result may need post-processing.
+     *
+     * @param parent parent filter node
      */
     public TileSeamless(GeglFilter parent)
     {

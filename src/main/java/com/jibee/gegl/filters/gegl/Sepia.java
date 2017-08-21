@@ -24,6 +24,8 @@ public class Sepia extends GeglFilter implements Source, Sink
     /** Constructs a Sepia.
      *
      * Apply a sepia tone to the input image
+     *
+     * @param container container node
      */
     public Sepia(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Sepia extends GeglFilter implements Source, Sink
     /** Constructs a Sepia.
      *
      * Apply a sepia tone to the input image
+     *
+     * @param parent parent filter node
      */
     public Sepia(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Sepia extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Effect strength
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Sepia setScale(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Scale = value;
         setProperty("scale", value);
@@ -76,6 +84,9 @@ public class Sepia extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Effect strength
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getScale()
     {
@@ -100,6 +111,10 @@ public class Sepia extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public Sepia setSrgb(boolean value)
     {
@@ -116,6 +131,9 @@ public class Sepia extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

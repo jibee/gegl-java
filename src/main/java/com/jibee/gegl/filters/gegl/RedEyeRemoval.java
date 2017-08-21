@@ -24,6 +24,8 @@ public class RedEyeRemoval extends GeglFilter implements Source, Sink
     /** Constructs a Red Eye Removal.
      *
      * Remove the red eye effect caused by camera flashes
+     *
+     * @param container container node
      */
     public RedEyeRemoval(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class RedEyeRemoval extends GeglFilter implements Source, Sink
     /** Constructs a Red Eye Removal.
      *
      * Remove the red eye effect caused by camera flashes
+     *
+     * @param parent parent filter node
      */
     public RedEyeRemoval(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class RedEyeRemoval extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.40
      * Acceptable Range: 0.00 0.80
+     *
+     * @param value new value for Threshold
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public RedEyeRemoval setThreshold(double value) throws ParameterOutOfRangeException
     {
 		if(value > 0.80 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 0.80);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 0.80);
+	    }
 
         m_Threshold = value;
         setProperty("threshold", value);
@@ -76,6 +84,9 @@ public class RedEyeRemoval extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.40
      * Acceptable Range: 0.00 0.80
+     *
+     * @return value of Threshold
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getThreshold()
     {

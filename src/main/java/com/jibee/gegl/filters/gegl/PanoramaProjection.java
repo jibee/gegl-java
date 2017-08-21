@@ -24,6 +24,8 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
     /** Constructs a Panorama Projection.
      *
      * Perform an equilinear/gnomonic or little planet/stereographic projection of an equirectangular input image.
+     *
+     * @param container container node
      */
     public PanoramaProjection(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
     /** Constructs a Panorama Projection.
      *
      * Perform an equilinear/gnomonic or little planet/stereographic projection of an equirectangular input image.
+     *
+     * @param parent parent filter node
      */
     public PanoramaProjection(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: -360.00 360.00
+     *
+     * @param value new value for Pan
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public PanoramaProjection setPan(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < -360.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -360.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -360.00, 360.00);
+	    }
 
         m_Pan = value;
         setProperty("pan", value);
@@ -76,6 +84,9 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: -360.00 360.00
+     *
+     * @return value of Pan
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getPan()
     {
@@ -100,13 +111,17 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @param value new value for Tilt
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public PanoramaProjection setTilt(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < -180.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -180.00, 180.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -180.00, 180.00);
+	    }
 
         m_Tilt = value;
         setProperty("tilt", value);
@@ -120,6 +135,9 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @return value of Tilt
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTilt()
     {
@@ -144,13 +162,17 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -360.00 360.00
+     *
+     * @param value new value for Spin
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public PanoramaProjection setSpin(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < -360.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -360.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -360.00, 360.00);
+	    }
 
         m_Spin = value;
         setProperty("spin", value);
@@ -164,6 +186,9 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -360.00 360.00
+     *
+     * @return value of Spin
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getSpin()
     {
@@ -188,13 +213,17 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range: 0.01 1000.00
+     *
+     * @param value new value for Zoom
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public PanoramaProjection setZoom(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1000.00 || value < 0.01)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.01, 1000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.01, 1000.00);
+	    }
 
         m_Zoom = value;
         setProperty("zoom", value);
@@ -208,6 +237,9 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range: 0.01 1000.00
+     *
+     * @return value of Zoom
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getZoom()
     {
@@ -232,13 +264,17 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: -1
      * Acceptable Range: -1 10000
+     *
+     * @param value new value for Width
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public PanoramaProjection setWidth(int value) throws ParameterOutOfRangeException
     {
 		if(value > 10000 || value < -1)
-	{
-	    throw new ParameterOutOfRangeException(value, -1, 10000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1, 10000);
+	    }
 
         m_Width = value;
         setProperty("width", value);
@@ -252,6 +288,9 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: -1
      * Acceptable Range: -1 10000
+     *
+     * @return value of Width
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getWidth()
     {
@@ -276,13 +315,17 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: -1
      * Acceptable Range: -1 10000
+     *
+     * @param value new value for Height
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public PanoramaProjection setHeight(int value) throws ParameterOutOfRangeException
     {
 		if(value > 10000 || value < -1)
-	{
-	    throw new ParameterOutOfRangeException(value, -1, 10000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1, 10000);
+	    }
 
         m_Height = value;
         setProperty("height", value);
@@ -296,6 +339,9 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: -1
      * Acceptable Range: -1 10000
+     *
+     * @return value of Height
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getHeight()
     {
@@ -320,6 +366,10 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Little planet
+     * @return this filter (for chaining operations)
+     * 
      */
     public PanoramaProjection setLittlePlanet(boolean value)
     {
@@ -336,6 +386,9 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Little planet
+     * 
      */
     public boolean getLittlePlanet()
     {
@@ -360,6 +413,10 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Resampling method
+     * @return this filter (for chaining operations)
+     * 
      */
     public PanoramaProjection setSamplerType(String value)
     {
@@ -376,6 +433,9 @@ public class PanoramaProjection extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Resampling method
+     * 
      */
     public String getSamplerType()
     {

@@ -23,6 +23,8 @@ public class Subtract extends GeglFilter implements Source, DualSink
     /** Constructs a Subtract.
      *
      * Math operation subtract, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. (formula: result = input - value)
+     *
+     * @param container container node
      */
     public Subtract(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Subtract extends GeglFilter implements Source, DualSink
     /** Constructs a Subtract.
      *
      * Math operation subtract, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. (formula: result = input - value)
+     *
+     * @param parent parent filter node
      */
     public Subtract(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Subtract extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Value
+     * @return this filter (for chaining operations)
+     * 
      */
     public Subtract setValue(double value)
     {
@@ -71,6 +79,9 @@ public class Subtract extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Value
+     * 
      */
     public double getValue()
     {

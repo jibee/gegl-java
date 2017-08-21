@@ -24,6 +24,8 @@ public class ScaleSize extends GeglFilter implements Source, Sink
     /** Constructs a Scale size.
      *
      * Scales the buffer according to a size.
+     *
+     * @param container container node
      */
     public ScaleSize(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class ScaleSize extends GeglFilter implements Source, Sink
     /** Constructs a Scale size.
      *
      * Scales the buffer according to a size.
+     *
+     * @param parent parent filter node
      */
     public ScaleSize(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class ScaleSize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Origin-x
+     * @return this filter (for chaining operations)
+     * 
      */
     public ScaleSize setOriginX(double value)
     {
@@ -72,6 +80,9 @@ public class ScaleSize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Origin-x
+     * 
      */
     public double getOriginX()
     {
@@ -96,6 +107,10 @@ public class ScaleSize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Origin-y
+     * @return this filter (for chaining operations)
+     * 
      */
     public ScaleSize setOriginY(double value)
     {
@@ -112,6 +127,9 @@ public class ScaleSize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Origin-y
+     * 
      */
     public double getOriginY()
     {
@@ -136,6 +154,10 @@ public class ScaleSize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Sampler
+     * @return this filter (for chaining operations)
+     * 
      */
     public ScaleSize setSampler(String value)
     {
@@ -152,6 +174,9 @@ public class ScaleSize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Sampler
+     * 
      */
     public String getSampler()
     {
@@ -176,6 +201,10 @@ public class ScaleSize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Clip to input
+     * @return this filter (for chaining operations)
+     * 
      */
     public ScaleSize setClipToInput(boolean value)
     {
@@ -192,6 +221,9 @@ public class ScaleSize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Clip to input
+     * 
      */
     public boolean getClipToInput()
     {
@@ -216,13 +248,17 @@ public class ScaleSize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range: -9000.00 9000.00
+     *
+     * @param value new value for X
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ScaleSize setX(double value) throws ParameterOutOfRangeException
     {
 		if(value > 9000.00 || value < -9000.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -9000.00, 9000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -9000.00, 9000.00);
+	    }
 
         m_X = value;
         setProperty("x", value);
@@ -236,6 +272,9 @@ public class ScaleSize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range: -9000.00 9000.00
+     *
+     * @return value of X
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getX()
     {
@@ -260,13 +299,17 @@ public class ScaleSize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range: -9000.00 9000.00
+     *
+     * @param value new value for Y
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ScaleSize setY(double value) throws ParameterOutOfRangeException
     {
 		if(value > 9000.00 || value < -9000.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -9000.00, 9000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -9000.00, 9000.00);
+	    }
 
         m_Y = value;
         setProperty("y", value);
@@ -280,6 +323,9 @@ public class ScaleSize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range: -9000.00 9000.00
+     *
+     * @return value of Y
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getY()
     {

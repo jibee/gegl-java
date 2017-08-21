@@ -23,6 +23,8 @@ public class Gegl extends GeglFilter implements Source, Sink
     /** Constructs a GEGL graph.
      *
      * Do a chain of operations, with key=value pairs after each operation name to set properties. And aux=[ source filter ] for specifying a chain with a source as something connected to an aux pad.
+     *
+     * @param container container node
      */
     public Gegl(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Gegl extends GeglFilter implements Source, Sink
     /** Constructs a GEGL graph.
      *
      * Do a chain of operations, with key=value pairs after each operation name to set properties. And aux=[ source filter ] for specifying a chain with a source as something connected to an aux pad.
+     *
+     * @param parent parent filter node
      */
     public Gegl(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Gegl extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: "gaussian-blur std-dev-x=0.3rel std-dev-y=0.3rel"
      * Acceptable Range:  
+     *
+     * @param value new value for pipeline
+     * @return this filter (for chaining operations)
+     * 
      */
     public Gegl setString(String value)
     {
@@ -71,6 +79,9 @@ public class Gegl extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: "gaussian-blur std-dev-x=0.3rel std-dev-y=0.3rel"
      * Acceptable Range:  
+     *
+     * @return value of pipeline
+     * 
      */
     public String getString()
     {
@@ -95,6 +106,10 @@ public class Gegl extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Eeeeeek
+     * @return this filter (for chaining operations)
+     * 
      */
     public Gegl setError(String value)
     {
@@ -111,6 +126,9 @@ public class Gegl extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Eeeeeek
+     * 
      */
     public String getError()
     {

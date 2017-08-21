@@ -21,6 +21,8 @@ public class OpenBuffer extends GeglFilter implements Source
     /** Constructs a Open GEGL Buffer.
      *
      * Use an on-disk GeglBuffer as data source.
+     *
+     * @param container container node
      */
     public OpenBuffer(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class OpenBuffer extends GeglFilter implements Source
     /** Constructs a Open GEGL Buffer.
      *
      * Use an on-disk GeglBuffer as data source.
+     *
+     * @param parent parent filter node
      */
     public OpenBuffer(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class OpenBuffer extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public OpenBuffer setPath(String value)
     {
@@ -69,6 +77,9 @@ public class OpenBuffer extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {

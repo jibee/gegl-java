@@ -21,6 +21,8 @@ public class Display extends GeglFilter implements Sink
     /** Constructs a Display.
      *
      * Display the input buffer in a window.
+     *
+     * @param container container node
      */
     public Display(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class Display extends GeglFilter implements Sink
     /** Constructs a Display.
      *
      * Display the input buffer in a window.
+     *
+     * @param parent parent filter node
      */
     public Display(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class Display extends GeglFilter implements Sink
      * Unit: 
      * Default value: "window_title"
      * Acceptable Range:  
+     *
+     * @param value new value for Window title
+     * @return this filter (for chaining operations)
+     * 
      */
     public Display setWindowTitle(String value)
     {
@@ -69,6 +77,9 @@ public class Display extends GeglFilter implements Sink
      * Unit: 
      * Default value: "window_title"
      * Acceptable Range:  
+     *
+     * @return value of Window title
+     * 
      */
     public String getWindowTitle()
     {

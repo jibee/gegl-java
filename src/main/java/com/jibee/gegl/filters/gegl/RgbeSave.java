@@ -21,6 +21,8 @@ public class RgbeSave extends GeglFilter implements Sink
     /** Constructs a RGBE File Saver.
      *
      * RGBE image saver (Radiance HDR format)
+     *
+     * @param container container node
      */
     public RgbeSave(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class RgbeSave extends GeglFilter implements Sink
     /** Constructs a RGBE File Saver.
      *
      * RGBE image saver (Radiance HDR format)
+     *
+     * @param parent parent filter node
      */
     public RgbeSave(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class RgbeSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public RgbeSave setPath(String value)
     {
@@ -69,6 +77,9 @@ public class RgbeSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {

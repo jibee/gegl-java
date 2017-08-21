@@ -24,6 +24,8 @@ public class ColorTemperature extends GeglFilter implements Source, Sink
     /** Constructs a Color Temperature.
      *
      * Change the color temperature of the image, from an assumed original color temperature to an intended one.
+     *
+     * @param container container node
      */
     public ColorTemperature(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class ColorTemperature extends GeglFilter implements Source, Sink
     /** Constructs a Color Temperature.
      *
      * Change the color temperature of the image, from an assumed original color temperature to an intended one.
+     *
+     * @param parent parent filter node
      */
     public ColorTemperature(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class ColorTemperature extends GeglFilter implements Source, Sink
      * Unit: kelvin
      * Default value: 6500.00
      * Acceptable Range: 1000.00 12000.00
+     *
+     * @param value new value for Original temperature
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ColorTemperature setOriginalTemperature(double value) throws ParameterOutOfRangeException
     {
 		if(value > 12000.00 || value < 1000.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 1000.00, 12000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1000.00, 12000.00);
+	    }
 
         m_OriginalTemperature = value;
         setProperty("original-temperature", value);
@@ -76,6 +84,9 @@ public class ColorTemperature extends GeglFilter implements Source, Sink
      * Unit: kelvin
      * Default value: 6500.00
      * Acceptable Range: 1000.00 12000.00
+     *
+     * @return value of Original temperature
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getOriginalTemperature()
     {
@@ -100,13 +111,17 @@ public class ColorTemperature extends GeglFilter implements Source, Sink
      * Unit: kelvin
      * Default value: 6500.00
      * Acceptable Range: 1000.00 12000.00
+     *
+     * @param value new value for Intended temperature
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ColorTemperature setIntendedTemperature(double value) throws ParameterOutOfRangeException
     {
 		if(value > 12000.00 || value < 1000.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 1000.00, 12000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1000.00, 12000.00);
+	    }
 
         m_IntendedTemperature = value;
         setProperty("intended-temperature", value);
@@ -120,6 +135,9 @@ public class ColorTemperature extends GeglFilter implements Source, Sink
      * Unit: kelvin
      * Default value: 6500.00
      * Acceptable Range: 1000.00 12000.00
+     *
+     * @return value of Intended temperature
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getIntendedTemperature()
     {

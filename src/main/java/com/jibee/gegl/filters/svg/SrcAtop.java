@@ -23,6 +23,8 @@ public class SrcAtop extends GeglFilter implements Source, DualSink
     /** Constructs a Src-atop.
      *
      * Porter Duff operation src-atop (d = cA * aB + cB * (1.0f - aA))
+     *
+     * @param container container node
      */
     public SrcAtop(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class SrcAtop extends GeglFilter implements Source, DualSink
     /** Constructs a Src-atop.
      *
      * Porter Duff operation src-atop (d = cA * aB + cB * (1.0f - aA))
+     *
+     * @param parent parent filter node
      */
     public SrcAtop(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class SrcAtop extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public SrcAtop setSrgb(boolean value)
     {
@@ -71,6 +79,9 @@ public class SrcAtop extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

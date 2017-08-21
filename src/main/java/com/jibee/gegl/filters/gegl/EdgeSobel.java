@@ -23,6 +23,8 @@ public class EdgeSobel extends GeglFilter implements Source, Sink
     /** Constructs a Sobel Edge Detection.
      *
      * Specialized direction-dependent edge detection
+     *
+     * @param container container node
      */
     public EdgeSobel(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class EdgeSobel extends GeglFilter implements Source, Sink
     /** Constructs a Sobel Edge Detection.
      *
      * Specialized direction-dependent edge detection
+     *
+     * @param parent parent filter node
      */
     public EdgeSobel(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class EdgeSobel extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Horizontal
+     * @return this filter (for chaining operations)
+     * 
      */
     public EdgeSobel setHorizontal(boolean value)
     {
@@ -71,6 +79,9 @@ public class EdgeSobel extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Horizontal
+     * 
      */
     public boolean getHorizontal()
     {
@@ -95,6 +106,10 @@ public class EdgeSobel extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Vertical
+     * @return this filter (for chaining operations)
+     * 
      */
     public EdgeSobel setVertical(boolean value)
     {
@@ -111,6 +126,9 @@ public class EdgeSobel extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Vertical
+     * 
      */
     public boolean getVertical()
     {
@@ -135,6 +153,10 @@ public class EdgeSobel extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Keep Sign
+     * @return this filter (for chaining operations)
+     * 
      */
     public EdgeSobel setKeepSign(boolean value)
     {
@@ -151,6 +173,9 @@ public class EdgeSobel extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Keep Sign
+     * 
      */
     public boolean getKeepSign()
     {

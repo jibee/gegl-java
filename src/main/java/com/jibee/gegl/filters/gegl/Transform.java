@@ -23,6 +23,8 @@ public class Transform extends GeglFilter implements Source, Sink
     /** Constructs a Transform.
      *
      * Do a transformation using SVG syntax transformation.
+     *
+     * @param container container node
      */
     public Transform(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Transform extends GeglFilter implements Source, Sink
     /** Constructs a Transform.
      *
      * Do a transformation using SVG syntax transformation.
+     *
+     * @param parent parent filter node
      */
     public Transform(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Transform extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Origin-x
+     * @return this filter (for chaining operations)
+     * 
      */
     public Transform setOriginX(double value)
     {
@@ -71,6 +79,9 @@ public class Transform extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Origin-x
+     * 
      */
     public double getOriginX()
     {
@@ -95,6 +106,10 @@ public class Transform extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Origin-y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Transform setOriginY(double value)
     {
@@ -111,6 +126,9 @@ public class Transform extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Origin-y
+     * 
      */
     public double getOriginY()
     {
@@ -135,6 +153,10 @@ public class Transform extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Sampler
+     * @return this filter (for chaining operations)
+     * 
      */
     public Transform setSampler(String value)
     {
@@ -151,6 +173,9 @@ public class Transform extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Sampler
+     * 
      */
     public String getSampler()
     {
@@ -175,6 +200,10 @@ public class Transform extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Clip to input
+     * @return this filter (for chaining operations)
+     * 
      */
     public Transform setClipToInput(boolean value)
     {
@@ -191,6 +220,9 @@ public class Transform extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Clip to input
+     * 
      */
     public boolean getClipToInput()
     {
@@ -215,6 +247,10 @@ public class Transform extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Transform
+     * @return this filter (for chaining operations)
+     * 
      */
     public Transform setTransform(String value)
     {
@@ -231,6 +267,9 @@ public class Transform extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Transform
+     * 
      */
     public String getTransform()
     {

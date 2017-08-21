@@ -25,6 +25,8 @@ public class Cubism extends GeglFilter implements Source, Sink
     /** Constructs a Cubism.
      *
      * Convert the image into randomly rotated square blobs, somehow resembling a cubist painting style
+     *
+     * @param container container node
      */
     public Cubism(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class Cubism extends GeglFilter implements Source, Sink
     /** Constructs a Cubism.
      *
      * Convert the image into randomly rotated square blobs, somehow resembling a cubist painting style
+     *
+     * @param parent parent filter node
      */
     public Cubism(GeglFilter parent)
     {
@@ -57,13 +61,17 @@ public class Cubism extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range: 0.00 256.00
+     *
+     * @param value new value for Tile size
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Cubism setTileSize(double value) throws ParameterOutOfRangeException
     {
 		if(value > 256.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 256.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 256.00);
+	    }
 
         m_TileSize = value;
         setProperty("tile-size", value);
@@ -77,6 +85,9 @@ public class Cubism extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range: 0.00 256.00
+     *
+     * @return value of Tile size
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTileSize()
     {
@@ -101,13 +112,17 @@ public class Cubism extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2.50
      * Acceptable Range: 0.00 10.00
+     *
+     * @param value new value for Tile saturation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Cubism setTileSaturation(double value) throws ParameterOutOfRangeException
     {
 		if(value > 10.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 10.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 10.00);
+	    }
 
         m_TileSaturation = value;
         setProperty("tile-saturation", value);
@@ -121,6 +136,9 @@ public class Cubism extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2.50
      * Acceptable Range: 0.00 10.00
+     *
+     * @return value of Tile saturation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTileSaturation()
     {
@@ -145,6 +163,10 @@ public class Cubism extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Background color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Cubism setBgColor(GeglColor value)
     {
@@ -161,6 +183,9 @@ public class Cubism extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Background color
+     * 
      */
     public GeglColor getBgColor()
     {
@@ -185,6 +210,10 @@ public class Cubism extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public Cubism setSeed(int value)
     {
@@ -201,6 +230,9 @@ public class Cubism extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

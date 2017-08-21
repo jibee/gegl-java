@@ -23,6 +23,8 @@ public class ComponentExtract extends GeglFilter implements Source, Sink
     /** Constructs a Extract Component.
      *
      * Extract a color model component
+     *
+     * @param container container node
      */
     public ComponentExtract(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class ComponentExtract extends GeglFilter implements Source, Sink
     /** Constructs a Extract Component.
      *
      * Extract a color model component
+     *
+     * @param parent parent filter node
      */
     public ComponentExtract(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class ComponentExtract extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Component
+     * @return this filter (for chaining operations)
+     * 
      */
     public ComponentExtract setComponent(String value)
     {
@@ -71,6 +79,9 @@ public class ComponentExtract extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Component
+     * 
      */
     public String getComponent()
     {
@@ -95,6 +106,10 @@ public class ComponentExtract extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Invert component
+     * @return this filter (for chaining operations)
+     * 
      */
     public ComponentExtract setInvert(boolean value)
     {
@@ -111,6 +126,9 @@ public class ComponentExtract extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Invert component
+     * 
      */
     public boolean getInvert()
     {
@@ -135,6 +153,10 @@ public class ComponentExtract extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Linear output
+     * @return this filter (for chaining operations)
+     * 
      */
     public ComponentExtract setLinear(boolean value)
     {
@@ -151,6 +173,9 @@ public class ComponentExtract extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Linear output
+     * 
      */
     public boolean getLinear()
     {

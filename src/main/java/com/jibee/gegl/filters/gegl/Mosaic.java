@@ -25,6 +25,8 @@ public class Mosaic extends GeglFilter implements Source, Sink
     /** Constructs a Mosaic.
      *
      * Mosaic is a filter which transforms an image into what appears to be a mosaic, composed of small primitives, each of constant color and of an approximate size.
+     *
+     * @param container container node
      */
     public Mosaic(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class Mosaic extends GeglFilter implements Source, Sink
     /** Constructs a Mosaic.
      *
      * Mosaic is a filter which transforms an image into what appears to be a mosaic, composed of small primitives, each of constant color and of an approximate size.
+     *
+     * @param parent parent filter node
      */
     public Mosaic(GeglFilter parent)
     {
@@ -57,6 +61,10 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Tile geometry
+     * @return this filter (for chaining operations)
+     * 
      */
     public Mosaic setTileType(String value)
     {
@@ -73,6 +81,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Tile geometry
+     * 
      */
     public String getTileType()
     {
@@ -97,13 +108,17 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 15.00
      * Acceptable Range: 1.00 1000.00
+     *
+     * @param value new value for Tile size
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mosaic setTileSize(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1000.00 || value < 1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 1.00, 1000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1.00, 1000.00);
+	    }
 
         m_TileSize = value;
         setProperty("tile-size", value);
@@ -117,6 +132,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 15.00
      * Acceptable Range: 1.00 1000.00
+     *
+     * @return value of Tile size
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTileSize()
     {
@@ -141,13 +159,17 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4.00
      * Acceptable Range: 1.00 1000.00
+     *
+     * @param value new value for Tile height
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mosaic setTileHeight(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1000.00 || value < 1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 1.00, 1000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1.00, 1000.00);
+	    }
 
         m_TileHeight = value;
         setProperty("tile-height", value);
@@ -161,6 +183,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4.00
      * Acceptable Range: 1.00 1000.00
+     *
+     * @return value of Tile height
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTileHeight()
     {
@@ -185,13 +210,17 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.65
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Tile neatness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mosaic setTileNeatness(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_TileNeatness = value;
         setProperty("tile-neatness", value);
@@ -205,6 +234,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.65
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Tile neatness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTileNeatness()
     {
@@ -229,13 +261,17 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Tile color variation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mosaic setColorVariation(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_ColorVariation = value;
         setProperty("color-variation", value);
@@ -249,6 +285,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Tile color variation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getColorVariation()
     {
@@ -273,6 +312,10 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Color averaging
+     * @return this filter (for chaining operations)
+     * 
      */
     public Mosaic setColorAveraging(boolean value)
     {
@@ -289,6 +332,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Color averaging
+     * 
      */
     public boolean getColorAveraging()
     {
@@ -313,6 +359,10 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Rough tile surface
+     * @return this filter (for chaining operations)
+     * 
      */
     public Mosaic setTileSurface(boolean value)
     {
@@ -329,6 +379,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Rough tile surface
+     * 
      */
     public boolean getTileSurface()
     {
@@ -353,6 +406,10 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Allow splitting tiles
+     * @return this filter (for chaining operations)
+     * 
      */
     public Mosaic setTileAllowSplit(boolean value)
     {
@@ -369,6 +426,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Allow splitting tiles
+     * 
      */
     public boolean getTileAllowSplit()
     {
@@ -393,13 +453,17 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 1.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @param value new value for Tile spacing
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mosaic setTileSpacing(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1000.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
+	    }
 
         m_TileSpacing = value;
         setProperty("tile-spacing", value);
@@ -413,6 +477,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 1.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @return value of Tile spacing
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTileSpacing()
     {
@@ -437,6 +504,10 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Joints color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Mosaic setJointsColor(GeglColor value)
     {
@@ -453,6 +524,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Joints color
+     * 
      */
     public GeglColor getJointsColor()
     {
@@ -477,6 +551,10 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Light color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Mosaic setLightColor(GeglColor value)
     {
@@ -493,6 +571,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Light color
+     * 
      */
     public GeglColor getLightColor()
     {
@@ -517,13 +598,17 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 135.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for Light direction
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mosaic setLightDir(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_LightDir = value;
         setProperty("light-dir", value);
@@ -537,6 +622,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 135.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of Light direction
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getLightDir()
     {
@@ -561,6 +649,10 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Antialiasing
+     * @return this filter (for chaining operations)
+     * 
      */
     public Mosaic setAntialiasing(boolean value)
     {
@@ -577,6 +669,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Antialiasing
+     * 
      */
     public boolean getAntialiasing()
     {
@@ -601,6 +696,10 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public Mosaic setSeed(int value)
     {
@@ -617,6 +716,9 @@ public class Mosaic extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

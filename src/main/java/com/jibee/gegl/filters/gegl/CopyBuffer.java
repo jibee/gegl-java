@@ -24,6 +24,8 @@ public class CopyBuffer extends GeglFilter implements Source, Sink
     /** Constructs a Copy Buffer.
      *
      * Writes image data to an already existing buffer
+     *
+     * @param container container node
      */
     public CopyBuffer(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class CopyBuffer extends GeglFilter implements Source, Sink
     /** Constructs a Copy Buffer.
      *
      * Writes image data to an already existing buffer
+     *
+     * @param parent parent filter node
      */
     public CopyBuffer(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class CopyBuffer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Buffer
+     * @return this filter (for chaining operations)
+     * 
      */
     public CopyBuffer setBuffer(GeglBuffer value)
     {
@@ -72,6 +80,9 @@ public class CopyBuffer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Buffer
+     * 
      */
     public GeglBuffer getBuffer()
     {

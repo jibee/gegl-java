@@ -21,6 +21,8 @@ public class TiffSave extends GeglFilter implements Sink
     /** Constructs a TIFF File Saver.
      *
      * TIFF image saver using libtiff
+     *
+     * @param container container node
      */
     public TiffSave(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class TiffSave extends GeglFilter implements Sink
     /** Constructs a TIFF File Saver.
      *
      * TIFF image saver using libtiff
+     *
+     * @param parent parent filter node
      */
     public TiffSave(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class TiffSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public TiffSave setPath(String value)
     {
@@ -69,6 +77,9 @@ public class TiffSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {

@@ -22,6 +22,8 @@ public class PpmSave extends GeglFilter implements Sink
     /** Constructs a PPM File Saver.
      *
      * PPM image saver (Portable pixmap saver.)
+     *
+     * @param container container node
      */
     public PpmSave(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class PpmSave extends GeglFilter implements Sink
     /** Constructs a PPM File Saver.
      *
      * PPM image saver (Portable pixmap saver.)
+     *
+     * @param parent parent filter node
      */
     public PpmSave(GeglFilter parent)
     {
@@ -54,6 +58,10 @@ public class PpmSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public PpmSave setPath(String value)
     {
@@ -70,6 +78,9 @@ public class PpmSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {
@@ -94,6 +105,10 @@ public class PpmSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Raw format
+     * @return this filter (for chaining operations)
+     * 
      */
     public PpmSave setRawformat(boolean value)
     {
@@ -110,6 +125,9 @@ public class PpmSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Raw format
+     * 
      */
     public boolean getRawformat()
     {
@@ -134,13 +152,17 @@ public class PpmSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 16
      * Acceptable Range: 8 16
+     *
+     * @param value new value for Bitdepth
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public PpmSave setBitdepth(int value) throws ParameterOutOfRangeException
     {
 		if(value > 16 || value < 8)
-	{
-	    throw new ParameterOutOfRangeException(value, 8, 16);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 8, 16);
+	    }
 
         m_Bitdepth = value;
         setProperty("bitdepth", value);
@@ -154,6 +176,9 @@ public class PpmSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 16
      * Acceptable Range: 8 16
+     *
+     * @return value of Bitdepth
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getBitdepth()
     {

@@ -24,6 +24,8 @@ public class Emboss extends GeglFilter implements Source, Sink
     /** Constructs a Emboss.
      *
      * Simulates an image created by embossing
+     *
+     * @param container container node
      */
     public Emboss(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Emboss extends GeglFilter implements Source, Sink
     /** Constructs a Emboss.
      *
      * Simulates an image created by embossing
+     *
+     * @param parent parent filter node
      */
     public Emboss(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class Emboss extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Emboss Type
+     * @return this filter (for chaining operations)
+     * 
      */
     public Emboss setType(String value)
     {
@@ -72,6 +80,9 @@ public class Emboss extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Emboss Type
+     * 
      */
     public String getType()
     {
@@ -96,13 +107,17 @@ public class Emboss extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 30.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for Azimuth
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Emboss setAzimuth(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_Azimuth = value;
         setProperty("azimuth", value);
@@ -116,6 +131,9 @@ public class Emboss extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 30.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of Azimuth
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAzimuth()
     {
@@ -140,13 +158,17 @@ public class Emboss extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 45.00
      * Acceptable Range: 0.00 180.00
+     *
+     * @param value new value for Elevation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Emboss setElevation(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 180.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 180.00);
+	    }
 
         m_Elevation = value;
         setProperty("elevation", value);
@@ -160,6 +182,9 @@ public class Emboss extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 45.00
      * Acceptable Range: 0.00 180.00
+     *
+     * @return value of Elevation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getElevation()
     {
@@ -184,13 +209,17 @@ public class Emboss extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 20
      * Acceptable Range: 1 100
+     *
+     * @param value new value for Depth
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Emboss setDepth(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 100);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 100);
+	    }
 
         m_Depth = value;
         setProperty("depth", value);
@@ -204,6 +233,9 @@ public class Emboss extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 20
      * Acceptable Range: 1 100
+     *
+     * @return value of Depth
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getDepth()
     {

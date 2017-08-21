@@ -25,6 +25,8 @@ public class Pixelize extends GeglFilter implements Source, Sink
     /** Constructs a Pixelize.
      *
      * Simplify image into an array of solid-colored rectangles
+     *
+     * @param container container node
      */
     public Pixelize(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class Pixelize extends GeglFilter implements Source, Sink
     /** Constructs a Pixelize.
      *
      * Simplify image into an array of solid-colored rectangles
+     *
+     * @param parent parent filter node
      */
     public Pixelize(GeglFilter parent)
     {
@@ -57,6 +61,10 @@ public class Pixelize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Shape
+     * @return this filter (for chaining operations)
+     * 
      */
     public Pixelize setNorm(String value)
     {
@@ -73,6 +81,9 @@ public class Pixelize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Shape
+     * 
      */
     public String getNorm()
     {
@@ -97,13 +108,17 @@ public class Pixelize extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 16
      * Acceptable Range: 1 
+     *
+     * @param value new value for Block width
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Pixelize setSizeX(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
+	    }
 
         m_SizeX = value;
         setProperty("size-x", value);
@@ -117,6 +132,9 @@ public class Pixelize extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 16
      * Acceptable Range: 1 
+     *
+     * @return value of Block width
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getSizeX()
     {
@@ -141,13 +159,17 @@ public class Pixelize extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 16
      * Acceptable Range: 1 
+     *
+     * @param value new value for Block height
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Pixelize setSizeY(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
+	    }
 
         m_SizeY = value;
         setProperty("size-y", value);
@@ -161,6 +183,9 @@ public class Pixelize extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 16
      * Acceptable Range: 1 
+     *
+     * @return value of Block height
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getSizeY()
     {
@@ -185,13 +210,17 @@ public class Pixelize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Size ratio X
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Pixelize setRatioX(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_RatioX = value;
         setProperty("ratio-x", value);
@@ -205,6 +234,9 @@ public class Pixelize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Size ratio X
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRatioX()
     {
@@ -229,13 +261,17 @@ public class Pixelize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Size ratio Y
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Pixelize setRatioY(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_RatioY = value;
         setProperty("ratio-y", value);
@@ -249,6 +285,9 @@ public class Pixelize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Size ratio Y
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRatioY()
     {
@@ -273,6 +312,10 @@ public class Pixelize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Background color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Pixelize setBackground(GeglColor value)
     {
@@ -289,6 +332,9 @@ public class Pixelize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Background color
+     * 
      */
     public GeglColor getBackground()
     {

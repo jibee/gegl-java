@@ -23,6 +23,8 @@ public class Overlay extends GeglFilter implements Source, DualSink
     /** Constructs a Overlay.
      *
      * SVG blend operation overlay (<code>if 2 * cB > aB: d = 2 * cA * cB + cA * (1 - aB) + cB * (1 - aA) otherwise: d = aA * aB - 2 * (aB - cB) * (aA - cA) + cA * (1 - aB) + cB * (1 - aA)</code>)
+     *
+     * @param container container node
      */
     public Overlay(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Overlay extends GeglFilter implements Source, DualSink
     /** Constructs a Overlay.
      *
      * SVG blend operation overlay (<code>if 2 * cB > aB: d = 2 * cA * cB + cA * (1 - aB) + cB * (1 - aA) otherwise: d = aA * aB - 2 * (aB - cB) * (aA - cA) + cA * (1 - aB) + cB * (1 - aA)</code>)
+     *
+     * @param parent parent filter node
      */
     public Overlay(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Overlay extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public Overlay setSrgb(boolean value)
     {
@@ -71,6 +79,9 @@ public class Overlay extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

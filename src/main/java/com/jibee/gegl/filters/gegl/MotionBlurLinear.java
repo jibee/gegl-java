@@ -24,6 +24,8 @@ public class MotionBlurLinear extends GeglFilter implements Source, Sink
     /** Constructs a Linear Motion Blur.
      *
      * Blur pixels in a direction, simulates blurring caused by moving camera in a straight line during exposure.
+     *
+     * @param container container node
      */
     public MotionBlurLinear(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class MotionBlurLinear extends GeglFilter implements Source, Sink
     /** Constructs a Linear Motion Blur.
      *
      * Blur pixels in a direction, simulates blurring caused by moving camera in a straight line during exposure.
+     *
+     * @param parent parent filter node
      */
     public MotionBlurLinear(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class MotionBlurLinear extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @param value new value for Length
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public MotionBlurLinear setLength(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1000.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
+	    }
 
         m_Length = value;
         setProperty("length", value);
@@ -76,6 +84,9 @@ public class MotionBlurLinear extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @return value of Length
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getLength()
     {
@@ -100,13 +111,17 @@ public class MotionBlurLinear extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @param value new value for Angle
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public MotionBlurLinear setAngle(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < -180.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -180.00, 180.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -180.00, 180.00);
+	    }
 
         m_Angle = value;
         setProperty("angle", value);
@@ -120,6 +135,9 @@ public class MotionBlurLinear extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @return value of Angle
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAngle()
     {

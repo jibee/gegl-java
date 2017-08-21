@@ -23,6 +23,8 @@ public class WatershedTransform extends GeglFilter implements Source, DualSink
     /** Constructs a Watershed Transform.
      *
      * Labels propagation by watershed transformation
+     *
+     * @param container container node
      */
     public WatershedTransform(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class WatershedTransform extends GeglFilter implements Source, DualSink
     /** Constructs a Watershed Transform.
      *
      * Labels propagation by watershed transformation
+     *
+     * @param parent parent filter node
      */
     public WatershedTransform(GeglFilter parent)
     {

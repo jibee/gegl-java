@@ -25,6 +25,8 @@ public class Maze extends GeglFilter implements Source, Sink
     /** Constructs a Maze.
      *
      * Draw a labyrinth
+     *
+     * @param container container node
      */
     public Maze(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class Maze extends GeglFilter implements Source, Sink
     /** Constructs a Maze.
      *
      * Draw a labyrinth
+     *
+     * @param parent parent filter node
      */
     public Maze(GeglFilter parent)
     {
@@ -57,13 +61,17 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 16
      * Acceptable Range: 1 
+     *
+     * @param value new value for Width
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Maze setX(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
+	    }
 
         m_X = value;
         setProperty("x", value);
@@ -77,6 +85,9 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 16
      * Acceptable Range: 1 
+     *
+     * @return value of Width
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getX()
     {
@@ -101,13 +112,17 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 16
      * Acceptable Range: 1 
+     *
+     * @param value new value for Height
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Maze setY(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
+	    }
 
         m_Y = value;
         setProperty("y", value);
@@ -121,6 +136,9 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 16
      * Acceptable Range: 1 
+     *
+     * @return value of Height
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getY()
     {
@@ -145,6 +163,10 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Algorithm type
+     * @return this filter (for chaining operations)
+     * 
      */
     public Maze setAlgorithmType(String value)
     {
@@ -161,6 +183,9 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Algorithm type
+     * 
      */
     public String getAlgorithmType()
     {
@@ -185,6 +210,10 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Tileable
+     * @return this filter (for chaining operations)
+     * 
      */
     public Maze setTileable(boolean value)
     {
@@ -201,6 +230,9 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Tileable
+     * 
      */
     public boolean getTileable()
     {
@@ -225,6 +257,10 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public Maze setSeed(int value)
     {
@@ -241,6 +277,9 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {
@@ -265,6 +304,10 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Foreground Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Maze setFgColor(GeglColor value)
     {
@@ -281,6 +324,9 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Foreground Color
+     * 
      */
     public GeglColor getFgColor()
     {
@@ -305,6 +351,10 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Background Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Maze setBgColor(GeglColor value)
     {
@@ -321,6 +371,9 @@ public class Maze extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Background Color
+     * 
      */
     public GeglColor getBgColor()
     {

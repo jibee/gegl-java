@@ -25,6 +25,8 @@ public class ApplyLens extends GeglFilter implements Source, Sink
     /** Constructs a Apply Lens.
      *
      * Simulates the optical distortion caused by having an elliptical lens over the image
+     *
+     * @param container container node
      */
     public ApplyLens(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class ApplyLens extends GeglFilter implements Source, Sink
     /** Constructs a Apply Lens.
      *
      * Simulates the optical distortion caused by having an elliptical lens over the image
+     *
+     * @param parent parent filter node
      */
     public ApplyLens(GeglFilter parent)
     {
@@ -57,13 +61,17 @@ public class ApplyLens extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.70
      * Acceptable Range: 1.00 100.00
+     *
+     * @param value new value for Lens refraction index
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ApplyLens setRefractionIndex(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 1.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1.00, 100.00);
+	    }
 
         m_RefractionIndex = value;
         setProperty("refraction-index", value);
@@ -77,6 +85,9 @@ public class ApplyLens extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.70
      * Acceptable Range: 1.00 100.00
+     *
+     * @return value of Lens refraction index
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRefractionIndex()
     {
@@ -101,6 +112,10 @@ public class ApplyLens extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Keep original surroundings
+     * @return this filter (for chaining operations)
+     * 
      */
     public ApplyLens setKeepSurroundings(boolean value)
     {
@@ -117,6 +132,9 @@ public class ApplyLens extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Keep original surroundings
+     * 
      */
     public boolean getKeepSurroundings()
     {
@@ -141,6 +159,10 @@ public class ApplyLens extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Background color
+     * @return this filter (for chaining operations)
+     * 
      */
     public ApplyLens setBackgroundColor(GeglColor value)
     {
@@ -157,6 +179,9 @@ public class ApplyLens extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Background color
+     * 
      */
     public GeglColor getBackgroundColor()
     {

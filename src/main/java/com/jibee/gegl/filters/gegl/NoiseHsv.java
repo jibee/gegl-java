@@ -24,6 +24,8 @@ public class NoiseHsv extends GeglFilter implements Source, Sink
     /** Constructs a Add HSV Noise.
      *
      * Randomize hue, saturation and value independently
+     *
+     * @param container container node
      */
     public NoiseHsv(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class NoiseHsv extends GeglFilter implements Source, Sink
     /** Constructs a Add HSV Noise.
      *
      * Randomize hue, saturation and value independently
+     *
+     * @param parent parent filter node
      */
     public NoiseHsv(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class NoiseHsv extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2
      * Acceptable Range: 1 8
+     *
+     * @param value new value for Holdness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseHsv setHoldness(int value) throws ParameterOutOfRangeException
     {
 		if(value > 8 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 8);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 8);
+	    }
 
         m_Holdness = value;
         setProperty("holdness", value);
@@ -76,6 +84,9 @@ public class NoiseHsv extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2
      * Acceptable Range: 1 8
+     *
+     * @return value of Holdness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getHoldness()
     {
@@ -100,13 +111,17 @@ public class NoiseHsv extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 3.00
      * Acceptable Range: 0.00 180.00
+     *
+     * @param value new value for Hue
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseHsv setHueDistance(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 180.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 180.00);
+	    }
 
         m_HueDistance = value;
         setProperty("hue-distance", value);
@@ -120,6 +135,9 @@ public class NoiseHsv extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 3.00
      * Acceptable Range: 0.00 180.00
+     *
+     * @return value of Hue
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getHueDistance()
     {
@@ -144,13 +162,17 @@ public class NoiseHsv extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.04
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Saturation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseHsv setSaturationDistance(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_SaturationDistance = value;
         setProperty("saturation-distance", value);
@@ -164,6 +186,9 @@ public class NoiseHsv extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.04
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Saturation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getSaturationDistance()
     {
@@ -188,13 +213,17 @@ public class NoiseHsv extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.04
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Value
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseHsv setValueDistance(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_ValueDistance = value;
         setProperty("value-distance", value);
@@ -208,6 +237,9 @@ public class NoiseHsv extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.04
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Value
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getValueDistance()
     {
@@ -232,6 +264,10 @@ public class NoiseHsv extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoiseHsv setSeed(int value)
     {
@@ -248,6 +284,9 @@ public class NoiseHsv extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

@@ -23,6 +23,8 @@ public class Sinus extends GeglFilter implements Source
     /** Constructs a Sinus.
      *
      * Generate complex sinusoidal textures
+     *
+     * @param container container node
      */
     public Sinus(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Sinus extends GeglFilter implements Source
     /** Constructs a Sinus.
      *
      * Generate complex sinusoidal textures
+     *
+     * @param parent parent filter node
      */
     public Sinus(GeglFilter parent)
     {
@@ -55,13 +59,17 @@ public class Sinus extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 15.00
      * Acceptable Range: 0.00 
+     *
+     * @param value new value for X Scale
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Sinus setXScale(double value) throws ParameterOutOfRangeException
     {
 		if(value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, Double.POSITIVE_INFINITY);
+	    }
 
         m_XScale = value;
         setProperty("x-scale", value);
@@ -75,6 +83,9 @@ public class Sinus extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 15.00
      * Acceptable Range: 0.00 
+     *
+     * @return value of X Scale
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getXScale()
     {
@@ -99,13 +110,17 @@ public class Sinus extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 15.00
      * Acceptable Range: 0.00 
+     *
+     * @param value new value for Y Scale
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Sinus setYScale(double value) throws ParameterOutOfRangeException
     {
 		if(value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, Double.POSITIVE_INFINITY);
+	    }
 
         m_YScale = value;
         setProperty("y-scale", value);
@@ -119,6 +134,9 @@ public class Sinus extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 15.00
      * Acceptable Range: 0.00 
+     *
+     * @return value of Y Scale
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getYScale()
     {
@@ -143,13 +161,17 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 15.00
+     *
+     * @param value new value for Complexity
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Sinus setComplexity(double value) throws ParameterOutOfRangeException
     {
 		if(value > 15.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 15.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 15.00);
+	    }
 
         m_Complexity = value;
         setProperty("complexity", value);
@@ -163,6 +185,9 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 15.00
+     *
+     * @return value of Complexity
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getComplexity()
     {
@@ -187,6 +212,10 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public Sinus setSeed(int value)
     {
@@ -203,6 +232,9 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {
@@ -227,6 +259,10 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Force tiling
+     * @return this filter (for chaining operations)
+     * 
      */
     public Sinus setTiling(boolean value)
     {
@@ -243,6 +279,9 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Force tiling
+     * 
      */
     public boolean getTiling()
     {
@@ -267,6 +306,10 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Distorted
+     * @return this filter (for chaining operations)
+     * 
      */
     public Sinus setPerturbation(boolean value)
     {
@@ -283,6 +326,9 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Distorted
+     * 
      */
     public boolean getPerturbation()
     {
@@ -307,6 +353,10 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color 1
+     * @return this filter (for chaining operations)
+     * 
      */
     public Sinus setColor1(GeglColor value)
     {
@@ -323,6 +373,9 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color 1
+     * 
      */
     public GeglColor getColor1()
     {
@@ -347,6 +400,10 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color 2
+     * @return this filter (for chaining operations)
+     * 
      */
     public Sinus setColor2(GeglColor value)
     {
@@ -363,6 +420,9 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color 2
+     * 
      */
     public GeglColor getColor2()
     {
@@ -387,6 +447,10 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Blend Mode
+     * @return this filter (for chaining operations)
+     * 
      */
     public Sinus setBlendMode(String value)
     {
@@ -403,6 +467,9 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Blend Mode
+     * 
      */
     public String getBlendMode()
     {
@@ -427,13 +494,17 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -7.50 7.50
+     *
+     * @param value new value for Exponent
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Sinus setBlendPower(double value) throws ParameterOutOfRangeException
     {
 		if(value > 7.50 || value < -7.50)
-	{
-	    throw new ParameterOutOfRangeException(value, -7.50, 7.50);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -7.50, 7.50);
+	    }
 
         m_BlendPower = value;
         setProperty("blend-power", value);
@@ -447,6 +518,9 @@ public class Sinus extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -7.50 7.50
+     *
+     * @return value of Exponent
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBlendPower()
     {
@@ -471,6 +545,10 @@ public class Sinus extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 1024
      * Acceptable Range:  
+     *
+     * @param value new value for Width
+     * @return this filter (for chaining operations)
+     * 
      */
     public Sinus setWidth(int value)
     {
@@ -487,6 +565,9 @@ public class Sinus extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 1024
      * Acceptable Range:  
+     *
+     * @return value of Width
+     * 
      */
     public int getWidth()
     {
@@ -511,6 +592,10 @@ public class Sinus extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 768
      * Acceptable Range:  
+     *
+     * @param value new value for Height
+     * @return this filter (for chaining operations)
+     * 
      */
     public Sinus setHeight(int value)
     {
@@ -527,6 +612,9 @@ public class Sinus extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 768
      * Acceptable Range:  
+     *
+     * @return value of Height
+     * 
      */
     public int getHeight()
     {

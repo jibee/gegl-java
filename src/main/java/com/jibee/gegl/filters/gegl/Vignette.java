@@ -25,6 +25,8 @@ public class Vignette extends GeglFilter implements Source, Sink
     /** Constructs a Vignette.
      *
      * Applies a vignette to an image. Simulates the luminance fall off at the edge of exposed film, and some other fuzzier border effects that can naturally occur with analog photography
+     *
+     * @param container container node
      */
     public Vignette(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class Vignette extends GeglFilter implements Source, Sink
     /** Constructs a Vignette.
      *
      * Applies a vignette to an image. Simulates the luminance fall off at the edge of exposed film, and some other fuzzier border effects that can naturally occur with analog photography
+     *
+     * @param parent parent filter node
      */
     public Vignette(GeglFilter parent)
     {
@@ -57,6 +61,10 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Vignette shape
+     * @return this filter (for chaining operations)
+     * 
      */
     public Vignette setShape(String value)
     {
@@ -73,6 +81,9 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Vignette shape
+     * 
      */
     public String getShape()
     {
@@ -97,6 +108,10 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Vignette setColor(GeglColor value)
     {
@@ -113,6 +128,9 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color
+     * 
      */
     public GeglColor getColor()
     {
@@ -137,13 +155,17 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: relative-distance
      * Default value: 1.20
      * Acceptable Range: 0.00 3.00
+     *
+     * @param value new value for Radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Vignette setRadius(double value) throws ParameterOutOfRangeException
     {
 		if(value > 3.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 3.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 3.00);
+	    }
 
         m_Radius = value;
         setProperty("radius", value);
@@ -157,6 +179,9 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: relative-distance
      * Default value: 1.20
      * Acceptable Range: 0.00 3.00
+     *
+     * @return value of Radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRadius()
     {
@@ -181,13 +206,17 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.80
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Softness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Vignette setSoftness(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Softness = value;
         setProperty("softness", value);
@@ -201,6 +230,9 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.80
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Softness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getSoftness()
     {
@@ -225,13 +257,17 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2.00
      * Acceptable Range: 1.00 20.00
+     *
+     * @param value new value for Gamma
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Vignette setGamma(double value) throws ParameterOutOfRangeException
     {
 		if(value > 20.00 || value < 1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 1.00, 20.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1.00, 20.00);
+	    }
 
         m_Gamma = value;
         setProperty("gamma", value);
@@ -245,6 +281,9 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2.00
      * Acceptable Range: 1.00 20.00
+     *
+     * @return value of Gamma
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getGamma()
     {
@@ -269,13 +308,17 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Proportion
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Vignette setProportion(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Proportion = value;
         setProperty("proportion", value);
@@ -289,6 +332,9 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Proportion
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getProportion()
     {
@@ -313,13 +359,17 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -1.00 1.00
+     *
+     * @param value new value for Squeeze
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Vignette setSqueeze(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < -1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -1.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1.00, 1.00);
+	    }
 
         m_Squeeze = value;
         setProperty("squeeze", value);
@@ -333,6 +383,9 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -1.00 1.00
+     *
+     * @return value of Squeeze
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getSqueeze()
     {
@@ -357,6 +410,10 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @param value new value for Center X
+     * @return this filter (for chaining operations)
+     * 
      */
     public Vignette setX(double value)
     {
@@ -373,6 +430,9 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @return value of Center X
+     * 
      */
     public double getX()
     {
@@ -397,6 +457,10 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @param value new value for Center Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Vignette setY(double value)
     {
@@ -413,6 +477,9 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @return value of Center Y
+     * 
      */
     public double getY()
     {
@@ -437,13 +504,17 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for Rotation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Vignette setRotation(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_Rotation = value;
         setProperty("rotation", value);
@@ -457,6 +528,9 @@ public class Vignette extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of Rotation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRotation()
     {

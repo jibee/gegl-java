@@ -24,6 +24,8 @@ public class Threshold extends GeglFilter implements Source, DualSink
     /** Constructs a Threshold.
      *
      * Thresholds the image to white/black based on either the global value set in the value property, or per pixel from the aux input.
+     *
+     * @param container container node
      */
     public Threshold(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Threshold extends GeglFilter implements Source, DualSink
     /** Constructs a Threshold.
      *
      * Thresholds the image to white/black based on either the global value set in the value property, or per pixel from the aux input.
+     *
+     * @param parent parent filter node
      */
     public Threshold(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Threshold extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range: -200.00 200.00
+     *
+     * @param value new value for Threshold
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Threshold setValue(double value) throws ParameterOutOfRangeException
     {
 		if(value > 200.00 || value < -200.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -200.00, 200.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -200.00, 200.00);
+	    }
 
         m_Value = value;
         setProperty("value", value);
@@ -76,6 +84,9 @@ public class Threshold extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range: -200.00 200.00
+     *
+     * @return value of Threshold
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getValue()
     {

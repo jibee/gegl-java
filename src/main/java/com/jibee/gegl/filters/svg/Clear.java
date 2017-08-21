@@ -23,6 +23,8 @@ public class Clear extends GeglFilter implements Source, DualSink
     /** Constructs a Clear.
      *
      * Porter Duff operation clear (d = 0.0f)
+     *
+     * @param container container node
      */
     public Clear(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Clear extends GeglFilter implements Source, DualSink
     /** Constructs a Clear.
      *
      * Porter Duff operation clear (d = 0.0f)
+     *
+     * @param parent parent filter node
      */
     public Clear(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Clear extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public Clear setSrgb(boolean value)
     {
@@ -71,6 +79,9 @@ public class Clear extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

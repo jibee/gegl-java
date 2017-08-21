@@ -24,6 +24,8 @@ public class Posterize extends GeglFilter implements Source, Sink
     /** Constructs a Posterize.
      *
      * Reduces the number of levels in each color component of the image.
+     *
+     * @param container container node
      */
     public Posterize(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Posterize extends GeglFilter implements Source, Sink
     /** Constructs a Posterize.
      *
      * Reduces the number of levels in each color component of the image.
+     *
+     * @param parent parent filter node
      */
     public Posterize(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Posterize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 8
      * Acceptable Range: 1 64
+     *
+     * @param value new value for Levels
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Posterize setLevels(int value) throws ParameterOutOfRangeException
     {
 		if(value > 64 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 64);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 64);
+	    }
 
         m_Levels = value;
         setProperty("levels", value);
@@ -76,6 +84,9 @@ public class Posterize extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 8
      * Acceptable Range: 1 64
+     *
+     * @return value of Levels
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getLevels()
     {

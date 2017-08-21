@@ -23,6 +23,8 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
     /** Constructs a Rotate on center.
      *
      * Rotate the buffer around its center, taking care of possible offsets.
+     *
+     * @param container container node
      */
     public RotateOnCenter(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
     /** Constructs a Rotate on center.
      *
      * Rotate the buffer around its center, taking care of possible offsets.
+     *
+     * @param parent parent filter node
      */
     public RotateOnCenter(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Sampler
+     * @return this filter (for chaining operations)
+     * 
      */
     public RotateOnCenter setSampler(String value)
     {
@@ -71,6 +79,9 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Sampler
+     * 
      */
     public String getSampler()
     {
@@ -95,6 +106,10 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Clip to input
+     * @return this filter (for chaining operations)
+     * 
      */
     public RotateOnCenter setClipToInput(boolean value)
     {
@@ -111,6 +126,9 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Clip to input
+     * 
      */
     public boolean getClipToInput()
     {
@@ -135,6 +153,10 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Degrees
+     * @return this filter (for chaining operations)
+     * 
      */
     public RotateOnCenter setDegrees(double value)
     {
@@ -151,6 +173,9 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Degrees
+     * 
      */
     public double getDegrees()
     {
@@ -175,6 +200,10 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for origin-x
+     * @return this filter (for chaining operations)
+     * 
      */
     public RotateOnCenter setOriginX(double value)
     {
@@ -191,6 +220,9 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of origin-x
+     * 
      */
     public double getOriginX()
     {
@@ -215,6 +247,10 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for origin-y
+     * @return this filter (for chaining operations)
+     * 
      */
     public RotateOnCenter setOriginY(double value)
     {
@@ -231,6 +267,9 @@ public class RotateOnCenter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of origin-y
+     * 
      */
     public double getOriginY()
     {

@@ -23,6 +23,8 @@ public class SrcOver extends GeglFilter implements Source, DualSink
     /** Constructs a Normal compositing.
      *
      * Porter Duff operation over (also known as normal mode, and src-over) (d = cA + cB * (1 - aA))
+     *
+     * @param container container node
      */
     public SrcOver(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class SrcOver extends GeglFilter implements Source, DualSink
     /** Constructs a Normal compositing.
      *
      * Porter Duff operation over (also known as normal mode, and src-over) (d = cA + cB * (1 - aA))
+     *
+     * @param parent parent filter node
      */
     public SrcOver(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class SrcOver extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public SrcOver setSrgb(boolean value)
     {
@@ -71,6 +79,9 @@ public class SrcOver extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

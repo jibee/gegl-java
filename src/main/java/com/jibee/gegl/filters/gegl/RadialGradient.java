@@ -22,6 +22,8 @@ public class RadialGradient extends GeglFilter implements Source
     /** Constructs a Radial Gradient.
      *
      * Radial gradient renderer
+     *
+     * @param container container node
      */
     public RadialGradient(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class RadialGradient extends GeglFilter implements Source
     /** Constructs a Radial Gradient.
      *
      * Radial gradient renderer
+     *
+     * @param parent parent filter node
      */
     public RadialGradient(GeglFilter parent)
     {
@@ -54,6 +58,10 @@ public class RadialGradient extends GeglFilter implements Source
      * Unit: 
      * Default value: 25.00
      * Acceptable Range:  
+     *
+     * @param value new value for X1
+     * @return this filter (for chaining operations)
+     * 
      */
     public RadialGradient setStartX(double value)
     {
@@ -70,6 +78,9 @@ public class RadialGradient extends GeglFilter implements Source
      * Unit: 
      * Default value: 25.00
      * Acceptable Range:  
+     *
+     * @return value of X1
+     * 
      */
     public double getStartX()
     {
@@ -94,6 +105,10 @@ public class RadialGradient extends GeglFilter implements Source
      * Unit: 
      * Default value: 25.00
      * Acceptable Range:  
+     *
+     * @param value new value for Y1
+     * @return this filter (for chaining operations)
+     * 
      */
     public RadialGradient setStartY(double value)
     {
@@ -110,6 +125,9 @@ public class RadialGradient extends GeglFilter implements Source
      * Unit: 
      * Default value: 25.00
      * Acceptable Range:  
+     *
+     * @return value of Y1
+     * 
      */
     public double getStartY()
     {
@@ -134,6 +152,10 @@ public class RadialGradient extends GeglFilter implements Source
      * Unit: 
      * Default value: 50.00
      * Acceptable Range:  
+     *
+     * @param value new value for X2
+     * @return this filter (for chaining operations)
+     * 
      */
     public RadialGradient setEndX(double value)
     {
@@ -150,6 +172,9 @@ public class RadialGradient extends GeglFilter implements Source
      * Unit: 
      * Default value: 50.00
      * Acceptable Range:  
+     *
+     * @return value of X2
+     * 
      */
     public double getEndX()
     {
@@ -174,6 +199,10 @@ public class RadialGradient extends GeglFilter implements Source
      * Unit: 
      * Default value: 50.00
      * Acceptable Range:  
+     *
+     * @param value new value for Y2
+     * @return this filter (for chaining operations)
+     * 
      */
     public RadialGradient setEndY(double value)
     {
@@ -190,6 +219,9 @@ public class RadialGradient extends GeglFilter implements Source
      * Unit: 
      * Default value: 50.00
      * Acceptable Range:  
+     *
+     * @return value of Y2
+     * 
      */
     public double getEndY()
     {
@@ -214,6 +246,10 @@ public class RadialGradient extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Start Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public RadialGradient setStartColor(GeglColor value)
     {
@@ -230,6 +266,9 @@ public class RadialGradient extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Start Color
+     * 
      */
     public GeglColor getStartColor()
     {
@@ -254,6 +293,10 @@ public class RadialGradient extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for End Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public RadialGradient setEndColor(GeglColor value)
     {
@@ -270,6 +313,9 @@ public class RadialGradient extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @return value of End Color
+     * 
      */
     public GeglColor getEndColor()
     {

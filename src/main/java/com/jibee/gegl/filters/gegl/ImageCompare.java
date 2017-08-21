@@ -23,6 +23,8 @@ public class ImageCompare extends GeglFilter implements Source, DualSink
     /** Constructs a .
      *
      * Compares if input and aux buffers are different. Global statistics are saved in the properties and a visual difference image is produced as a visual result. 
+     *
+     * @param container container node
      */
     public ImageCompare(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class ImageCompare extends GeglFilter implements Source, DualSink
     /** Constructs a .
      *
      * Compares if input and aux buffers are different. Global statistics are saved in the properties and a visual difference image is produced as a visual result. 
+     *
+     * @param parent parent filter node
      */
     public ImageCompare(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class ImageCompare extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Wrong pixels
+     * @return this filter (for chaining operations)
+     * 
      */
     public ImageCompare setWrongPixels(int value)
     {
@@ -71,6 +79,9 @@ public class ImageCompare extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Wrong pixels
+     * 
      */
     public int getWrongPixels()
     {
@@ -95,6 +106,10 @@ public class ImageCompare extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Maximum difference
+     * @return this filter (for chaining operations)
+     * 
      */
     public ImageCompare setMaxDiff(double value)
     {
@@ -111,6 +126,9 @@ public class ImageCompare extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Maximum difference
+     * 
      */
     public double getMaxDiff()
     {
@@ -135,6 +153,10 @@ public class ImageCompare extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Average difference (wrong)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ImageCompare setAvgDiffWrong(double value)
     {
@@ -151,6 +173,9 @@ public class ImageCompare extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Average difference (wrong)
+     * 
      */
     public double getAvgDiffWrong()
     {
@@ -175,6 +200,10 @@ public class ImageCompare extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Average difference (total)
+     * @return this filter (for chaining operations)
+     * 
      */
     public ImageCompare setAvgDiffTotal(double value)
     {
@@ -191,6 +220,9 @@ public class ImageCompare extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Average difference (total)
+     * 
      */
     public double getAvgDiffTotal()
     {

@@ -23,6 +23,8 @@ public class ImageGradient extends GeglFilter implements Source, Sink
     /** Constructs a Image Gradient.
      *
      * Compute gradient magnitude and/or direction by central differencies
+     *
+     * @param container container node
      */
     public ImageGradient(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class ImageGradient extends GeglFilter implements Source, Sink
     /** Constructs a Image Gradient.
      *
      * Compute gradient magnitude and/or direction by central differencies
+     *
+     * @param parent parent filter node
      */
     public ImageGradient(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class ImageGradient extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Output mode
+     * @return this filter (for chaining operations)
+     * 
      */
     public ImageGradient setOutputMode(String value)
     {
@@ -71,6 +79,9 @@ public class ImageGradient extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Output mode
+     * 
      */
     public String getOutputMode()
     {

@@ -23,6 +23,8 @@ public class SvgLuminancetoalpha extends GeglFilter implements Source, Sink
     /** Constructs a SVG Luminance to Alpha.
      *
      * SVG color matrix operation svg_luminancetoalpha
+     *
+     * @param container container node
      */
     public SvgLuminancetoalpha(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class SvgLuminancetoalpha extends GeglFilter implements Source, Sink
     /** Constructs a SVG Luminance to Alpha.
      *
      * SVG color matrix operation svg_luminancetoalpha
+     *
+     * @param parent parent filter node
      */
     public SvgLuminancetoalpha(GeglFilter parent)
     {

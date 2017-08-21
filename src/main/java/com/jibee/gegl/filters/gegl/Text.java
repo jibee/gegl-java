@@ -23,6 +23,8 @@ public class Text extends GeglFilter implements Source
     /** Constructs a Render Text.
      *
      * Display a string of text using pango and cairo.
+     *
+     * @param container container node
      */
     public Text(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Text extends GeglFilter implements Source
     /** Constructs a Render Text.
      *
      * Display a string of text using pango and cairo.
+     *
+     * @param parent parent filter node
      */
     public Text(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: "Hello"
      * Acceptable Range:  
+     *
+     * @param value new value for Text
+     * @return this filter (for chaining operations)
+     * 
      */
     public Text setString(String value)
     {
@@ -71,6 +79,9 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: "Hello"
      * Acceptable Range:  
+     *
+     * @return value of Text
+     * 
      */
     public String getString()
     {
@@ -95,6 +106,10 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: "Sans"
      * Acceptable Range:  
+     *
+     * @param value new value for Font family
+     * @return this filter (for chaining operations)
+     * 
      */
     public Text setFont(String value)
     {
@@ -111,6 +126,9 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: "Sans"
      * Acceptable Range:  
+     *
+     * @return value of Font family
+     * 
      */
     public String getFont()
     {
@@ -135,13 +153,17 @@ public class Text extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range: 0.00 2048.00
+     *
+     * @param value new value for Size
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Text setSize(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2048.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 2048.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 2048.00);
+	    }
 
         m_Size = value;
         setProperty("size", value);
@@ -155,6 +177,9 @@ public class Text extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range: 0.00 2048.00
+     *
+     * @return value of Size
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getSize()
     {
@@ -179,6 +204,10 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Text setColor(GeglColor value)
     {
@@ -195,6 +224,9 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color
+     * 
      */
     public GeglColor getColor()
     {
@@ -219,13 +251,17 @@ public class Text extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: -1
      * Acceptable Range: -1 1000000
+     *
+     * @param value new value for Wrap width
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Text setWrap(int value) throws ParameterOutOfRangeException
     {
 		if(value > 1000000 || value < -1)
-	{
-	    throw new ParameterOutOfRangeException(value, -1, 1000000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1, 1000000);
+	    }
 
         m_Wrap = value;
         setProperty("wrap", value);
@@ -239,6 +275,9 @@ public class Text extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: -1
      * Acceptable Range: -1 1000000
+     *
+     * @return value of Wrap width
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getWrap()
     {
@@ -263,13 +302,17 @@ public class Text extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 
      * Acceptable Range: -1 1000000
+     *
+     * @param value new value for Wrap height
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Text setVerticalWrap(int value) throws ParameterOutOfRangeException
     {
 		if(value > 1000000 || value < -1)
-	{
-	    throw new ParameterOutOfRangeException(value, -1, 1000000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1, 1000000);
+	    }
 
         m_VerticalWrap = value;
         setProperty("vertical-wrap", value);
@@ -283,6 +326,9 @@ public class Text extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 
      * Acceptable Range: -1 1000000
+     *
+     * @return value of Wrap height
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getVerticalWrap()
     {
@@ -307,13 +353,17 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  2
+     *
+     * @param value new value for Justification
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Text setAlignment(int value) throws ParameterOutOfRangeException
     {
 		if(value > 2)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 2);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 2);
+	    }
 
         m_Alignment = value;
         setProperty("alignment", value);
@@ -327,6 +377,9 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  2
+     *
+     * @return value of Justification
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getAlignment()
     {
@@ -351,13 +404,17 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  2
+     *
+     * @param value new value for Vertical justification
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Text setVerticalAlignment(int value) throws ParameterOutOfRangeException
     {
 		if(value > 2)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 2);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 2);
+	    }
 
         m_VerticalAlignment = value;
         setProperty("vertical-alignment", value);
@@ -371,6 +428,9 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  2
+     *
+     * @return value of Vertical justification
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getVerticalAlignment()
     {
@@ -395,6 +455,10 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Width
+     * @return this filter (for chaining operations)
+     * 
      */
     public Text setWidth(int value)
     {
@@ -411,6 +475,9 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Width
+     * 
      */
     public int getWidth()
     {
@@ -435,6 +502,10 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Height
+     * @return this filter (for chaining operations)
+     * 
      */
     public Text setHeight(int value)
     {
@@ -451,6 +522,9 @@ public class Text extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Height
+     * 
      */
     public int getHeight()
     {

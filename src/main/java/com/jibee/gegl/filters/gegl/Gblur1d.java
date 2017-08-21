@@ -24,6 +24,8 @@ public class Gblur1d extends GeglFilter implements Source, Sink
     /** Constructs a 1D Gaussian-blur.
      *
      * Performs an averaging of neighboring pixels with the normal distribution as weighting
+     *
+     * @param container container node
      */
     public Gblur1d(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Gblur1d extends GeglFilter implements Source, Sink
     /** Constructs a 1D Gaussian-blur.
      *
      * Performs an averaging of neighboring pixels with the normal distribution as weighting
+     *
+     * @param parent parent filter node
      */
     public Gblur1d(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Gblur1d extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.50
      * Acceptable Range: 0.00 1500.00
+     *
+     * @param value new value for Size
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Gblur1d setStdDev(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1500.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1500.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1500.00);
+	    }
 
         m_StdDev = value;
         setProperty("std-dev", value);
@@ -76,6 +84,9 @@ public class Gblur1d extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.50
      * Acceptable Range: 0.00 1500.00
+     *
+     * @return value of Size
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getStdDev()
     {
@@ -100,6 +111,10 @@ public class Gblur1d extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Orientation
+     * @return this filter (for chaining operations)
+     * 
      */
     public Gblur1d setOrientation(String value)
     {
@@ -116,6 +131,9 @@ public class Gblur1d extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Orientation
+     * 
      */
     public String getOrientation()
     {
@@ -140,6 +158,10 @@ public class Gblur1d extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Filter
+     * @return this filter (for chaining operations)
+     * 
      */
     public Gblur1d setFilter(String value)
     {
@@ -156,6 +178,9 @@ public class Gblur1d extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Filter
+     * 
      */
     public String getFilter()
     {
@@ -180,6 +205,10 @@ public class Gblur1d extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Abyss policy
+     * @return this filter (for chaining operations)
+     * 
      */
     public Gblur1d setAbyssPolicy(String value)
     {
@@ -196,6 +225,9 @@ public class Gblur1d extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Abyss policy
+     * 
      */
     public String getAbyssPolicy()
     {
@@ -220,6 +252,10 @@ public class Gblur1d extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Clip to the input extent
+     * @return this filter (for chaining operations)
+     * 
      */
     public Gblur1d setClipExtent(boolean value)
     {
@@ -236,6 +272,9 @@ public class Gblur1d extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Clip to the input extent
+     * 
      */
     public boolean getClipExtent()
     {

@@ -25,6 +25,8 @@ public class Supernova extends GeglFilter implements Source, Sink
     /** Constructs a Supernova.
      *
      * This plug-in produces an effect like a supernova burst. The amount of the light effect is approximately in proportion to 1/r, where r is the distance from the center of the star.
+     *
+     * @param container container node
      */
     public Supernova(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class Supernova extends GeglFilter implements Source, Sink
     /** Constructs a Supernova.
      *
      * This plug-in produces an effect like a supernova burst. The amount of the light effect is approximately in proportion to 1/r, where r is the distance from the center of the star.
+     *
+     * @param parent parent filter node
      */
     public Supernova(GeglFilter parent)
     {
@@ -57,6 +61,10 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @param value new value for Center X
+     * @return this filter (for chaining operations)
+     * 
      */
     public Supernova setCenterX(double value)
     {
@@ -73,6 +81,9 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @return value of Center X
+     * 
      */
     public double getCenterX()
     {
@@ -97,6 +108,10 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @param value new value for Center Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Supernova setCenterY(double value)
     {
@@ -113,6 +128,9 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @return value of Center Y
+     * 
      */
     public double getCenterY()
     {
@@ -137,13 +155,17 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 20
      * Acceptable Range: 1 20000
+     *
+     * @param value new value for Radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Supernova setRadius(int value) throws ParameterOutOfRangeException
     {
 		if(value > 20000 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 20000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 20000);
+	    }
 
         m_Radius = value;
         setProperty("radius", value);
@@ -157,6 +179,9 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 20
      * Acceptable Range: 1 20000
+     *
+     * @return value of Radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getRadius()
     {
@@ -181,13 +206,17 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100
      * Acceptable Range: 1 1024
+     *
+     * @param value new value for Number of spokes
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Supernova setSpokesCount(int value) throws ParameterOutOfRangeException
     {
 		if(value > 1024 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 1024);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 1024);
+	    }
 
         m_SpokesCount = value;
         setProperty("spokes-count", value);
@@ -201,6 +230,9 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100
      * Acceptable Range: 1 1024
+     *
+     * @return value of Number of spokes
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getSpokesCount()
     {
@@ -225,13 +257,17 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  360
+     *
+     * @param value new value for Random hue
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Supernova setRandomHue(int value) throws ParameterOutOfRangeException
     {
 		if(value > 360)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 360);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 360);
+	    }
 
         m_RandomHue = value;
         setProperty("random-hue", value);
@@ -245,6 +281,9 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  360
+     *
+     * @return value of Random hue
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getRandomHue()
     {
@@ -269,6 +308,10 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Supernova setColor(GeglColor value)
     {
@@ -285,6 +328,9 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color
+     * 
      */
     public GeglColor getColor()
     {
@@ -309,6 +355,10 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public Supernova setSeed(int value)
     {
@@ -325,6 +375,9 @@ public class Supernova extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

@@ -24,6 +24,8 @@ public class Layer extends GeglFilter implements Source, DualSink
     /** Constructs a Layer.
      *
      * A layer in the traditional sense
+     *
+     * @param container container node
      */
     public Layer(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Layer extends GeglFilter implements Source, DualSink
     /** Constructs a Layer.
      *
      * A layer in the traditional sense
+     *
+     * @param parent parent filter node
      */
     public Layer(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class Layer extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: "gegl:over"
      * Acceptable Range:  
+     *
+     * @param value new value for Operation
+     * @return this filter (for chaining operations)
+     * 
      */
     public Layer setCompositeOp(String value)
     {
@@ -72,6 +80,9 @@ public class Layer extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: "gegl:over"
      * Acceptable Range:  
+     *
+     * @return value of Operation
+     * 
      */
     public String getCompositeOp()
     {
@@ -96,13 +107,17 @@ public class Layer extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Opacity
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Layer setOpacity(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Opacity = value;
         setProperty("opacity", value);
@@ -116,6 +131,9 @@ public class Layer extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Opacity
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getOpacity()
     {
@@ -140,6 +158,10 @@ public class Layer extends GeglFilter implements Source, DualSink
      * Unit: pixel-coordinate
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for X
+     * @return this filter (for chaining operations)
+     * 
      */
     public Layer setX(double value)
     {
@@ -156,6 +178,9 @@ public class Layer extends GeglFilter implements Source, DualSink
      * Unit: pixel-coordinate
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of X
+     * 
      */
     public double getX()
     {
@@ -180,6 +205,10 @@ public class Layer extends GeglFilter implements Source, DualSink
      * Unit: pixel-coordinate
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Layer setY(double value)
     {
@@ -196,6 +225,9 @@ public class Layer extends GeglFilter implements Source, DualSink
      * Unit: pixel-coordinate
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Y
+     * 
      */
     public double getY()
     {
@@ -220,6 +252,10 @@ public class Layer extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range:  
+     *
+     * @param value new value for Scale
+     * @return this filter (for chaining operations)
+     * 
      */
     public Layer setScale(double value)
     {
@@ -236,6 +272,9 @@ public class Layer extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range:  
+     *
+     * @return value of Scale
+     * 
      */
     public double getScale()
     {
@@ -260,6 +299,10 @@ public class Layer extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Source
+     * @return this filter (for chaining operations)
+     * 
      */
     public Layer setSrc(String value)
     {
@@ -276,6 +319,9 @@ public class Layer extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Source
+     * 
      */
     public String getSrc()
     {

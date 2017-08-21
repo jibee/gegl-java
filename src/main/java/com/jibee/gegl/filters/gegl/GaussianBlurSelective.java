@@ -24,6 +24,8 @@ public class GaussianBlurSelective extends GeglFilter implements Source, DualSin
     /** Constructs a Selective Gaussian Blur.
      *
      * Blur neighboring pixels, but only in low-contrast areas
+     *
+     * @param container container node
      */
     public GaussianBlurSelective(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class GaussianBlurSelective extends GeglFilter implements Source, DualSin
     /** Constructs a Selective Gaussian Blur.
      *
      * Blur neighboring pixels, but only in low-contrast areas
+     *
+     * @param parent parent filter node
      */
     public GaussianBlurSelective(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class GaussianBlurSelective extends GeglFilter implements Source, DualSin
      * Unit: 
      * Default value: 5.00
      * Acceptable Range: 1.00 1000.00
+     *
+     * @param value new value for Blur radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public GaussianBlurSelective setBlurRadius(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1000.00 || value < 1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 1.00, 1000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1.00, 1000.00);
+	    }
 
         m_BlurRadius = value;
         setProperty("blur-radius", value);
@@ -76,6 +84,9 @@ public class GaussianBlurSelective extends GeglFilter implements Source, DualSin
      * Unit: 
      * Default value: 5.00
      * Acceptable Range: 1.00 1000.00
+     *
+     * @return value of Blur radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBlurRadius()
     {
@@ -100,13 +111,17 @@ public class GaussianBlurSelective extends GeglFilter implements Source, DualSin
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Max. delta
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public GaussianBlurSelective setMaxDelta(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_MaxDelta = value;
         setProperty("max-delta", value);
@@ -120,6 +135,9 @@ public class GaussianBlurSelective extends GeglFilter implements Source, DualSin
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Max. delta
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getMaxDelta()
     {

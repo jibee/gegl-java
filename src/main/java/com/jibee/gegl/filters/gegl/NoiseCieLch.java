@@ -24,6 +24,8 @@ public class NoiseCieLch extends GeglFilter implements Source, Sink
     /** Constructs a Add CIE Lch Noise.
      *
      * Randomize lightness, chroma and hue independently
+     *
+     * @param container container node
      */
     public NoiseCieLch(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class NoiseCieLch extends GeglFilter implements Source, Sink
     /** Constructs a Add CIE Lch Noise.
      *
      * Randomize lightness, chroma and hue independently
+     *
+     * @param parent parent filter node
      */
     public NoiseCieLch(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class NoiseCieLch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2
      * Acceptable Range: 1 8
+     *
+     * @param value new value for Holdness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseCieLch setHoldness(int value) throws ParameterOutOfRangeException
     {
 		if(value > 8 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 8);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 8);
+	    }
 
         m_Holdness = value;
         setProperty("holdness", value);
@@ -76,6 +84,9 @@ public class NoiseCieLch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2
      * Acceptable Range: 1 8
+     *
+     * @return value of Holdness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getHoldness()
     {
@@ -100,13 +111,17 @@ public class NoiseCieLch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 40.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @param value new value for Lightness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseCieLch setLightnessDistance(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 100.00);
+	    }
 
         m_LightnessDistance = value;
         setProperty("lightness-distance", value);
@@ -120,6 +135,9 @@ public class NoiseCieLch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 40.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @return value of Lightness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getLightnessDistance()
     {
@@ -144,13 +162,17 @@ public class NoiseCieLch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 40.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @param value new value for Chroma
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseCieLch setChromaDistance(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 100.00);
+	    }
 
         m_ChromaDistance = value;
         setProperty("chroma-distance", value);
@@ -164,6 +186,9 @@ public class NoiseCieLch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 40.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @return value of Chroma
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getChromaDistance()
     {
@@ -188,13 +213,17 @@ public class NoiseCieLch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 3.00
      * Acceptable Range: 0.00 180.00
+     *
+     * @param value new value for Hue
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseCieLch setHueDistance(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 180.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 180.00);
+	    }
 
         m_HueDistance = value;
         setProperty("hue-distance", value);
@@ -208,6 +237,9 @@ public class NoiseCieLch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 3.00
      * Acceptable Range: 0.00 180.00
+     *
+     * @return value of Hue
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getHueDistance()
     {
@@ -232,6 +264,10 @@ public class NoiseCieLch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoiseCieLch setSeed(int value)
     {
@@ -248,6 +284,9 @@ public class NoiseCieLch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

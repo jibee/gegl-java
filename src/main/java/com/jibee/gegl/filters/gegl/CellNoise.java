@@ -22,6 +22,8 @@ public class CellNoise extends GeglFilter implements Source
     /** Constructs a Cell Noise.
      *
      * Generates a cellular texture.
+     *
+     * @param container container node
      */
     public CellNoise(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class CellNoise extends GeglFilter implements Source
     /** Constructs a Cell Noise.
      *
      * Generates a cellular texture.
+     *
+     * @param parent parent filter node
      */
     public CellNoise(GeglFilter parent)
     {
@@ -54,13 +58,17 @@ public class CellNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 20.00
+     *
+     * @param value new value for Scale
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public CellNoise setScale(double value) throws ParameterOutOfRangeException
     {
 		if(value > 20.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 20.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 20.00);
+	    }
 
         m_Scale = value;
         setProperty("scale", value);
@@ -74,6 +82,9 @@ public class CellNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 20.00
+     *
+     * @return value of Scale
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getScale()
     {
@@ -98,13 +109,17 @@ public class CellNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 2.00
      * Acceptable Range: 1.00 2.00
+     *
+     * @param value new value for Shape
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public CellNoise setShape(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < 1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 1.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1.00, 2.00);
+	    }
 
         m_Shape = value;
         setProperty("shape", value);
@@ -118,6 +133,9 @@ public class CellNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 2.00
      * Acceptable Range: 1.00 2.00
+     *
+     * @return value of Shape
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getShape()
     {
@@ -142,13 +160,17 @@ public class CellNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 1
      * Acceptable Range: 1 3
+     *
+     * @param value new value for Rank
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public CellNoise setRank(int value) throws ParameterOutOfRangeException
     {
 		if(value > 3 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 3);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 3);
+	    }
 
         m_Rank = value;
         setProperty("rank", value);
@@ -162,6 +184,9 @@ public class CellNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 1
      * Acceptable Range: 1 3
+     *
+     * @return value of Rank
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getRank()
     {
@@ -186,13 +211,17 @@ public class CellNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 1
      * Acceptable Range: 1 20
+     *
+     * @param value new value for Iterations
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public CellNoise setIterations(int value) throws ParameterOutOfRangeException
     {
 		if(value > 20 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 20);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 20);
+	    }
 
         m_Iterations = value;
         setProperty("iterations", value);
@@ -206,6 +235,9 @@ public class CellNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 1
      * Acceptable Range: 1 20
+     *
+     * @return value of Iterations
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getIterations()
     {
@@ -230,6 +262,10 @@ public class CellNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Palettize
+     * @return this filter (for chaining operations)
+     * 
      */
     public CellNoise setPalettize(boolean value)
     {
@@ -246,6 +282,9 @@ public class CellNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Palettize
+     * 
      */
     public boolean getPalettize()
     {
@@ -270,6 +309,10 @@ public class CellNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public CellNoise setSeed(int value)
     {
@@ -286,6 +329,9 @@ public class CellNoise extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

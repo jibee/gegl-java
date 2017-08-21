@@ -24,6 +24,8 @@ public class ConvertFormat extends GeglFilter implements Source, Sink
     /** Constructs a Convert Format.
      *
      * Convert the data to the specified format
+     *
+     * @param container container node
      */
     public ConvertFormat(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class ConvertFormat extends GeglFilter implements Source, Sink
     /** Constructs a Convert Format.
      *
      * Convert the data to the specified format
+     *
+     * @param parent parent filter node
      */
     public ConvertFormat(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class ConvertFormat extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Output format
+     * @return this filter (for chaining operations)
+     * 
      */
     public ConvertFormat setFormat(Babl value)
     {
@@ -72,6 +80,9 @@ public class ConvertFormat extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Output format
+     * 
      */
     public Babl getFormat()
     {

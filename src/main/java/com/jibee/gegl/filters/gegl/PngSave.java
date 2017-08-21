@@ -22,6 +22,8 @@ public class PngSave extends GeglFilter implements Sink
     /** Constructs a PNG File Saver.
      *
      * PNG image saver, using libpng
+     *
+     * @param container container node
      */
     public PngSave(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class PngSave extends GeglFilter implements Sink
     /** Constructs a PNG File Saver.
      *
      * PNG image saver, using libpng
+     *
+     * @param parent parent filter node
      */
     public PngSave(GeglFilter parent)
     {
@@ -54,6 +58,10 @@ public class PngSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public PngSave setPath(String value)
     {
@@ -70,6 +78,9 @@ public class PngSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {
@@ -94,13 +105,17 @@ public class PngSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 3
      * Acceptable Range: 1 9
+     *
+     * @param value new value for Compression
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public PngSave setCompression(int value) throws ParameterOutOfRangeException
     {
 		if(value > 9 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 9);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 9);
+	    }
 
         m_Compression = value;
         setProperty("compression", value);
@@ -114,6 +129,9 @@ public class PngSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 3
      * Acceptable Range: 1 9
+     *
+     * @return value of Compression
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getCompression()
     {
@@ -138,13 +156,17 @@ public class PngSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 16
      * Acceptable Range: 8 16
+     *
+     * @param value new value for Bitdepth
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public PngSave setBitdepth(int value) throws ParameterOutOfRangeException
     {
 		if(value > 16 || value < 8)
-	{
-	    throw new ParameterOutOfRangeException(value, 8, 16);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 8, 16);
+	    }
 
         m_Bitdepth = value;
         setProperty("bitdepth", value);
@@ -158,6 +180,9 @@ public class PngSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 16
      * Acceptable Range: 8 16
+     *
+     * @return value of Bitdepth
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getBitdepth()
     {

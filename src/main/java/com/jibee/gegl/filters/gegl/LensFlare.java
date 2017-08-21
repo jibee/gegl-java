@@ -23,6 +23,8 @@ public class LensFlare extends GeglFilter implements Source, Sink
     /** Constructs a Lens Flare.
      *
      * Adds a lens flare effect.
+     *
+     * @param container container node
      */
     public LensFlare(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class LensFlare extends GeglFilter implements Source, Sink
     /** Constructs a Lens Flare.
      *
      * Adds a lens flare effect.
+     *
+     * @param parent parent filter node
      */
     public LensFlare(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class LensFlare extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @param value new value for X position
+     * @return this filter (for chaining operations)
+     * 
      */
     public LensFlare setPosX(double value)
     {
@@ -71,6 +79,9 @@ public class LensFlare extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @return value of X position
+     * 
      */
     public double getPosX()
     {
@@ -95,6 +106,10 @@ public class LensFlare extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @param value new value for Y position
+     * @return this filter (for chaining operations)
+     * 
      */
     public LensFlare setPosY(double value)
     {
@@ -111,6 +126,9 @@ public class LensFlare extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @return value of Y position
+     * 
      */
     public double getPosY()
     {

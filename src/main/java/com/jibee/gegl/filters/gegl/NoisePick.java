@@ -24,6 +24,8 @@ public class NoisePick extends GeglFilter implements Source, Sink
     /** Constructs a Noise Pick.
      *
      * Randomly interchange some pixels with neighbors
+     *
+     * @param container container node
      */
     public NoisePick(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class NoisePick extends GeglFilter implements Source, Sink
     /** Constructs a Noise Pick.
      *
      * Randomly interchange some pixels with neighbors
+     *
+     * @param parent parent filter node
      */
     public NoisePick(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class NoisePick extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 50.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @param value new value for Randomization (%)
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoisePick setPctRandom(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 100.00);
+	    }
 
         m_PctRandom = value;
         setProperty("pct-random", value);
@@ -76,6 +84,9 @@ public class NoisePick extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 50.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @return value of Randomization (%)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getPctRandom()
     {
@@ -100,13 +111,17 @@ public class NoisePick extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1
      * Acceptable Range: 1 100
+     *
+     * @param value new value for Repeat
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoisePick setRepeat(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 100);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 100);
+	    }
 
         m_Repeat = value;
         setProperty("repeat", value);
@@ -120,6 +135,9 @@ public class NoisePick extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1
      * Acceptable Range: 1 100
+     *
+     * @return value of Repeat
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getRepeat()
     {
@@ -144,6 +162,10 @@ public class NoisePick extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoisePick setSeed(int value)
     {
@@ -160,6 +182,9 @@ public class NoisePick extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

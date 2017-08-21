@@ -24,6 +24,8 @@ public class Softglow extends GeglFilter implements Source, Sink
     /** Constructs a Softglow.
      *
      * Simulate glow by making highlights intense and fuzzy
+     *
+     * @param container container node
      */
     public Softglow(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Softglow extends GeglFilter implements Source, Sink
     /** Constructs a Softglow.
      *
      * Simulate glow by making highlights intense and fuzzy
+     *
+     * @param parent parent filter node
      */
     public Softglow(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Softglow extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range: 1.00 50.00
+     *
+     * @param value new value for Glow radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Softglow setGlowRadius(double value) throws ParameterOutOfRangeException
     {
 		if(value > 50.00 || value < 1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 1.00, 50.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1.00, 50.00);
+	    }
 
         m_GlowRadius = value;
         setProperty("glow-radius", value);
@@ -76,6 +84,9 @@ public class Softglow extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 10.00
      * Acceptable Range: 1.00 50.00
+     *
+     * @return value of Glow radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getGlowRadius()
     {
@@ -100,13 +111,17 @@ public class Softglow extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.30
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Brightness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Softglow setBrightness(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Brightness = value;
         setProperty("brightness", value);
@@ -120,6 +135,9 @@ public class Softglow extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.30
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Brightness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBrightness()
     {
@@ -144,13 +162,17 @@ public class Softglow extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.85
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Sharpness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Softglow setSharpness(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Sharpness = value;
         setProperty("sharpness", value);
@@ -164,6 +186,9 @@ public class Softglow extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.85
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Sharpness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getSharpness()
     {

@@ -23,6 +23,8 @@ public class Darken extends GeglFilter implements Source, DualSink
     /** Constructs a .
      *
      * SVG blend operation darken (<code>d = MIN (cA * aB, cB * aA) + cA * (1 - aB) + cB * (1 - aA)</code>)
+     *
+     * @param container container node
      */
     public Darken(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Darken extends GeglFilter implements Source, DualSink
     /** Constructs a .
      *
      * SVG blend operation darken (<code>d = MIN (cA * aB, cB * aA) + cA * (1 - aB) + cB * (1 - aA)</code>)
+     *
+     * @param parent parent filter node
      */
     public Darken(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Darken extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public Darken setSrgb(boolean value)
     {
@@ -71,6 +79,9 @@ public class Darken extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

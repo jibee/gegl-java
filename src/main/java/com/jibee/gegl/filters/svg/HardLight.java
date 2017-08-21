@@ -23,6 +23,8 @@ public class HardLight extends GeglFilter implements Source, DualSink
     /** Constructs a Hard-light.
      *
      * SVG blend operation hard-light (<code>if 2 * cA < aA: d = 2 * cA * cB + cA * (1 - aB) + cB * (1 - aA) otherwise: d = aA * aB - 2 * (aB - cB) * (aA - cA) + cA * (1 - aB) + cB * (1 - aA)</code>)
+     *
+     * @param container container node
      */
     public HardLight(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class HardLight extends GeglFilter implements Source, DualSink
     /** Constructs a Hard-light.
      *
      * SVG blend operation hard-light (<code>if 2 * cA < aA: d = 2 * cA * cB + cA * (1 - aB) + cB * (1 - aA) otherwise: d = aA * aB - 2 * (aB - cB) * (aA - cA) + cA * (1 - aB) + cB * (1 - aA)</code>)
+     *
+     * @param parent parent filter node
      */
     public HardLight(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class HardLight extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public HardLight setSrgb(boolean value)
     {
@@ -71,6 +79,9 @@ public class HardLight extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

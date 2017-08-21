@@ -24,6 +24,8 @@ public class Checkerboard extends GeglFilter implements Source
     /** Constructs a Checkerboard.
      *
      * Render a checkerboard pattern
+     *
+     * @param container container node
      */
     public Checkerboard(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Checkerboard extends GeglFilter implements Source
     /** Constructs a Checkerboard.
      *
      * Render a checkerboard pattern
+     *
+     * @param parent parent filter node
      */
     public Checkerboard(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 16
      * Acceptable Range: 1 
+     *
+     * @param value new value for Width
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Checkerboard setX(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
+	    }
 
         m_X = value;
         setProperty("x", value);
@@ -76,6 +84,9 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 16
      * Acceptable Range: 1 
+     *
+     * @return value of Width
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getX()
     {
@@ -100,13 +111,17 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 16
      * Acceptable Range: 1 
+     *
+     * @param value new value for Height
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Checkerboard setY(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
+	    }
 
         m_Y = value;
         setProperty("y", value);
@@ -120,6 +135,9 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 16
      * Acceptable Range: 1 
+     *
+     * @return value of Height
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getY()
     {
@@ -144,6 +162,10 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Offset X
+     * @return this filter (for chaining operations)
+     * 
      */
     public Checkerboard setXOffset(int value)
     {
@@ -160,6 +182,9 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Offset X
+     * 
      */
     public int getXOffset()
     {
@@ -184,6 +209,10 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Offset Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Checkerboard setYOffset(int value)
     {
@@ -200,6 +229,9 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Offset Y
+     * 
      */
     public int getYOffset()
     {
@@ -224,6 +256,10 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color 1
+     * @return this filter (for chaining operations)
+     * 
      */
     public Checkerboard setColor1(GeglColor value)
     {
@@ -240,6 +276,9 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color 1
+     * 
      */
     public GeglColor getColor1()
     {
@@ -264,6 +303,10 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color 2
+     * @return this filter (for chaining operations)
+     * 
      */
     public Checkerboard setColor2(GeglColor value)
     {
@@ -280,6 +323,9 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color 2
+     * 
      */
     public GeglColor getColor2()
     {
@@ -304,6 +350,10 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Babl Format
+     * @return this filter (for chaining operations)
+     * 
      */
     public Checkerboard setFormat(Babl value)
     {
@@ -320,6 +370,9 @@ public class Checkerboard extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Babl Format
+     * 
      */
     public Babl getFormat()
     {

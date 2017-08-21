@@ -22,6 +22,8 @@ public class SavePixbuf extends GeglFilter implements Sink
     /** Constructs a Store in GdkPixbuf.
      *
      * Store image in a GdkPixbuf.
+     *
+     * @param container container node
      */
     public SavePixbuf(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class SavePixbuf extends GeglFilter implements Sink
     /** Constructs a Store in GdkPixbuf.
      *
      * Store image in a GdkPixbuf.
+     *
+     * @param parent parent filter node
      */
     public SavePixbuf(GeglFilter parent)
     {
@@ -54,6 +58,10 @@ public class SavePixbuf extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Pixbuf location
+     * @return this filter (for chaining operations)
+     * 
      */
     public SavePixbuf setPixbuf(Pointer value)
     {
@@ -70,6 +78,9 @@ public class SavePixbuf extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Pixbuf location
+     * 
      */
     public Pointer getPixbuf()
     {

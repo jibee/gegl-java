@@ -22,6 +22,8 @@ public class Introspect extends GeglFilter implements Source
     /** Constructs a .
      *
      * GEGL graph visualizer.
+     *
+     * @param container container node
      */
     public Introspect(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class Introspect extends GeglFilter implements Source
     /** Constructs a .
      *
      * GEGL graph visualizer.
+     *
+     * @param parent parent filter node
      */
     public Introspect(GeglFilter parent)
     {
@@ -54,6 +58,10 @@ public class Introspect extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Node
+     * @return this filter (for chaining operations)
+     * 
      */
     public Introspect setNode(GeglBuffer value)
     {
@@ -70,6 +78,9 @@ public class Introspect extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Node
+     * 
      */
     public GeglBuffer getNode()
     {

@@ -23,6 +23,8 @@ public class ColorEnhance extends GeglFilter implements Source, Sink
     /** Constructs a Color Enhance.
      *
      * Stretch color chroma to cover maximum possible range, keeping hue and lightness untouched.
+     *
+     * @param container container node
      */
     public ColorEnhance(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class ColorEnhance extends GeglFilter implements Source, Sink
     /** Constructs a Color Enhance.
      *
      * Stretch color chroma to cover maximum possible range, keeping hue and lightness untouched.
+     *
+     * @param parent parent filter node
      */
     public ColorEnhance(GeglFilter parent)
     {

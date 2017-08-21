@@ -24,6 +24,8 @@ public class Displace extends GeglFilter implements Source, DualSink
     /** Constructs a Displace.
      *
      * Displace pixels as indicated by displacement maps
+     *
+     * @param container container node
      */
     public Displace(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Displace extends GeglFilter implements Source, DualSink
     /** Constructs a Displace.
      *
      * Displace pixels as indicated by displacement maps
+     *
+     * @param parent parent filter node
      */
     public Displace(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Displacement mode
+     * @return this filter (for chaining operations)
+     * 
      */
     public Displace setDisplaceMode(String value)
     {
@@ -72,6 +80,9 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Displacement mode
+     * 
      */
     public String getDisplaceMode()
     {
@@ -96,6 +107,10 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Sampler
+     * @return this filter (for chaining operations)
+     * 
      */
     public Displace setSamplerType(String value)
     {
@@ -112,6 +127,9 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Sampler
+     * 
      */
     public String getSamplerType()
     {
@@ -136,6 +154,10 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Abyss policy
+     * @return this filter (for chaining operations)
+     * 
      */
     public Displace setAbyssPolicy(String value)
     {
@@ -152,6 +174,9 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Abyss policy
+     * 
      */
     public String getAbyssPolicy()
     {
@@ -176,13 +201,17 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range: -500.00 500.00
+     *
+     * @param value new value for [displace-mode {cartesian} : cartesian-label, displace-mode {polar}     : polar-label]
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Displace setAmountX(double value) throws ParameterOutOfRangeException
     {
 		if(value > 500.00 || value < -500.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -500.00, 500.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -500.00, 500.00);
+	    }
 
         m_AmountX = value;
         setProperty("amount-x", value);
@@ -196,6 +225,9 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range: -500.00 500.00
+     *
+     * @return value of [displace-mode {cartesian} : cartesian-label, displace-mode {polar}     : polar-label]
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAmountX()
     {
@@ -220,13 +252,17 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range: -500.00 500.00
+     *
+     * @param value new value for [displace-mode {cartesian} : cartesian-label, displace-mode {polar}     : polar-label]
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Displace setAmountY(double value) throws ParameterOutOfRangeException
     {
 		if(value > 500.00 || value < -500.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -500.00, 500.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -500.00, 500.00);
+	    }
 
         m_AmountY = value;
         setProperty("amount-y", value);
@@ -240,6 +276,9 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: pixel-distance
      * Default value: 0.00
      * Acceptable Range: -500.00 500.00
+     *
+     * @return value of [displace-mode {cartesian} : cartesian-label, displace-mode {polar}     : polar-label]
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAmountY()
     {
@@ -264,6 +303,10 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Center displacement
+     * @return this filter (for chaining operations)
+     * 
      */
     public Displace setCenter(boolean value)
     {
@@ -280,6 +323,9 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Center displacement
+     * 
      */
     public boolean getCenter()
     {
@@ -304,6 +350,10 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @param value new value for Center X
+     * @return this filter (for chaining operations)
+     * 
      */
     public Displace setCenterX(double value)
     {
@@ -320,6 +370,9 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @return value of Center X
+     * 
      */
     public double getCenterX()
     {
@@ -344,6 +397,10 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @param value new value for Center Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Displace setCenterY(double value)
     {
@@ -360,12 +417,19 @@ public class Displace extends GeglFilter implements Source, DualSink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @return value of Center Y
+     * 
      */
     public double getCenterY()
     {
         return m_CenterY;
     }
 
+    /** Obtains the InputPad named aux2.
+    * 
+    * @return the InputPad named aux2
+    */
     public InputPad Aux2()
     {
         return new InputPad(this, "aux2");

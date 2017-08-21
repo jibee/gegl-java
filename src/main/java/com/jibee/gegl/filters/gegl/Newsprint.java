@@ -24,6 +24,8 @@ public class Newsprint extends GeglFilter implements Source, Sink
     /** Constructs a Newsprint.
      *
      * Digital halftoning with optional modulations. 
+     *
+     * @param container container node
      */
     public Newsprint(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Newsprint extends GeglFilter implements Source, Sink
     /** Constructs a Newsprint.
      *
      * Digital halftoning with optional modulations. 
+     *
+     * @param parent parent filter node
      */
     public Newsprint(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Color Model
+     * @return this filter (for chaining operations)
+     * 
      */
     public Newsprint setColorModel(String value)
     {
@@ -72,6 +80,9 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Color Model
+     * 
      */
     public String getColorModel()
     {
@@ -96,6 +107,10 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Pattern
+     * @return this filter (for chaining operations)
+     * 
      */
     public Newsprint setPattern(String value)
     {
@@ -112,6 +127,9 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Pattern
+     * 
      */
     public String getPattern()
     {
@@ -136,13 +154,17 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 12.00
      * Acceptable Range: 0.00 200.00
+     *
+     * @param value new value for Period
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Newsprint setPeriod(double value) throws ParameterOutOfRangeException
     {
 		if(value > 200.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 200.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 200.00);
+	    }
 
         m_Period = value;
         setProperty("period", value);
@@ -156,6 +178,9 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 12.00
      * Acceptable Range: 0.00 200.00
+     *
+     * @return value of Period
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getPeriod()
     {
@@ -180,13 +205,17 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Turbulence
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Newsprint setTurbulence(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Turbulence = value;
         setProperty("turbulence", value);
@@ -200,6 +229,9 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Turbulence
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTurbulence()
     {
@@ -224,13 +256,17 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: -1.00
      * Acceptable Range: -1.00 64.00
+     *
+     * @param value new value for Blocksize
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Newsprint setBlocksize(double value) throws ParameterOutOfRangeException
     {
 		if(value > 64.00 || value < -1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -1.00, 64.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1.00, 64.00);
+	    }
 
         m_Blocksize = value;
         setProperty("blocksize", value);
@@ -244,6 +280,9 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: -1.00
      * Acceptable Range: -1.00 64.00
+     *
+     * @return value of Blocksize
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBlocksize()
     {
@@ -268,13 +307,17 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 4.00
+     *
+     * @param value new value for Angleboost
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Newsprint setAngleboost(double value) throws ParameterOutOfRangeException
     {
 		if(value > 4.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 4.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 4.00);
+	    }
 
         m_Angleboost = value;
         setProperty("angleboost", value);
@@ -288,6 +331,9 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 4.00
+     *
+     * @return value of Angleboost
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAngleboost()
     {
@@ -312,13 +358,17 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 75.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @param value new value for [color-model {white-on-black,              black-on-white} : bw-label, color-model {rgb}            : rgb-label, color-model {cmyk}           : cmyk-label]
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Newsprint setTwist(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < -180.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -180.00, 180.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -180.00, 180.00);
+	    }
 
         m_Twist = value;
         setProperty("twist", value);
@@ -332,6 +382,9 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 75.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @return value of [color-model {white-on-black,              black-on-white} : bw-label, color-model {rgb}            : rgb-label, color-model {cmyk}           : cmyk-label]
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTwist()
     {
@@ -356,13 +409,17 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 15.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @param value new value for [color-model {rgb}  : rgb-label, color-model {cmyk} : cmyk-label]
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Newsprint setTwist2(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < -180.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -180.00, 180.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -180.00, 180.00);
+	    }
 
         m_Twist2 = value;
         setProperty("twist2", value);
@@ -376,6 +433,9 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 15.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @return value of [color-model {rgb}  : rgb-label, color-model {cmyk} : cmyk-label]
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTwist2()
     {
@@ -400,13 +460,17 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 45.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @param value new value for [color-model {rgb}  : rgb-label, color-model {cmyk} : cmyk-label]
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Newsprint setTwist3(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < -180.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -180.00, 180.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -180.00, 180.00);
+	    }
 
         m_Twist3 = value;
         setProperty("twist3", value);
@@ -420,6 +484,9 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 45.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @return value of [color-model {rgb}  : rgb-label, color-model {cmyk} : cmyk-label]
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTwist3()
     {
@@ -444,13 +511,17 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @param value new value for Yellow angle
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Newsprint setTwist4(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < -180.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -180.00, 180.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -180.00, 180.00);
+	    }
 
         m_Twist4 = value;
         setProperty("twist4", value);
@@ -464,6 +535,9 @@ public class Newsprint extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @return value of Yellow angle
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTwist4()
     {

@@ -23,6 +23,8 @@ public class Difference extends GeglFilter implements Source, DualSink
     /** Constructs a .
      *
      * SVG blend operation difference (<code>d = cA + cB - 2 * (MIN (cA * aB, cB * aA))</code>)
+     *
+     * @param container container node
      */
     public Difference(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Difference extends GeglFilter implements Source, DualSink
     /** Constructs a .
      *
      * SVG blend operation difference (<code>d = cA + cB - 2 * (MIN (cA * aB, cB * aA))</code>)
+     *
+     * @param parent parent filter node
      */
     public Difference(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Difference extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public Difference setSrgb(boolean value)
     {
@@ -71,6 +79,9 @@ public class Difference extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

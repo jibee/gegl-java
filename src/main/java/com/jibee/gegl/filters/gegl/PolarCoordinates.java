@@ -24,6 +24,8 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
     /** Constructs a Polar Coordinates.
      *
      * Convert image to or from polar coordinates
+     *
+     * @param container container node
      */
     public PolarCoordinates(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
     /** Constructs a Polar Coordinates.
      *
      * Convert image to or from polar coordinates
+     *
+     * @param parent parent filter node
      */
     public PolarCoordinates(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: percent
      * Default value: 100.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @param value new value for Circle depth in percent
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public PolarCoordinates setDepth(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 100.00);
+	    }
 
         m_Depth = value;
         setProperty("depth", value);
@@ -76,6 +84,9 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: percent
      * Default value: 100.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @return value of Circle depth in percent
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getDepth()
     {
@@ -100,13 +111,17 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for Offset angle
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public PolarCoordinates setAngle(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_Angle = value;
         setProperty("angle", value);
@@ -120,6 +135,9 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of Offset angle
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAngle()
     {
@@ -144,6 +162,10 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Map backwards
+     * @return this filter (for chaining operations)
+     * 
      */
     public PolarCoordinates setBw(boolean value)
     {
@@ -160,6 +182,9 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Map backwards
+     * 
      */
     public boolean getBw()
     {
@@ -184,6 +209,10 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Map from top
+     * @return this filter (for chaining operations)
+     * 
      */
     public PolarCoordinates setTop(boolean value)
     {
@@ -200,6 +229,9 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Map from top
+     * 
      */
     public boolean getTop()
     {
@@ -224,6 +256,10 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for To polar
+     * @return this filter (for chaining operations)
+     * 
      */
     public PolarCoordinates setPolar(boolean value)
     {
@@ -240,6 +276,9 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of To polar
+     * 
      */
     public boolean getPolar()
     {
@@ -264,6 +303,10 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for X
+     * @return this filter (for chaining operations)
+     * 
      */
     public PolarCoordinates setPoleX(int value)
     {
@@ -280,6 +323,9 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of X
+     * 
      */
     public int getPoleX()
     {
@@ -304,6 +350,10 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public PolarCoordinates setPoleY(int value)
     {
@@ -320,6 +370,9 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Y
+     * 
      */
     public int getPoleY()
     {
@@ -344,6 +397,10 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Choose middle
+     * @return this filter (for chaining operations)
+     * 
      */
     public PolarCoordinates setMiddle(boolean value)
     {
@@ -360,6 +417,9 @@ public class PolarCoordinates extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Choose middle
+     * 
      */
     public boolean getMiddle()
     {

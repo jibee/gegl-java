@@ -24,6 +24,8 @@ public class MapRelative extends GeglFilter implements Source, DualSink
     /** Constructs a Map Relative.
      *
      * sample input with an auxiliary buffer that contain relative source coordinates
+     *
+     * @param container container node
      */
     public MapRelative(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class MapRelative extends GeglFilter implements Source, DualSink
     /** Constructs a Map Relative.
      *
      * sample input with an auxiliary buffer that contain relative source coordinates
+     *
+     * @param parent parent filter node
      */
     public MapRelative(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class MapRelative extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 5000.00
+     *
+     * @param value new value for Scaling
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public MapRelative setScaling(double value) throws ParameterOutOfRangeException
     {
 		if(value > 5000.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 5000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 5000.00);
+	    }
 
         m_Scaling = value;
         setProperty("scaling", value);
@@ -76,6 +84,9 @@ public class MapRelative extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 5000.00
+     *
+     * @return value of Scaling
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getScaling()
     {
@@ -100,6 +111,10 @@ public class MapRelative extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Resampling method
+     * @return this filter (for chaining operations)
+     * 
      */
     public MapRelative setSamplerType(String value)
     {
@@ -116,6 +131,9 @@ public class MapRelative extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Resampling method
+     * 
      */
     public String getSamplerType()
     {
@@ -140,6 +158,10 @@ public class MapRelative extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Abyss policy
+     * @return this filter (for chaining operations)
+     * 
      */
     public MapRelative setAbyssPolicy(String value)
     {
@@ -156,6 +178,9 @@ public class MapRelative extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Abyss policy
+     * 
      */
     public String getAbyssPolicy()
     {

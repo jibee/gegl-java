@@ -24,6 +24,8 @@ public class C2g extends GeglFilter implements Source, Sink
     /** Constructs a Color to Grayscale.
      *
      * Color to grayscale conversion, uses envelopes formed with the STRESS approach to perform local color-difference preserving grayscale generation.
+     *
+     * @param container container node
      */
     public C2g(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class C2g extends GeglFilter implements Source, Sink
     /** Constructs a Color to Grayscale.
      *
      * Color to grayscale conversion, uses envelopes formed with the STRESS approach to perform local color-difference preserving grayscale generation.
+     *
+     * @param parent parent filter node
      */
     public C2g(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class C2g extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 300
      * Acceptable Range: 2 6000
+     *
+     * @param value new value for Radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public C2g setRadius(int value) throws ParameterOutOfRangeException
     {
 		if(value > 6000 || value < 2)
-	{
-	    throw new ParameterOutOfRangeException(value, 2, 6000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 2, 6000);
+	    }
 
         m_Radius = value;
         setProperty("radius", value);
@@ -76,6 +84,9 @@ public class C2g extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 300
      * Acceptable Range: 2 6000
+     *
+     * @return value of Radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getRadius()
     {
@@ -100,13 +111,17 @@ public class C2g extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4
      * Acceptable Range: 1 1000
+     *
+     * @param value new value for Samples
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public C2g setSamples(int value) throws ParameterOutOfRangeException
     {
 		if(value > 1000 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 1000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 1000);
+	    }
 
         m_Samples = value;
         setProperty("samples", value);
@@ -120,6 +135,9 @@ public class C2g extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4
      * Acceptable Range: 1 1000
+     *
+     * @return value of Samples
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getSamples()
     {
@@ -144,13 +162,17 @@ public class C2g extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10
      * Acceptable Range: 1 1000
+     *
+     * @param value new value for Iterations
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public C2g setIterations(int value) throws ParameterOutOfRangeException
     {
 		if(value > 1000 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 1000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 1000);
+	    }
 
         m_Iterations = value;
         setProperty("iterations", value);
@@ -164,6 +186,9 @@ public class C2g extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10
      * Acceptable Range: 1 1000
+     *
+     * @return value of Iterations
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getIterations()
     {

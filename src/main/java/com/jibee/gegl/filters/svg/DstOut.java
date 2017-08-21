@@ -23,6 +23,8 @@ public class DstOut extends GeglFilter implements Source, DualSink
     /** Constructs a Dst-out.
      *
      * Porter Duff operation dst-out (d = cB * (1.0f - aA))
+     *
+     * @param container container node
      */
     public DstOut(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class DstOut extends GeglFilter implements Source, DualSink
     /** Constructs a Dst-out.
      *
      * Porter Duff operation dst-out (d = cB * (1.0f - aA))
+     *
+     * @param parent parent filter node
      */
     public DstOut(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class DstOut extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public DstOut setSrgb(boolean value)
     {
@@ -71,6 +79,9 @@ public class DstOut extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

@@ -24,6 +24,8 @@ public class Rotate extends GeglFilter implements Source, Sink
     /** Constructs a Rotate.
      *
      * Rotate the buffer around the specified origin.
+     *
+     * @param container container node
      */
     public Rotate(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Rotate extends GeglFilter implements Source, Sink
     /** Constructs a Rotate.
      *
      * Rotate the buffer around the specified origin.
+     *
+     * @param parent parent filter node
      */
     public Rotate(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class Rotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Origin-x
+     * @return this filter (for chaining operations)
+     * 
      */
     public Rotate setOriginX(double value)
     {
@@ -72,6 +80,9 @@ public class Rotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Origin-x
+     * 
      */
     public double getOriginX()
     {
@@ -96,6 +107,10 @@ public class Rotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Origin-y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Rotate setOriginY(double value)
     {
@@ -112,6 +127,9 @@ public class Rotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Origin-y
+     * 
      */
     public double getOriginY()
     {
@@ -136,6 +154,10 @@ public class Rotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Sampler
+     * @return this filter (for chaining operations)
+     * 
      */
     public Rotate setSampler(String value)
     {
@@ -152,6 +174,9 @@ public class Rotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Sampler
+     * 
      */
     public String getSampler()
     {
@@ -176,6 +201,10 @@ public class Rotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Clip to input
+     * @return this filter (for chaining operations)
+     * 
      */
     public Rotate setClipToInput(boolean value)
     {
@@ -192,6 +221,9 @@ public class Rotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Clip to input
+     * 
      */
     public boolean getClipToInput()
     {
@@ -216,13 +248,17 @@ public class Rotate extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: -720.00 720.00
+     *
+     * @param value new value for Degrees
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Rotate setDegrees(double value) throws ParameterOutOfRangeException
     {
 		if(value > 720.00 || value < -720.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -720.00, 720.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -720.00, 720.00);
+	    }
 
         m_Degrees = value;
         setProperty("degrees", value);
@@ -236,6 +272,9 @@ public class Rotate extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: -720.00 720.00
+     *
+     * @return value of Degrees
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getDegrees()
     {

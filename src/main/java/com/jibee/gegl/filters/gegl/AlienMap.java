@@ -24,6 +24,8 @@ public class AlienMap extends GeglFilter implements Source, Sink
     /** Constructs a Alien Map.
      *
      * Heavily distort images colors by applying trigonometric functions to map color values.
+     *
+     * @param container container node
      */
     public AlienMap(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class AlienMap extends GeglFilter implements Source, Sink
     /** Constructs a Alien Map.
      *
      * Heavily distort images colors by applying trigonometric functions to map color values.
+     *
+     * @param parent parent filter node
      */
     public AlienMap(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Color model
+     * @return this filter (for chaining operations)
+     * 
      */
     public AlienMap setColorModel(String value)
     {
@@ -72,6 +80,9 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Color model
+     * 
      */
     public String getColorModel()
     {
@@ -96,13 +107,17 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 20.00
+     *
+     * @param value new value for [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public AlienMap setCpn1Frequency(double value) throws ParameterOutOfRangeException
     {
 		if(value > 20.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 20.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 20.00);
+	    }
 
         m_Cpn1Frequency = value;
         setProperty("cpn-1-frequency", value);
@@ -116,6 +131,9 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 20.00
+     *
+     * @return value of [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getCpn1Frequency()
     {
@@ -140,13 +158,17 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 20.00
+     *
+     * @param value new value for [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public AlienMap setCpn2Frequency(double value) throws ParameterOutOfRangeException
     {
 		if(value > 20.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 20.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 20.00);
+	    }
 
         m_Cpn2Frequency = value;
         setProperty("cpn-2-frequency", value);
@@ -160,6 +182,9 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 20.00
+     *
+     * @return value of [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getCpn2Frequency()
     {
@@ -184,13 +209,17 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 20.00
+     *
+     * @param value new value for [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public AlienMap setCpn3Frequency(double value) throws ParameterOutOfRangeException
     {
 		if(value > 20.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 20.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 20.00);
+	    }
 
         m_Cpn3Frequency = value;
         setProperty("cpn-3-frequency", value);
@@ -204,6 +233,9 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 20.00
+     *
+     * @return value of [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getCpn3Frequency()
     {
@@ -228,13 +260,17 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public AlienMap setCpn1Phaseshift(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_Cpn1Phaseshift = value;
         setProperty("cpn-1-phaseshift", value);
@@ -248,6 +284,9 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getCpn1Phaseshift()
     {
@@ -272,13 +311,17 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public AlienMap setCpn2Phaseshift(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_Cpn2Phaseshift = value;
         setProperty("cpn-2-phaseshift", value);
@@ -292,6 +335,9 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getCpn2Phaseshift()
     {
@@ -316,13 +362,17 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public AlienMap setCpn3Phaseshift(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_Cpn3Phaseshift = value;
         setProperty("cpn-3-phaseshift", value);
@@ -336,6 +386,9 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getCpn3Phaseshift()
     {
@@ -360,6 +413,10 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @return this filter (for chaining operations)
+     * 
      */
     public AlienMap setCpn1Keep(boolean value)
     {
@@ -376,6 +433,9 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * 
      */
     public boolean getCpn1Keep()
     {
@@ -400,6 +460,10 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @return this filter (for chaining operations)
+     * 
      */
     public AlienMap setCpn2Keep(boolean value)
     {
@@ -416,6 +480,9 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * 
      */
     public boolean getCpn2Keep()
     {
@@ -440,6 +507,10 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * @return this filter (for chaining operations)
+     * 
      */
     public AlienMap setCpn3Keep(boolean value)
     {
@@ -456,6 +527,9 @@ public class AlienMap extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of [color-model {rgb} : rgb-label, color-model {hsl} : hsl-label]
+     * 
      */
     public boolean getCpn3Keep()
     {

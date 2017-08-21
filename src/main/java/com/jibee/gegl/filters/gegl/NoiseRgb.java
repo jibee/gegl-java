@@ -24,6 +24,8 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
     /** Constructs a Add RGB Noise.
      *
      * Distort colors by random amounts
+     *
+     * @param container container node
      */
     public NoiseRgb(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
     /** Constructs a Add RGB Noise.
      *
      * Distort colors by random amounts
+     *
+     * @param parent parent filter node
      */
     public NoiseRgb(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Correlated noise
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoiseRgb setCorrelated(boolean value)
     {
@@ -72,6 +80,9 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Correlated noise
+     * 
      */
     public boolean getCorrelated()
     {
@@ -96,6 +107,10 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Independent RGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoiseRgb setIndependent(boolean value)
     {
@@ -112,6 +127,9 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Independent RGB
+     * 
      */
     public boolean getIndependent()
     {
@@ -136,6 +154,10 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Linear RGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoiseRgb setLinear(boolean value)
     {
@@ -152,6 +174,9 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Linear RGB
+     * 
      */
     public boolean getLinear()
     {
@@ -176,6 +201,10 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Gaussian distribution
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoiseRgb setGaussian(boolean value)
     {
@@ -192,6 +221,9 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Gaussian distribution
+     * 
      */
     public boolean getGaussian()
     {
@@ -216,13 +248,17 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Red
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseRgb setRed(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Red = value;
         setProperty("red", value);
@@ -236,6 +272,9 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Red
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRed()
     {
@@ -260,13 +299,17 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Green
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseRgb setGreen(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Green = value;
         setProperty("green", value);
@@ -280,6 +323,9 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Green
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getGreen()
     {
@@ -304,13 +350,17 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Blue
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseRgb setBlue(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Blue = value;
         setProperty("blue", value);
@@ -324,6 +374,9 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Blue
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBlue()
     {
@@ -348,13 +401,17 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Alpha
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseRgb setAlpha(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Alpha = value;
         setProperty("alpha", value);
@@ -368,6 +425,9 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Alpha
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAlpha()
     {
@@ -392,6 +452,10 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoiseRgb setSeed(int value)
     {
@@ -408,6 +472,9 @@ public class NoiseRgb extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

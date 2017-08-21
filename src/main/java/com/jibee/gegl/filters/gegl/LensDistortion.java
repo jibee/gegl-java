@@ -25,6 +25,8 @@ public class LensDistortion extends GeglFilter implements Source, Sink
     /** Constructs a Lens Distortion.
      *
      * Corrects barrel or pincushion lens distortion.
+     *
+     * @param container container node
      */
     public LensDistortion(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class LensDistortion extends GeglFilter implements Source, Sink
     /** Constructs a Lens Distortion.
      *
      * Corrects barrel or pincushion lens distortion.
+     *
+     * @param parent parent filter node
      */
     public LensDistortion(GeglFilter parent)
     {
@@ -57,13 +61,17 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @param value new value for Main
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public LensDistortion setMain(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < -100.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -100.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -100.00, 100.00);
+	    }
 
         m_Main = value;
         setProperty("main", value);
@@ -77,6 +85,9 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @return value of Main
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getMain()
     {
@@ -101,13 +112,17 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @param value new value for Edge
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public LensDistortion setEdge(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < -100.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -100.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -100.00, 100.00);
+	    }
 
         m_Edge = value;
         setProperty("edge", value);
@@ -121,6 +136,9 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @return value of Edge
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getEdge()
     {
@@ -145,13 +163,17 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @param value new value for Zoom
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public LensDistortion setZoom(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < -100.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -100.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -100.00, 100.00);
+	    }
 
         m_Zoom = value;
         setProperty("zoom", value);
@@ -165,6 +187,9 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @return value of Zoom
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getZoom()
     {
@@ -189,13 +214,17 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @param value new value for Shift X
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public LensDistortion setXShift(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < -100.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -100.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -100.00, 100.00);
+	    }
 
         m_XShift = value;
         setProperty("x-shift", value);
@@ -209,6 +238,9 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @return value of Shift X
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getXShift()
     {
@@ -233,13 +265,17 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @param value new value for Shift Y
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public LensDistortion setYShift(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < -100.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -100.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -100.00, 100.00);
+	    }
 
         m_YShift = value;
         setProperty("y-shift", value);
@@ -253,6 +289,9 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @return value of Shift Y
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getYShift()
     {
@@ -277,13 +316,17 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @param value new value for Brighten
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public LensDistortion setBrighten(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < -100.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -100.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -100.00, 100.00);
+	    }
 
         m_Brighten = value;
         setProperty("brighten", value);
@@ -297,6 +340,9 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @return value of Brighten
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBrighten()
     {
@@ -321,6 +367,10 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Background color
+     * @return this filter (for chaining operations)
+     * 
      */
     public LensDistortion setBackground(GeglColor value)
     {
@@ -337,6 +387,9 @@ public class LensDistortion extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Background color
+     * 
      */
     public GeglColor getBackground()
     {

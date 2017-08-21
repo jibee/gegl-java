@@ -23,6 +23,8 @@ public class InvertGamma extends GeglFilter implements Source, Sink
     /** Constructs a Invert in Perceptual space.
      *
      * Invert the components (except alpha) perceptually, the result is the corresponding "negative" image.
+     *
+     * @param container container node
      */
     public InvertGamma(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class InvertGamma extends GeglFilter implements Source, Sink
     /** Constructs a Invert in Perceptual space.
      *
      * Invert the components (except alpha) perceptually, the result is the corresponding "negative" image.
+     *
+     * @param parent parent filter node
      */
     public InvertGamma(GeglFilter parent)
     {

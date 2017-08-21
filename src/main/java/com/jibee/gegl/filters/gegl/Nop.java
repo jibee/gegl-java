@@ -23,6 +23,8 @@ public class Nop extends GeglFilter implements Source, Sink
     /** Constructs a No Operation.
      *
      * No operation (can be used as a routing point)
+     *
+     * @param container container node
      */
     public Nop(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Nop extends GeglFilter implements Source, Sink
     /** Constructs a No Operation.
      *
      * No operation (can be used as a routing point)
+     *
+     * @param parent parent filter node
      */
     public Nop(GeglFilter parent)
     {

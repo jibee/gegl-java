@@ -24,6 +24,8 @@ public class Edge extends GeglFilter implements Source, Sink
     /** Constructs a Edge Detection.
      *
      * Several simple methods for detecting edges
+     *
+     * @param container container node
      */
     public Edge(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Edge extends GeglFilter implements Source, Sink
     /** Constructs a Edge Detection.
      *
      * Several simple methods for detecting edges
+     *
+     * @param parent parent filter node
      */
     public Edge(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class Edge extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Algorithm
+     * @return this filter (for chaining operations)
+     * 
      */
     public Edge setAlgorithm(String value)
     {
@@ -72,6 +80,9 @@ public class Edge extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Algorithm
+     * 
      */
     public String getAlgorithm()
     {
@@ -96,13 +107,17 @@ public class Edge extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2.00
      * Acceptable Range: 1.00 10.00
+     *
+     * @param value new value for Amount
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Edge setAmount(double value) throws ParameterOutOfRangeException
     {
 		if(value > 10.00 || value < 1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 1.00, 10.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1.00, 10.00);
+	    }
 
         m_Amount = value;
         setProperty("amount", value);
@@ -116,6 +131,9 @@ public class Edge extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2.00
      * Acceptable Range: 1.00 10.00
+     *
+     * @return value of Amount
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAmount()
     {
@@ -140,6 +158,10 @@ public class Edge extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Border behavior
+     * @return this filter (for chaining operations)
+     * 
      */
     public Edge setBorderBehavior(String value)
     {
@@ -156,6 +178,9 @@ public class Edge extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Border behavior
+     * 
      */
     public String getBorderBehavior()
     {

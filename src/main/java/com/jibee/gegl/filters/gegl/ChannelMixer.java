@@ -24,6 +24,8 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
     /** Constructs a Channel Mixer.
      *
      * Remix colors; by defining relative contributions from source components.
+     *
+     * @param container container node
      */
     public ChannelMixer(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
     /** Constructs a Channel Mixer.
      *
      * Remix colors; by defining relative contributions from source components.
+     *
+     * @param parent parent filter node
      */
     public ChannelMixer(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Preserve luminosity
+     * @return this filter (for chaining operations)
+     * 
      */
     public ChannelMixer setPreserveLuminosity(boolean value)
     {
@@ -72,6 +80,9 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Preserve luminosity
+     * 
      */
     public boolean getPreserveLuminosity()
     {
@@ -96,13 +107,17 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @param value new value for Red in Red channel
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ChannelMixer setRrGain(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < -2.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.00, 2.00);
+	    }
 
         m_RrGain = value;
         setProperty("rr-gain", value);
@@ -116,6 +131,9 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @return value of Red in Red channel
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRrGain()
     {
@@ -140,13 +158,17 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @param value new value for Green in Red channel
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ChannelMixer setRgGain(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < -2.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.00, 2.00);
+	    }
 
         m_RgGain = value;
         setProperty("rg-gain", value);
@@ -160,6 +182,9 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @return value of Green in Red channel
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRgGain()
     {
@@ -184,13 +209,17 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @param value new value for Blue in Red channel
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ChannelMixer setRbGain(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < -2.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.00, 2.00);
+	    }
 
         m_RbGain = value;
         setProperty("rb-gain", value);
@@ -204,6 +233,9 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @return value of Blue in Red channel
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRbGain()
     {
@@ -228,13 +260,17 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @param value new value for Red in Green channel
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ChannelMixer setGrGain(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < -2.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.00, 2.00);
+	    }
 
         m_GrGain = value;
         setProperty("gr-gain", value);
@@ -248,6 +284,9 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @return value of Red in Green channel
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getGrGain()
     {
@@ -272,13 +311,17 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @param value new value for Green for Green channel
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ChannelMixer setGgGain(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < -2.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.00, 2.00);
+	    }
 
         m_GgGain = value;
         setProperty("gg-gain", value);
@@ -292,6 +335,9 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @return value of Green for Green channel
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getGgGain()
     {
@@ -316,13 +362,17 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @param value new value for Blue in Green channel
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ChannelMixer setGbGain(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < -2.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.00, 2.00);
+	    }
 
         m_GbGain = value;
         setProperty("gb-gain", value);
@@ -336,6 +386,9 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @return value of Blue in Green channel
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getGbGain()
     {
@@ -360,13 +413,17 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @param value new value for Red in Blue channel
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ChannelMixer setBrGain(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < -2.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.00, 2.00);
+	    }
 
         m_BrGain = value;
         setProperty("br-gain", value);
@@ -380,6 +437,9 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @return value of Red in Blue channel
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBrGain()
     {
@@ -404,13 +464,17 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @param value new value for Green in Blue channel
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ChannelMixer setBgGain(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < -2.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.00, 2.00);
+	    }
 
         m_BgGain = value;
         setProperty("bg-gain", value);
@@ -424,6 +488,9 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @return value of Green in Blue channel
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBgGain()
     {
@@ -448,13 +515,17 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @param value new value for Blue in Blue channel
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ChannelMixer setBbGain(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < -2.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.00, 2.00);
+	    }
 
         m_BbGain = value;
         setProperty("bb-gain", value);
@@ -468,6 +539,9 @@ public class ChannelMixer extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @return value of Blue in Blue channel
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBbGain()
     {

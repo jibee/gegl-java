@@ -22,6 +22,8 @@ public class FractalExplorer extends GeglFilter implements Source
     /** Constructs a Fractal Explorer.
      *
      * Rendering of multiple different fractal systems, with configurable coloring options.
+     *
+     * @param container container node
      */
     public FractalExplorer(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class FractalExplorer extends GeglFilter implements Source
     /** Constructs a Fractal Explorer.
      *
      * Rendering of multiple different fractal systems, with configurable coloring options.
+     *
+     * @param parent parent filter node
      */
     public FractalExplorer(GeglFilter parent)
     {
@@ -54,6 +58,10 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Fractal type
+     * @return this filter (for chaining operations)
+     * 
      */
     public FractalExplorer setFractaltype(String value)
     {
@@ -70,6 +78,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Fractal type
+     * 
      */
     public String getFractaltype()
     {
@@ -94,13 +105,17 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 50
      * Acceptable Range: 1 1000
+     *
+     * @param value new value for Iterations
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalExplorer setIter(int value) throws ParameterOutOfRangeException
     {
 		if(value > 1000 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 1000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 1000);
+	    }
 
         m_Iter = value;
         setProperty("iter", value);
@@ -114,6 +129,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 50
      * Acceptable Range: 1 1000
+     *
+     * @return value of Iterations
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getIter()
     {
@@ -138,13 +156,17 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 300.00
      * Acceptable Range: 0.00 10000000.00
+     *
+     * @param value new value for Zoom
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalExplorer setZoom(double value) throws ParameterOutOfRangeException
     {
 		if(value > 10000000.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 10000000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 10000000.00);
+	    }
 
         m_Zoom = value;
         setProperty("zoom", value);
@@ -158,6 +180,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 300.00
      * Acceptable Range: 0.00 10000000.00
+     *
+     * @return value of Zoom
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getZoom()
     {
@@ -182,6 +207,10 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Shift X
+     * @return this filter (for chaining operations)
+     * 
      */
     public FractalExplorer setShiftx(double value)
     {
@@ -198,6 +227,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Shift X
+     * 
      */
     public double getShiftx()
     {
@@ -222,6 +254,10 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Shift Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public FractalExplorer setShifty(double value)
     {
@@ -238,6 +274,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Shift Y
+     * 
      */
     public double getShifty()
     {
@@ -262,13 +301,17 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: -0.75
      * Acceptable Range: -2.50 2.50
+     *
+     * @param value new value for CX
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalExplorer setCx(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.50 || value < -2.50)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.50, 2.50);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.50, 2.50);
+	    }
 
         m_Cx = value;
         setProperty("cx", value);
@@ -282,6 +325,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: -0.75
      * Acceptable Range: -2.50 2.50
+     *
+     * @return value of CX
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getCx()
     {
@@ -306,13 +352,17 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: -0.20
      * Acceptable Range: -2.50 2.50
+     *
+     * @param value new value for CY
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalExplorer setCy(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.50 || value < -2.50)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.50, 2.50);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.50, 2.50);
+	    }
 
         m_Cy = value;
         setProperty("cy", value);
@@ -326,6 +376,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: -0.20
      * Acceptable Range: -2.50 2.50
+     *
+     * @return value of CY
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getCy()
     {
@@ -350,13 +403,17 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Red stretching factor
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalExplorer setRedstretch(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Redstretch = value;
         setProperty("redstretch", value);
@@ -370,6 +427,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Red stretching factor
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRedstretch()
     {
@@ -394,13 +454,17 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Green stretching factor
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalExplorer setGreenstretch(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Greenstretch = value;
         setProperty("greenstretch", value);
@@ -414,6 +478,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Green stretching factor
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getGreenstretch()
     {
@@ -438,13 +505,17 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Blue stretching factor
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalExplorer setBluestretch(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Bluestretch = value;
         setProperty("bluestretch", value);
@@ -458,6 +529,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Blue stretching factor
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBluestretch()
     {
@@ -482,6 +556,10 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Red application mode
+     * @return this filter (for chaining operations)
+     * 
      */
     public FractalExplorer setRedmode(String value)
     {
@@ -498,6 +576,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Red application mode
+     * 
      */
     public String getRedmode()
     {
@@ -522,6 +603,10 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Green application mode
+     * @return this filter (for chaining operations)
+     * 
      */
     public FractalExplorer setGreenmode(String value)
     {
@@ -538,6 +623,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Green application mode
+     * 
      */
     public String getGreenmode()
     {
@@ -562,6 +650,10 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Blue application mode
+     * @return this filter (for chaining operations)
+     * 
      */
     public FractalExplorer setBluemode(String value)
     {
@@ -578,6 +670,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Blue application mode
+     * 
      */
     public String getBluemode()
     {
@@ -602,6 +697,10 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Red inversion
+     * @return this filter (for chaining operations)
+     * 
      */
     public FractalExplorer setRedinvert(boolean value)
     {
@@ -618,6 +717,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Red inversion
+     * 
      */
     public boolean getRedinvert()
     {
@@ -642,6 +744,10 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Green inversion
+     * @return this filter (for chaining operations)
+     * 
      */
     public FractalExplorer setGreeninvert(boolean value)
     {
@@ -658,6 +764,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Green inversion
+     * 
      */
     public boolean getGreeninvert()
     {
@@ -682,6 +791,10 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Blue inversion
+     * @return this filter (for chaining operations)
+     * 
      */
     public FractalExplorer setBlueinvert(boolean value)
     {
@@ -698,6 +811,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Blue inversion
+     * 
      */
     public boolean getBlueinvert()
     {
@@ -722,13 +838,17 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 256
      * Acceptable Range: 2 8192
+     *
+     * @param value new value for Number of colors
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalExplorer setNcolors(int value) throws ParameterOutOfRangeException
     {
 		if(value > 8192 || value < 2)
-	{
-	    throw new ParameterOutOfRangeException(value, 2, 8192);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 2, 8192);
+	    }
 
         m_Ncolors = value;
         setProperty("ncolors", value);
@@ -742,6 +862,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: 256
      * Acceptable Range: 2 8192
+     *
+     * @return value of Number of colors
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getNcolors()
     {
@@ -766,6 +889,10 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Loglog smoothing
+     * @return this filter (for chaining operations)
+     * 
      */
     public FractalExplorer setUseloglog(boolean value)
     {
@@ -782,6 +909,9 @@ public class FractalExplorer extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Loglog smoothing
+     * 
      */
     public boolean getUseloglog()
     {

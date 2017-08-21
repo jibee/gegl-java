@@ -23,6 +23,8 @@ public class SvgMatrix extends GeglFilter implements Source, Sink
     /** Constructs a SVG Matrix.
      *
      * SVG color matrix operation svg_matrix
+     *
+     * @param container container node
      */
     public SvgMatrix(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class SvgMatrix extends GeglFilter implements Source, Sink
     /** Constructs a SVG Matrix.
      *
      * SVG color matrix operation svg_matrix
+     *
+     * @param parent parent filter node
      */
     public SvgMatrix(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class SvgMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Values
+     * @return this filter (for chaining operations)
+     * 
      */
     public SvgMatrix setValues(String value)
     {
@@ -71,6 +79,9 @@ public class SvgMatrix extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Values
+     * 
      */
     public String getValues()
     {

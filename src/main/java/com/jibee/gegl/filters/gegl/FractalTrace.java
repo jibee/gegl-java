@@ -24,6 +24,8 @@ public class FractalTrace extends GeglFilter implements Source, Sink
     /** Constructs a Fractal Trace.
      *
      * Transform the image with the fractals
+     *
+     * @param container container node
      */
     public FractalTrace(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class FractalTrace extends GeglFilter implements Source, Sink
     /** Constructs a Fractal Trace.
      *
      * Transform the image with the fractals
+     *
+     * @param parent parent filter node
      */
     public FractalTrace(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Fractal type
+     * @return this filter (for chaining operations)
+     * 
      */
     public FractalTrace setFractal(String value)
     {
@@ -72,6 +80,9 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Fractal type
+     * 
      */
     public String getFractal()
     {
@@ -96,13 +107,17 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: -1.00
      * Acceptable Range: -50.00 50.00
+     *
+     * @param value new value for X1
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalTrace setX1(double value) throws ParameterOutOfRangeException
     {
 		if(value > 50.00 || value < -50.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -50.00, 50.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -50.00, 50.00);
+	    }
 
         m_X1 = value;
         setProperty("X1", value);
@@ -116,6 +131,9 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: -1.00
      * Acceptable Range: -50.00 50.00
+     *
+     * @return value of X1
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getX1()
     {
@@ -140,13 +158,17 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range: -50.00 50.00
+     *
+     * @param value new value for X2
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalTrace setX2(double value) throws ParameterOutOfRangeException
     {
 		if(value > 50.00 || value < -50.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -50.00, 50.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -50.00, 50.00);
+	    }
 
         m_X2 = value;
         setProperty("X2", value);
@@ -160,6 +182,9 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range: -50.00 50.00
+     *
+     * @return value of X2
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getX2()
     {
@@ -184,13 +209,17 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: -1.00
      * Acceptable Range: -50.00 50.00
+     *
+     * @param value new value for Y1
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalTrace setY1(double value) throws ParameterOutOfRangeException
     {
 		if(value > 50.00 || value < -50.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -50.00, 50.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -50.00, 50.00);
+	    }
 
         m_Y1 = value;
         setProperty("Y1", value);
@@ -204,6 +233,9 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: -1.00
      * Acceptable Range: -50.00 50.00
+     *
+     * @return value of Y1
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getY1()
     {
@@ -228,13 +260,17 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -50.00 50.00
+     *
+     * @param value new value for Y2
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalTrace setY2(double value) throws ParameterOutOfRangeException
     {
 		if(value > 50.00 || value < -50.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -50.00, 50.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -50.00, 50.00);
+	    }
 
         m_Y2 = value;
         setProperty("Y2", value);
@@ -248,6 +284,9 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -50.00 50.00
+     *
+     * @return value of Y2
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getY2()
     {
@@ -272,13 +311,17 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range: -50.00 50.00
+     *
+     * @param value new value for JX
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalTrace setJx(double value) throws ParameterOutOfRangeException
     {
 		if(value > 50.00 || value < -50.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -50.00, 50.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -50.00, 50.00);
+	    }
 
         m_Jx = value;
         setProperty("JX", value);
@@ -292,6 +335,9 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range: -50.00 50.00
+     *
+     * @return value of JX
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getJx()
     {
@@ -316,13 +362,17 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range: -50.00 50.00
+     *
+     * @param value new value for JY
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalTrace setJy(double value) throws ParameterOutOfRangeException
     {
 		if(value > 50.00 || value < -50.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -50.00, 50.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -50.00, 50.00);
+	    }
 
         m_Jy = value;
         setProperty("JY", value);
@@ -336,6 +386,9 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range: -50.00 50.00
+     *
+     * @return value of JY
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getJy()
     {
@@ -360,13 +413,17 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 3
      * Acceptable Range: 1 65536
+     *
+     * @param value new value for Depth
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalTrace setDepth(int value) throws ParameterOutOfRangeException
     {
 		if(value > 65536 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 65536);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 65536);
+	    }
 
         m_Depth = value;
         setProperty("depth", value);
@@ -380,6 +437,9 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 3
      * Acceptable Range: 1 65536
+     *
+     * @return value of Depth
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getDepth()
     {
@@ -404,13 +464,17 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: Double.POSITIVE_INFINITY
      * Acceptable Range: 0.00 
+     *
+     * @param value new value for Bailout length
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FractalTrace setBailout(double value) throws ParameterOutOfRangeException
     {
 		if(value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, Double.POSITIVE_INFINITY);
+	    }
 
         m_Bailout = value;
         setProperty("bailout", value);
@@ -424,6 +488,9 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: Double.POSITIVE_INFINITY
      * Acceptable Range: 0.00 
+     *
+     * @return value of Bailout length
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBailout()
     {
@@ -448,6 +515,10 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Abyss policy
+     * @return this filter (for chaining operations)
+     * 
      */
     public FractalTrace setAbyssPolicy(String value)
     {
@@ -464,6 +535,9 @@ public class FractalTrace extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Abyss policy
+     * 
      */
     public String getAbyssPolicy()
     {

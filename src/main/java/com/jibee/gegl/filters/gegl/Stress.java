@@ -24,6 +24,8 @@ public class Stress extends GeglFilter implements Source, Sink
     /** Constructs a Spatio Temporal Retinex-like Envelope with Stochastic Sampling.
      *
      * Spatio Temporal Retinex-like Envelope with Stochastic Sampling
+     *
+     * @param container container node
      */
     public Stress(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Stress extends GeglFilter implements Source, Sink
     /** Constructs a Spatio Temporal Retinex-like Envelope with Stochastic Sampling.
      *
      * Spatio Temporal Retinex-like Envelope with Stochastic Sampling
+     *
+     * @param parent parent filter node
      */
     public Stress(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Stress extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 300
      * Acceptable Range: 2 6000
+     *
+     * @param value new value for Radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Stress setRadius(int value) throws ParameterOutOfRangeException
     {
 		if(value > 6000 || value < 2)
-	{
-	    throw new ParameterOutOfRangeException(value, 2, 6000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 2, 6000);
+	    }
 
         m_Radius = value;
         setProperty("radius", value);
@@ -76,6 +84,9 @@ public class Stress extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 300
      * Acceptable Range: 2 6000
+     *
+     * @return value of Radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getRadius()
     {
@@ -100,13 +111,17 @@ public class Stress extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 5
      * Acceptable Range: 2 500
+     *
+     * @param value new value for Samples
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Stress setSamples(int value) throws ParameterOutOfRangeException
     {
 		if(value > 500 || value < 2)
-	{
-	    throw new ParameterOutOfRangeException(value, 2, 500);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 2, 500);
+	    }
 
         m_Samples = value;
         setProperty("samples", value);
@@ -120,6 +135,9 @@ public class Stress extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 5
      * Acceptable Range: 2 500
+     *
+     * @return value of Samples
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getSamples()
     {
@@ -144,13 +162,17 @@ public class Stress extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 5
      * Acceptable Range: 1 1000
+     *
+     * @param value new value for Iterations
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Stress setIterations(int value) throws ParameterOutOfRangeException
     {
 		if(value > 1000 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 1000);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 1000);
+	    }
 
         m_Iterations = value;
         setProperty("iterations", value);
@@ -164,6 +186,9 @@ public class Stress extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 5
      * Acceptable Range: 1 1000
+     *
+     * @return value of Iterations
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getIterations()
     {

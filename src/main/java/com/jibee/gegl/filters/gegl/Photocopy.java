@@ -24,6 +24,8 @@ public class Photocopy extends GeglFilter implements Source, Sink
     /** Constructs a Photocopy.
      *
      * Simulate color distortion produced by a copy machine
+     *
+     * @param container container node
      */
     public Photocopy(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Photocopy extends GeglFilter implements Source, Sink
     /** Constructs a Photocopy.
      *
      * Simulate color distortion produced by a copy machine
+     *
+     * @param parent parent filter node
      */
     public Photocopy(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Photocopy extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10.00
      * Acceptable Range: 0.00 50.00
+     *
+     * @param value new value for Mask Radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Photocopy setMaskRadius(double value) throws ParameterOutOfRangeException
     {
 		if(value > 50.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 50.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 50.00);
+	    }
 
         m_MaskRadius = value;
         setProperty("mask-radius", value);
@@ -76,6 +84,9 @@ public class Photocopy extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10.00
      * Acceptable Range: 0.00 50.00
+     *
+     * @return value of Mask Radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getMaskRadius()
     {
@@ -100,13 +111,17 @@ public class Photocopy extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Sharpness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Photocopy setSharpness(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Sharpness = value;
         setProperty("sharpness", value);
@@ -120,6 +135,9 @@ public class Photocopy extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.50
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Sharpness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getSharpness()
     {
@@ -144,13 +162,17 @@ public class Photocopy extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Percent Black
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Photocopy setBlack(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Black = value;
         setProperty("black", value);
@@ -164,6 +186,9 @@ public class Photocopy extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Percent Black
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBlack()
     {
@@ -188,13 +213,17 @@ public class Photocopy extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Percent White
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Photocopy setWhite(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_White = value;
         setProperty("white", value);
@@ -208,6 +237,9 @@ public class Photocopy extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Percent White
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getWhite()
     {

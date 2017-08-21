@@ -22,6 +22,8 @@ public class WebpSave extends GeglFilter implements Sink
     /** Constructs a WebP File Saver.
      *
      * WebP image saver
+     *
+     * @param container container node
      */
     public WebpSave(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class WebpSave extends GeglFilter implements Sink
     /** Constructs a WebP File Saver.
      *
      * WebP image saver
+     *
+     * @param parent parent filter node
      */
     public WebpSave(GeglFilter parent)
     {
@@ -54,6 +58,10 @@ public class WebpSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public WebpSave setPath(String value)
     {
@@ -70,6 +78,9 @@ public class WebpSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {
@@ -94,13 +105,17 @@ public class WebpSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 90
      * Acceptable Range: 1 100
+     *
+     * @param value new value for Quality
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public WebpSave setQuality(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 100);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 100);
+	    }
 
         m_Quality = value;
         setProperty("quality", value);
@@ -114,6 +129,9 @@ public class WebpSave extends GeglFilter implements Sink
      * Unit: 
      * Default value: 90
      * Acceptable Range: 1 100
+     *
+     * @return value of Quality
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getQuality()
     {

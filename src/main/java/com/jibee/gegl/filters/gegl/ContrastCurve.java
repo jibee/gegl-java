@@ -25,6 +25,8 @@ public class ContrastCurve extends GeglFilter implements Source, Sink
     /** Constructs a Contrast Curve.
      *
      * Adjusts the contrast of a grayscale image with a curve specifying contrast for intensity.
+     *
+     * @param container container node
      */
     public ContrastCurve(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class ContrastCurve extends GeglFilter implements Source, Sink
     /** Constructs a Contrast Curve.
      *
      * Adjusts the contrast of a grayscale image with a curve specifying contrast for intensity.
+     *
+     * @param parent parent filter node
      */
     public ContrastCurve(GeglFilter parent)
     {
@@ -57,13 +61,17 @@ public class ContrastCurve extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  65536
+     *
+     * @param value new value for Sample points
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ContrastCurve setSamplingPoints(int value) throws ParameterOutOfRangeException
     {
 		if(value > 65536)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 65536);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 65536);
+	    }
 
         m_SamplingPoints = value;
         setProperty("sampling-points", value);
@@ -77,6 +85,9 @@ public class ContrastCurve extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  65536
+     *
+     * @return value of Sample points
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getSamplingPoints()
     {
@@ -101,6 +112,10 @@ public class ContrastCurve extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Curve
+     * @return this filter (for chaining operations)
+     * 
      */
     public ContrastCurve setCurve(GeglCurve value)
     {
@@ -117,6 +132,9 @@ public class ContrastCurve extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Curve
+     * 
      */
     public GeglCurve getCurve()
     {

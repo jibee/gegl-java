@@ -24,6 +24,8 @@ public class ColorWarp extends GeglFilter implements Source, Sink
     /** Constructs a Color warp.
      *
      * Warps the colors of an image between colors with weighted distortion factors, color pairs which are black to black get ignored when constructing the mapping.
+     *
+     * @param container container node
      */
     public ColorWarp(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class ColorWarp extends GeglFilter implements Source, Sink
     /** Constructs a Color warp.
      *
      * Warps the colors of an image between colors with weighted distortion factors, color pairs which are black to black get ignored when constructing the mapping.
+     *
+     * @param parent parent filter node
      */
     public ColorWarp(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for From 0
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setFrom0(GeglColor value)
     {
@@ -72,6 +80,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of From 0
+     * 
      */
     public GeglColor getFrom0()
     {
@@ -96,6 +107,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for To 0
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setTo0(GeglColor value)
     {
@@ -112,6 +127,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of To 0
+     * 
      */
     public GeglColor getTo0()
     {
@@ -136,6 +154,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @param value new value for weight 0
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setWeight0(double value)
     {
@@ -152,6 +174,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @return value of weight 0
+     * 
      */
     public double getWeight0()
     {
@@ -176,6 +201,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for From 1
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setFrom1(GeglColor value)
     {
@@ -192,6 +221,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of From 1
+     * 
      */
     public GeglColor getFrom1()
     {
@@ -216,6 +248,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for To 1
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setTo1(GeglColor value)
     {
@@ -232,6 +268,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of To 1
+     * 
      */
     public GeglColor getTo1()
     {
@@ -256,6 +295,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @param value new value for weight 1
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setWeight1(double value)
     {
@@ -272,6 +315,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @return value of weight 1
+     * 
      */
     public double getWeight1()
     {
@@ -296,6 +342,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for From 2
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setFrom2(GeglColor value)
     {
@@ -312,6 +362,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of From 2
+     * 
      */
     public GeglColor getFrom2()
     {
@@ -336,6 +389,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for To 2
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setTo2(GeglColor value)
     {
@@ -352,6 +409,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of To 2
+     * 
      */
     public GeglColor getTo2()
     {
@@ -376,6 +436,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @param value new value for weight 2
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setWeight2(double value)
     {
@@ -392,6 +456,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @return value of weight 2
+     * 
      */
     public double getWeight2()
     {
@@ -416,6 +483,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for From 3
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setFrom3(GeglColor value)
     {
@@ -432,6 +503,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of From 3
+     * 
      */
     public GeglColor getFrom3()
     {
@@ -456,6 +530,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for To 3
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setTo3(GeglColor value)
     {
@@ -472,6 +550,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of To 3
+     * 
      */
     public GeglColor getTo3()
     {
@@ -496,6 +577,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @param value new value for weight 3
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setWeight3(double value)
     {
@@ -512,6 +597,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @return value of weight 3
+     * 
      */
     public double getWeight3()
     {
@@ -536,6 +624,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for From 4
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setFrom4(GeglColor value)
     {
@@ -552,6 +644,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of From 4
+     * 
      */
     public GeglColor getFrom4()
     {
@@ -576,6 +671,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for To 4
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setTo4(GeglColor value)
     {
@@ -592,6 +691,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of To 4
+     * 
      */
     public GeglColor getTo4()
     {
@@ -616,6 +718,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @param value new value for weight 4
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setWeight4(double value)
     {
@@ -632,6 +738,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @return value of weight 4
+     * 
      */
     public double getWeight4()
     {
@@ -656,6 +765,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for From 5
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setFrom5(GeglColor value)
     {
@@ -672,6 +785,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of From 5
+     * 
      */
     public GeglColor getFrom5()
     {
@@ -696,6 +812,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for To 5
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setTo5(GeglColor value)
     {
@@ -712,6 +832,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of To 5
+     * 
      */
     public GeglColor getTo5()
     {
@@ -736,6 +859,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @param value new value for weight 5
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setWeight5(double value)
     {
@@ -752,6 +879,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @return value of weight 5
+     * 
      */
     public double getWeight5()
     {
@@ -776,6 +906,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for From 6
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setFrom6(GeglColor value)
     {
@@ -792,6 +926,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of From 6
+     * 
      */
     public GeglColor getFrom6()
     {
@@ -816,6 +953,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for To 6
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setTo6(GeglColor value)
     {
@@ -832,6 +973,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of To 6
+     * 
      */
     public GeglColor getTo6()
     {
@@ -856,6 +1000,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @param value new value for weight 6
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setWeight6(double value)
     {
@@ -872,6 +1020,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @return value of weight 6
+     * 
      */
     public double getWeight6()
     {
@@ -896,6 +1047,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for From 7
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setFrom7(GeglColor value)
     {
@@ -912,6 +1067,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of From 7
+     * 
      */
     public GeglColor getFrom7()
     {
@@ -936,6 +1094,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for To 7
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setTo7(GeglColor value)
     {
@@ -952,6 +1114,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of To 7
+     * 
      */
     public GeglColor getTo7()
     {
@@ -976,6 +1141,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @param value new value for weight 7
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setWeight7(double value)
     {
@@ -992,6 +1161,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range:  
+     *
+     * @return value of weight 7
+     * 
      */
     public double getWeight7()
     {
@@ -1016,6 +1188,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range:  
+     *
+     * @param value new value for global weight scale
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setWeight(double value)
     {
@@ -1032,6 +1208,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range:  
+     *
+     * @return value of global weight scale
+     * 
      */
     public double getWeight()
     {
@@ -1056,6 +1235,10 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range:  
+     *
+     * @param value new value for amount
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorWarp setAmount(double value)
     {
@@ -1072,6 +1255,9 @@ public class ColorWarp extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range:  
+     *
+     * @return value of amount
+     * 
      */
     public double getAmount()
     {

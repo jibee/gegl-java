@@ -24,6 +24,8 @@ public class Fattal02 extends GeglFilter implements Source, Sink
     /** Constructs a Fattal et al. 2002 Tone Mapping.
      *
      * Adapt an image, which may have a high dynamic range, for presentation using a low dynamic range. This operator attenuates the magnitudes of local image gradients, producing luminance within the range 0.0-1.0. This tonemapping approach was originally presented by Raanan Fattal, in the 2002 SIGGRAPH paper: Gradient Domain High Dynamic Range Compression.
+     *
+     * @param container container node
      */
     public Fattal02(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Fattal02 extends GeglFilter implements Source, Sink
     /** Constructs a Fattal et al. 2002 Tone Mapping.
      *
      * Adapt an image, which may have a high dynamic range, for presentation using a low dynamic range. This operator attenuates the magnitudes of local image gradients, producing luminance within the range 0.0-1.0. This tonemapping approach was originally presented by Raanan Fattal, in the 2002 SIGGRAPH paper: Gradient Domain High Dynamic Range Compression.
+     *
+     * @param parent parent filter node
      */
     public Fattal02(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Fattal02 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 2.00
+     *
+     * @param value new value for Alpha
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Fattal02 setAlpha(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 2.00);
+	    }
 
         m_Alpha = value;
         setProperty("alpha", value);
@@ -76,6 +84,9 @@ public class Fattal02 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 2.00
+     *
+     * @return value of Alpha
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAlpha()
     {
@@ -100,13 +111,17 @@ public class Fattal02 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.90
      * Acceptable Range: 0.10 2.00
+     *
+     * @param value new value for Beta
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Fattal02 setBeta(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < 0.10)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.10, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.10, 2.00);
+	    }
 
         m_Beta = value;
         setProperty("beta", value);
@@ -120,6 +135,9 @@ public class Fattal02 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.90
      * Acceptable Range: 0.10 2.00
+     *
+     * @return value of Beta
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBeta()
     {
@@ -144,13 +162,17 @@ public class Fattal02 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.80
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Saturation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Fattal02 setSaturation(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Saturation = value;
         setProperty("saturation", value);
@@ -164,6 +186,9 @@ public class Fattal02 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.80
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Saturation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getSaturation()
     {
@@ -188,13 +213,17 @@ public class Fattal02 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Noise
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Fattal02 setNoise(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Noise = value;
         setProperty("noise", value);
@@ -208,6 +237,9 @@ public class Fattal02 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Noise
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getNoise()
     {

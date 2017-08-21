@@ -21,6 +21,8 @@ public class GeglBufferLoad extends GeglFilter implements Source
     /** Constructs a .
      *
      * GeglBuffer file loader.
+     *
+     * @param container container node
      */
     public GeglBufferLoad(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class GeglBufferLoad extends GeglFilter implements Source
     /** Constructs a .
      *
      * GeglBuffer file loader.
+     *
+     * @param parent parent filter node
      */
     public GeglBufferLoad(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class GeglBufferLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: "/tmp/gegl-buffer.gegl"
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public GeglBufferLoad setPath(String value)
     {
@@ -69,6 +77,9 @@ public class GeglBufferLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: "/tmp/gegl-buffer.gegl"
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {

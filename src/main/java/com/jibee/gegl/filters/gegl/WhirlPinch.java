@@ -24,6 +24,8 @@ public class WhirlPinch extends GeglFilter implements Source, Sink
     /** Constructs a Whirl Pinch.
      *
      * Distort an image by whirling and pinching
+     *
+     * @param container container node
      */
     public WhirlPinch(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class WhirlPinch extends GeglFilter implements Source, Sink
     /** Constructs a Whirl Pinch.
      *
      * Distort an image by whirling and pinching
+     *
+     * @param parent parent filter node
      */
     public WhirlPinch(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class WhirlPinch extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 90.00
      * Acceptable Range:  
+     *
+     * @param value new value for Whirl
+     * @return this filter (for chaining operations)
+     * 
      */
     public WhirlPinch setWhirl(double value)
     {
@@ -72,6 +80,9 @@ public class WhirlPinch extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 90.00
      * Acceptable Range:  
+     *
+     * @return value of Whirl
+     * 
      */
     public double getWhirl()
     {
@@ -96,13 +107,17 @@ public class WhirlPinch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -1.00 1.00
+     *
+     * @param value new value for Pinch
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public WhirlPinch setPinch(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < -1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -1.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1.00, 1.00);
+	    }
 
         m_Pinch = value;
         setProperty("pinch", value);
@@ -116,6 +131,9 @@ public class WhirlPinch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -1.00 1.00
+     *
+     * @return value of Pinch
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getPinch()
     {
@@ -140,13 +158,17 @@ public class WhirlPinch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 2.00
+     *
+     * @param value new value for Radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public WhirlPinch setRadius(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 2.00);
+	    }
 
         m_Radius = value;
         setProperty("radius", value);
@@ -160,6 +182,9 @@ public class WhirlPinch extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 2.00
+     *
+     * @return value of Radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRadius()
     {

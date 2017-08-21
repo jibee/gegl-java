@@ -26,6 +26,8 @@ public class FillPath extends GeglFilter implements Source, Sink
     /** Constructs a Fill Path.
      *
      * Renders a filled region
+     *
+     * @param container container node
      */
     public FillPath(GeglNode container)
     {
@@ -34,6 +36,8 @@ public class FillPath extends GeglFilter implements Source, Sink
     /** Constructs a Fill Path.
      *
      * Renders a filled region
+     *
+     * @param parent parent filter node
      */
     public FillPath(GeglFilter parent)
     {
@@ -58,6 +62,10 @@ public class FillPath extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public FillPath setColor(GeglColor value)
     {
@@ -74,6 +82,9 @@ public class FillPath extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color
+     * 
      */
     public GeglColor getColor()
     {
@@ -98,13 +109,17 @@ public class FillPath extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @param value new value for Opacity
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public FillPath setOpacity(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < -2.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.00, 2.00);
+	    }
 
         m_Opacity = value;
         setProperty("opacity", value);
@@ -118,6 +133,9 @@ public class FillPath extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @return value of Opacity
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getOpacity()
     {
@@ -142,6 +160,10 @@ public class FillPath extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: "nonzero"
      * Acceptable Range:  
+     *
+     * @param value new value for Fill rule.
+     * @return this filter (for chaining operations)
+     * 
      */
     public FillPath setFillRule(String value)
     {
@@ -158,6 +180,9 @@ public class FillPath extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: "nonzero"
      * Acceptable Range:  
+     *
+     * @return value of Fill rule.
+     * 
      */
     public String getFillRule()
     {
@@ -182,6 +207,10 @@ public class FillPath extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Transform
+     * @return this filter (for chaining operations)
+     * 
      */
     public FillPath setTransform(String value)
     {
@@ -198,6 +227,9 @@ public class FillPath extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Transform
+     * 
      */
     public String getTransform()
     {
@@ -222,6 +254,10 @@ public class FillPath extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Vector
+     * @return this filter (for chaining operations)
+     * 
      */
     public FillPath setD(GeglVector value)
     {
@@ -238,6 +274,9 @@ public class FillPath extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Vector
+     * 
      */
     public GeglVector getD()
     {

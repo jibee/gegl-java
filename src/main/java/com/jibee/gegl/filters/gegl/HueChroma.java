@@ -24,6 +24,8 @@ public class HueChroma extends GeglFilter implements Source, Sink
     /** Constructs a Hue-Chroma.
      *
      * Adjust LCH Hue, Chroma, and Lightness
+     *
+     * @param container container node
      */
     public HueChroma(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class HueChroma extends GeglFilter implements Source, Sink
     /** Constructs a Hue-Chroma.
      *
      * Adjust LCH Hue, Chroma, and Lightness
+     *
+     * @param parent parent filter node
      */
     public HueChroma(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class HueChroma extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @param value new value for Hue
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public HueChroma setHue(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < -180.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -180.00, 180.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -180.00, 180.00);
+	    }
 
         m_Hue = value;
         setProperty("hue", value);
@@ -76,6 +84,9 @@ public class HueChroma extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @return value of Hue
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getHue()
     {
@@ -100,13 +111,17 @@ public class HueChroma extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @param value new value for Chroma
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public HueChroma setChroma(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < -100.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -100.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -100.00, 100.00);
+	    }
 
         m_Chroma = value;
         setProperty("chroma", value);
@@ -120,6 +135,9 @@ public class HueChroma extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @return value of Chroma
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getChroma()
     {
@@ -144,13 +162,17 @@ public class HueChroma extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @param value new value for Lightness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public HueChroma setLightness(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < -100.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -100.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -100.00, 100.00);
+	    }
 
         m_Lightness = value;
         setProperty("lightness", value);
@@ -164,6 +186,9 @@ public class HueChroma extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -100.00 100.00
+     *
+     * @return value of Lightness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getLightness()
     {

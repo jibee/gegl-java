@@ -24,6 +24,8 @@ public class MotionBlurZoom extends GeglFilter implements Source, Sink
     /** Constructs a Zooming Motion Blur.
      *
      * Zoom motion blur
+     *
+     * @param container container node
      */
     public MotionBlurZoom(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class MotionBlurZoom extends GeglFilter implements Source, Sink
     /** Constructs a Zooming Motion Blur.
      *
      * Zoom motion blur
+     *
+     * @param parent parent filter node
      */
     public MotionBlurZoom(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class MotionBlurZoom extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @param value new value for Center X
+     * @return this filter (for chaining operations)
+     * 
      */
     public MotionBlurZoom setCenterX(double value)
     {
@@ -72,6 +80,9 @@ public class MotionBlurZoom extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @return value of Center X
+     * 
      */
     public double getCenterX()
     {
@@ -96,6 +107,10 @@ public class MotionBlurZoom extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @param value new value for Center Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public MotionBlurZoom setCenterY(double value)
     {
@@ -112,6 +127,9 @@ public class MotionBlurZoom extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range:  
+     *
+     * @return value of Center Y
+     * 
      */
     public double getCenterY()
     {
@@ -136,13 +154,17 @@ public class MotionBlurZoom extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.10
      * Acceptable Range: -10.00 1.00
+     *
+     * @param value new value for Blurring factor
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public MotionBlurZoom setFactor(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < -10.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -10.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -10.00, 1.00);
+	    }
 
         m_Factor = value;
         setProperty("factor", value);
@@ -156,6 +178,9 @@ public class MotionBlurZoom extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.10
      * Acceptable Range: -10.00 1.00
+     *
+     * @return value of Blurring factor
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getFactor()
     {

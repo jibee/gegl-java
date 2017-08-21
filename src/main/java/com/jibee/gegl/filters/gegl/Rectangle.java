@@ -23,6 +23,8 @@ public class Rectangle extends GeglFilter implements Source
     /** Constructs a Rectangle.
      *
      * A rectangular source of a fixed size with a solid color
+     *
+     * @param container container node
      */
     public Rectangle(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Rectangle extends GeglFilter implements Source
     /** Constructs a Rectangle.
      *
      * A rectangular source of a fixed size with a solid color
+     *
+     * @param parent parent filter node
      */
     public Rectangle(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Rectangle extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 42.00
      * Acceptable Range:  
+     *
+     * @param value new value for X
+     * @return this filter (for chaining operations)
+     * 
      */
     public Rectangle setX(double value)
     {
@@ -71,6 +79,9 @@ public class Rectangle extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 42.00
      * Acceptable Range:  
+     *
+     * @return value of X
+     * 
      */
     public double getX()
     {
@@ -95,6 +106,10 @@ public class Rectangle extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 42.00
      * Acceptable Range:  
+     *
+     * @param value new value for Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Rectangle setY(double value)
     {
@@ -111,6 +126,9 @@ public class Rectangle extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 42.00
      * Acceptable Range:  
+     *
+     * @return value of Y
+     * 
      */
     public double getY()
     {
@@ -135,13 +153,17 @@ public class Rectangle extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 23.00
      * Acceptable Range: 0.00 
+     *
+     * @param value new value for Width
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Rectangle setWidth(double value) throws ParameterOutOfRangeException
     {
 		if(value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, Double.POSITIVE_INFINITY);
+	    }
 
         m_Width = value;
         setProperty("width", value);
@@ -155,6 +177,9 @@ public class Rectangle extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 23.00
      * Acceptable Range: 0.00 
+     *
+     * @return value of Width
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getWidth()
     {
@@ -179,13 +204,17 @@ public class Rectangle extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 42.00
      * Acceptable Range: 0.00 
+     *
+     * @param value new value for Height
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Rectangle setHeight(double value) throws ParameterOutOfRangeException
     {
 		if(value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, Double.POSITIVE_INFINITY);
+	    }
 
         m_Height = value;
         setProperty("height", value);
@@ -199,6 +228,9 @@ public class Rectangle extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 42.00
      * Acceptable Range: 0.00 
+     *
+     * @return value of Height
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getHeight()
     {
@@ -223,6 +255,10 @@ public class Rectangle extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.2159, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Rectangle setColor(GeglColor value)
     {
@@ -239,6 +275,9 @@ public class Rectangle extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.2159, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color
+     * 
      */
     public GeglColor getColor()
     {

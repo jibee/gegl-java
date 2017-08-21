@@ -26,6 +26,8 @@ public class VectorStroke extends GeglFilter implements Source, Sink
     /** Constructs a Vector Stroke.
      *
      * Renders a vector stroke
+     *
+     * @param container container node
      */
     public VectorStroke(GeglNode container)
     {
@@ -34,6 +36,8 @@ public class VectorStroke extends GeglFilter implements Source, Sink
     /** Constructs a Vector Stroke.
      *
      * Renders a vector stroke
+     *
+     * @param parent parent filter node
      */
     public VectorStroke(GeglFilter parent)
     {
@@ -58,6 +62,10 @@ public class VectorStroke extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public VectorStroke setColor(GeglColor value)
     {
@@ -74,6 +82,9 @@ public class VectorStroke extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color
+     * 
      */
     public GeglColor getColor()
     {
@@ -98,13 +109,17 @@ public class VectorStroke extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2.00
      * Acceptable Range: 0.00 200.00
+     *
+     * @param value new value for Width
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public VectorStroke setWidth(double value) throws ParameterOutOfRangeException
     {
 		if(value > 200.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 200.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 200.00);
+	    }
 
         m_Width = value;
         setProperty("width", value);
@@ -118,6 +133,9 @@ public class VectorStroke extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2.00
      * Acceptable Range: 0.00 200.00
+     *
+     * @return value of Width
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getWidth()
     {
@@ -142,13 +160,17 @@ public class VectorStroke extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @param value new value for Opacity
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public VectorStroke setOpacity(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < -2.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.00, 2.00);
+	    }
 
         m_Opacity = value;
         setProperty("opacity", value);
@@ -162,6 +184,9 @@ public class VectorStroke extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @return value of Opacity
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getOpacity()
     {
@@ -186,6 +211,10 @@ public class VectorStroke extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Transform
+     * @return this filter (for chaining operations)
+     * 
      */
     public VectorStroke setTransform(String value)
     {
@@ -202,6 +231,9 @@ public class VectorStroke extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Transform
+     * 
      */
     public String getTransform()
     {
@@ -226,6 +258,10 @@ public class VectorStroke extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Vector
+     * @return this filter (for chaining operations)
+     * 
      */
     public VectorStroke setD(GeglVector value)
     {
@@ -242,6 +278,9 @@ public class VectorStroke extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Vector
+     * 
      */
     public GeglVector getD()
     {

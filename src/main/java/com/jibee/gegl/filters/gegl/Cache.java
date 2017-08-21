@@ -24,6 +24,8 @@ public class Cache extends GeglFilter implements Source, Sink
     /** Constructs a Cache.
      *
      * An explicit caching node, caches results and should provide faster recomputation if what is cached by it is expensive but isn't changing.
+     *
+     * @param container container node
      */
     public Cache(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Cache extends GeglFilter implements Source, Sink
     /** Constructs a Cache.
      *
      * An explicit caching node, caches results and should provide faster recomputation if what is cached by it is expensive but isn't changing.
+     *
+     * @param parent parent filter node
      */
     public Cache(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class Cache extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Cache
+     * @return this filter (for chaining operations)
+     * 
      */
     public Cache setCache(GeglBuffer value)
     {
@@ -72,6 +80,9 @@ public class Cache extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Cache
+     * 
      */
     public GeglBuffer getCache()
     {

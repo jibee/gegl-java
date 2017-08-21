@@ -24,6 +24,8 @@ public class Mirrors extends GeglFilter implements Source, Sink
     /** Constructs a Kaleidoscopic Mirroring.
      *
      * Create a kaleidoscope like effect.
+     *
+     * @param container container node
      */
     public Mirrors(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Mirrors extends GeglFilter implements Source, Sink
     /** Constructs a Kaleidoscopic Mirroring.
      *
      * Create a kaleidoscope like effect.
+     *
+     * @param parent parent filter node
      */
     public Mirrors(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 180.00
+     *
+     * @param value new value for Mirror rotation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mirrors setMAngle(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 180.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 180.00);
+	    }
 
         m_MAngle = value;
         setProperty("m-angle", value);
@@ -76,6 +84,9 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 180.00
+     *
+     * @return value of Mirror rotation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getMAngle()
     {
@@ -100,13 +111,17 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for Result rotation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mirrors setRAngle(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_RAngle = value;
         setProperty("r-angle", value);
@@ -120,6 +135,9 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of Result rotation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRAngle()
     {
@@ -144,13 +162,17 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 6
      * Acceptable Range: 2 24
+     *
+     * @param value new value for Mirrors
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mirrors setNSegs(int value) throws ParameterOutOfRangeException
     {
 		if(value > 24 || value < 2)
-	{
-	    throw new ParameterOutOfRangeException(value, 2, 24);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 2, 24);
+	    }
 
         m_NSegs = value;
         setProperty("n-segs", value);
@@ -164,6 +186,9 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 6
      * Acceptable Range: 2 24
+     *
+     * @return value of Mirrors
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getNSegs()
     {
@@ -188,13 +213,17 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Offset X
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mirrors setCX(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_CX = value;
         setProperty("c-x", value);
@@ -208,6 +237,9 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Offset X
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getCX()
     {
@@ -232,13 +264,17 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Offset Y
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mirrors setCY(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_CY = value;
         setProperty("c-y", value);
@@ -252,6 +288,9 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.50
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Offset Y
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getCY()
     {
@@ -276,13 +315,17 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.00
      * Acceptable Range: -1.00 1.00
+     *
+     * @param value new value for Center X
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mirrors setOX(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < -1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -1.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1.00, 1.00);
+	    }
 
         m_OX = value;
         setProperty("o-x", value);
@@ -296,6 +339,9 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.00
      * Acceptable Range: -1.00 1.00
+     *
+     * @return value of Center X
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getOX()
     {
@@ -320,13 +366,17 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.00
      * Acceptable Range: -1.00 1.00
+     *
+     * @param value new value for Center Y
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mirrors setOY(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < -1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -1.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1.00, 1.00);
+	    }
 
         m_OY = value;
         setProperty("o-y", value);
@@ -340,6 +390,9 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: relative-coordinate
      * Default value: 0.00
      * Acceptable Range: -1.00 1.00
+     *
+     * @return value of Center Y
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getOY()
     {
@@ -364,13 +417,17 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 0.50
+     *
+     * @param value new value for Trim X
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mirrors setTrimX(double value) throws ParameterOutOfRangeException
     {
 		if(value > 0.50 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 0.50);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 0.50);
+	    }
 
         m_TrimX = value;
         setProperty("trim-x", value);
@@ -384,6 +441,9 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 0.50
+     *
+     * @return value of Trim X
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTrimX()
     {
@@ -408,13 +468,17 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 0.50
+     *
+     * @param value new value for Trim Y
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mirrors setTrimY(double value) throws ParameterOutOfRangeException
     {
 		if(value > 0.50 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 0.50);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 0.50);
+	    }
 
         m_TrimY = value;
         setProperty("trim-y", value);
@@ -428,6 +492,9 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 0.50
+     *
+     * @return value of Trim Y
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getTrimY()
     {
@@ -452,13 +519,17 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range: 0.10 100.00
+     *
+     * @param value new value for Zoom
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mirrors setInputScale(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 0.10)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.10, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.10, 100.00);
+	    }
 
         m_InputScale = value;
         setProperty("input-scale", value);
@@ -472,6 +543,9 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 100.00
      * Acceptable Range: 0.10 100.00
+     *
+     * @return value of Zoom
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getInputScale()
     {
@@ -496,13 +570,17 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @param value new value for Expand
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mirrors setOutputScale(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 100.00);
+	    }
 
         m_OutputScale = value;
         setProperty("output-scale", value);
@@ -516,6 +594,9 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @return value of Expand
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getOutputScale()
     {
@@ -540,6 +621,10 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Clip result to input size
+     * @return this filter (for chaining operations)
+     * 
      */
     public Mirrors setClip(boolean value)
     {
@@ -556,6 +641,9 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Clip result to input size
+     * 
      */
     public boolean getClip()
     {
@@ -580,6 +668,10 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Wrap input
+     * @return this filter (for chaining operations)
+     * 
      */
     public Mirrors setWarp(boolean value)
     {
@@ -596,6 +688,9 @@ public class Mirrors extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Wrap input
+     * 
      */
     public boolean getWarp()
     {

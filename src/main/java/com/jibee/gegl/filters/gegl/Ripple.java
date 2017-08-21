@@ -24,6 +24,8 @@ public class Ripple extends GeglFilter implements Source, Sink
     /** Constructs a Ripple.
      *
      * Displace pixels in a ripple pattern
+     *
+     * @param container container node
      */
     public Ripple(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Ripple extends GeglFilter implements Source, Sink
     /** Constructs a Ripple.
      *
      * Displace pixels in a ripple pattern
+     *
+     * @param parent parent filter node
      */
     public Ripple(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 25.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @param value new value for Amplitude
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Ripple setAmplitude(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1000.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
+	    }
 
         m_Amplitude = value;
         setProperty("amplitude", value);
@@ -76,6 +84,9 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 25.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @return value of Amplitude
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAmplitude()
     {
@@ -100,13 +111,17 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 200.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @param value new value for Period
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Ripple setPeriod(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1000.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
+	    }
 
         m_Period = value;
         setProperty("period", value);
@@ -120,6 +135,9 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 200.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @return value of Period
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getPeriod()
     {
@@ -144,13 +162,17 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -1.00 1.00
+     *
+     * @param value new value for Phase shift
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Ripple setPhi(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < -1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -1.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -1.00, 1.00);
+	    }
 
         m_Phi = value;
         setProperty("phi", value);
@@ -164,6 +186,9 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -1.00 1.00
+     *
+     * @return value of Phase shift
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getPhi()
     {
@@ -188,13 +213,17 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @param value new value for Angle
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Ripple setAngle(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < -180.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -180.00, 180.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -180.00, 180.00);
+	    }
 
         m_Angle = value;
         setProperty("angle", value);
@@ -208,6 +237,9 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: -180.00 180.00
+     *
+     * @return value of Angle
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAngle()
     {
@@ -232,6 +264,10 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Resampling method
+     * @return this filter (for chaining operations)
+     * 
      */
     public Ripple setSamplerType(String value)
     {
@@ -248,6 +284,9 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Resampling method
+     * 
      */
     public String getSamplerType()
     {
@@ -272,6 +311,10 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Wave type
+     * @return this filter (for chaining operations)
+     * 
      */
     public Ripple setWaveType(String value)
     {
@@ -288,6 +331,9 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Wave type
+     * 
      */
     public String getWaveType()
     {
@@ -312,6 +358,10 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Tileable
+     * @return this filter (for chaining operations)
+     * 
      */
     public Ripple setTileable(boolean value)
     {
@@ -328,6 +378,9 @@ public class Ripple extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Tileable
+     * 
      */
     public boolean getTileable()
     {

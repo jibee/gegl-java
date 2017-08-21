@@ -24,6 +24,8 @@ public class TileGlass extends GeglFilter implements Source, Sink
     /** Constructs a Tile Glass.
      *
      * Simulate distortion caused by rectangular glass tiles
+     *
+     * @param container container node
      */
     public TileGlass(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class TileGlass extends GeglFilter implements Source, Sink
     /** Constructs a Tile Glass.
      *
      * Simulate distortion caused by rectangular glass tiles
+     *
+     * @param parent parent filter node
      */
     public TileGlass(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class TileGlass extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 25
      * Acceptable Range: 5 500
+     *
+     * @param value new value for Tile Width
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public TileGlass setTileWidth(int value) throws ParameterOutOfRangeException
     {
 		if(value > 500 || value < 5)
-	{
-	    throw new ParameterOutOfRangeException(value, 5, 500);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 5, 500);
+	    }
 
         m_TileWidth = value;
         setProperty("tile-width", value);
@@ -76,6 +84,9 @@ public class TileGlass extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 25
      * Acceptable Range: 5 500
+     *
+     * @return value of Tile Width
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getTileWidth()
     {
@@ -100,13 +111,17 @@ public class TileGlass extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 25
      * Acceptable Range: 5 500
+     *
+     * @param value new value for Tile Height
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public TileGlass setTileHeight(int value) throws ParameterOutOfRangeException
     {
 		if(value > 500 || value < 5)
-	{
-	    throw new ParameterOutOfRangeException(value, 5, 500);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 5, 500);
+	    }
 
         m_TileHeight = value;
         setProperty("tile-height", value);
@@ -120,6 +135,9 @@ public class TileGlass extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 25
      * Acceptable Range: 5 500
+     *
+     * @return value of Tile Height
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getTileHeight()
     {

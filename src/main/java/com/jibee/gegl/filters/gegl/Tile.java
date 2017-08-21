@@ -23,6 +23,8 @@ public class Tile extends GeglFilter implements Source, Sink
     /** Constructs a Tile.
      *
      * Infinitely repeats the input image.
+     *
+     * @param container container node
      */
     public Tile(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Tile extends GeglFilter implements Source, Sink
     /** Constructs a Tile.
      *
      * Infinitely repeats the input image.
+     *
+     * @param parent parent filter node
      */
     public Tile(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Tile extends GeglFilter implements Source, Sink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Horizontal offset
+     * @return this filter (for chaining operations)
+     * 
      */
     public Tile setOffsetX(int value)
     {
@@ -71,6 +79,9 @@ public class Tile extends GeglFilter implements Source, Sink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Horizontal offset
+     * 
      */
     public int getOffsetX()
     {
@@ -95,6 +106,10 @@ public class Tile extends GeglFilter implements Source, Sink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Vertical offset
+     * @return this filter (for chaining operations)
+     * 
      */
     public Tile setOffsetY(int value)
     {
@@ -111,6 +126,9 @@ public class Tile extends GeglFilter implements Source, Sink
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Vertical offset
+     * 
      */
     public int getOffsetY()
     {

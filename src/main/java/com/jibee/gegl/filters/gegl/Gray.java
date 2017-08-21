@@ -23,6 +23,8 @@ public class Gray extends GeglFilter implements Source, Sink
     /** Constructs a Make Grey.
      *
      * Turns the image grayscale
+     *
+     * @param container container node
      */
     public Gray(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Gray extends GeglFilter implements Source, Sink
     /** Constructs a Make Grey.
      *
      * Turns the image grayscale
+     *
+     * @param parent parent filter node
      */
     public Gray(GeglFilter parent)
     {

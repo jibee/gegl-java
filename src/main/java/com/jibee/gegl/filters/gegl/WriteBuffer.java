@@ -22,6 +22,8 @@ public class WriteBuffer extends GeglFilter implements Sink
     /** Constructs a Write Buffer.
      *
      * Write input data into an existing GEGL buffer destination surface.
+     *
+     * @param container container node
      */
     public WriteBuffer(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class WriteBuffer extends GeglFilter implements Sink
     /** Constructs a Write Buffer.
      *
      * Write input data into an existing GEGL buffer destination surface.
+     *
+     * @param parent parent filter node
      */
     public WriteBuffer(GeglFilter parent)
     {
@@ -54,6 +58,10 @@ public class WriteBuffer extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Buffer location
+     * @return this filter (for chaining operations)
+     * 
      */
     public WriteBuffer setBuffer(GeglBuffer value)
     {
@@ -70,6 +78,9 @@ public class WriteBuffer extends GeglFilter implements Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Buffer location
+     * 
      */
     public GeglBuffer getBuffer()
     {

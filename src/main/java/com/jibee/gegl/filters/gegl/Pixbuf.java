@@ -22,6 +22,8 @@ public class Pixbuf extends GeglFilter implements Source
     /** Constructs a GdkPixbuf Source.
      *
      * Uses the GdkPixbuf located at the memory location in <em>pixbuf</em>.
+     *
+     * @param container container node
      */
     public Pixbuf(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class Pixbuf extends GeglFilter implements Source
     /** Constructs a GdkPixbuf Source.
      *
      * Uses the GdkPixbuf located at the memory location in <em>pixbuf</em>.
+     *
+     * @param parent parent filter node
      */
     public Pixbuf(GeglFilter parent)
     {
@@ -54,6 +58,10 @@ public class Pixbuf extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Pixbuf
+     * @return this filter (for chaining operations)
+     * 
      */
     public Pixbuf setPixbuf(GeglBuffer value)
     {
@@ -70,6 +78,9 @@ public class Pixbuf extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Pixbuf
+     * 
      */
     public GeglBuffer getPixbuf()
     {

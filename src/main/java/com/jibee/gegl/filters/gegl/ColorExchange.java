@@ -25,6 +25,8 @@ public class ColorExchange extends GeglFilter implements Source, Sink
     /** Constructs a Exchange color.
      *
      * Exchange one color with another, optionally setting a threshold to convert from one shade to another.
+     *
+     * @param container container node
      */
     public ColorExchange(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class ColorExchange extends GeglFilter implements Source, Sink
     /** Constructs a Exchange color.
      *
      * Exchange one color with another, optionally setting a threshold to convert from one shade to another.
+     *
+     * @param parent parent filter node
      */
     public ColorExchange(GeglFilter parent)
     {
@@ -57,6 +61,10 @@ public class ColorExchange extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for From Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorExchange setFromColor(GeglColor value)
     {
@@ -73,6 +81,9 @@ public class ColorExchange extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(1.0000, 1.0000, 1.0000)")
      * Acceptable Range:  
+     *
+     * @return value of From Color
+     * 
      */
     public GeglColor getFromColor()
     {
@@ -97,6 +108,10 @@ public class ColorExchange extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for To Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorExchange setToColor(GeglColor value)
     {
@@ -113,6 +128,9 @@ public class ColorExchange extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of To Color
+     * 
      */
     public GeglColor getToColor()
     {
@@ -137,13 +155,17 @@ public class ColorExchange extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Red Threshold
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ColorExchange setRedThreshold(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_RedThreshold = value;
         setProperty("red-threshold", value);
@@ -157,6 +179,9 @@ public class ColorExchange extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Red Threshold
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRedThreshold()
     {
@@ -181,13 +206,17 @@ public class ColorExchange extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Green Threshold
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ColorExchange setGreenThreshold(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_GreenThreshold = value;
         setProperty("green-threshold", value);
@@ -201,6 +230,9 @@ public class ColorExchange extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Green Threshold
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getGreenThreshold()
     {
@@ -225,13 +257,17 @@ public class ColorExchange extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Blue Threshold
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ColorExchange setBlueThreshold(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_BlueThreshold = value;
         setProperty("blue-threshold", value);
@@ -245,6 +281,9 @@ public class ColorExchange extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Blue Threshold
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBlueThreshold()
     {

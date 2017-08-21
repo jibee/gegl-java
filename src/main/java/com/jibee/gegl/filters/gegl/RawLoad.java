@@ -21,6 +21,8 @@ public class RawLoad extends GeglFilter implements Source
     /** Constructs a libraw File Loader.
      *
      * Camera RAW image loader
+     *
+     * @param container container node
      */
     public RawLoad(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class RawLoad extends GeglFilter implements Source
     /** Constructs a libraw File Loader.
      *
      * Camera RAW image loader
+     *
+     * @param parent parent filter node
      */
     public RawLoad(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class RawLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public RawLoad setPath(String value)
     {
@@ -69,6 +77,9 @@ public class RawLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {
@@ -93,6 +104,10 @@ public class RawLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Image number
+     * @return this filter (for chaining operations)
+     * 
      */
     public RawLoad setImageNum(int value)
     {
@@ -109,6 +124,9 @@ public class RawLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Image number
+     * 
      */
     public int getImageNum()
     {
@@ -133,6 +151,10 @@ public class RawLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 10
      * Acceptable Range:  
+     *
+     * @param value new value for quality
+     * @return this filter (for chaining operations)
+     * 
      */
     public RawLoad setQuality(int value)
     {
@@ -149,6 +171,9 @@ public class RawLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 10
      * Acceptable Range:  
+     *
+     * @return value of quality
+     * 
      */
     public int getQuality()
     {

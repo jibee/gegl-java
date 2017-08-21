@@ -26,6 +26,8 @@ public class Path extends GeglFilter implements Source, Sink
     /** Constructs a Render Path.
      *
      * Renders a brush stroke
+     *
+     * @param container container node
      */
     public Path(GeglNode container)
     {
@@ -34,6 +36,8 @@ public class Path extends GeglFilter implements Source, Sink
     /** Constructs a Render Path.
      *
      * Renders a brush stroke
+     *
+     * @param parent parent filter node
      */
     public Path(GeglFilter parent)
     {
@@ -58,6 +62,10 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.6000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Fill Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Path setFill(GeglColor value)
     {
@@ -74,6 +82,9 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.6000)")
      * Acceptable Range:  
+     *
+     * @return value of Fill Color
+     * 
      */
     public GeglColor getFill()
     {
@@ -98,6 +109,10 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Stroke Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Path setStroke(GeglColor value)
     {
@@ -114,6 +129,9 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgba(0.0000, 0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Stroke Color
+     * 
      */
     public GeglColor getStroke()
     {
@@ -138,13 +156,17 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2.00
      * Acceptable Range: 0.00 200.00
+     *
+     * @param value new value for Stroke width
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Path setStrokeWidth(double value) throws ParameterOutOfRangeException
     {
 		if(value > 200.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 200.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 200.00);
+	    }
 
         m_StrokeWidth = value;
         setProperty("stroke-width", value);
@@ -158,6 +180,9 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 2.00
      * Acceptable Range: 0.00 200.00
+     *
+     * @return value of Stroke width
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getStrokeWidth()
     {
@@ -182,13 +207,17 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @param value new value for Stroke opacity
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Path setStrokeOpacity(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < -2.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.00, 2.00);
+	    }
 
         m_StrokeOpacity = value;
         setProperty("stroke-opacity", value);
@@ -202,6 +231,9 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @return value of Stroke opacity
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getStrokeOpacity()
     {
@@ -226,13 +258,17 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.60
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Hardness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Path setStrokeHardness(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_StrokeHardness = value;
         setProperty("stroke-hardness", value);
@@ -246,6 +282,9 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.60
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Hardness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getStrokeHardness()
     {
@@ -270,6 +309,10 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: "nonzero"
      * Acceptable Range:  
+     *
+     * @param value new value for Fill rule
+     * @return this filter (for chaining operations)
+     * 
      */
     public Path setFillRule(String value)
     {
@@ -286,6 +329,9 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: "nonzero"
      * Acceptable Range:  
+     *
+     * @return value of Fill rule
+     * 
      */
     public String getFillRule()
     {
@@ -310,6 +356,10 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Transform
+     * @return this filter (for chaining operations)
+     * 
      */
     public Path setTransform(String value)
     {
@@ -326,6 +376,9 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Transform
+     * 
      */
     public String getTransform()
     {
@@ -350,13 +403,17 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @param value new value for Fill opacity
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Path setFillOpacity(double value) throws ParameterOutOfRangeException
     {
 		if(value > 2.00 || value < -2.00)
-	{
-	    throw new ParameterOutOfRangeException(value, -2.00, 2.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -2.00, 2.00);
+	    }
 
         m_FillOpacity = value;
         setProperty("fill-opacity", value);
@@ -370,6 +427,9 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: -2.00 2.00
+     *
+     * @return value of Fill opacity
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getFillOpacity()
     {
@@ -394,6 +454,10 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Vector
+     * @return this filter (for chaining operations)
+     * 
      */
     public Path setD(GeglVector value)
     {
@@ -410,6 +474,9 @@ public class Path extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Vector
+     * 
      */
     public GeglVector getD()
     {

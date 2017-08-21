@@ -24,6 +24,8 @@ public class RgbClip extends GeglFilter implements Source, Sink
     /** Constructs a Clip RGB.
      *
      * Keep RGB pixels values inside a specific range
+     *
+     * @param container container node
      */
     public RgbClip(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class RgbClip extends GeglFilter implements Source, Sink
     /** Constructs a Clip RGB.
      *
      * Keep RGB pixels values inside a specific range
+     *
+     * @param parent parent filter node
      */
     public RgbClip(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class RgbClip extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Clip low pixel values
+     * @return this filter (for chaining operations)
+     * 
      */
     public RgbClip setClipLow(boolean value)
     {
@@ -72,6 +80,9 @@ public class RgbClip extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Clip low pixel values
+     * 
      */
     public boolean getClipLow()
     {
@@ -96,13 +107,17 @@ public class RgbClip extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  0.00
+     *
+     * @param value new value for Low limit
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public RgbClip setLowLimit(double value) throws ParameterOutOfRangeException
     {
 		if(value > 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 0.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 0.00);
+	    }
 
         m_LowLimit = value;
         setProperty("low-limit", value);
@@ -116,6 +131,9 @@ public class RgbClip extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  0.00
+     *
+     * @return value of Low limit
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getLowLimit()
     {
@@ -140,6 +158,10 @@ public class RgbClip extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Clip high pixel values
+     * @return this filter (for chaining operations)
+     * 
      */
     public RgbClip setClipHigh(boolean value)
     {
@@ -156,6 +178,9 @@ public class RgbClip extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Clip high pixel values
+     * 
      */
     public boolean getClipHigh()
     {
@@ -180,13 +205,17 @@ public class RgbClip extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 1.00 
+     *
+     * @param value new value for High limit
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public RgbClip setHighLimit(double value) throws ParameterOutOfRangeException
     {
 		if(value < 1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 1.00, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1.00, Double.POSITIVE_INFINITY);
+	    }
 
         m_HighLimit = value;
         setProperty("high-limit", value);
@@ -200,6 +229,9 @@ public class RgbClip extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 1.00
      * Acceptable Range: 1.00 
+     *
+     * @return value of High limit
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getHighLimit()
     {

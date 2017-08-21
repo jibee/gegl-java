@@ -23,6 +23,8 @@ public class Grid extends GeglFilter implements Source
     /** Constructs a Grid.
      *
      * Grid renderer
+     *
+     * @param container container node
      */
     public Grid(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Grid extends GeglFilter implements Source
     /** Constructs a Grid.
      *
      * Grid renderer
+     *
+     * @param parent parent filter node
      */
     public Grid(GeglFilter parent)
     {
@@ -55,13 +59,17 @@ public class Grid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 32
      * Acceptable Range: 1 
+     *
+     * @param value new value for Width
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Grid setX(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
+	    }
 
         m_X = value;
         setProperty("x", value);
@@ -75,6 +83,9 @@ public class Grid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 32
      * Acceptable Range: 1 
+     *
+     * @return value of Width
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getX()
     {
@@ -99,13 +110,17 @@ public class Grid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 32
      * Acceptable Range: 1 
+     *
+     * @param value new value for Height
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Grid setY(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
+	    }
 
         m_Y = value;
         setProperty("y", value);
@@ -119,6 +134,9 @@ public class Grid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 32
      * Acceptable Range: 1 
+     *
+     * @return value of Height
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getY()
     {
@@ -143,6 +161,10 @@ public class Grid extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Offset X
+     * @return this filter (for chaining operations)
+     * 
      */
     public Grid setXOffset(int value)
     {
@@ -159,6 +181,9 @@ public class Grid extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Offset X
+     * 
      */
     public int getXOffset()
     {
@@ -183,6 +208,10 @@ public class Grid extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Offset Y
+     * @return this filter (for chaining operations)
+     * 
      */
     public Grid setYOffset(int value)
     {
@@ -199,6 +228,9 @@ public class Grid extends GeglFilter implements Source
      * Unit: pixel-coordinate
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Offset Y
+     * 
      */
     public int getYOffset()
     {
@@ -223,6 +255,10 @@ public class Grid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 4
      * Acceptable Range:  
+     *
+     * @param value new value for Line width
+     * @return this filter (for chaining operations)
+     * 
      */
     public Grid setLineWidth(int value)
     {
@@ -239,6 +275,9 @@ public class Grid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 4
      * Acceptable Range:  
+     *
+     * @return value of Line width
+     * 
      */
     public int getLineWidth()
     {
@@ -263,6 +302,10 @@ public class Grid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 4
      * Acceptable Range:  
+     *
+     * @param value new value for Line height
+     * @return this filter (for chaining operations)
+     * 
      */
     public Grid setLineHeight(int value)
     {
@@ -279,6 +322,9 @@ public class Grid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 4
      * Acceptable Range:  
+     *
+     * @return value of Line height
+     * 
      */
     public int getLineHeight()
     {
@@ -303,6 +349,10 @@ public class Grid extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Color
+     * @return this filter (for chaining operations)
+     * 
      */
     public Grid setLineColor(GeglColor value)
     {
@@ -319,6 +369,9 @@ public class Grid extends GeglFilter implements Source
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Color
+     * 
      */
     public GeglColor getLineColor()
     {

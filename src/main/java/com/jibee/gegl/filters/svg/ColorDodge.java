@@ -23,6 +23,8 @@ public class ColorDodge extends GeglFilter implements Source, DualSink
     /** Constructs a Color-dodge.
      *
      * SVG blend operation color-dodge (<code>if cA * aB + cB * aA >= aA * aB: d = aA * aB + cA * (1 - aB) + cB * (1 - aA) otherwise: d = (cA == aA ? 1 : cB * aA / (aA == 0 ? 1 : 1 - cA / aA)) + cA * (1 - aB) + cB * (1 - aA)</code>)
+     *
+     * @param container container node
      */
     public ColorDodge(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class ColorDodge extends GeglFilter implements Source, DualSink
     /** Constructs a Color-dodge.
      *
      * SVG blend operation color-dodge (<code>if cA * aB + cB * aA >= aA * aB: d = aA * aB + cA * (1 - aB) + cB * (1 - aA) otherwise: d = (cA == aA ? 1 : cB * aA / (aA == 0 ? 1 : 1 - cA / aA)) + cA * (1 - aB) + cB * (1 - aA)</code>)
+     *
+     * @param parent parent filter node
      */
     public ColorDodge(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class ColorDodge extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorDodge setSrgb(boolean value)
     {
@@ -71,6 +79,9 @@ public class ColorDodge extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

@@ -24,6 +24,8 @@ public class NoiseSpread extends GeglFilter implements Source, Sink
     /** Constructs a Noise Spread.
      *
      * Move pixels around randomly
+     *
+     * @param container container node
      */
     public NoiseSpread(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class NoiseSpread extends GeglFilter implements Source, Sink
     /** Constructs a Noise Spread.
      *
      * Move pixels around randomly
+     *
+     * @param parent parent filter node
      */
     public NoiseSpread(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class NoiseSpread extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 5
      * Acceptable Range:  512
+     *
+     * @param value new value for Horizontal
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseSpread setAmountX(int value) throws ParameterOutOfRangeException
     {
 		if(value > 512)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 512);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 512);
+	    }
 
         m_AmountX = value;
         setProperty("amount-x", value);
@@ -76,6 +84,9 @@ public class NoiseSpread extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 5
      * Acceptable Range:  512
+     *
+     * @return value of Horizontal
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getAmountX()
     {
@@ -100,13 +111,17 @@ public class NoiseSpread extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 5
      * Acceptable Range:  512
+     *
+     * @param value new value for Vertical
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseSpread setAmountY(int value) throws ParameterOutOfRangeException
     {
 		if(value > 512)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 512);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 512);
+	    }
 
         m_AmountY = value;
         setProperty("amount-y", value);
@@ -120,6 +135,9 @@ public class NoiseSpread extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 5
      * Acceptable Range:  512
+     *
+     * @return value of Vertical
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getAmountY()
     {
@@ -144,6 +162,10 @@ public class NoiseSpread extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoiseSpread setSeed(int value)
     {
@@ -160,6 +182,9 @@ public class NoiseSpread extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

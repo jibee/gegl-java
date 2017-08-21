@@ -24,6 +24,8 @@ public class Exposure extends GeglFilter implements Source, Sink
     /** Constructs a Exposure.
      *
      * Changes Exposure of an image, allows stepping HDR and photographs up/down in stops. 
+     *
+     * @param container container node
      */
     public Exposure(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Exposure extends GeglFilter implements Source, Sink
     /** Constructs a Exposure.
      *
      * Changes Exposure of an image, allows stepping HDR and photographs up/down in stops. 
+     *
+     * @param parent parent filter node
      */
     public Exposure(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Exposure extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -0.10 0.10
+     *
+     * @param value new value for Black level
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Exposure setBlackLevel(double value) throws ParameterOutOfRangeException
     {
 		if(value > 0.10 || value < -0.10)
-	{
-	    throw new ParameterOutOfRangeException(value, -0.10, 0.10);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, -0.10, 0.10);
+	    }
 
         m_BlackLevel = value;
         setProperty("black-level", value);
@@ -76,6 +84,9 @@ public class Exposure extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: -0.10 0.10
+     *
+     * @return value of Black level
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBlackLevel()
     {
@@ -100,6 +111,10 @@ public class Exposure extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @param value new value for Exposure
+     * @return this filter (for chaining operations)
+     * 
      */
     public Exposure setExposure(double value)
     {
@@ -116,6 +131,9 @@ public class Exposure extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range:  
+     *
+     * @return value of Exposure
+     * 
      */
     public double getExposure()
     {

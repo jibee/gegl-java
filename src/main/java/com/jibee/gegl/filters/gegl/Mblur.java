@@ -24,6 +24,8 @@ public class Mblur extends GeglFilter implements Source, Sink
     /** Constructs a Temporal blur.
      *
      * Accumulating motion blur using a kalman filter, for use with video sequences of frames.
+     *
+     * @param container container node
      */
     public Mblur(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Mblur extends GeglFilter implements Source, Sink
     /** Constructs a Temporal blur.
      *
      * Accumulating motion blur using a kalman filter, for use with video sequences of frames.
+     *
+     * @param parent parent filter node
      */
     public Mblur(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class Mblur extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.95
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Dampness
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Mblur setDampness(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Dampness = value;
         setProperty("dampness", value);
@@ -76,6 +84,9 @@ public class Mblur extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.95
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Dampness
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getDampness()
     {

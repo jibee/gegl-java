@@ -22,6 +22,8 @@ public class BufferSource extends GeglFilter implements Source
     /** Constructs a Buffer Source.
      *
      * Use an existing in-memory GeglBuffer as image source.
+     *
+     * @param container container node
      */
     public BufferSource(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class BufferSource extends GeglFilter implements Source
     /** Constructs a Buffer Source.
      *
      * Use an existing in-memory GeglBuffer as image source.
+     *
+     * @param parent parent filter node
      */
     public BufferSource(GeglFilter parent)
     {
@@ -54,6 +58,10 @@ public class BufferSource extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Input buffer
+     * @return this filter (for chaining operations)
+     * 
      */
     public BufferSource setBuffer(GeglBuffer value)
     {
@@ -70,6 +78,9 @@ public class BufferSource extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Input buffer
+     * 
      */
     public GeglBuffer getBuffer()
     {

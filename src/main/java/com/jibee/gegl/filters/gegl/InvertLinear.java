@@ -23,6 +23,8 @@ public class InvertLinear extends GeglFilter implements Source, Sink
     /** Constructs a Invert.
      *
      * Invert the components (except alpha) in linear light, the result is the corresponding "negative" image.
+     *
+     * @param container container node
      */
     public InvertLinear(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class InvertLinear extends GeglFilter implements Source, Sink
     /** Constructs a Invert.
      *
      * Invert the components (except alpha) in linear light, the result is the corresponding "negative" image.
+     *
+     * @param parent parent filter node
      */
     public InvertLinear(GeglFilter parent)
     {

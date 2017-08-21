@@ -24,6 +24,8 @@ public class Wind extends GeglFilter implements Source, Sink
     /** Constructs a Wind.
      *
      * Wind-like bleed effect
+     *
+     * @param container container node
      */
     public Wind(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class Wind extends GeglFilter implements Source, Sink
     /** Constructs a Wind.
      *
      * Wind-like bleed effect
+     *
+     * @param parent parent filter node
      */
     public Wind(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class Wind extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Style
+     * @return this filter (for chaining operations)
+     * 
      */
     public Wind setStyle(String value)
     {
@@ -72,6 +80,9 @@ public class Wind extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Style
+     * 
      */
     public String getStyle()
     {
@@ -96,6 +107,10 @@ public class Wind extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Direction
+     * @return this filter (for chaining operations)
+     * 
      */
     public Wind setDirection(String value)
     {
@@ -112,6 +127,9 @@ public class Wind extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Direction
+     * 
      */
     public String getDirection()
     {
@@ -136,6 +154,10 @@ public class Wind extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Edge Affected
+     * @return this filter (for chaining operations)
+     * 
      */
     public Wind setEdge(String value)
     {
@@ -152,6 +174,9 @@ public class Wind extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Edge Affected
+     * 
      */
     public String getEdge()
     {
@@ -176,13 +201,17 @@ public class Wind extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10
      * Acceptable Range:  50
+     *
+     * @param value new value for Threshold
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Wind setThreshold(int value) throws ParameterOutOfRangeException
     {
 		if(value > 50)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 50);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 50);
+	    }
 
         m_Threshold = value;
         setProperty("threshold", value);
@@ -196,6 +225,9 @@ public class Wind extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10
      * Acceptable Range:  50
+     *
+     * @return value of Threshold
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getThreshold()
     {
@@ -220,13 +252,17 @@ public class Wind extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10
      * Acceptable Range: 1 100
+     *
+     * @param value new value for Strength
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public Wind setStrength(int value) throws ParameterOutOfRangeException
     {
 		if(value > 100 || value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, 100);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, 100);
+	    }
 
         m_Strength = value;
         setProperty("strength", value);
@@ -240,6 +276,9 @@ public class Wind extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10
      * Acceptable Range: 1 100
+     *
+     * @return value of Strength
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getStrength()
     {
@@ -264,6 +303,10 @@ public class Wind extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public Wind setSeed(int value)
     {
@@ -280,6 +323,9 @@ public class Wind extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

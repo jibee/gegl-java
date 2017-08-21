@@ -23,6 +23,8 @@ public class Grey2 extends GeglFilter implements Source, Sink
     /** Constructs a .
      *
      * 
+     *
+     * @param container container node
      */
     public Grey2(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Grey2 extends GeglFilter implements Source, Sink
     /** Constructs a .
      *
      * 
+     *
+     * @param parent parent filter node
      */
     public Grey2(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Grey2 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10.00
      * Acceptable Range:  
+     *
+     * @param value new value for height
+     * @return this filter (for chaining operations)
+     * 
      */
     public Grey2 setHeight(double value)
     {
@@ -71,6 +79,9 @@ public class Grey2 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10.00
      * Acceptable Range:  
+     *
+     * @return value of height
+     * 
      */
     public double getHeight()
     {
@@ -95,6 +106,10 @@ public class Grey2 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10.00
      * Acceptable Range:  
+     *
+     * @param value new value for width
+     * @return this filter (for chaining operations)
+     * 
      */
     public Grey2 setWidth(double value)
     {
@@ -111,6 +126,9 @@ public class Grey2 extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 10.00
      * Acceptable Range:  
+     *
+     * @return value of width
+     * 
      */
     public double getWidth()
     {

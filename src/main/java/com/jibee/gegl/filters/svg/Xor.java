@@ -23,6 +23,8 @@ public class Xor extends GeglFilter implements Source, DualSink
     /** Constructs a Xor.
      *
      * Porter Duff operation xor (d = cA * (1.0f - aB)+ cB * (1.0f - aA))
+     *
+     * @param container container node
      */
     public Xor(GeglNode container)
     {
@@ -31,6 +33,8 @@ public class Xor extends GeglFilter implements Source, DualSink
     /** Constructs a Xor.
      *
      * Porter Duff operation xor (d = cA * (1.0f - aB)+ cB * (1.0f - aA))
+     *
+     * @param parent parent filter node
      */
     public Xor(GeglFilter parent)
     {
@@ -55,6 +59,10 @@ public class Xor extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for sRGB
+     * @return this filter (for chaining operations)
+     * 
      */
     public Xor setSrgb(boolean value)
     {
@@ -71,6 +79,9 @@ public class Xor extends GeglFilter implements Source, DualSink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of sRGB
+     * 
      */
     public boolean getSrgb()
     {

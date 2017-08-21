@@ -22,6 +22,8 @@ public class NoiseSolid extends GeglFilter implements Source
     /** Constructs a Solid Noise.
      *
      * Create a random cloud-like texture
+     *
+     * @param container container node
      */
     public NoiseSolid(GeglNode container)
     {
@@ -30,6 +32,8 @@ public class NoiseSolid extends GeglFilter implements Source
     /** Constructs a Solid Noise.
      *
      * Create a random cloud-like texture
+     *
+     * @param parent parent filter node
      */
     public NoiseSolid(GeglFilter parent)
     {
@@ -54,13 +58,17 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 4.00
      * Acceptable Range: 0.10 16.00
+     *
+     * @param value new value for X Size
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseSolid setXSize(double value) throws ParameterOutOfRangeException
     {
 		if(value > 16.00 || value < 0.10)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.10, 16.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.10, 16.00);
+	    }
 
         m_XSize = value;
         setProperty("x-size", value);
@@ -74,6 +82,9 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 4.00
      * Acceptable Range: 0.10 16.00
+     *
+     * @return value of X Size
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getXSize()
     {
@@ -98,13 +109,17 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 4.00
      * Acceptable Range: 0.10 16.00
+     *
+     * @param value new value for Y Size
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseSolid setYSize(double value) throws ParameterOutOfRangeException
     {
 		if(value > 16.00 || value < 0.10)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.10, 16.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.10, 16.00);
+	    }
 
         m_YSize = value;
         setProperty("y-size", value);
@@ -118,6 +133,9 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 4.00
      * Acceptable Range: 0.10 16.00
+     *
+     * @return value of Y Size
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getYSize()
     {
@@ -142,13 +160,17 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: 
      * Default value: 1
      * Acceptable Range:  15
+     *
+     * @param value new value for Detail
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public NoiseSolid setDetail(int value) throws ParameterOutOfRangeException
     {
 		if(value > 15)
-	{
-	    throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 15);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, Double.NEGATIVE_INFINITY, 15);
+	    }
 
         m_Detail = value;
         setProperty("detail", value);
@@ -162,6 +184,9 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: 
      * Default value: 1
      * Acceptable Range:  15
+     *
+     * @return value of Detail
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getDetail()
     {
@@ -186,6 +211,10 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Tileable
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoiseSolid setTileable(boolean value)
     {
@@ -202,6 +231,9 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Tileable
+     * 
      */
     public boolean getTileable()
     {
@@ -226,6 +258,10 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Turbulent
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoiseSolid setTurbulent(boolean value)
     {
@@ -242,6 +278,9 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Turbulent
+     * 
      */
     public boolean getTurbulent()
     {
@@ -266,6 +305,10 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoiseSolid setSeed(int value)
     {
@@ -282,6 +325,9 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {
@@ -306,6 +352,10 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 1024
      * Acceptable Range:  
+     *
+     * @param value new value for Width
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoiseSolid setWidth(int value)
     {
@@ -322,6 +372,9 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 1024
      * Acceptable Range:  
+     *
+     * @return value of Width
+     * 
      */
     public int getWidth()
     {
@@ -346,6 +399,10 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 768
      * Acceptable Range:  
+     *
+     * @param value new value for Height
+     * @return this filter (for chaining operations)
+     * 
      */
     public NoiseSolid setHeight(int value)
     {
@@ -362,6 +419,9 @@ public class NoiseSolid extends GeglFilter implements Source
      * Unit: pixel-distance
      * Default value: 768
      * Acceptable Range:  
+     *
+     * @return value of Height
+     * 
      */
     public int getHeight()
     {

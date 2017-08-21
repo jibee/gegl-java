@@ -21,6 +21,8 @@ public class MagickLoad extends GeglFilter implements Source
     /** Constructs a .
      *
      * Image Magick wrapper using the png op.
+     *
+     * @param container container node
      */
     public MagickLoad(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class MagickLoad extends GeglFilter implements Source
     /** Constructs a .
      *
      * Image Magick wrapper using the png op.
+     *
+     * @param parent parent filter node
      */
     public MagickLoad(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class MagickLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: "/tmp/gegl-logo.svg"
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public MagickLoad setPath(String value)
     {
@@ -69,6 +77,9 @@ public class MagickLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: "/tmp/gegl-logo.svg"
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {

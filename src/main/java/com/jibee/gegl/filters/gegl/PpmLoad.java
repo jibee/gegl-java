@@ -21,6 +21,8 @@ public class PpmLoad extends GeglFilter implements Source
     /** Constructs a PPM File Loader.
      *
      * PPM image loader.
+     *
+     * @param container container node
      */
     public PpmLoad(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class PpmLoad extends GeglFilter implements Source
     /** Constructs a PPM File Loader.
      *
      * PPM image loader.
+     *
+     * @param parent parent filter node
      */
     public PpmLoad(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class PpmLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for File
+     * @return this filter (for chaining operations)
+     * 
      */
     public PpmLoad setPath(String value)
     {
@@ -69,6 +77,9 @@ public class PpmLoad extends GeglFilter implements Source
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of File
+     * 
      */
     public String getPath()
     {

@@ -25,6 +25,8 @@ public class TilePaper extends GeglFilter implements Source, Sink
     /** Constructs a Paper Tile.
      *
      * Cut image into paper tiles, and slide them
+     *
+     * @param container container node
      */
     public TilePaper(GeglNode container)
     {
@@ -33,6 +35,8 @@ public class TilePaper extends GeglFilter implements Source, Sink
     /** Constructs a Paper Tile.
      *
      * Cut image into paper tiles, and slide them
+     *
+     * @param parent parent filter node
      */
     public TilePaper(GeglFilter parent)
     {
@@ -57,13 +61,17 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 155
      * Acceptable Range: 1 
+     *
+     * @param value new value for Tile Width
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public TilePaper setTileWidth(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
+	    }
 
         m_TileWidth = value;
         setProperty("tile-width", value);
@@ -77,6 +85,9 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 155
      * Acceptable Range: 1 
+     *
+     * @return value of Tile Width
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getTileWidth()
     {
@@ -101,13 +112,17 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 56
      * Acceptable Range: 1 
+     *
+     * @param value new value for Tile Height
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public TilePaper setTileHeight(int value) throws ParameterOutOfRangeException
     {
 		if(value < 1)
-	{
-	    throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1, Double.POSITIVE_INFINITY);
+	    }
 
         m_TileHeight = value;
         setProperty("tile-height", value);
@@ -121,6 +136,9 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 56
      * Acceptable Range: 1 
+     *
+     * @return value of Tile Height
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getTileHeight()
     {
@@ -145,13 +163,17 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: percent
      * Default value: 25.00
      * Acceptable Range: 1.00 100.00
+     *
+     * @param value new value for Move rate
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public TilePaper setMoveRate(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 1.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1.00, 100.00);
+	    }
 
         m_MoveRate = value;
         setProperty("move-rate", value);
@@ -165,6 +187,9 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: percent
      * Default value: 25.00
      * Acceptable Range: 1.00 100.00
+     *
+     * @return value of Move rate
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getMoveRate()
     {
@@ -189,6 +214,10 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Wrap around
+     * @return this filter (for chaining operations)
+     * 
      */
     public TilePaper setWrapAround(boolean value)
     {
@@ -205,6 +234,9 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Wrap around
+     * 
      */
     public boolean getWrapAround()
     {
@@ -229,6 +261,10 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Fractional type
+     * @return this filter (for chaining operations)
+     * 
      */
     public TilePaper setFractionalType(String value)
     {
@@ -245,6 +281,9 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Fractional type
+     * 
      */
     public String getFractionalType()
     {
@@ -269,6 +308,10 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @param value new value for Centering
+     * @return this filter (for chaining operations)
+     * 
      */
     public TilePaper setCentering(boolean value)
     {
@@ -285,6 +328,9 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: true
      * Acceptable Range:  
+     *
+     * @return value of Centering
+     * 
      */
     public boolean getCentering()
     {
@@ -309,6 +355,10 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Background type
+     * @return this filter (for chaining operations)
+     * 
      */
     public TilePaper setBackgroundType(String value)
     {
@@ -325,6 +375,9 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Background type
+     * 
      */
     public String getBackgroundType()
     {
@@ -349,6 +402,10 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @param value new value for Background color
+     * @return this filter (for chaining operations)
+     * 
      */
     public TilePaper setBgColor(GeglColor value)
     {
@@ -365,6 +422,9 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: makeColor("rgb(0.0000, 0.0000, 0.0000)")
      * Acceptable Range:  
+     *
+     * @return value of Background color
+     * 
      */
     public GeglColor getBgColor()
     {
@@ -389,6 +449,10 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Random seed
+     * @return this filter (for chaining operations)
+     * 
      */
     public TilePaper setSeed(int value)
     {
@@ -405,6 +469,9 @@ public class TilePaper extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Random seed
+     * 
      */
     public int getSeed()
     {

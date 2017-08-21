@@ -24,6 +24,8 @@ public class EdgeNeon extends GeglFilter implements Source, Sink
     /** Constructs a Neon Edge Detection.
      *
      * Performs edge detection using a Gaussian derivative method
+     *
+     * @param container container node
      */
     public EdgeNeon(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class EdgeNeon extends GeglFilter implements Source, Sink
     /** Constructs a Neon Edge Detection.
      *
      * Performs edge detection using a Gaussian derivative method
+     *
+     * @param parent parent filter node
      */
     public EdgeNeon(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class EdgeNeon extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 5.00
      * Acceptable Range: 1.00 1500.00
+     *
+     * @param value new value for Radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public EdgeNeon setRadius(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1500.00 || value < 1.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 1.00, 1500.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 1.00, 1500.00);
+	    }
 
         m_Radius = value;
         setProperty("radius", value);
@@ -76,6 +84,9 @@ public class EdgeNeon extends GeglFilter implements Source, Sink
      * Unit: pixel-distance
      * Default value: 5.00
      * Acceptable Range: 1.00 1500.00
+     *
+     * @return value of Radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRadius()
     {
@@ -100,13 +111,17 @@ public class EdgeNeon extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @param value new value for Intensity
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public EdgeNeon setAmount(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 100.00);
+	    }
 
         m_Amount = value;
         setProperty("amount", value);
@@ -120,6 +135,9 @@ public class EdgeNeon extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @return value of Intensity
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAmount()
     {

@@ -24,6 +24,8 @@ public class ColorRotate extends GeglFilter implements Source, Sink
     /** Constructs a Color Rotate.
      *
      * Replace a range of colors with another
+     *
+     * @param container container node
      */
     public ColorRotate(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class ColorRotate extends GeglFilter implements Source, Sink
     /** Constructs a Color Rotate.
      *
      * Replace a range of colors with another
+     *
+     * @param parent parent filter node
      */
     public ColorRotate(GeglFilter parent)
     {
@@ -56,6 +60,10 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Clockwise
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorRotate setSrcClockwise(boolean value)
     {
@@ -72,6 +80,9 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Clockwise
+     * 
      */
     public boolean getSrcClockwise()
     {
@@ -96,13 +107,17 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for From
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ColorRotate setSrcFrom(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_SrcFrom = value;
         setProperty("src-from", value);
@@ -116,6 +131,9 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of From
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getSrcFrom()
     {
@@ -140,13 +158,17 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 90.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for To
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ColorRotate setSrcTo(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_SrcTo = value;
         setProperty("src-to", value);
@@ -160,6 +182,9 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 90.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of To
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getSrcTo()
     {
@@ -184,6 +209,10 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @param value new value for Clockwise
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorRotate setDestClockwise(boolean value)
     {
@@ -200,6 +229,9 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: false
      * Acceptable Range:  
+     *
+     * @return value of Clockwise
+     * 
      */
     public boolean getDestClockwise()
     {
@@ -224,13 +256,17 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for From
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ColorRotate setDestFrom(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_DestFrom = value;
         setProperty("dest-from", value);
@@ -244,6 +280,9 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of From
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getDestFrom()
     {
@@ -268,13 +307,17 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 90.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for To
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ColorRotate setDestTo(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_DestTo = value;
         setProperty("dest-to", value);
@@ -288,6 +331,9 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: degree
      * Default value: 90.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of To
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getDestTo()
     {
@@ -312,13 +358,17 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Gray threshold
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ColorRotate setThreshold(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Threshold = value;
         setProperty("threshold", value);
@@ -332,6 +382,9 @@ public class ColorRotate extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Gray threshold
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getThreshold()
     {
@@ -358,6 +411,10 @@ Change to this: Change gray colors to this hue and saturation
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @param value new value for Gray mode
+     * @return this filter (for chaining operations)
+     * 
      */
     public ColorRotate setGrayMode(String value)
     {
@@ -375,6 +432,9 @@ Change to this: Change gray colors to this hue and saturation
      * Unit: 
      * Default value: 
      * Acceptable Range:  
+     *
+     * @return value of Gray mode
+     * 
      */
     public String getGrayMode()
     {
@@ -399,13 +459,17 @@ Change to this: Change gray colors to this hue and saturation
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @param value new value for Hue
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ColorRotate setHue(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 360.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
+	    }
 
         m_Hue = value;
         setProperty("hue", value);
@@ -419,6 +483,9 @@ Change to this: Change gray colors to this hue and saturation
      * Unit: degree
      * Default value: 0.00
      * Acceptable Range: 0.00 360.00
+     *
+     * @return value of Hue
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getHue()
     {
@@ -443,13 +510,17 @@ Change to this: Change gray colors to this hue and saturation
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Saturation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public ColorRotate setSaturation(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
 
         m_Saturation = value;
         setProperty("saturation", value);
@@ -463,6 +534,9 @@ Change to this: Change gray colors to this hue and saturation
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Saturation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getSaturation()
     {

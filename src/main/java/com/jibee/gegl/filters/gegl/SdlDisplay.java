@@ -21,6 +21,8 @@ public class SdlDisplay extends GeglFilter implements Sink
     /** Constructs a SDL Display.
      *
      * Displays the input buffer in an SDL window (restricted to one display op/process, due to SDL implementation issues).
+     *
+     * @param container container node
      */
     public SdlDisplay(GeglNode container)
     {
@@ -29,6 +31,8 @@ public class SdlDisplay extends GeglFilter implements Sink
     /** Constructs a SDL Display.
      *
      * Displays the input buffer in an SDL window (restricted to one display op/process, due to SDL implementation issues).
+     *
+     * @param parent parent filter node
      */
     public SdlDisplay(GeglFilter parent)
     {
@@ -53,6 +57,10 @@ public class SdlDisplay extends GeglFilter implements Sink
      * Unit: 
      * Default value: "window_title"
      * Acceptable Range:  
+     *
+     * @param value new value for Window title
+     * @return this filter (for chaining operations)
+     * 
      */
     public SdlDisplay setWindowTitle(String value)
     {
@@ -69,6 +77,9 @@ public class SdlDisplay extends GeglFilter implements Sink
      * Unit: 
      * Default value: "window_title"
      * Acceptable Range:  
+     *
+     * @return value of Window title
+     * 
      */
     public String getWindowTitle()
     {
@@ -93,6 +104,10 @@ public class SdlDisplay extends GeglFilter implements Sink
      * Unit: 
      * Default value: "icon_title"
      * Acceptable Range:  
+     *
+     * @param value new value for Icon title
+     * @return this filter (for chaining operations)
+     * 
      */
     public SdlDisplay setIconTitle(String value)
     {
@@ -109,6 +124,9 @@ public class SdlDisplay extends GeglFilter implements Sink
      * Unit: 
      * Default value: "icon_title"
      * Acceptable Range:  
+     *
+     * @return value of Icon title
+     * 
      */
     public String getIconTitle()
     {

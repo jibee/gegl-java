@@ -24,6 +24,8 @@ public class BilateralFilter extends GeglFilter implements Source, Sink
     /** Constructs a Bilateral Filter.
      *
      * Like a gaussian blur; but where the contribution for each neighbourhood pixel is also weighted by the color difference with the original center pixel. 
+     *
+     * @param container container node
      */
     public BilateralFilter(GeglNode container)
     {
@@ -32,6 +34,8 @@ public class BilateralFilter extends GeglFilter implements Source, Sink
     /** Constructs a Bilateral Filter.
      *
      * Like a gaussian blur; but where the contribution for each neighbourhood pixel is also weighted by the color difference with the original center pixel. 
+     *
+     * @param parent parent filter node
      */
     public BilateralFilter(GeglFilter parent)
     {
@@ -56,13 +60,17 @@ public class BilateralFilter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @param value new value for Blur radius
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public BilateralFilter setBlurRadius(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1000.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1000.00);
+	    }
 
         m_BlurRadius = value;
         setProperty("blur-radius", value);
@@ -76,6 +84,9 @@ public class BilateralFilter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 4.00
      * Acceptable Range: 0.00 1000.00
+     *
+     * @return value of Blur radius
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getBlurRadius()
     {
@@ -100,13 +111,17 @@ public class BilateralFilter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 8.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @param value new value for Edge preservation
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public BilateralFilter setEdgePreservation(double value) throws ParameterOutOfRangeException
     {
 		if(value > 100.00 || value < 0.00)
-	{
-	    throw new ParameterOutOfRangeException(value, 0.00, 100.00);
-	}
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 100.00);
+	    }
 
         m_EdgePreservation = value;
         setProperty("edge-preservation", value);
@@ -120,6 +135,9 @@ public class BilateralFilter extends GeglFilter implements Source, Sink
      * Unit: 
      * Default value: 8.00
      * Acceptable Range: 0.00 100.00
+     *
+     * @return value of Edge preservation
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getEdgePreservation()
     {
