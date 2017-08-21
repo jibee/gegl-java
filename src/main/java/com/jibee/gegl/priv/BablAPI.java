@@ -5,12 +5,25 @@ import java.util.HashMap;
 import org.gstreamer.lowlevel.OurGTypeMapper;
 
 import com.jibee.gegl.Babl;
+import com.jibee.gegl.BablComponent;
+import com.jibee.gegl.BablFish;
+import com.jibee.gegl.BablFormat;
+import com.jibee.gegl.BablModel;
+import com.jibee.gegl.BablSampling;
+import com.jibee.gegl.BablType;
 import com.sun.jna.Library;
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
 
+/** Babl native library interface
+ * 
+ * @author jibee
+ *
+ */
 public interface BablAPI extends Library{
-	
+	/** Static instance of the Babl API
+	 * 
+	 */
 	BablAPI INSTANCE = (BablAPI)Native.loadLibrary("babl-0.1", BablAPI.class,new HashMap<String, Object>() {
 		private static final long serialVersionUID = -519802782965295903L;
 
@@ -35,10 +48,11 @@ public interface BablAPI extends Library{
 	/**
 	 * babl_type:
 	 *
-	 * Returns the babl object representing the data type given by @name
+	 * @param name name of the data type
+	 * @return Returns the babl object representing the data type given by name
 	 * such as for example "u8", "u16" or "float".
 	 */
-	TypedPointer<Babl> babl_type      (String name);
+	TypedPointer<BablType> babl_type      (String name);
 
 	/**
 	 * babl_sampling:
@@ -47,7 +61,7 @@ public interface BablAPI extends Library{
 	 * sampling such as for example 2, 2 for the chroma components in
 	 * YCbCr.
 	 */
-	TypedPointer<Babl> babl_sampling  (int horizontal,
+	TypedPointer<BablSampling> babl_sampling  (int horizontal,
 	                             int vertical);
 
 	/**
@@ -56,7 +70,7 @@ public interface BablAPI extends Library{
 	 * Returns the babl object representing the color component given by
 	 * @name such as for example "R", "cyan" or "CIE L".
 	 */
-	TypedPointer<Babl> babl_component (String name);
+	TypedPointer<BablComponent> babl_component (String name);
 
 	/**
 	 * babl_model:
@@ -64,7 +78,7 @@ public interface BablAPI extends Library{
 	 * Returns the babl object representing the color model given by @name
 	 * such as for example "RGB", "CMYK" or "CIE Lab".
 	 */
-	TypedPointer<Babl> babl_model     (String name);
+	TypedPointer<BablModel> babl_model     (String name);
 
 
 	/**
@@ -73,7 +87,7 @@ public interface BablAPI extends Library{
 	 * Returns the babl object representing the color format given by
 	 * @name such as for example "RGB u8", "CMYK float" or "CIE Lab u16".
 	 */
-	TypedPointer<Babl> babl_format    (String name);
+	TypedPointer<BablFormat> babl_format    (String name);
 
 	/**
 	 * babl_fish:
@@ -82,7 +96,7 @@ public interface BablAPI extends Library{
 	 *  destination_format, source and destination can be either strings
 	 *  with the names of the formats or Babl-format objects.
 	 */
-	TypedPointer<Babl> babl_fish      (Object source_format,
+	TypedPointer<BablFish> babl_fish      (Object source_format,
 	                             Object destination_format);
 
 	/**
@@ -91,7 +105,7 @@ public interface BablAPI extends Library{
 	 *  Process n pixels from source to destination using babl_fish,
 	 *  returns number of pixels converted.
 	 */
-	int         babl_process   (TypedPointer<Babl> babl_fish,
+	int         babl_process   (TypedPointer<BablFish> babl_fish,
 	                             Pointer source,
 	                             Pointer destination,
 	                             int n);
@@ -102,35 +116,35 @@ public interface BablAPI extends Library{
 	 *
 	 * Returns a string decsribing a Pointer object.
 	 */
-	String babl_get_name                     (TypedPointer<Babl> babl);
+	String babl_get_name                     (TypedPointer<? extends Babl> babl);
 
 	/**
 	 * babl_format_has_alpha:
 	 *
 	 * Returns whether the @format has an alpha channel.
 	 */
-	int          babl_format_has_alpha             (TypedPointer<Babl> format);
+	int          babl_format_has_alpha             (TypedPointer<BablFormat> format);
 
 	/**
 	 * babl_format_get_bytes_per_pixel:
 	 *
 	 * Returns the bytes per pixel for a babl color format.
 	 */
-	int          babl_format_get_bytes_per_pixel   (TypedPointer<Babl> implementation);
+	int          babl_format_get_bytes_per_pixel   (TypedPointer<BablFormat> implementation);
 
 	/**
 	 * babl_format_get_model:
 	 *
-	 * Return the model used for constructing the format.
+	 * @return the model used for constructing the format.
 	 */
-	TypedPointer<Babl> babl_format_get_model             (TypedPointer<Babl> format);
+	TypedPointer<BablModel> babl_format_get_model             (TypedPointer<BablFormat> format);
 
 	/**
 	 * babl_format_get_n_components:
 	 *
 	 * Returns the number of components for the given @format.
 	 */
-	int          babl_format_get_n_components      (TypedPointer<Babl> format);
+	int          babl_format_get_n_components      (TypedPointer<BablFormat> format);
 
 	/**
 	 * babl_format_get_type:
@@ -138,7 +152,7 @@ public interface BablAPI extends Library{
 	 * Returns the type in the given @format for the given
 	 * @component_index.
 	 */
-	TypedPointer<Babl>  babl_format_get_type              (TypedPointer<Babl> format,
+	TypedPointer<BablType>  babl_format_get_type              (TypedPointer<BablFormat> format,
 	                                                int         component_index);
 
 
@@ -216,8 +230,8 @@ public interface BablAPI extends Library{
 	 * conversions are only well defined to other babl_format_n derived formats
 	 * with the same number of components.
 	 */
-	TypedPointer<Babl> 
-	babl_format_n (TypedPointer<Babl> type,
+	TypedPointer<BablFormat> 
+	babl_format_n (TypedPointer<BablType> type,
 	               int   components);
 
 	/**
@@ -225,7 +239,7 @@ public interface BablAPI extends Library{
 	 *
 	 * Returns whether the @format is a format_n type.
 	 */
-	int babl_format_is_format_n (TypedPointer<Babl> format);
+	int babl_format_is_format_n (TypedPointer<BablFormat> format);
 
 	/**
 	 * babl_conversion_new:
@@ -253,7 +267,7 @@ public interface BablAPI extends Library{
 	 * you pass in the same name the previous formats will be provided
 	 * again.
 	 */
-	TypedPointer<Babl> babl_new_palette (String name,
+	TypedPointer<BablFormat> babl_new_palette (String name,
 	                              Pointer format_u8,
 	                              Pointer format_u8_with_alpha);
 
@@ -262,7 +276,7 @@ public interface BablAPI extends Library{
 	 *
 	 * check whether a format is a palette backed format.
 	 */
-	int   babl_format_is_palette   (TypedPointer<Babl> format);
+	int   babl_format_is_palette   (TypedPointer<BablFormat> format);
 
 	/**
 	 * babl_palette_set_palette:
@@ -270,8 +284,8 @@ public interface BablAPI extends Library{
 	 * Assign a palette to a palette format, the data is a single span of pixels
 	 * representing the colors of the palette.
 	 */
-	void  babl_palette_set_palette (TypedPointer<Babl>        babl,
-	                                TypedPointer<Babl>        format,
+	void  babl_palette_set_palette (TypedPointer<BablFormat>        babl,
+	                                TypedPointer<BablFormat>        format,
 	                                Pointer data,
 	                                int                count);
 
@@ -281,7 +295,7 @@ public interface BablAPI extends Library{
 	 * reset a palette to initial state, frees up some caches that optimize
 	 * conversions.
 	 */
-	void  babl_palette_reset       (TypedPointer<Babl>        babl);
+	void  babl_palette_reset       (TypedPointer<BablFormat>        babl);
 
 
 

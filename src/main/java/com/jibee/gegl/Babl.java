@@ -2,25 +2,42 @@ package com.jibee.gegl;
 
 import com.jibee.gegl.priv.BablAPI;
 import com.jibee.gegl.priv.TypedPointer;
-import com.sun.jna.Pointer;
 
-public class Babl{
-	private TypedPointer<Babl> m_implementation;
+/** Mapping of the Native Babl pointer type.
+ * 
+ * TODO create sub-types for the various usages of the Babl type
+ * 
+ * @author jibee
+ *
+ */
+public class Babl<T extends Babl>{
+	private TypedPointer<T> m_implementation;
 	static
 	{
 	//	BablAPI.INSTANCE.babl_init();
 	}
-	private Babl(TypedPointer<Babl> impl) {
+	protected Babl(TypedPointer<T> impl) {
 		m_implementation=impl;
 	}
-	public static Babl format(String string) {
+	/** Create a Babl Format object for the given format descriptor
+	 * 
+	 * @param string
+	 * @return
+	 */
+	public static BablFormat format(String string) {
 		BablAPI.INSTANCE.babl_init();
-		return new Babl(BablAPI.INSTANCE.babl_format(string));
+		return new BablFormat(BablAPI.INSTANCE.babl_format(string));
 	}
-	public int getBytePerPixel() {
-		return BablAPI.INSTANCE.babl_format_get_bytes_per_pixel(m_implementation);
-	}
-	public TypedPointer<Babl> getPointer() {
+	/** Obtains the underlying pointer
+	 * 
+	 * @return
+	 */
+	public TypedPointer<T> getPointer() {
 		return m_implementation;
+	}
+	
+	public String getName()
+	{
+		return BablAPI.INSTANCE.babl_get_name(getPointer());
 	}
 }

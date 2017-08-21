@@ -8,6 +8,7 @@ import org.gstreamer.lowlevel.GValueAPI.GValue;
 import org.gstreamer.lowlevel.OurGTypeMapper;
 
 import com.jibee.gegl.Babl;
+import com.jibee.gegl.BablFormat;
 import com.jibee.gegl.GeglBuffer;
 import com.jibee.gegl.GeglColor;
 import com.jibee.gegl.GeglConfig;
@@ -319,17 +320,17 @@ public interface Gegl extends Library {
 
 /**
  * gegl_node_blit: (skip)
- * @node: a #GeglNode
- * @scale: the scale to render at 1.0 is default, other values changes the
+ * @param node a #GeglNode
+ * @param scale the scale to render at 1.0 is default, other values changes the
  * width/height of the sampled region.
- * @roi: the rectangle to render from the node, the coordinate system used is
+ * @param roi the rectangle to render from the node, the coordinate system used is
  * coordinates after scale has been applied.
- * @format: the #BablFormat desired.
- * @destination_buf: a memory buffer large enough to contain the data, can be
+ * @param format the #BablFormat desired.
+ * @param buf a memory buffer large enough to contain the data, can be
  * left as NULL when forcing a rendering of a region.
- * @rowstride: rowstride in bytes, or GEGL_AUTO_ROWSTRIDE to compute the
+ * @param rowstride rowstride in bytes, or GEGL_AUTO_ROWSTRIDE to compute the
  * rowstride based on the width and bytes per pixel for the specified format.
- * @flags: an or'ed combination of GEGL_BLIT_DEFAULT, GEGL_BLIT_CACHE and
+ * @param flags an or'ed combination of GEGL_BLIT_DEFAULT, GEGL_BLIT_CACHE and
  * GEGL_BLIT_DIRTY. if cache is enabled, a cache will be set up for subsequent
  * requests of image data from this node. By passing in GEGL_BLIT_DIRTY the
  * function will return with the latest rendered results in the cache without
@@ -340,16 +341,16 @@ public interface Gegl extends Library {
 void gegl_node_blit (GeglNode node,
  double scale,
  GeglRectangle roi,
- TypedPointer<Babl> format,
+ TypedPointer<BablFormat> format,
  byte[] buf,
  int rowstride,
  int flags);
 
 /**
  * gegl_node_blit_buffer:
- * @node: a #GeglNode
- * @buffer: (transfer none) (allow-none): the #GeglBuffer to render to.
- * @roi: (allow-none): the rectangle to render.
+ * @param node a #GeglNode
+ * @param buffer (transfer none) (allow-none): the #GeglBuffer to render to.
+ * @param roi (allow-none): the rectangle to render.
  *
  * Render a rectangular region from a node to the given buffer.
  */
@@ -359,7 +360,7 @@ GeglRectangle roi);
 
 /**
  * gegl_node_process:
- * @sink_node: a #GeglNode without outputs.
+ * @param sink_node a #GeglNode without outputs.
  *
  * Render a composition. This can be used for instance on a node with a "png-save"
  * operation to render all neccesary data, and make it be written to file. This
