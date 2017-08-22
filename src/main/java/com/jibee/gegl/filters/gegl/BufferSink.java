@@ -1,12 +1,12 @@
 package com.jibee.gegl.filters.gegl;
 
+import com.jibee.gegl.BablFormat;
 import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglBuffer;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.Sink;
-import com.sun.jna.Pointer;
 
 /**
  * Buffer Sink
@@ -97,7 +97,7 @@ public class BufferSink extends GeglFilter implements Sink
      * Default value: 
      * Acceptable Range:  
      * */
-    private Pointer m_Format ;
+    private BablFormat m_Format ;
 
     /** babl format
      *
@@ -111,7 +111,7 @@ public class BufferSink extends GeglFilter implements Sink
      * @return this filter (for chaining operations)
      * 
      */
-    public BufferSink setFormat(Pointer value)
+    public BufferSink setFormat(BablFormat value)
     {
 	
         m_Format = value;
@@ -130,7 +130,7 @@ public class BufferSink extends GeglFilter implements Sink
      * @return value of babl format
      * 
      */
-    public Pointer getFormat()
+    public BablFormat getFormat()
     {
         return m_Format;
     }

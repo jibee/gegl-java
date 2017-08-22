@@ -39,6 +39,14 @@ my %java_type_map=(
 	"curve"=>"GeglCurve"
 	);
 
+my %special_types_overrides = (
+"BufferSink.buffer"=>"GeglBuffer",
+"BufferSink.format" => "BablFormat",
+"LcmsFromProfile.src-profile" => "Pointer", # actually a cmsHPROFILE from lcms2
+"Npd.model" => "Pointer", # Actually a NPD model from NPD
+"SavePixbuf.pixbuf" => "Pointer" # Actually a GdkPixbuf
+);
+
 
 foreach my $operation_spec (@$data)
 {
@@ -100,6 +108,7 @@ my $className = make_wikiname($filter_name);
 	    "GeglNode"=>"import com.jibee.gegl.GeglNode;",
 	    "Pointer"=>"import com.sun.jna.Pointer;",
 	    "Babl"=>"import com.jibee.gegl.Babl;",
+	    "BablFormat"=>"import com.jibee.gegl.BablFormat;",
 	    "GeglBuffer"=>"import com.jibee.gegl.GeglBuffer;",
 	    "GeglColor"=>"import com.jibee.gegl.GeglColor;",
 	    "GeglVector"=>"import com.jibee.gegl.GeglVector;",
@@ -276,6 +285,8 @@ sub parse_property
     my $description = $op->{description} if $op->{description};
     my $java_type = $java_type_map{$type};
     warn("No java type for $type - $description") unless $java_type;
+    $java_type = $special_types_overrides{$className.".".$name} if $special_types_overrides{$className.".".$name};
+    warn("Using default Pointer type for $className.$name : $description") if $java_type eq "Pointer";
 
     my $shortName = make_wikiname($name);
     my $fieldname = "m_".$shortName;
