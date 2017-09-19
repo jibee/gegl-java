@@ -1,5 +1,11 @@
 package com.jibee.gegl;
 
-public class BablSampling {
+import com.jibee.gegl.priv.TypedPointer;
+
+public class BablSampling extends Babl<BablSampling>{
+
+	protected BablSampling(TypedPointer<BablSampling> impl) {
+		super(impl);
+	}
 
 }

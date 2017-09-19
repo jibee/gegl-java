@@ -17,5 +17,15 @@ public class BablFormat extends Babl<BablFormat>{
 		return BablAPI.INSTANCE.babl_format_get_bytes_per_pixel(getPointer());
 	}
 
+	/** Create a Babl Format object for the given format descriptor
+	 * 
+	 * @param string
+	 * @return
+	 */
+	public static BablFormat of(String string) {
+		BablAPI.INSTANCE.babl_init();
+		return new BablFormat(BablAPI.INSTANCE.babl_format(string));
+	}
+
 
 }

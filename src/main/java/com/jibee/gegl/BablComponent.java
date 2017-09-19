@@ -1,5 +1,11 @@
 package com.jibee.gegl;
 
-public class BablComponent {
+import com.jibee.gegl.priv.TypedPointer;
+
+public class BablComponent  extends Babl<BablComponent>{
+
+	protected BablComponent(TypedPointer<BablComponent> impl) {
+		super(impl);
+	}
 
 }

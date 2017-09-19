@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jibee.gegl.Babl;
+import com.jibee.gegl.BablFormat;
 import com.jibee.gegl.GeglBuffer;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
@@ -43,7 +44,7 @@ static Logger logger = LoggerFactory.getLogger(Processor.class);
 		*/
 		BufferSink saver = new BufferSink(rootNode);
 		GeglRectangle extent = new GeglRectangle(1000,1000);
-		Babl b = Babl.format("RGBA u8");
+		Babl b = BablFormat.of("RGBA u8");
 		GeglBuffer buffer = com.jibee.gegl.Gegl.newBuffer(extent, b);
 		Object x = buffer.get("x");
 		saver.setBuffer(buffer);

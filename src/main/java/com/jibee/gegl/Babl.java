@@ -5,28 +5,25 @@ import com.jibee.gegl.priv.TypedPointer;
 
 /** Mapping of the Native Babl pointer type.
  * 
- * TODO create sub-types for the various usages of the Babl type
+ * Note there are sub-types for the various usages of the Babl type
  * 
  * @author jibee
+ * @param <T> the exact subtype of Babl inferred
  *
  */
+@SuppressWarnings("rawtypes")
 public class Babl<T extends Babl>{
 	private TypedPointer<T> m_implementation;
 	static
 	{
 	//	BablAPI.INSTANCE.babl_init();
 	}
+	/** Constructor
+	 * 
+	 * @param impl implementation pointer
+	 */
 	protected Babl(TypedPointer<T> impl) {
 		m_implementation=impl;
-	}
-	/** Create a Babl Format object for the given format descriptor
-	 * 
-	 * @param string
-	 * @return
-	 */
-	public static BablFormat format(String string) {
-		BablAPI.INSTANCE.babl_init();
-		return new BablFormat(BablAPI.INSTANCE.babl_format(string));
 	}
 	/** Obtains the underlying pointer
 	 * 
@@ -35,7 +32,12 @@ public class Babl<T extends Babl>{
 	public TypedPointer<T> getPointer() {
 		return m_implementation;
 	}
-	
+
+	/**
+	 * Returns a string describing the object.
+	 * 
+	 * @return Returns a string describing the object.
+	 */
 	public String getName()
 	{
 		return BablAPI.INSTANCE.babl_get_name(getPointer());

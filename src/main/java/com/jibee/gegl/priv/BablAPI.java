@@ -114,8 +114,11 @@ public interface BablAPI extends Library{
 	/**
 	 * babl_get_name:
 	 *
-	 * Returns a string decsribing a Pointer object.
+	 * Returns a string describing a babl object.
+	 * @param babl pointer to the babl object
+	 * @return description of the bable object.
 	 */
+	@SuppressWarnings("rawtypes")
 	String babl_get_name                     (TypedPointer<? extends Babl> babl);
 
 	/**
@@ -307,6 +310,7 @@ public interface BablAPI extends Library{
 	 * similar with the data, perhaps this should be made internal API, not
 	 * accesible at all from
 	 */
+	@SuppressWarnings("rawtypes")
 	void   babl_set_user_data     (TypedPointer<Babl> babl, Pointer data);
 
 	/**
@@ -314,6 +318,7 @@ public interface BablAPI extends Library{
 	 *
 	 * Get data set with babl_set_user_data
 	 */
+	@SuppressWarnings("rawtypes")
 	Pointer babl_get_user_data     (TypedPointer<Babl> babl);
 
 
