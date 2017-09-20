@@ -6,8 +6,7 @@ import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
-import com.jibee.gegl.Sink;
-import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Channel Mixer
@@ -18,8 +17,8 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: true
  * Position Dependant: false
  */
-@Filter(license="GPL3+", opencl=true, position_dependant=false, categories={"color"})
-public class ChannelMixer extends GeglFilter implements Source, Sink
+@GeglFilterOp(license="GPL3+", opencl=true, position_dependant=false, categories={"color"})
+public class ChannelMixer extends GeglFilter implements Filter
 {
     /** Constructs a Channel Mixer.
      *

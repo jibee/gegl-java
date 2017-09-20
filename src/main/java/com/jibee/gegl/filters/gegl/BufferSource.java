@@ -1,11 +1,11 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglBuffer;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Buffer Source
@@ -16,7 +16,7 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="", opencl=false, position_dependant=false, categories={"programming", "input"})
+@GeglFilterOp(license="", opencl=false, position_dependant=false, categories={"programming", "input"})
 public class BufferSource extends GeglFilter implements Source
 {
     /** Constructs a Buffer Source.

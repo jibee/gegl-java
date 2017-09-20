@@ -1,10 +1,21 @@
 package com.jibee.gegl;
 
+/** Output pad
+ * 
+ * @author jibee
+ *
+ */
 public class OutputPad extends Pad{
-
-	public OutputPad(GeglFilter source, String padName)
+	/** Constructor
+	 * 
+	/** Constructor
+	 * 
+	 * @param f Filter this pad belongs to
+	 * @param n Name of the pad
+	 */
+	public OutputPad(GeglFilter f, String n)
 	{
-		super(source, padName);
+		super(f, n);
 	}
 	public GeglFilter connectTo(InputPad sink)
 	{

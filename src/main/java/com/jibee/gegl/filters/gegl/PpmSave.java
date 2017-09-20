@@ -1,11 +1,11 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.Sink;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * PPM File Saver
@@ -16,7 +16,7 @@ import com.jibee.gegl.Sink;
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="", opencl=false, position_dependant=false, categories={"output"})
+@GeglFilterOp(license="", opencl=false, position_dependant=false, categories={"output"})
 public class PpmSave extends GeglFilter implements Sink
 {
     /** Constructs a PPM File Saver.

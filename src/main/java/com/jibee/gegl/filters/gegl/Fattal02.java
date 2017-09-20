@@ -6,8 +6,7 @@ import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
-import com.jibee.gegl.Sink;
-import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Fattal et al. 2002 Tone Mapping
@@ -18,8 +17,8 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="", opencl=false, position_dependant=false, categories={"tonemapping", "enhance"})
-public class Fattal02 extends GeglFilter implements Source, Sink
+@GeglFilterOp(license="", opencl=false, position_dependant=false, categories={"tonemapping", "enhance"})
+public class Fattal02 extends GeglFilter implements Filter
 {
     /** Constructs a Fattal et al. 2002 Tone Mapping.
      *

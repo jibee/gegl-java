@@ -1,11 +1,11 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Fractal Explorer
@@ -16,7 +16,7 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: true
  */
-@Filter(license="GPL3+", opencl=false, position_dependant=true, categories={"render", "fractal"})
+@GeglFilterOp(license="GPL3+", opencl=false, position_dependant=true, categories={"render", "fractal"})
 public class FractalExplorer extends GeglFilter implements Source
 {
     /** Constructs a Fractal Explorer.

@@ -1,10 +1,10 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.Sink;
+import com.jibee.gegl.annotations.GeglFilterOp;
 import com.sun.jna.Pointer;
 
 /**
@@ -16,7 +16,7 @@ import com.sun.jna.Pointer;
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="", opencl=false, position_dependant=false, categories={"programming", "output"})
+@GeglFilterOp(license="", opencl=false, position_dependant=false, categories={"programming", "output"})
 public class SavePixbuf extends GeglFilter implements Sink
 {
     /** Constructs a Store in GdkPixbuf.

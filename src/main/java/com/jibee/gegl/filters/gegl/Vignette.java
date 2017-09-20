@@ -7,8 +7,7 @@ import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
-import com.jibee.gegl.Sink;
-import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Vignette
@@ -19,8 +18,8 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: true
  * Position Dependant: true
  */
-@Filter(license="", opencl=true, position_dependant=true, categories={"render", "light"})
-public class Vignette extends GeglFilter implements Source, Sink
+@GeglFilterOp(license="", opencl=true, position_dependant=true, categories={"render", "light"})
+public class Vignette extends GeglFilter implements Filter
 {
     /** Constructs a Vignette.
      *

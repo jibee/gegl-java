@@ -1,11 +1,11 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglColor;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Radial Gradient
@@ -16,7 +16,7 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="", opencl=false, position_dependant=false, categories={"render", "gradient"})
+@GeglFilterOp(license="", opencl=false, position_dependant=false, categories={"render", "gradient"})
 public class RadialGradient extends GeglFilter implements Source
 {
     /** Constructs a Radial Gradient.

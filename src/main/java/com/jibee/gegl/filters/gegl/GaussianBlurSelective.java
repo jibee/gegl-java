@@ -1,13 +1,12 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.DualSink;
-import com.jibee.gegl.Filter;
+import com.jibee.gegl.CombiningFilter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
-import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Selective Gaussian Blur
@@ -18,8 +17,8 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: true
  * Position Dependant: false
  */
-@Filter(license="GPL3+", opencl=true, position_dependant=false, categories={"enhance", "noise-reduction"})
-public class GaussianBlurSelective extends GeglFilter implements Source, DualSink
+@GeglFilterOp(license="GPL3+", opencl=true, position_dependant=false, categories={"enhance", "noise-reduction"})
+public class GaussianBlurSelective extends GeglFilter implements CombiningFilter
 {
     /** Constructs a Selective Gaussian Blur.
      *

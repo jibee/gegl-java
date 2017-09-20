@@ -7,8 +7,7 @@ import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
-import com.jibee.gegl.Sink;
-import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Exchange color
@@ -19,8 +18,8 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="GPL3+", opencl=false, position_dependant=false, categories={"color"})
-public class ColorExchange extends GeglFilter implements Source, Sink
+@GeglFilterOp(license="GPL3+", opencl=false, position_dependant=false, categories={"color"})
+public class ColorExchange extends GeglFilter implements Filter
 {
     /** Constructs a Exchange color.
      *

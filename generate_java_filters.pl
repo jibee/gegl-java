@@ -92,7 +92,7 @@ my $className = make_wikiname($filter_name);
     my $used_types = $props->{used_types};
     $used_types->{GeglFilter}=1;
     $used_types->{GeglNode}=1;
-    $used_types->{Filter}=1;
+    $used_types->{GeglFilterOp}=1;
     $used_types->{InputPad}=1 if $inputPads;
     $used_types->{OutputPad}=1 if $outputPads;
     $used_types->{$_}=1 foreach @{$implements_spec->{imports}};
@@ -105,6 +105,8 @@ my $className = make_wikiname($filter_name);
 	    "InputPad"=>"import com.jibee.gegl.InputPad;",
 	    "GeglFilter"=>"import com.jibee.gegl.GeglFilter;",
 	    "Filter"=>"import com.jibee.gegl.Filter;",
+	    "CombiningFilter"=>"import com.jibee.gegl.CombiningFilter;",
+	    "GeglFilterOp"=>"import com.jibee.gegl.annotations.GeglFilterOp;",
 	    "GeglNode"=>"import com.jibee.gegl.GeglNode;",
 	    "Pointer"=>"import com.sun.jna.Pointer;",
 	    "Babl"=>"import com.jibee.gegl.Babl;",
@@ -149,7 +151,7 @@ $type_imports
  * Supports OpenCL: $support_openCL
  * Position Dependant: $position_dependant
  */
-\@Filter(license="$license", opencl=$support_openCL, position_dependant=$position_dependant, categories={$categories})
+\@GeglFilterOp(license="$license", opencl=$support_openCL, position_dependant=$position_dependant, categories={$categories})
 public class $className extends GeglFilter$implements
 {
     /** Constructs a $title.
@@ -196,20 +198,43 @@ sub prepareImplements
         $outs?@$outs:()
     );
     my @implements = ();
+    my $hasOutput = 0;
+    my $hasInput = 0;
+    my $hasAux = 0;
     if($pads{output})
     {
-        push @implements, "Source";
+	$hasOutput = 1;
     }
     if($pads{input})
     {
+	$hasInput = 1;
         if($pads{aux})
         {
-            push @implements, "DualSink";
-        }
+	    $hasAux = 1;
+	    if($hasOutput)
+	    {
+		push @implements, "CombiningFilter";
+	    }
+	    else
+	    {
+		push @implements, "DualSink";
+	    }
+	}
         else
-        {
-            push @implements, "Sink";
-        }
+	{
+	    if($hasOutput)
+	    {
+		push @implements, "Filter";
+	    }
+	    else
+	    {
+		push @implements, "Sink";
+	    }
+	}
+    }
+    else
+    {
+        push @implements, "Source" if $hasOutput;
     }
     if(@implements)
     {

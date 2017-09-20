@@ -1,12 +1,12 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Combine Exposures
@@ -17,7 +17,7 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="", opencl=false, position_dependant=false, categories={"compositors"})
+@GeglFilterOp(license="", opencl=false, position_dependant=false, categories={"compositors"})
 public class ExpCombine extends GeglFilter implements Source
 {
     /** Constructs a Combine Exposures.

@@ -5,8 +5,7 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
-import com.jibee.gegl.Sink;
-import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Lens Flare
@@ -17,8 +16,8 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="GPL3+", opencl=false, position_dependant=false, categories={"light"})
-public class LensFlare extends GeglFilter implements Source, Sink
+@GeglFilterOp(license="GPL3+", opencl=false, position_dependant=false, categories={"light"})
+public class LensFlare extends GeglFilter implements Filter
 {
     /** Constructs a Lens Flare.
      *

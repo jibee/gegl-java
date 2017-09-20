@@ -1,11 +1,11 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Solid Noise
@@ -16,7 +16,7 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: true
  */
-@Filter(license="GPL3+", opencl=false, position_dependant=true, categories={"render"})
+@GeglFilterOp(license="GPL3+", opencl=false, position_dependant=true, categories={"render"})
 public class NoiseSolid extends GeglFilter implements Source
 {
     /** Constructs a Solid Noise.

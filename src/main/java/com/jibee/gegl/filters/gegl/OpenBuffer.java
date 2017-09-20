@@ -1,10 +1,10 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Open GEGL Buffer
@@ -15,7 +15,7 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="", opencl=false, position_dependant=false, categories={"input"})
+@GeglFilterOp(license="", opencl=false, position_dependant=false, categories={"input"})
 public class OpenBuffer extends GeglFilter implements Source
 {
     /** Constructs a Open GEGL Buffer.

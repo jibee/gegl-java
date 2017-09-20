@@ -1,12 +1,12 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglColor;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Rectangle
@@ -17,7 +17,7 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: true
  */
-@Filter(license="", opencl=false, position_dependant=true, categories={"render"})
+@GeglFilterOp(license="", opencl=false, position_dependant=true, categories={"render"})
 public class Rectangle extends GeglFilter implements Source
 {
     /** Constructs a Rectangle.

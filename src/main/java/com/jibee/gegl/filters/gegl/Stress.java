@@ -6,8 +6,7 @@ import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.ParameterOutOfRangeException;
-import com.jibee.gegl.Sink;
-import com.jibee.gegl.Source;
+import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
  * Spatio Temporal Retinex-like Envelope with Stochastic Sampling
@@ -18,8 +17,8 @@ import com.jibee.gegl.Source;
  * Supports OpenCL: false
  * Position Dependant: false
  */
-@Filter(license="", opencl=false, position_dependant=false, categories={"enhance", "tonemapping"})
-public class Stress extends GeglFilter implements Source, Sink
+@GeglFilterOp(license="", opencl=false, position_dependant=false, categories={"enhance", "tonemapping"})
+public class Stress extends GeglFilter implements Filter
 {
     /** Constructs a Spatio Temporal Retinex-like Envelope with Stochastic Sampling.
      *
