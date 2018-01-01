@@ -44,7 +44,7 @@ public class Newsprint extends GeglFilter implements Filter
     
     /** Color Model
      *
-     * How many inks to use just black, rg, rgb(additive) or cmyk
+     * How many inks to use just black, rg, rgb (additive), or cmyk
      *
      * Unit: 
      * Default value: 
@@ -54,7 +54,7 @@ public class Newsprint extends GeglFilter implements Filter
 
     /** Color Model
      *
-     * How many inks to use just black, rg, rgb(additive) or cmyk
+     * How many inks to use just black, rg, rgb (additive), or cmyk
      *
      * Unit: 
      * Default value: 
@@ -74,7 +74,7 @@ public class Newsprint extends GeglFilter implements Filter
 
     /** Color Model
      *
-     * How many inks to use just black, rg, rgb(additive) or cmyk
+     * How many inks to use just black, rg, rgb (additive), or cmyk
      *
      * Unit: 
      * Default value: 
@@ -91,7 +91,7 @@ public class Newsprint extends GeglFilter implements Filter
 
     /** Pattern
      *
-     * halftoning/dot pattern to use
+     * Halftoning/dot pattern to use
      *
      * Unit: 
      * Default value: 
@@ -101,7 +101,7 @@ public class Newsprint extends GeglFilter implements Filter
 
     /** Pattern
      *
-     * halftoning/dot pattern to use
+     * Halftoning/dot pattern to use
      *
      * Unit: 
      * Default value: 
@@ -121,7 +121,7 @@ public class Newsprint extends GeglFilter implements Filter
 
     /** Pattern
      *
-     * halftoning/dot pattern to use
+     * Halftoning/dot pattern to use
      *
      * Unit: 
      * Default value: 
@@ -240,7 +240,7 @@ public class Newsprint extends GeglFilter implements Filter
 
     /** Blocksize
      *
-     * number of periods per tile, this tiling avoids high frequency anomaly that angleboost causes
+     * Number of periods per tile, this tiling avoids high frequency anomaly that angle boost causes
      *
      * Unit: 
      * Default value: -1.00
@@ -250,7 +250,7 @@ public class Newsprint extends GeglFilter implements Filter
 
     /** Blocksize
      *
-     * number of periods per tile, this tiling avoids high frequency anomaly that angleboost causes
+     * Number of periods per tile, this tiling avoids high frequency anomaly that angle boost causes
      *
      * Unit: 
      * Default value: -1.00
@@ -274,7 +274,7 @@ public class Newsprint extends GeglFilter implements Filter
 
     /** Blocksize
      *
-     * number of periods per tile, this tiling avoids high frequency anomaly that angleboost causes
+     * Number of periods per tile, this tiling avoids high frequency anomaly that angle boost causes
      *
      * Unit: 
      * Default value: -1.00
@@ -289,9 +289,9 @@ public class Newsprint extends GeglFilter implements Filter
     }
 
 
-    /** Angleboost
+    /** Angle Boost
      *
-     * multiplication factor for desired rotation of the local space for texture, the way this is computed makes it weak for desaturated colors and possibly stronger where there is color.
+     * Multiplication factor for desired rotation of the local space for texture, the way this is computed makes it weak for desaturated colors and possibly stronger where there is color.
      *
      * Unit: 
      * Default value: 0.00
@@ -299,15 +299,15 @@ public class Newsprint extends GeglFilter implements Filter
      * */
     private double m_Angleboost  = 0.00;
 
-    /** Angleboost
+    /** Angle Boost
      *
-     * multiplication factor for desired rotation of the local space for texture, the way this is computed makes it weak for desaturated colors and possibly stronger where there is color.
+     * Multiplication factor for desired rotation of the local space for texture, the way this is computed makes it weak for desaturated colors and possibly stronger where there is color.
      *
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 4.00
      *
-     * @param value new value for Angleboost
+     * @param value new value for Angle Boost
      * @return this filter (for chaining operations)
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
@@ -323,15 +323,15 @@ public class Newsprint extends GeglFilter implements Filter
         return this;
     }
 
-    /** Angleboost
+    /** Angle Boost
      *
-     * multiplication factor for desired rotation of the local space for texture, the way this is computed makes it weak for desaturated colors and possibly stronger where there is color.
+     * Multiplication factor for desired rotation of the local space for texture, the way this is computed makes it weak for desaturated colors and possibly stronger where there is color.
      *
      * Unit: 
      * Default value: 0.00
      * Acceptable Range: 0.00 4.00
      *
-     * @return value of Angleboost
+     * @return value of Angle Boost
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getAngleboost()

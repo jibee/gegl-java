@@ -11,7 +11,7 @@ import com.jibee.gegl.annotations.GeglFilterOp;
 /**
  * Exposure
  *
- * Changes Exposure of an image, allows stepping HDR and photographs up/down in stops. 
+ * Change exposure of an image in shutter speed stops
  * 
  * License: 
  * Supports OpenCL: true
@@ -22,7 +22,7 @@ public class Exposure extends GeglFilter implements Filter
 {
     /** Constructs a Exposure.
      *
-     * Changes Exposure of an image, allows stepping HDR and photographs up/down in stops. 
+     * Change exposure of an image in shutter speed stops
      *
      * @param container container node
      */
@@ -32,7 +32,7 @@ public class Exposure extends GeglFilter implements Filter
     }
     /** Constructs a Exposure.
      *
-     * Changes Exposure of an image, allows stepping HDR and photographs up/down in stops. 
+     * Change exposure of an image in shutter speed stops
      *
      * @param parent parent filter node
      */

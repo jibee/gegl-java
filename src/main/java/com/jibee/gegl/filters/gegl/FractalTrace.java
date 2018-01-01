@@ -451,17 +451,17 @@ public class FractalTrace extends GeglFilter implements Filter
      * 
      *
      * Unit: 
-     * Default value: Double.POSITIVE_INFINITY
+     * Default value: 10000.00
      * Acceptable Range: 0.00 
      * */
-    private double m_Bailout  = Double.POSITIVE_INFINITY;
+    private double m_Bailout  = 10000.00;
 
     /** Bailout length
      *
      * 
      *
      * Unit: 
-     * Default value: Double.POSITIVE_INFINITY
+     * Default value: 10000.00
      * Acceptable Range: 0.00 
      *
      * @param value new value for Bailout length
@@ -485,7 +485,7 @@ public class FractalTrace extends GeglFilter implements Filter
      * 
      *
      * Unit: 
-     * Default value: Double.POSITIVE_INFINITY
+     * Default value: 10000.00
      * Acceptable Range: 0.00 
      *
      * @return value of Bailout length

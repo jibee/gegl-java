@@ -15,10 +15,10 @@ import com.jibee.gegl.annotations.GeglFilterOp;
  * Render a checkerboard pattern
  * 
  * License: 
- * Supports OpenCL: false
+ * Supports OpenCL: true
  * Position Dependant: true
  */
-@GeglFilterOp(license="", opencl=false, position_dependant=true, categories={"render"})
+@GeglFilterOp(license="", opencl=true, position_dependant=true, categories={"render"})
 public class Checkerboard extends GeglFilter implements Source
 {
     /** Constructs a Checkerboard.
