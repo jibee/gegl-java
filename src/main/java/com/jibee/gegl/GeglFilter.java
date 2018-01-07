@@ -191,5 +191,17 @@ public class GeglFilter implements iFilter {
 	{
 		return getImplementation().blit();
 	}
+	/** Describes the filter chain as an XML string, assuming all paths are absolute
+	 */
+	public String asXML()
+	{
+		return getImplementation().asXML();
+	}
+	/** Describes the filter chain as an XML string, expressing paths relative to the base_path
+	 */
+	public String asXML(String base_path)
+	{
+		return getImplementation().asXML(base_path);
+	}
 
 }

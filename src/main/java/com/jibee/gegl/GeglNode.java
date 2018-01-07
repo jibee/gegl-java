@@ -12,7 +12,12 @@ public class GeglNode extends GObject
 		super(init);
 		// TODO Auto-generated constructor stub
 	}
-	
+	/** Releases a reference to this node, if necessary frees the memory held
+	 */
+	public void release()
+	{
+		this.unref();
+	}
 	public byte[] blit(double scale, GeglRectangle roi, BablFormat format)
 	{
 		int size;
@@ -32,7 +37,12 @@ public class GeglNode extends GObject
 		return Gegl.INSTANCE.gegl_node_get_bounding_box(this);
 	}
 	
-	
-	
-
+	public String asXML()
+	{
+		return asXML("/");
+	}
+	public String asXML(String path_base)
+	{
+		return Gegl.INSTANCE.gegl_node_to_xml(this, path_base);
+	}
 }
