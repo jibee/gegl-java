@@ -1,51 +1,92 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.jibee</groupId>
-  <artifactId>gegl</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>GEGL Java bindings</name>
-  <dependencies>
-    <dependency>
-    	<groupId>com.googlecode.gstreamer-java</groupId>
-    	<artifactId>gstreamer-java</artifactId>
-    	<version>1.6</version>
-    </dependency>
-    <dependency>
-	<groupId>org.projectlombok</groupId>
-	<artifactId>lombok</artifactId>
-	<version>1.16.18</version>
-    </dependency>
-    <dependency>
-    	<groupId>org.slf4j</groupId>
-    	<artifactId>slf4j-api</artifactId>
-    	<version>1.8.0-alpha2</version>
-    </dependency>
-     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.jibee</groupId>
+	<artifactId>gegl</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>GEGL Java bindings</name>
+	<dependencies>
+		<dependency>
+			<groupId>com.googlecode.gstreamer-java</groupId>
+			<artifactId>gstreamer-java</artifactId>
+			<version>1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.18</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.8.0-alpha2</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
-<repositories>
-    <repository>
-        <id>projectlombok.org</id>
-        <url>http://projectlombok.org/mavenrepo</url>
-    </repository>
-</repositories>
+	<repositories>
+		<repository>
+			<id>projectlombok.org</id>
+			<url>http://projectlombok.org/mavenrepo</url>
+		</repository>
+	</repositories>
 
- <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>make</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<exec executable="cmake" dir="${basedir}"
+									failonerror="true">
+<!---
+									<arg line="prefix=${project.build.directory}/native/" />
+-->
+								</exec>
+								<exec executable="make" dir="${basedir}"
+									failonerror="true">
+									<arg line="VERBOSE=1" />
+								</exec>
+								<!-- The second make is a workaround for HADOOP-9215. It can be removed 
+									when version 2.6 of cmake is no longer supported . -->
+<!---
+								<exec executable="make" dir="${project.build.directory}/native-build"
+									failonerror="true"></exec>
+-->
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<resources>
+		    <resource>
+			<directory>dependancies/3rdParty/lib</directory>
+		    </resource>
+		</resources>
+	    </build>
 </project>
