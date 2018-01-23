@@ -19,13 +19,24 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.8.0-alpha2</version>
+			<version>1.7.22</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.22</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>tw.edu.sju.ee.eea.commons</groupId>
+			<artifactId>commons-nativeutils</artifactId>
+			<version>1.0</version>
 		</dependency>
 	</dependencies>
 
@@ -63,9 +74,7 @@
 							<target>
 								<exec executable="cmake" dir="${basedir}"
 									failonerror="true">
-<!---
-									<arg line="prefix=${project.build.directory}/native/" />
--->
+									<arg line=". -DCMAKE_INSTALL_PREFIX=${project.build.directory}/native" />
 								</exec>
 								<exec executable="make" dir="${basedir}"
 									failonerror="true">

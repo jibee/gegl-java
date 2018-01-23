@@ -1,0 +1,13 @@
+diff --git a/configure.ac b/configure.ac
+index 292e7f2..c80952b 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -547,7 +547,7 @@ DEP_LIBS=`$PKG_CONFIG --libs $GLIB_PACKAGES gthread-2.0`
+ ######################
+ 
+ AM_GNU_GETTEXT([external])
+-AM_GNU_GETTEXT_VERSION([0.19.8])
++AM_GNU_GETTEXT_VERSION([0.19.7])
+ 
+ GETTEXT_PACKAGE=gegl-$GEGL_API_VERSION
+ AC_SUBST(GETTEXT_PACKAGE)
