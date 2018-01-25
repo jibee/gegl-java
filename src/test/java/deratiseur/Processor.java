@@ -21,7 +21,6 @@ public class Processor {
 static Logger logger = LoggerFactory.getLogger(Processor.class);
 	@Test
 	public void test() {
-		System.setProperty("jna.library.path","/home/jibee/Coding/Deratiseur/3rdParty/lib:/usr/lib/x86_64-linux-gnu");
 
 		GeglNode rootNode = com.jibee.gegl.Gegl.newNode();
 		RawLoad loader = null;
