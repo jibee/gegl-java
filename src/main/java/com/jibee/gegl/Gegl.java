@@ -32,6 +32,13 @@ public class Gegl {
 				}
 				else
 				{
+					log.warn(
+							"No native libs found in jar. Please provide the "+
+							"location of the GEGL libraries through the "+
+							"gegl.native property. We will now try to load "+
+							"the native libs from the system location but "+
+							"this is likely to fail."
+							);
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
