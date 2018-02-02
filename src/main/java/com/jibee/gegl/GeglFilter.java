@@ -12,6 +12,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GeglFilter implements iFilter {
 	private GeglNode m_implementation;
+	
+	@Override
+	public String toString() {
+		return this.asXML();
+	}
 	/** Constructor
 	 * 
 	 * @param container Container node
