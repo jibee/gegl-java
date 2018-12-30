@@ -1,0 +1,11 @@
+--- a/win32/Makefile.gcc	2018-12-30 18:05:36.698336746 +0000
++++ b/win32/Makefile.gcc	2018-12-30 18:05:49.110795292 +0000
+@@ -41,7 +41,7 @@
+ #LOC = -DASMV
+ #LOC = -DZLIB_DEBUG -g
+ 
+-PREFIX =
++PREFIX ?=
+ CC = $(PREFIX)gcc
+ CFLAGS = $(LOC) -O3 -Wall
+ 
