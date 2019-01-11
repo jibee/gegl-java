@@ -181,7 +181,7 @@ libraw-win-x86-64
 SOURCE_DIR libraw
 URL https://www.libraw.org/data/LibRaw-0.19.2.tar.gz
 INSTALL_DIR ${WINDOWS_INSTALL}
-BUILD_COMMAND make
+URL_HASH SHA512=163b783f26887219d02694c6ca7cdc5571b15efe3922f7e3ca122a875568bd060c40a364451ea94af44c2ae48705bf96cbef196c7e935e42efe6ee316bb291fa
 CONFIGURE_COMMAND PKG_CONFIG_LIBDIR=${WINDOWS_INSTALL}/lib/pkgconfig CPPFLAGS=-I<INSTALL_DIR>/include LDFLAGS=-L<INSTALL_DIR>/lib <SOURCE_DIR>/configure --exec-prefix=<INSTALL_DIR> --prefix=<INSTALL_DIR>  --host=x86_64-w64-mingw32 --disable-static
 )
 
