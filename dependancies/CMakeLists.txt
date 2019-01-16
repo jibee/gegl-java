@@ -21,7 +21,8 @@ SOURCE_DIR gegl
 #GIT_REPOSITORY http://git.gnome.org/browse/gegl
 URL https://download.gimp.org/pub/gegl/0.4/gegl-0.4.12.tar.bz2
 URL_HASH SHA512=cacf9f5c34357b3939162d0d4712ee2b47298a3e806b55e275cdf5e23f186d436ea1a840b91b1b72b76d450d94674cca217b7c253cd6b52a7d9505b4ad73fde2
-PATCH_COMMAND patch < ${CMAKE_CURRENT_LIST_DIR}/patches/gegl/01_gettextversion.diff
+#PATCH_COMMAND patch < ${CMAKE_CURRENT_LIST_DIR}/patches/gegl/01_gettextversion.diff ${CMAKE_CURRENT_LIST_DIR}/patches/gegl/02_list_operations.patch
+PATCH_COMMAND cat ${CMAKE_CURRENT_LIST_DIR}/patches/gegl/01_gettextversion.diff ${CMAKE_CURRENT_LIST_DIR}/patches/gegl/02_list_operations.patch | patch -p1
 INSTALL_DIR ${LINUX_AMD64_INSTALL}
 CONFIGURE_COMMAND PKG_CONFIG_PATH=${LINUX_AMD64_INSTALL}/lib/pkgconfig <SOURCE_DIR>/autogen.sh --prefix=<INSTALL_DIR> --disable-maintainer-mode
 )
@@ -206,7 +207,7 @@ SOURCE_DIR gegl
 #GIT_REPOSITORY http://git.gnome.org/browse/gegl
 URL https://download.gimp.org/pub/gegl/0.4/gegl-0.4.12.tar.bz2
 URL_HASH SHA512=cacf9f5c34357b3939162d0d4712ee2b47298a3e806b55e275cdf5e23f186d436ea1a840b91b1b72b76d450d94674cca217b7c253cd6b52a7d9505b4ad73fde2
-PATCH_COMMAND patch < ${CMAKE_CURRENT_LIST_DIR}/patches/gegl/01_gettextversion.diff
+PATCH_COMMAND cat ${CMAKE_CURRENT_LIST_DIR}/patches/gegl/01_gettextversion.diff ${CMAKE_CURRENT_LIST_DIR}/patches/gegl/02_list_operations.patch | patch -p1
 INSTALL_DIR ${WINDOWS_INSTALL}
 BUILD_COMMAND make -j8
 #CONFIGURE_COMMAND PKG_CONFIG_LIBDIR=${WINDOWS_INSTALL}/lib/pkgconfig <SOURCE_DIR>/autogen.sh --prefix=<INSTALL_DIR> --disable-maintainer-mode --host=x86_64-w64-mingw32

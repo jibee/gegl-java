@@ -1,0 +1,288 @@
+diff --git a/tools/operation_reference.c b/tools/operation_reference.c
+index 49a79e6..eea79fd 100644
+--- a/tools/operation_reference.c
++++ b/tools/operation_reference.c
+@@ -110,7 +110,7 @@ json_list_pads (GType type, const gchar *opname)
+   if (input_pads && input_pads[0])
+   {
+     gboolean first = TRUE;
+-    g_print (" ,'input-pads':[\n");
++    g_print (" ,\"input-pads\":[\n");
+     for (i = 0; input_pads[i]; i++)
+     {
+       if (first)
+@@ -120,7 +120,7 @@ json_list_pads (GType type, const gchar *opname)
+       else
+       g_print (",");
+ 
+-      g_print ("'%s'\n", input_pads[i]);
++      g_print ("\"%s\"\n", input_pads[i]);
+     }
+     g_print (" ]");
+     g_free (input_pads);
+@@ -129,7 +129,7 @@ json_list_pads (GType type, const gchar *opname)
+   if (output_pads && output_pads[0])
+   {
+     gboolean first = TRUE;
+-    g_print (" ,'output-pads':[\n");
++    g_print (" ,\"output-pads\":[\n");
+     for (i = 0; output_pads[i]; i++)
+     {
+       if (first)
+@@ -139,7 +139,7 @@ json_list_pads (GType type, const gchar *opname)
+       else
+       g_print (",");
+ 
+-      g_print ("'%s'\n", output_pads[i]);
++      g_print ("\"%s\"\n", output_pads[i]);
+     }
+     g_print (" ]");
+     g_free (output_pads);
+@@ -158,7 +158,7 @@ json_list_properties (GType type, const gchar *opname)
+   gint prop_no;
+   gboolean first_prop = TRUE;
+ 
+-  g_print (",'properties':[\n");
++  g_print (",\"properties\":[\n");
+ 
+   if (!type)
+     return;
+@@ -189,12 +189,12 @@ json_list_properties (GType type, const gchar *opname)
+           if (first_prop)
+           {
+             first_prop = FALSE;
+-            g_print(" { 'name':'%s'\n", g_param_spec_get_name (self[prop_no]));
++            g_print(" { \"name\":\"%s\"\n", g_param_spec_get_name (self[prop_no]));
+           }
+           else
+-            g_print(",{'name':'%s'\n", g_param_spec_get_name (self[prop_no]));
++            g_print(",{\"name\":\"%s\"\n", g_param_spec_get_name (self[prop_no]));
+ 
+-          g_print("  ,'label':\"");
++          g_print("  ,\"label\":\"");
+             json_escape_string (g_param_spec_get_nick (self[prop_no]));
+           g_print ("\"\n");
+ 
+@@ -204,12 +204,12 @@ json_list_properties (GType type, const gchar *opname)
+             type_name+=5;
+           }
+ 
+-          g_print("  ,'type':'");
++          g_print("  ,\"type\":\"");
+           {
+             for (const char *p = type_name; *p; p++)
+               g_print("%c", g_ascii_tolower (*p));
+           }
+-          g_print("'\n");
++          g_print("\"\n");
+ 
+           if (g_type_is_a (G_PARAM_SPEC_VALUE_TYPE (self[prop_no]), G_TYPE_DOUBLE))
+             {
+@@ -218,21 +218,21 @@ json_list_properties (GType type, const gchar *opname)
+               gdouble max = G_PARAM_SPEC_DOUBLE (self[prop_no])->maximum;
+ 
+               if (default_value<-10000000)
+-                g_print ("  ,'default':'-inf'\n");
++                g_print ("  ,\"default\":\"-inf\"\n");
+               else if (default_value>10000000)
+-                g_print ("  ,'default':'+inf'\n");
++                g_print ("  ,\"default\":\"+inf\"\n");
+               else
+-                g_print ("  ,'default':'%2.2f'\n", default_value);
++                g_print ("  ,\"default\":\"%2.2f\"\n", default_value);
+ 
+               if (min<-10000000)
+-                g_print ("  ,'minimum':'-inf'\n");
++                g_print ("  ,\"minimum\":\"-inf\"\n");
+               else
+-                g_print ("  ,'minimum':'%2.2f'\n", min);
++                g_print ("  ,\"minimum\":\"%2.2f\"\n", min);
+ 
+               if (max>10000000)
+-                g_print ("  ,'maximum':'+inf'\n");
++                g_print ("  ,\"maximum\":\"+inf\"\n");
+               else
+-                g_print ("  ,'maximum':'%2.2f'\n", max);
++                g_print ("  ,\"maximum\":\"%2.2f\"\n", max);
+               
+               if (GEGL_IS_PARAM_SPEC_DOUBLE (self[prop_no]))
+               {
+@@ -240,19 +240,19 @@ json_list_properties (GType type, const gchar *opname)
+                               GEGL_PARAM_SPEC_DOUBLE (self[prop_no]);
+ 
+                 if (pspec->ui_minimum < -10000000)
+-                  g_print ("  ,'ui-minimum':'-inf'\n");
++                  g_print ("  ,\"ui-minimum\":\"-inf\"\n");
+                 else
+-                  g_print ("  ,'ui-minimum':'%2.2f'\n", pspec->ui_minimum);
++                  g_print ("  ,\"ui-minimum\":\"%2.2f\"\n", pspec->ui_minimum);
+ 
+                 if (pspec->ui_maximum > 10000000)
+-                  g_print ("  ,'ui-maximum':'+inf'\n");
++                  g_print ("  ,\"ui-maximum\":\"+inf\"\n");
+                 else
+-                  g_print ("  ,'ui-maximum':'%2.2f'\n", pspec->ui_maximum);
++                  g_print ("  ,\"ui-maximum\":\"%2.2f\"\n", pspec->ui_maximum);
+ 
+-                g_print ("  ,'ui-gamma':'%2.2f'\n", pspec->ui_gamma);
+-                g_print ("  ,'ui-step-small':'%2.2f'\n", pspec->ui_step_small);
+-                g_print ("  ,'ui-step-big':'%2.2f'\n", pspec->ui_step_big);
+-                g_print ("  ,'ui-digits':'%i'\n", pspec->ui_digits);
++                g_print ("  ,\"ui-gamma\":\"%2.2f\"\n", pspec->ui_gamma);
++                g_print ("  ,\"ui-step-small\":\"%2.2f\"\n", pspec->ui_step_small);
++                g_print ("  ,\"ui-step-big\":\"%2.2f\"\n", pspec->ui_step_big);
++                g_print ("  ,\"ui-digits\":\"%i\"\n", pspec->ui_digits);
+               }
+ 
+             }
+@@ -263,21 +263,21 @@ json_list_properties (GType type, const gchar *opname)
+               gint max = G_PARAM_SPEC_INT (self[prop_no])->maximum;
+ 
+               if (default_value<-10000000)
+-                g_print ("  ,'default':'-inf'\n");
++                g_print ("  ,\"default\":\"-inf\"\n");
+               else if (default_value>10000000)
+-                g_print ("  ,'default':'+inf'\n");
++                g_print ("  ,\"default\":\"+inf\"\n");
+               else
+-                g_print ("  ,'default':'%i'\n", default_value);
++                g_print ("  ,\"default\":\"%i\"\n", default_value);
+ 
+               if (min<-10000000)
+-                g_print ("  ,'minimum':'-inf'\n");
++                g_print ("  ,\"minimum\":\"-inf\"\n");
+               else
+-                g_print ("  ,'minimum':'%i'\n", min);
++                g_print ("  ,\"minimum\":\"%i\"\n", min);
+ 
+               if (max>10000000)
+-                g_print ("  ,'maximum':'+inf'\n");
++                g_print ("  ,\"maximum\":\"+inf\"\n");
+               else
+-                g_print ("  ,'maximum':'%i'\n", max);
++                g_print ("  ,\"maximum\":\"%i\"\n", max);
+ 
+               if (GEGL_IS_PARAM_SPEC_INT (self[prop_no]))
+               {
+@@ -285,30 +285,30 @@ json_list_properties (GType type, const gchar *opname)
+                               GEGL_PARAM_SPEC_INT (self[prop_no]);
+ 
+                 if (pspec->ui_minimum < -10000000)
+-                  g_print ("  ,'ui-minimum':'-inf'\n");
++                  g_print ("  ,\"ui-minimum\":\"-inf\"\n");
+                 else
+-                  g_print ("  ,'ui-minimum':'%i'\n", pspec->ui_minimum);
++                  g_print ("  ,\"ui-minimum\":\"%i\"\n", pspec->ui_minimum);
+ 
+                 if (pspec->ui_maximum > 10000000)
+-                  g_print ("  ,'ui-maximum':'+inf'\n");
++                  g_print ("  ,\"ui-maximum\":\"+inf\"\n");
+                 else
+-                  g_print ("  ,'ui-maximum':'%i'\n", pspec->ui_maximum);
++                  g_print ("  ,\"ui-maximum\":\"%i\"\n", pspec->ui_maximum);
+ 
+-                g_print ("  ,'ui-gamma':'%2.2f'\n", pspec->ui_gamma);
+-                g_print ("  ,'ui-step-small':'%i'\n", pspec->ui_step_small);
+-                g_print ("  ,'ui-step-big':'%i'\n", pspec->ui_step_big);
++                g_print ("  ,\"ui-gamma\":\"%2.2f\"\n", pspec->ui_gamma);
++                g_print ("  ,\"ui-step-small\":\"%i\"\n", pspec->ui_step_small);
++                g_print ("  ,\"ui-step-big\":\"%i\"\n", pspec->ui_step_big);
+               }
+ 
+             }
+           else if (g_type_is_a (G_PARAM_SPEC_VALUE_TYPE (self[prop_no]), G_TYPE_BOOLEAN))
+             {
+-              g_print ("  ,'default':'%s'\n", G_PARAM_SPEC_BOOLEAN (self[prop_no])->default_value?"True":"False");
++              g_print ("  ,\"default\":\"%s\"\n", G_PARAM_SPEC_BOOLEAN (self[prop_no])->default_value?"True":"False");
+             }
+           else if (g_type_is_a (G_PARAM_SPEC_VALUE_TYPE (self[prop_no]), G_TYPE_STRING))
+             {
+               const gchar *string = G_PARAM_SPEC_STRING (self[prop_no])->default_value;
+ 
+-              g_print ("  ,'default':\"");
++              g_print ("  ,\"default\":\"");
+               json_escape_string (string);
+               g_print ("\"\n");
+ 
+@@ -321,7 +321,7 @@ json_list_properties (GType type, const gchar *opname)
+                   gchar *string;
+ 
+                   g_object_get (color, "string", &string, NULL);
+-                  g_print ("  ,'default':\"");
++                  g_print ("  ,\"default\":\"");
+                   json_escape_string (string);
+                   g_print ("\"\n");
+                   g_free (string);
+@@ -334,7 +334,7 @@ json_list_properties (GType type, const gchar *opname)
+           if (g_param_spec_get_blurb (self[prop_no]) &&
+               g_param_spec_get_blurb (self[prop_no])[0]!='\0')
+           {
+-            g_print ("  ,'description':\"");
++            g_print ("  ,\"description\":\"");
+           
+             json_escape_string (g_param_spec_get_blurb (self[prop_no]));
+             g_print ("\"\n");
+@@ -356,7 +356,7 @@ json_list_properties (GType type, const gchar *opname)
+             /* XXX: list is in reverse order */
+             for (i = 0; property_keys[i]; i++)
+             {
+-              g_print ("  ,'%s':'%s'\n",
++              g_print ("  ,\"%s\":\"%s\"\n",
+                     property_keys[i],
+                     gegl_operation_get_property_key (opname, 
+                                       g_param_spec_get_name (self[prop_no]),
+@@ -407,22 +407,22 @@ main (gint argc, gchar **argv)
+       else
+         g_print (",");
+ 
+-      g_print ("{'op':'%s'\n", name);
++      g_print ("{\"op\":\"%s\"\n", name);
+ 
+       if (klass->compat_name)
+-        g_print (",'compat-op':'%s'\n", klass->compat_name);
++        g_print (",\"compat-op\":\"%s\"\n", klass->compat_name);
+ 
+       if (klass->opencl_support)
+-        g_print (",'opencl-support':'true'\n");
++        g_print (",\"opencl-support\":\"true\"\n");
+ 
+-      g_print (",'parent':'%s'\n", 
++      g_print (",\"parent\":\"%s\"\n",
+           g_type_name (g_type_parent(G_OBJECT_CLASS_TYPE(klass))));
+ 
+       {
+         char *image = operation_to_path (name);
+ 
+         if (g_file_test (image, G_FILE_TEST_EXISTS))
+-          g_print (",'image':'%s'\n", image);
++          g_print (",\"image\":\"%s\"\n", image);
+         g_free (image);
+       }
+ 
+@@ -438,7 +438,7 @@ main (gint argc, gchar **argv)
+             {
+               output[strlen(output)-1] = 0;
+               g_print (
+-      ",'source':'https://git.gnome.org/browse/gegl/tree/%s'\n", output);
++      ",\"source\":\"https://git.gnome.org/browse/gegl/tree/%s\"\n", output);
+             }
+           g_free (output);
+         }
+@@ -450,7 +450,7 @@ main (gint argc, gchar **argv)
+       {
+         const gchar *ptr = categoris;
+           gboolean first = TRUE;
+-        g_print (",'categories':[");
++        g_print (",\"categories\":[");
+ 
+         while (ptr && *ptr)
+           {
+@@ -468,7 +468,7 @@ main (gint argc, gchar **argv)
+                 first = FALSE;
+               else
+                 g_print (",");
+-              g_print ("'%s'", category);
++              g_print ("\"%s\"", category);
+             }
+           }
+         g_print ("]\n");
