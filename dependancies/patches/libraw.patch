@@ -1,0 +1,49 @@
+diff --git a/configure.ac b/configure.ac
+index fa11137..4fb3efc 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -120,6 +120,8 @@ AC_ARG_ENABLE([examples],
+ 	esac],[examples=true])
+ AM_CONDITIONAL([EXAMPLES], [test x$examples = xtrue])
+ 
++AC_CHECK_LIB(ws2_32, main)
++
+ LIBS="$LIBS -lm"
+ 
+ AC_SUBST([LIBRAW_SHLIB_VERSION],m4_esyscmd([./shlib-version.sh]))
+diff --git a/libraw/libraw_types.h b/libraw/libraw_types.h
+index 230c877..376f8f4 100644
+--- a/libraw/libraw_types.h
++++ b/libraw/libraw_types.h
+@@ -97,17 +97,21 @@ typedef unsigned long long UINT64;
+   typedef unsigned short ushort;
+ 
+ #ifdef WIN32
+-#ifdef LIBRAW_NODLL
+-#define DllDef
++#  ifdef LIBRAW_NODLL
++#    define DllDef
++#  else
++#    ifdef LIBRAW_BUILDLIB
++#      define DllDef __declspec(dllexport)
++#    else
++#      ifdef DLL_EXPORT /* Set by Automake when building a shared windows library */
++#        define DllDef __declspec(dllexport)
++#      else
++#        define DllDef __declspec(dllimport)
++#      endif
++#    endif
++#  endif
+ #else
+-#ifdef LIBRAW_BUILDLIB
+-#define DllDef __declspec(dllexport)
+-#else
+-#define DllDef __declspec(dllimport)
+-#endif
+-#endif
+-#else
+-#define DllDef
++#  define DllDef
+ #endif
+ 
+   typedef struct
