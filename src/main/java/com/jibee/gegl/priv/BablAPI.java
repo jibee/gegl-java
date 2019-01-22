@@ -60,6 +60,12 @@ public interface BablAPI extends Library{
 	 * Returns the babl object representing the @horizontal and @vertical
 	 * sampling such as for example 2, 2 for the chroma components in
 	 * YCbCr.
+	 * 
+	 * @param horizontal number of samples covered in the horizontal direction
+	 * @param vertical number of samples covered in the vertical direction
+	 * @return sampling babl object
+	 * 
+	 * 
 	 */
 	TypedPointer<BablSampling> babl_sampling  (int horizontal,
 	                             int vertical);
@@ -68,7 +74,10 @@ public interface BablAPI extends Library{
 	 * babl_component:
 	 *
 	 * Returns the babl object representing the color component given by
-	 * @name such as for example "R", "cyan" or "CIE L".
+	 * name such as for example "R", "cyan" or "CIE L".
+	 * 
+	 * @param name color component name, such as "R", "cyan" or "CIE L".
+	 * @return babl color component
 	 */
 	TypedPointer<BablComponent> babl_component (String name);
 
@@ -77,6 +86,9 @@ public interface BablAPI extends Library{
 	 *
 	 * Returns the babl object representing the color model given by @name
 	 * such as for example "RGB", "CMYK" or "CIE Lab".
+	 * 
+	 * @param name color model name
+	 * @return color model object
 	 */
 	TypedPointer<BablModel> babl_model     (String name);
 
@@ -85,7 +97,8 @@ public interface BablAPI extends Library{
 	 * babl_format:
 	 *
 	 * Returns the babl object representing the color format given by
-	 * @name such as for example "RGB u8", "CMYK float" or "CIE Lab u16".
+	 * name such as for example "RGB u8", "CMYK float" or "CIE Lab u16".
+	 * @param name color format name
 	 */
 	TypedPointer<BablFormat> babl_format    (String name);
 
@@ -95,6 +108,11 @@ public interface BablAPI extends Library{
 	 *  Create a babl fish capable of converting from source_format to
 	 *  destination_format, source and destination can be either strings
 	 *  with the names of the formats or Babl-format objects.
+	 *  
+	 *  @param source_format source format, either a {@link BablFormat} or a string
+	 *  @param destination_format destination format, either a {@link BablFormat} or a string
+	 *  
+	 *  @return bablfish converter
 	 */
 	TypedPointer<BablFish> babl_fish      (Object source_format,
 	                             Object destination_format);
@@ -278,6 +296,9 @@ public interface BablAPI extends Library{
 	 * babl_format_is_palette:
 	 *
 	 * check whether a format is a palette backed format.
+	 * 
+	 * @param format format to check
+	 * @return zero if the format is backed by a palette, non-zero otherwise
 	 */
 	int   babl_format_is_palette   (TypedPointer<BablFormat> format);
 
