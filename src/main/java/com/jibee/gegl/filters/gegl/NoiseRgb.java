@@ -230,7 +230,7 @@ public class NoiseRgb extends GeglFilter implements Filter
     }
 
 
-    /** Red
+    /** [! independent : non-independent-label]
      *
      * 
      *
@@ -240,7 +240,7 @@ public class NoiseRgb extends GeglFilter implements Filter
      * */
     private double m_Red  = 0.20;
 
-    /** Red
+    /** [! independent : non-independent-label]
      *
      * 
      *
@@ -248,7 +248,7 @@ public class NoiseRgb extends GeglFilter implements Filter
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
      *
-     * @param value new value for Red
+     * @param value new value for [! independent : non-independent-label]
      * @return this filter (for chaining operations)
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
@@ -264,7 +264,7 @@ public class NoiseRgb extends GeglFilter implements Filter
         return this;
     }
 
-    /** Red
+    /** [! independent : non-independent-label]
      *
      * 
      *
@@ -272,7 +272,7 @@ public class NoiseRgb extends GeglFilter implements Filter
      * Default value: 0.20
      * Acceptable Range: 0.00 1.00
      *
-     * @return value of Red
+     * @return value of [! independent : non-independent-label]
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getRed()

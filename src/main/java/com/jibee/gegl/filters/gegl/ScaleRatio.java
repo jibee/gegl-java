@@ -136,6 +136,57 @@ public class ScaleRatio extends GeglFilter implements Filter
     }
 
 
+    /** Near-z
+     *
+     * Z coordinate of the near clipping plane
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: 0.00 1.00
+     * */
+    private double m_NearZ  = 0.00;
+
+    /** Near-z
+     *
+     * Z coordinate of the near clipping plane
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Near-z
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
+     */
+    public ScaleRatio setNearZ(double value) throws ParameterOutOfRangeException
+    {
+		if(value > 1.00 || value < 0.00)
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
+
+        m_NearZ = value;
+        setProperty("near-z", value);
+        return this;
+    }
+
+    /** Near-z
+     *
+     * Z coordinate of the near clipping plane
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Near-z
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
+     */
+    public double getNearZ()
+    {
+        return m_NearZ;
+    }
+
+
     /** Sampler
      *
      * Sampler used internally
@@ -183,50 +234,50 @@ public class ScaleRatio extends GeglFilter implements Filter
     }
 
 
-    /** Clip to input
+    /** Abyss policy
      *
-     * Force output bounding box to be input bounding box.
+     * How image edges are handled
      *
      * Unit: 
-     * Default value: false
+     * Default value: 
      * Acceptable Range:  
      * */
-    private boolean m_ClipToInput  = false;
+    private String m_AbyssPolicy ;
 
-    /** Clip to input
+    /** Abyss policy
      *
-     * Force output bounding box to be input bounding box.
+     * How image edges are handled
      *
      * Unit: 
-     * Default value: false
+     * Default value: 
      * Acceptable Range:  
      *
-     * @param value new value for Clip to input
+     * @param value new value for Abyss policy
      * @return this filter (for chaining operations)
      * 
      */
-    public ScaleRatio setClipToInput(boolean value)
+    public ScaleRatio setAbyssPolicy(String value)
     {
 	
-        m_ClipToInput = value;
-        setProperty("clip-to-input", value);
+        m_AbyssPolicy = value;
+        setProperty("abyss-policy", value);
         return this;
     }
 
-    /** Clip to input
+    /** Abyss policy
      *
-     * Force output bounding box to be input bounding box.
+     * How image edges are handled
      *
      * Unit: 
-     * Default value: false
+     * Default value: 
      * Acceptable Range:  
      *
-     * @return value of Clip to input
+     * @return value of Abyss policy
      * 
      */
-    public boolean getClipToInput()
+    public String getAbyssPolicy()
     {
-        return m_ClipToInput;
+        return m_AbyssPolicy;
     }
 
 

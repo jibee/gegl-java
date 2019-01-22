@@ -86,6 +86,53 @@ public class PpmLoad extends GeglFilter implements Source
         return m_Path;
     }
 
+
+    /** URI
+     *
+     * URI of image to load.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
+    private String m_Uri ;
+
+    /** URI
+     *
+     * URI of image to load.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     *
+     * @param value new value for URI
+     * @return this filter (for chaining operations)
+     * 
+     */
+    public PpmLoad setUri(String value)
+    {
+	
+        m_Uri = value;
+        setProperty("uri", value);
+        return this;
+    }
+
+    /** URI
+     *
+     * URI of image to load.
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     *
+     * @return value of URI
+     * 
+     */
+    public String getUri()
+    {
+        return m_Uri;
+    }
+
     @Override
     public OutputPad Output()
     {

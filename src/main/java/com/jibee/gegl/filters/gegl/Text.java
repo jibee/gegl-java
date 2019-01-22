@@ -290,17 +290,17 @@ public class Text extends GeglFilter implements Source
      * Sets the height in pixels according to which the text is vertically justified. Use -1 for no vertical justification.
      *
      * Unit: pixel-distance
-     * Default value: 
+     * Default value: -1
      * Acceptable Range: -1 1000000
      * */
-    private int m_VerticalWrap ;
+    private int m_VerticalWrap  = -1;
 
     /** Wrap height
      *
      * Sets the height in pixels according to which the text is vertically justified. Use -1 for no vertical justification.
      *
      * Unit: pixel-distance
-     * Default value: 
+     * Default value: -1
      * Acceptable Range: -1 1000000
      *
      * @param value new value for Wrap height
@@ -324,7 +324,7 @@ public class Text extends GeglFilter implements Source
      * Sets the height in pixels according to which the text is vertically justified. Use -1 for no vertical justification.
      *
      * Unit: pixel-distance
-     * Default value: 
+     * Default value: -1
      * Acceptable Range: -1 1000000
      *
      * @return value of Wrap height

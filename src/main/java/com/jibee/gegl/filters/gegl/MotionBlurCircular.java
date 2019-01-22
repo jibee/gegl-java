@@ -142,7 +142,7 @@ public class MotionBlurCircular extends GeglFilter implements Filter
      *
      * Unit: degree
      * Default value: 5.00
-     * Acceptable Range: -180.00 180.00
+     * Acceptable Range: 0.00 360.00
      * */
     private double m_Angle  = 5.00;
 
@@ -152,7 +152,7 @@ public class MotionBlurCircular extends GeglFilter implements Filter
      *
      * Unit: degree
      * Default value: 5.00
-     * Acceptable Range: -180.00 180.00
+     * Acceptable Range: 0.00 360.00
      *
      * @param value new value for Angle
      * @return this filter (for chaining operations)
@@ -160,9 +160,9 @@ public class MotionBlurCircular extends GeglFilter implements Filter
      */
     public MotionBlurCircular setAngle(double value) throws ParameterOutOfRangeException
     {
-		if(value > 180.00 || value < -180.00)
+		if(value > 360.00 || value < 0.00)
 	    {
-	        throw new ParameterOutOfRangeException(value, -180.00, 180.00);
+	        throw new ParameterOutOfRangeException(value, 0.00, 360.00);
 	    }
 
         m_Angle = value;
@@ -176,7 +176,7 @@ public class MotionBlurCircular extends GeglFilter implements Filter
      *
      * Unit: degree
      * Default value: 5.00
-     * Acceptable Range: -180.00 180.00
+     * Acceptable Range: 0.00 360.00
      *
      * @return value of Angle
      * @throws ParameterOutOfRangeException value is outside the acceptable range.

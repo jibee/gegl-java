@@ -245,7 +245,7 @@ public class Vignette extends GeglFilter implements Filter
      *
      * Unit: 
      * Default value: 2.00
-     * Acceptable Range: 1.00 20.00
+     * Acceptable Range: 0.00 10.00
      * */
     private double m_Gamma  = 2.00;
 
@@ -255,7 +255,7 @@ public class Vignette extends GeglFilter implements Filter
      *
      * Unit: 
      * Default value: 2.00
-     * Acceptable Range: 1.00 20.00
+     * Acceptable Range: 0.00 10.00
      *
      * @param value new value for Gamma
      * @return this filter (for chaining operations)
@@ -263,9 +263,9 @@ public class Vignette extends GeglFilter implements Filter
      */
     public Vignette setGamma(double value) throws ParameterOutOfRangeException
     {
-		if(value > 20.00 || value < 1.00)
+		if(value > 10.00 || value < 0.00)
 	    {
-	        throw new ParameterOutOfRangeException(value, 1.00, 20.00);
+	        throw new ParameterOutOfRangeException(value, 0.00, 10.00);
 	    }
 
         m_Gamma = value;
@@ -279,7 +279,7 @@ public class Vignette extends GeglFilter implements Filter
      *
      * Unit: 
      * Default value: 2.00
-     * Acceptable Range: 1.00 20.00
+     * Acceptable Range: 0.00 10.00
      *
      * @return value of Gamma
      * @throws ParameterOutOfRangeException value is outside the acceptable range.

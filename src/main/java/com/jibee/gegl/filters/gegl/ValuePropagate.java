@@ -12,7 +12,7 @@ import com.jibee.gegl.annotations.GeglFilterOp;
 /**
  * Value Propagate
  *
- * Propagate certain colors to neighboring pixels.
+ * Propagate certain values to neighboring pixels. Erode and dilate any color or opacity.
  * 
  * License: GPL3+
  * Supports OpenCL: false
@@ -23,7 +23,7 @@ public class ValuePropagate extends GeglFilter implements Filter
 {
     /** Constructs a Value Propagate.
      *
-     * Propagate certain colors to neighboring pixels.
+     * Propagate certain values to neighboring pixels. Erode and dilate any color or opacity.
      *
      * @param container container node
      */
@@ -33,7 +33,7 @@ public class ValuePropagate extends GeglFilter implements Filter
     }
     /** Constructs a Value Propagate.
      *
-     * Propagate certain colors to neighboring pixels.
+     * Propagate certain values to neighboring pixels. Erode and dilate any color or opacity.
      *
      * @param parent parent filter node
      */

@@ -340,6 +340,53 @@ public class Ripple extends GeglFilter implements Filter
     }
 
 
+    /** Abyss policy
+     *
+     * How image edges are handled
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     * */
+    private String m_AbyssPolicy ;
+
+    /** Abyss policy
+     *
+     * How image edges are handled
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     *
+     * @param value new value for Abyss policy
+     * @return this filter (for chaining operations)
+     * 
+     */
+    public Ripple setAbyssPolicy(String value)
+    {
+	
+        m_AbyssPolicy = value;
+        setProperty("abyss-policy", value);
+        return this;
+    }
+
+    /** Abyss policy
+     *
+     * How image edges are handled
+     *
+     * Unit: 
+     * Default value: 
+     * Acceptable Range:  
+     *
+     * @return value of Abyss policy
+     * 
+     */
+    public String getAbyssPolicy()
+    {
+        return m_AbyssPolicy;
+    }
+
+
     /** Tileable
      *
      * Retain tilebility

@@ -10,7 +10,7 @@ import com.jibee.gegl.annotations.GeglFilterOp;
 /**
  * Watershed Transform
  *
- * Labels propagation by watershed transformation
+ * Labels propagation by watershed transformation. Output and expected input are "YA u32" grayscale buffers. The Y value represents a label. When a pixel is not labelled, its alpha value has to be set to 0. The mandatory aux buffer is a "Y u8" image representing the priority levels.
  * 
  * License: 
  * Supports OpenCL: false
@@ -21,7 +21,7 @@ public class WatershedTransform extends GeglFilter implements CombiningFilter
 {
     /** Constructs a Watershed Transform.
      *
-     * Labels propagation by watershed transformation
+     * Labels propagation by watershed transformation. Output and expected input are "YA u32" grayscale buffers. The Y value represents a label. When a pixel is not labelled, its alpha value has to be set to 0. The mandatory aux buffer is a "Y u8" image representing the priority levels.
      *
      * @param container container node
      */
@@ -31,7 +31,7 @@ public class WatershedTransform extends GeglFilter implements CombiningFilter
     }
     /** Constructs a Watershed Transform.
      *
-     * Labels propagation by watershed transformation
+     * Labels propagation by watershed transformation. Output and expected input are "YA u32" grayscale buffers. The Y value represents a label. When a pixel is not labelled, its alpha value has to be set to 0. The mandatory aux buffer is a "Y u8" image representing the priority levels.
      *
      * @param parent parent filter node
      */

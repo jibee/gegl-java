@@ -10,7 +10,7 @@ import com.jibee.gegl.annotations.GeglFilterOp;
 /**
  * Gamma
  *
- * Math operation gamma, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. (formula: result = powf (input, value))
+ * Math operation gamma, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. The result is the evaluation of the expression result = powf (input, value)
  * 
  * License: 
  * Supports OpenCL: false
@@ -21,7 +21,7 @@ public class Gamma extends GeglFilter implements CombiningFilter
 {
     /** Constructs a Gamma.
      *
-     * Math operation gamma, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. (formula: result = powf (input, value))
+     * Math operation gamma, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. The result is the evaluation of the expression result = powf (input, value)
      *
      * @param container container node
      */
@@ -31,7 +31,7 @@ public class Gamma extends GeglFilter implements CombiningFilter
     }
     /** Constructs a Gamma.
      *
-     * Math operation gamma, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. (formula: result = powf (input, value))
+     * Math operation gamma, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. The result is the evaluation of the expression result = powf (input, value)
      *
      * @param parent parent filter node
      */

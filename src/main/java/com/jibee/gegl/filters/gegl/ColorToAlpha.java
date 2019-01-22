@@ -6,6 +6,7 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
@@ -14,10 +15,10 @@ import com.jibee.gegl.annotations.GeglFilterOp;
  * Convert a specified color to transparency, works best with white.
  * 
  * License: GPL3+
- * Supports OpenCL: true
+ * Supports OpenCL: false
  * Position Dependant: false
  */
-@GeglFilterOp(license="GPL3+", opencl=true, position_dependant=false, categories={"color"})
+@GeglFilterOp(license="GPL3+", opencl=false, position_dependant=false, categories={"color"})
 public class ColorToAlpha extends GeglFilter implements Filter
 {
     /** Constructs a Color to Alpha.
@@ -86,6 +87,108 @@ public class ColorToAlpha extends GeglFilter implements Filter
     public GeglColor getColor()
     {
         return m_Color;
+    }
+
+
+    /** Transparency threshold
+     *
+     * The limit below which colors become transparent.
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: 0.00 1.00
+     * */
+    private double m_TransparencyThreshold  = 0.00;
+
+    /** Transparency threshold
+     *
+     * The limit below which colors become transparent.
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Transparency threshold
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
+     */
+    public ColorToAlpha setTransparencyThreshold(double value) throws ParameterOutOfRangeException
+    {
+		if(value > 1.00 || value < 0.00)
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
+
+        m_TransparencyThreshold = value;
+        setProperty("transparency-threshold", value);
+        return this;
+    }
+
+    /** Transparency threshold
+     *
+     * The limit below which colors become transparent.
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Transparency threshold
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
+     */
+    public double getTransparencyThreshold()
+    {
+        return m_TransparencyThreshold;
+    }
+
+
+    /** Opacity threshold
+     *
+     * The limit above which colors remain opaque.
+     *
+     * Unit: 
+     * Default value: 1.00
+     * Acceptable Range: 0.00 1.00
+     * */
+    private double m_OpacityThreshold  = 1.00;
+
+    /** Opacity threshold
+     *
+     * The limit above which colors remain opaque.
+     *
+     * Unit: 
+     * Default value: 1.00
+     * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Opacity threshold
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
+     */
+    public ColorToAlpha setOpacityThreshold(double value) throws ParameterOutOfRangeException
+    {
+		if(value > 1.00 || value < 0.00)
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
+
+        m_OpacityThreshold = value;
+        setProperty("opacity-threshold", value);
+        return this;
+    }
+
+    /** Opacity threshold
+     *
+     * The limit above which colors remain opaque.
+     *
+     * Unit: 
+     * Default value: 1.00
+     * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Opacity threshold
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
+     */
+    public double getOpacityThreshold()
+    {
+        return m_OpacityThreshold;
     }
 
     @Override

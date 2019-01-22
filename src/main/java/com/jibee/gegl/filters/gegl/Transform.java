@@ -5,6 +5,7 @@ import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
 import com.jibee.gegl.InputPad;
 import com.jibee.gegl.OutputPad;
+import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
@@ -135,6 +136,57 @@ public class Transform extends GeglFilter implements Filter
     }
 
 
+    /** Near-z
+     *
+     * Z coordinate of the near clipping plane
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: 0.00 1.00
+     * */
+    private double m_NearZ  = 0.00;
+
+    /** Near-z
+     *
+     * Z coordinate of the near clipping plane
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Near-z
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
+     */
+    public Transform setNearZ(double value) throws ParameterOutOfRangeException
+    {
+		if(value > 1.00 || value < 0.00)
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
+
+        m_NearZ = value;
+        setProperty("near-z", value);
+        return this;
+    }
+
+    /** Near-z
+     *
+     * Z coordinate of the near clipping plane
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Near-z
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
+     */
+    public double getNearZ()
+    {
+        return m_NearZ;
+    }
+
+
     /** Sampler
      *
      * Sampler used internally
@@ -179,53 +231,6 @@ public class Transform extends GeglFilter implements Filter
     public String getSampler()
     {
         return m_Sampler;
-    }
-
-
-    /** Clip to input
-     *
-     * Force output bounding box to be input bounding box.
-     *
-     * Unit: 
-     * Default value: false
-     * Acceptable Range:  
-     * */
-    private boolean m_ClipToInput  = false;
-
-    /** Clip to input
-     *
-     * Force output bounding box to be input bounding box.
-     *
-     * Unit: 
-     * Default value: false
-     * Acceptable Range:  
-     *
-     * @param value new value for Clip to input
-     * @return this filter (for chaining operations)
-     * 
-     */
-    public Transform setClipToInput(boolean value)
-    {
-	
-        m_ClipToInput = value;
-        setProperty("clip-to-input", value);
-        return this;
-    }
-
-    /** Clip to input
-     *
-     * Force output bounding box to be input bounding box.
-     *
-     * Unit: 
-     * Default value: false
-     * Acceptable Range:  
-     *
-     * @return value of Clip to input
-     * 
-     */
-    public boolean getClipToInput()
-    {
-        return m_ClipToInput;
     }
 
 

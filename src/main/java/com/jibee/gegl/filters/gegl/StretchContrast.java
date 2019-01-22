@@ -87,6 +87,53 @@ public class StretchContrast extends GeglFilter implements Filter
         return m_KeepColors;
     }
 
+
+    /** Non-linear components
+     *
+     * When set operate on gamma corrected values instead of linear RGB - acting like the old normalize filter in GIMP
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     * */
+    private boolean m_Perceptual  = false;
+
+    /** Non-linear components
+     *
+     * When set operate on gamma corrected values instead of linear RGB - acting like the old normalize filter in GIMP
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     *
+     * @param value new value for Non-linear components
+     * @return this filter (for chaining operations)
+     * 
+     */
+    public StretchContrast setPerceptual(boolean value)
+    {
+	
+        m_Perceptual = value;
+        setProperty("perceptual", value);
+        return this;
+    }
+
+    /** Non-linear components
+     *
+     * When set operate on gamma corrected values instead of linear RGB - acting like the old normalize filter in GIMP
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     *
+     * @return value of Non-linear components
+     * 
+     */
+    public boolean getPerceptual()
+    {
+        return m_Perceptual;
+    }
+
     @Override
     public InputPad Input()
     {

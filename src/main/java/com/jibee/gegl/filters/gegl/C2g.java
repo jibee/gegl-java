@@ -194,6 +194,53 @@ public class C2g extends GeglFilter implements Filter
         return m_Iterations;
     }
 
+
+    /** Enhance Shadows
+     *
+     * When enabled details in shadows are boosted at the expense of noise
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     * */
+    private boolean m_EnhanceShadows  = false;
+
+    /** Enhance Shadows
+     *
+     * When enabled details in shadows are boosted at the expense of noise
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     *
+     * @param value new value for Enhance Shadows
+     * @return this filter (for chaining operations)
+     * 
+     */
+    public C2g setEnhanceShadows(boolean value)
+    {
+	
+        m_EnhanceShadows = value;
+        setProperty("enhance-shadows", value);
+        return this;
+    }
+
+    /** Enhance Shadows
+     *
+     * When enabled details in shadows are boosted at the expense of noise
+     *
+     * Unit: 
+     * Default value: false
+     * Acceptable Range:  
+     *
+     * @return value of Enhance Shadows
+     * 
+     */
+    public boolean getEnhanceShadows()
+    {
+        return m_EnhanceShadows;
+    }
+
     @Override
     public InputPad Input()
     {

@@ -9,36 +9,36 @@ import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
- * Panorama Projection
+ * Little Planet
  *
- * Do panorama viewer rendering mapping or its inverse for an equirectangular input image. (2:1 ratio containing 360x180 degree panorama).
+ * Do a stereographic/little planet transform of an equirectangular image.
  * 
  * License: 
  * Supports OpenCL: false
  * Position Dependant: true
  */
 @GeglFilterOp(license="", opencl=false, position_dependant=true, categories={"map"})
-public class PanoramaProjection extends GeglFilter implements Filter
+public class StereographicProjection extends GeglFilter implements Filter
 {
-    /** Constructs a Panorama Projection.
+    /** Constructs a Little Planet.
      *
-     * Do panorama viewer rendering mapping or its inverse for an equirectangular input image. (2:1 ratio containing 360x180 degree panorama).
+     * Do a stereographic/little planet transform of an equirectangular image.
      *
      * @param container container node
      */
-    public PanoramaProjection(GeglNode container)
+    public StereographicProjection(GeglNode container)
     {
-        super(container, "gegl:panorama-projection");
+        super(container, "gegl:stereographic-projection");
     }
-    /** Constructs a Panorama Projection.
+    /** Constructs a Little Planet.
      *
-     * Do panorama viewer rendering mapping or its inverse for an equirectangular input image. (2:1 ratio containing 360x180 degree panorama).
+     * Do a stereographic/little planet transform of an equirectangular image.
      *
      * @param parent parent filter node
      */
-    public PanoramaProjection(GeglFilter parent)
+    public StereographicProjection(GeglFilter parent)
     {
-        super(parent, "gegl:panorama-projection");
+        super(parent, "gegl:stereographic-projection");
     }
 
     
@@ -64,7 +64,7 @@ public class PanoramaProjection extends GeglFilter implements Filter
      * @return this filter (for chaining operations)
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
-    public PanoramaProjection setPan(double value) throws ParameterOutOfRangeException
+    public StereographicProjection setPan(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < -360.00)
 	    {
@@ -98,24 +98,24 @@ public class PanoramaProjection extends GeglFilter implements Filter
      * Vertical camera panning
      *
      * Unit: degree
-     * Default value: 0.00
+     * Default value: 90.00
      * Acceptable Range: -180.00 180.00
      * */
-    private double m_Tilt  = 0.00;
+    private double m_Tilt  = 90.00;
 
     /** Tilt
      *
      * Vertical camera panning
      *
      * Unit: degree
-     * Default value: 0.00
+     * Default value: 90.00
      * Acceptable Range: -180.00 180.00
      *
      * @param value new value for Tilt
      * @return this filter (for chaining operations)
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
-    public PanoramaProjection setTilt(double value) throws ParameterOutOfRangeException
+    public StereographicProjection setTilt(double value) throws ParameterOutOfRangeException
     {
 		if(value > 180.00 || value < -180.00)
 	    {
@@ -132,7 +132,7 @@ public class PanoramaProjection extends GeglFilter implements Filter
      * Vertical camera panning
      *
      * Unit: degree
-     * Default value: 0.00
+     * Default value: 90.00
      * Acceptable Range: -180.00 180.00
      *
      * @return value of Tilt
@@ -166,7 +166,7 @@ public class PanoramaProjection extends GeglFilter implements Filter
      * @return this filter (for chaining operations)
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
-    public PanoramaProjection setSpin(double value) throws ParameterOutOfRangeException
+    public StereographicProjection setSpin(double value) throws ParameterOutOfRangeException
     {
 		if(value > 360.00 || value < -360.00)
 	    {
@@ -217,7 +217,7 @@ public class PanoramaProjection extends GeglFilter implements Filter
      * @return this filter (for chaining operations)
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
-    public PanoramaProjection setZoom(double value) throws ParameterOutOfRangeException
+    public StereographicProjection setZoom(double value) throws ParameterOutOfRangeException
     {
 		if(value > 1000.00 || value < 0.01)
 	    {
@@ -268,7 +268,7 @@ public class PanoramaProjection extends GeglFilter implements Filter
      * @return this filter (for chaining operations)
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
-    public PanoramaProjection setWidth(int value) throws ParameterOutOfRangeException
+    public StereographicProjection setWidth(int value) throws ParameterOutOfRangeException
     {
 		if(value > 10000 || value < -1)
 	    {
@@ -319,7 +319,7 @@ public class PanoramaProjection extends GeglFilter implements Filter
      * @return this filter (for chaining operations)
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
-    public PanoramaProjection setHeight(int value) throws ParameterOutOfRangeException
+    public StereographicProjection setHeight(int value) throws ParameterOutOfRangeException
     {
 		if(value > 10000 || value < -1)
 	    {
@@ -370,7 +370,7 @@ public class PanoramaProjection extends GeglFilter implements Filter
      * @return this filter (for chaining operations)
      * 
      */
-    public PanoramaProjection setInverse(boolean value)
+    public StereographicProjection setInverse(boolean value)
     {
 	
         m_Inverse = value;
@@ -417,7 +417,7 @@ public class PanoramaProjection extends GeglFilter implements Filter
      * @return this filter (for chaining operations)
      * 
      */
-    public PanoramaProjection setSamplerType(String value)
+    public StereographicProjection setSamplerType(String value)
     {
 	
         m_SamplerType = value;

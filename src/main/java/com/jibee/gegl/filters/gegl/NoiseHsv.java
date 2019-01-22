@@ -42,9 +42,9 @@ public class NoiseHsv extends GeglFilter implements Filter
     }
 
     
-    /** Holdness
+    /** Dulling
      *
-     * 
+     * A high value lowers the randomness of the noise
      *
      * Unit: 
      * Default value: 2
@@ -52,15 +52,15 @@ public class NoiseHsv extends GeglFilter implements Filter
      * */
     private int m_Holdness  = 2;
 
-    /** Holdness
+    /** Dulling
      *
-     * 
+     * A high value lowers the randomness of the noise
      *
      * Unit: 
      * Default value: 2
      * Acceptable Range: 1 8
      *
-     * @param value new value for Holdness
+     * @param value new value for Dulling
      * @return this filter (for chaining operations)
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
@@ -76,15 +76,15 @@ public class NoiseHsv extends GeglFilter implements Filter
         return this;
     }
 
-    /** Holdness
+    /** Dulling
      *
-     * 
+     * A high value lowers the randomness of the noise
      *
      * Unit: 
      * Default value: 2
      * Acceptable Range: 1 8
      *
-     * @return value of Holdness
+     * @return value of Dulling
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public int getHoldness()

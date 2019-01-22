@@ -7,42 +7,42 @@ import com.jibee.gegl.Source;
 import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
- * libraw File Loader
+ * GIF File Loader
  *
- * Camera RAW image loader
+ * GIF image loader.
  * 
  * License: 
  * Supports OpenCL: false
  * Position Dependant: false
  */
 @GeglFilterOp(license="", opencl=false, position_dependant=false, categories={"hidden"})
-public class RawLoad extends GeglFilter implements Source
+public class GifLoad extends GeglFilter implements Source
 {
-    /** Constructs a libraw File Loader.
+    /** Constructs a GIF File Loader.
      *
-     * Camera RAW image loader
+     * GIF image loader.
      *
      * @param container container node
      */
-    public RawLoad(GeglNode container)
+    public GifLoad(GeglNode container)
     {
-        super(container, "gegl:raw-load");
+        super(container, "gegl:gif-load");
     }
-    /** Constructs a libraw File Loader.
+    /** Constructs a GIF File Loader.
      *
-     * Camera RAW image loader
+     * GIF image loader.
      *
      * @param parent parent filter node
      */
-    public RawLoad(GeglFilter parent)
+    public GifLoad(GeglFilter parent)
     {
-        super(parent, "gegl:raw-load");
+        super(parent, "gegl:gif-load");
     }
 
     
     /** File
      *
-     * Path of file to load.
+     * Path of file to load
      *
      * Unit: 
      * Default value: 
@@ -52,7 +52,7 @@ public class RawLoad extends GeglFilter implements Source
 
     /** File
      *
-     * Path of file to load.
+     * Path of file to load
      *
      * Unit: 
      * Default value: 
@@ -62,7 +62,7 @@ public class RawLoad extends GeglFilter implements Source
      * @return this filter (for chaining operations)
      * 
      */
-    public RawLoad setPath(String value)
+    public GifLoad setPath(String value)
     {
 	
         m_Path = value;
@@ -72,7 +72,7 @@ public class RawLoad extends GeglFilter implements Source
 
     /** File
      *
-     * Path of file to load.
+     * Path of file to load
      *
      * Unit: 
      * Default value: 
@@ -87,144 +87,144 @@ public class RawLoad extends GeglFilter implements Source
     }
 
 
-    /** Image number
+    /** frame
      *
-     * 
-     *
-     * Unit: 
-     * Default value: 
-     * Acceptable Range:  
-     * */
-    private int m_ImageNum ;
-
-    /** Image number
-     *
-     * 
-     *
-     * Unit: 
-     * Default value: 
-     * Acceptable Range:  
-     *
-     * @param value new value for Image number
-     * @return this filter (for chaining operations)
-     * 
-     */
-    public RawLoad setImageNum(int value)
-    {
-	
-        m_ImageNum = value;
-        setProperty("image-num", value);
-        return this;
-    }
-
-    /** Image number
-     *
-     * 
-     *
-     * Unit: 
-     * Default value: 
-     * Acceptable Range:  
-     *
-     * @return value of Image number
-     * 
-     */
-    public int getImageNum()
-    {
-        return m_ImageNum;
-    }
-
-
-    /** Color space
-     *
-     * Color space to use for loaded data
+     * frame number to decode
      *
      * Unit: 
      * Default value: 
      * Acceptable Range:  
      * */
-    private String m_ColorSpace ;
+    private int m_Frame ;
 
-    /** Color space
+    /** frame
      *
-     * Color space to use for loaded data
+     * frame number to decode
      *
      * Unit: 
      * Default value: 
      * Acceptable Range:  
      *
-     * @param value new value for Color space
+     * @param value new value for frame
      * @return this filter (for chaining operations)
      * 
      */
-    public RawLoad setColorSpace(String value)
+    public GifLoad setFrame(int value)
     {
 	
-        m_ColorSpace = value;
-        setProperty("color-space", value);
+        m_Frame = value;
+        setProperty("frame", value);
         return this;
     }
 
-    /** Color space
+    /** frame
      *
-     * Color space to use for loaded data
+     * frame number to decode
      *
      * Unit: 
      * Default value: 
      * Acceptable Range:  
      *
-     * @return value of Color space
+     * @return value of frame
      * 
      */
-    public String getColorSpace()
+    public int getFrame()
     {
-        return m_ColorSpace;
+        return m_Frame;
     }
 
 
-    /** quality
+    /** frames
      *
-     * 
+     * Number of frames in gif animation
      *
      * Unit: 
-     * Default value: 10
+     * Default value: 
      * Acceptable Range:  
      * */
-    private int m_Quality  = 10;
+    private int m_Frames ;
 
-    /** quality
+    /** frames
      *
-     * 
+     * Number of frames in gif animation
      *
      * Unit: 
-     * Default value: 10
+     * Default value: 
      * Acceptable Range:  
      *
-     * @param value new value for quality
+     * @param value new value for frames
      * @return this filter (for chaining operations)
      * 
      */
-    public RawLoad setQuality(int value)
+    public GifLoad setFrames(int value)
     {
 	
-        m_Quality = value;
-        setProperty("quality", value);
+        m_Frames = value;
+        setProperty("frames", value);
         return this;
     }
 
-    /** quality
+    /** frames
      *
-     * 
+     * Number of frames in gif animation
      *
      * Unit: 
-     * Default value: 10
+     * Default value: 
      * Acceptable Range:  
      *
-     * @return value of quality
+     * @return value of frames
      * 
      */
-    public int getQuality()
+    public int getFrames()
     {
-        return m_Quality;
+        return m_Frames;
+    }
+
+
+    /** frame-delay
+     *
+     * Delay in ms for last decoded frame
+     *
+     * Unit: 
+     * Default value: 100
+     * Acceptable Range:  
+     * */
+    private int m_FrameDelay  = 100;
+
+    /** frame-delay
+     *
+     * Delay in ms for last decoded frame
+     *
+     * Unit: 
+     * Default value: 100
+     * Acceptable Range:  
+     *
+     * @param value new value for frame-delay
+     * @return this filter (for chaining operations)
+     * 
+     */
+    public GifLoad setFrameDelay(int value)
+    {
+	
+        m_FrameDelay = value;
+        setProperty("frame-delay", value);
+        return this;
+    }
+
+    /** frame-delay
+     *
+     * Delay in ms for last decoded frame
+     *
+     * Unit: 
+     * Default value: 100
+     * Acceptable Range:  
+     *
+     * @return value of frame-delay
+     * 
+     */
+    public int getFrameDelay()
+    {
+        return m_FrameDelay;
     }
 
     @Override

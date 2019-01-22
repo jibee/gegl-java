@@ -10,7 +10,7 @@ import com.jibee.gegl.annotations.GeglFilterOp;
 /**
  * Divide
  *
- * Math operation divide, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. (formula: result = value==0.0f?0.0f:input/value)
+ * Math operation divide, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. The result is the evaluation of the expression result = value==0.0f?0.0f:input/value
  * 
  * License: 
  * Supports OpenCL: false
@@ -21,7 +21,7 @@ public class Divide extends GeglFilter implements CombiningFilter
 {
     /** Constructs a Divide.
      *
-     * Math operation divide, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. (formula: result = value==0.0f?0.0f:input/value)
+     * Math operation divide, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. The result is the evaluation of the expression result = value==0.0f?0.0f:input/value
      *
      * @param container container node
      */
@@ -31,7 +31,7 @@ public class Divide extends GeglFilter implements CombiningFilter
     }
     /** Constructs a Divide.
      *
-     * Math operation divide, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. (formula: result = value==0.0f?0.0f:input/value)
+     * Math operation divide, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. The result is the evaluation of the expression result = value==0.0f?0.0f:input/value
      *
      * @param parent parent filter node
      */

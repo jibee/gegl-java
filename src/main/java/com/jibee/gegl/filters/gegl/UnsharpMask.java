@@ -9,7 +9,7 @@ import com.jibee.gegl.ParameterOutOfRangeException;
 import com.jibee.gegl.annotations.GeglFilterOp;
 
 /**
- * Unsharp Mask
+ * Sharpen (Unsharp Mask)
  *
  * Sharpen image, by adding difference to blurred image, a technique for sharpening originally used in darkrooms.
  * 
@@ -20,7 +20,7 @@ import com.jibee.gegl.annotations.GeglFilterOp;
 @GeglFilterOp(license="", opencl=false, position_dependant=false, categories={"enhance", "sharpen"})
 public class UnsharpMask extends GeglFilter implements Filter
 {
-    /** Constructs a Unsharp Mask.
+    /** Constructs a Sharpen (Unsharp Mask).
      *
      * Sharpen image, by adding difference to blurred image, a technique for sharpening originally used in darkrooms.
      *
@@ -30,7 +30,7 @@ public class UnsharpMask extends GeglFilter implements Filter
     {
         super(container, "gegl:unsharp-mask");
     }
-    /** Constructs a Unsharp Mask.
+    /** Constructs a Sharpen (Unsharp Mask).
      *
      * Sharpen image, by adding difference to blurred image, a technique for sharpening originally used in darkrooms.
      *
@@ -42,33 +42,33 @@ public class UnsharpMask extends GeglFilter implements Filter
     }
 
     
-    /** Standard Deviation
+    /** Radius
      *
-     * Standard deviation (spatial scale factor)
+     * Expressed as standard deviation, in pixels
      *
      * Unit: pixel-distance
-     * Default value: 0.55
-     * Acceptable Range: 0.20 300.00
+     * Default value: 3.00
+     * Acceptable Range: 0.00 1500.00
      * */
-    private double m_StdDev  = 0.55;
+    private double m_StdDev  = 3.00;
 
-    /** Standard Deviation
+    /** Radius
      *
-     * Standard deviation (spatial scale factor)
+     * Expressed as standard deviation, in pixels
      *
      * Unit: pixel-distance
-     * Default value: 0.55
-     * Acceptable Range: 0.20 300.00
+     * Default value: 3.00
+     * Acceptable Range: 0.00 1500.00
      *
-     * @param value new value for Standard Deviation
+     * @param value new value for Radius
      * @return this filter (for chaining operations)
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public UnsharpMask setStdDev(double value) throws ParameterOutOfRangeException
     {
-		if(value > 300.00 || value < 0.20)
+		if(value > 1500.00 || value < 0.00)
 	    {
-	        throw new ParameterOutOfRangeException(value, 0.20, 300.00);
+	        throw new ParameterOutOfRangeException(value, 0.00, 1500.00);
 	    }
 
         m_StdDev = value;
@@ -76,15 +76,15 @@ public class UnsharpMask extends GeglFilter implements Filter
         return this;
     }
 
-    /** Standard Deviation
+    /** Radius
      *
-     * Standard deviation (spatial scale factor)
+     * Expressed as standard deviation, in pixels
      *
      * Unit: pixel-distance
-     * Default value: 0.55
-     * Acceptable Range: 0.20 300.00
+     * Default value: 3.00
+     * Acceptable Range: 0.00 1500.00
      *
-     * @return value of Standard Deviation
+     * @return value of Radius
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getStdDev()
@@ -93,25 +93,25 @@ public class UnsharpMask extends GeglFilter implements Filter
     }
 
 
-    /** Scale
+    /** Amount
      *
-     * Scale, strength of effect
+     * Scaling factor for unsharp-mask, the strength of effect
      *
      * Unit: 
-     * Default value: 4.00
+     * Default value: 0.50
      * Acceptable Range: 0.00 300.00
      * */
-    private double m_Scale  = 4.00;
+    private double m_Scale  = 0.50;
 
-    /** Scale
+    /** Amount
      *
-     * Scale, strength of effect
+     * Scaling factor for unsharp-mask, the strength of effect
      *
      * Unit: 
-     * Default value: 4.00
+     * Default value: 0.50
      * Acceptable Range: 0.00 300.00
      *
-     * @param value new value for Scale
+     * @param value new value for Amount
      * @return this filter (for chaining operations)
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
@@ -127,20 +127,71 @@ public class UnsharpMask extends GeglFilter implements Filter
         return this;
     }
 
-    /** Scale
+    /** Amount
      *
-     * Scale, strength of effect
+     * Scaling factor for unsharp-mask, the strength of effect
      *
      * Unit: 
-     * Default value: 4.00
+     * Default value: 0.50
      * Acceptable Range: 0.00 300.00
      *
-     * @return value of Scale
+     * @return value of Amount
      * @throws ParameterOutOfRangeException value is outside the acceptable range.
      */
     public double getScale()
     {
         return m_Scale;
+    }
+
+
+    /** Threshold
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: 0.00 1.00
+     * */
+    private double m_Threshold  = 0.00;
+
+    /** Threshold
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: 0.00 1.00
+     *
+     * @param value new value for Threshold
+     * @return this filter (for chaining operations)
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
+     */
+    public UnsharpMask setThreshold(double value) throws ParameterOutOfRangeException
+    {
+		if(value > 1.00 || value < 0.00)
+	    {
+	        throw new ParameterOutOfRangeException(value, 0.00, 1.00);
+	    }
+
+        m_Threshold = value;
+        setProperty("threshold", value);
+        return this;
+    }
+
+    /** Threshold
+     *
+     * 
+     *
+     * Unit: 
+     * Default value: 0.00
+     * Acceptable Range: 0.00 1.00
+     *
+     * @return value of Threshold
+     * @throws ParameterOutOfRangeException value is outside the acceptable range.
+     */
+    public double getThreshold()
+    {
+        return m_Threshold;
     }
 
     @Override

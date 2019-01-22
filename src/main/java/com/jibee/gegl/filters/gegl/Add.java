@@ -10,7 +10,7 @@ import com.jibee.gegl.annotations.GeglFilterOp;
 /**
  * Add
  *
- * Math operation add, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. (formula: result = input + value)
+ * Math operation add, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. The result is the evaluation of the expression result = input + value
  * 
  * License: 
  * Supports OpenCL: false
@@ -21,7 +21,7 @@ public class Add extends GeglFilter implements CombiningFilter
 {
     /** Constructs a Add.
      *
-     * Math operation add, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. (formula: result = input + value)
+     * Math operation add, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. The result is the evaluation of the expression result = input + value
      *
      * @param container container node
      */
@@ -31,7 +31,7 @@ public class Add extends GeglFilter implements CombiningFilter
     }
     /** Constructs a Add.
      *
-     * Math operation add, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. (formula: result = input + value)
+     * Math operation add, performs the operation per pixel, using either the constant provided in 'value' or the corresponding pixel from the buffer on aux as operands. The result is the evaluation of the expression result = input + value
      *
      * @param parent parent filter node
      */
