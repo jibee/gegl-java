@@ -5,8 +5,9 @@ use JSON::XS;
 use IO::File;
 use Unicode::Normalize;
 
+my $build_location = "dependancies/gegl-linux-x86-64-prefix/src/gegl-linux-x86-64-build";
 
-my $json_text_handle=new IO::File("3rdParty/src/gegl-build/docs/operations.json", "r");
+my $json_text_handle=new IO::File("$build_location/docs/operations.json", "r");
 my $json_text = "";
 
 if($json_text_handle)
@@ -15,7 +16,7 @@ if($json_text_handle)
 }
 else
 {
-    $json_text = `./3rdParty/src/gegl-build/tools/operation_reference`;
+    $json_text = `./$build_location/tools/operation_reference`;
 }
 
 $json_text=~s/^window.opdb=//;
