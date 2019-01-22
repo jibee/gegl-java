@@ -60,7 +60,7 @@ public interface Gegl extends Library {
 
 
 
-	Gegl INSTANCE = (Gegl)Native.loadLibrary("gegl-0.3", Gegl.class,new HashMap<String, Object>() {
+	Gegl INSTANCE = (Gegl)Native.loadLibrary("gegl-0.4", Gegl.class,new HashMap<String, Object>() {
 		private static final long serialVersionUID = 4534904554735816797L;
 	{
 		put(Library.OPTION_TYPE_MAPPER, new OurGTypeMapper());
