@@ -38,8 +38,8 @@ public class Gegl {
 						String target = e.split("/", 4)[3];
 						File t = new File(f, target);
 						t.getParentFile().mkdirs();
-						// TODO extract library implementation from jar into a temp
-						log.info("Copying {} into {}", source, t);
+						// extract library implementation from jar into a temp
+						log.debug("Copying {} into {}", source, t);
 						copyLib(source, t);
 					}
 				}

@@ -14,12 +14,12 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.0</version>
+			<version>1.18.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.7.22</version>
+			<version>1.7.25</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -30,13 +30,8 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
-			<version>1.7.22</version>
+			<version>1.7.25</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>tw.edu.sju.ee.eea.commons</groupId>
-			<artifactId>commons-nativeutils</artifactId>
-			<version>1.0</version>
 		</dependency>
 	</dependencies>
 
