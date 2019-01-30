@@ -69,6 +69,8 @@ public class Gegl {
 		}
 		System.setProperty("jna.library.path",jnaPath);
 		Environment.libc.setenv("BABL_PATH", modules_path+"/babl-0.1", 0);
+		Environment.libc.setenv("LD_LIBRARY_PATH", modules_path, 0);
+		com.jibee.gegl.priv.BablAPI.INSTANCE.babl_init();
 		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_init(null, null);
 		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_config().set("application-license", "GPL3");
 	}
