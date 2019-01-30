@@ -138,7 +138,9 @@ public class Gegl {
 		{
 		case "Linux_amd64":
 			return "native/MANIFEST.Linux_amd64";
-		case "Windows_amd64":
+		case "Windows 7_amd64":
+		case "Windows 8_amd64":
+		case "Windows 8.1_amd64":
 			return "native/MANIFEST.Windows_amd64";
 		}
 		log.error("No matching native library for {}", key);
