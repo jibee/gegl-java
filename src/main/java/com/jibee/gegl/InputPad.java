@@ -6,4 +6,8 @@ public class InputPad  extends Pad{
 		super(sink, padName);
 	}
 
+	public void disconnect()
+	{
+		getFilter().disconnect(this.getName());
+	}
 }

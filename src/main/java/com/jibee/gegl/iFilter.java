@@ -1,5 +1,13 @@
 package com.jibee.gegl;
 
+import com.jibee.gegl.priv.GeglRectangle;
+
+/** Filter public operations. This interface is implemented by concrete GEGL filters and
+ * virtual series of filters
+ * 
+ * @author jibee
+ *
+ */
 public interface iFilter {
 	/** Connects this filter's output to the receiver's input
 	 * 
@@ -27,9 +35,51 @@ public interface iFilter {
 	 * image
 	 */
 	public void process();
-	/** Processes the filter chain until this filter and returns the image as a
+	/** Processes the filter chain until this filter and returns the image as a RGB
 	 * data array.
-	 * @return resulting image as a data array
+	 * @return resulting image as a data array, with each layer interleaved (i.e. [R, G, B, R, G, B, ...])
 	 */
 	public byte[] blit();
+	/** Processes the filter chain until this filter and returns the image as a
+	 * data array.
+	 * 
+	 * @param format_str Requestest output format string; this is a Babl-specific format string
+	 * such as RGB, sRGB, CIE Lab ...
+	 * 
+	 * @return resulting image as a data array, with each layer interleaved (i.e. [R, G, B, R, G, B, ...])
+	 */
+	public byte[] blit(String format_str);
+	/** Processes the filter chain until this filter and returns the image as a RGB
+	 * data array.
+	 * @return resulting image as a data array, with each layer interleaved (i.e. [R, G, B, R, G, B, ...])
+	 */
+	public float[] blit_float();
+	/** Processes the filter chain until this filter and returns the image as a
+	 * data array.
+	 * 
+	 * @param format_str Requestest output format string; this is a Babl-specific format string
+	 * such as RGB, sRGB, CIE Lab ...
+	 * 
+	 * @return resulting image as a data array, with each layer interleaved (i.e. [R, G, B, R, G, B, ...])
+	 */
+	public float[] blit_float(String format_str);
+	/** Processes the filter chain until this filter and returns the image as a RGB
+	 * data array.
+	 * @return resulting image as a data array, with each layer interleaved (i.e. [R, G, B, R, G, B, ...])
+	 */
+	public short[] blit_short();
+	/** Processes the filter chain until this filter and returns the image as a
+	 * data array.
+	 * 
+	 * @param format_str Requestest output format string; this is a Babl-specific format string
+	 * such as RGB, sRGB, CIE Lab ...
+	 * 
+	 * @return resulting image as a data array, with each layer interleaved (i.e. [R, G, B, R, G, B, ...])
+	 */
+	public short[] blit_short(String format_str);
+	/** Determines the size of the image resulting of the filters process, using the bounding box therof
+	 * 
+	 * @return
+	 */
+	public GeglRectangle getBoundingBox();
 }

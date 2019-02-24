@@ -1,5 +1,7 @@
 package com.jibee.gegl;
 
+import com.jibee.gegl.priv.Gegl;
+import com.jibee.gegl.priv.GeglRectangle;
 import com.sun.jna.Pointer;
 
 import lombok.extern.slf4j.Slf4j;
@@ -134,7 +136,7 @@ public class GeglFilter implements iFilter {
 	 * @return
 	 */
 	protected GeglColor makeColor(String string) {
-		return Gegl.makeColor(string);
+		return com.jibee.gegl.priv.Gegl.INSTANCE.gegl_color_new(string);
 	}
 	/** Connects this filter's output to the receiver's input
 	 * 
@@ -196,6 +198,32 @@ public class GeglFilter implements iFilter {
 	{
 		return getImplementation().blit();
 	}
+	@Override
+	public byte[] blit(String format_str)
+	{
+		return getImplementation().blit(format_str);
+	}
+	@Override
+	public float[] blit_float()
+	{
+		return getImplementation().blit_float();
+	}
+	@Override
+	public float[] blit_float(String format_str)
+	{
+		return getImplementation().blit_float(format_str);
+	}
+	@Override
+	public short[] blit_short()
+	{
+		return getImplementation().blit_short();
+	}
+	@Override
+	public short[] blit_short(String format_str)
+	{
+		return getImplementation().blit_short(format_str);
+	}
+	
 	/** Describes the filter chain as an XML string, assuming all paths are absolute
 	 */
 	public String asXML()
@@ -207,6 +235,24 @@ public class GeglFilter implements iFilter {
 	public String asXML(String base_path)
 	{
 		return getImplementation().asXML(base_path);
+	}
+	/**
+	 * gegl_node_disconnect:
+	 * @param input_pad: the input pad to disconnect.
+	 *
+	 * Disconnects node connected to @input_pad of @node (if any).
+	 *
+	 * Returns TRUE if a connection was broken.
+	 */
+	public boolean disconnect(String input_pad)
+	{
+		return getImplementation().disconnect(input_pad);
+	}
+	
+	@Override
+	public GeglRectangle getBoundingBox()
+	{
+		return getImplementation().getBoundingBox();
 	}
 
 }

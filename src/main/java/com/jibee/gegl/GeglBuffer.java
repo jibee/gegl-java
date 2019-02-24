@@ -3,13 +3,11 @@ package com.jibee.gegl;
 import org.gstreamer.GObject;
 
 import com.jibee.gegl.priv.GeglRectangle;
-import com.sun.jna.Pointer;
 
 public class GeglBuffer extends GObject {
 
 	public GeglBuffer(Initializer init) {
 		super(init);
-		// TODO Auto-generated constructor stub
 	}
 	public byte[] getContents()
 	{
@@ -25,7 +23,7 @@ public class GeglBuffer extends GObject {
 	{
 		return com.jibee.gegl.priv.Gegl.INSTANCE.gegl_buffer_get_extent(this);
 	}
-	public Babl getFormat()
+	public BablFormat getFormat()
 	{
 		return com.jibee.gegl.priv.Gegl.INSTANCE.gegl_buffer_get_format(this);
 	}

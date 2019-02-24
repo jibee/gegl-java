@@ -155,9 +155,9 @@ public interface Gegl extends Library {
 
 	/**
 	 * gegl_node_new_child:
-	 * @parent: a #GeglNode
-	 * @first_property_name: the first property name
-	 * @...: first property value, optionally followed by more key/value pairs, ended
+	 * @param parent : a #GeglNode
+	 * @param first_property_name : the first property name
+	 * @param args  first property value, optionally followed by more key/value pairs, ended
 	 * terminated with NULL.
 	 *
 	 * Creates a new processing node that performs the specified operation with
@@ -1117,17 +1117,17 @@ void            gegl_buffer_set_pattern       (GeglBuffer          buffer,
 
 /**
  * gegl_buffer_get_format: (skip)
- * @buffer: a #GeglBuffer
+ * @param buffer a #GeglBuffer
  *
  * Get the babl format of the buffer, this might not be the format the buffer
  * was originally created with, you need to use gegl_buffer_set_format (buf,
  * NULL); to retireve the original format (potentially having save away the
  * original format of the buffer to re-set it.)
  *
- * Returns: the babl format used for storing pixels in the buffer.
+ * @return the babl format used for storing pixels in the buffer.
  *
  */
-Babl gegl_buffer_get_format(GeglBuffer buffer);
+BablFormat gegl_buffer_get_format(GeglBuffer buffer);
 
 
 /**

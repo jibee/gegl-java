@@ -43,7 +43,7 @@ static Logger logger = LoggerFactory.getLogger(Processor.class);
 		*/
 		BufferSink saver = new BufferSink(rootNode);
 		GeglRectangle extent = new GeglRectangle(1000,1000);
-		Babl b = BablFormat.of("RGBA u8");
+		BablFormat b = BablFormat.of("RGBA u8");
 		GeglBuffer buffer = com.jibee.gegl.Gegl.newBuffer(extent, b);
 		Object x = buffer.get("x");
 		saver.setBuffer(buffer);

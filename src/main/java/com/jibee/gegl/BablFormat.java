@@ -31,6 +31,9 @@ public class BablFormat extends Babl<BablFormat>{
 
 	/** Create a Babl Format object for the given format descriptor
 	 * 
+	 * Returns the babl object representing the color format given by
+	 * name such as for example "RGB u8", "CMYK float" or "CIE Lab u16".
+	 * 
 	 * @param string
 	 * @return
 	 */

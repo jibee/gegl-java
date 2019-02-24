@@ -3,6 +3,8 @@ package com.jibee.gegl;
 import java.util.ArrayDeque;
 import java.util.Collections;
 
+import com.jibee.gegl.priv.GeglRectangle;
+
 /** Filter implemented through the use of other filter.
  * 
  * @author jibee
@@ -93,6 +95,30 @@ public class ContainerFilter implements Filter {
 	@Override
 	public OutputPad Output() {
 		return this.getLast().Output();
+	}
+	@Override
+	public byte[] blit(String format_str) {
+		return this.getLast().blit(format_str);
+	}
+	@Override
+	public float[] blit_float() {
+		return this.getLast().blit_float();
+	}
+	@Override
+	public float[] blit_float(String format_str) {
+		return this.getLast().blit_float(format_str);
+	}
+	@Override
+	public short[] blit_short() {
+		return this.getLast().blit_short();
+	}
+	@Override
+	public short[] blit_short(String format_str) {
+		return this.getLast().blit_short(format_str);
+	}
+	@Override
+	public GeglRectangle getBoundingBox() {
+		return this.getLast().getBoundingBox();
 	}
 
 }
