@@ -1,6 +1,6 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.Babl;
+import com.jibee.gegl.BablFormat;
 import com.jibee.gegl.GeglColor;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
@@ -97,7 +97,7 @@ public class Color extends GeglFilter implements Source
      * Default value: 
      * Acceptable Range:  
      * */
-    private Babl m_Format ;
+    private BablFormat m_Format ;
 
     /** Babl Format
      *
@@ -111,7 +111,7 @@ public class Color extends GeglFilter implements Source
      * @return this filter (for chaining operations)
      * 
      */
-    public Color setFormat(Babl value)
+    public Color setFormat(BablFormat value)
     {
 	
         m_Format = value;
@@ -130,7 +130,7 @@ public class Color extends GeglFilter implements Source
      * @return value of Babl Format
      * 
      */
-    public Babl getFormat()
+    public BablFormat getFormat()
     {
         return m_Format;
     }

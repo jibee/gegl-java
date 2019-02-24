@@ -1,6 +1,6 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.Babl;
+import com.jibee.gegl.BablFormat;
 import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
@@ -50,7 +50,7 @@ public class CastFormat extends GeglFilter implements Filter
      * Default value: 
      * Acceptable Range:  
      * */
-    private Babl m_InputFormat ;
+    private BablFormat m_InputFormat ;
 
     /** Input format
      *
@@ -64,7 +64,7 @@ public class CastFormat extends GeglFilter implements Filter
      * @return this filter (for chaining operations)
      * 
      */
-    public CastFormat setInputFormat(Babl value)
+    public CastFormat setInputFormat(BablFormat value)
     {
 	
         m_InputFormat = value;
@@ -83,7 +83,7 @@ public class CastFormat extends GeglFilter implements Filter
      * @return value of Input format
      * 
      */
-    public Babl getInputFormat()
+    public BablFormat getInputFormat()
     {
         return m_InputFormat;
     }
@@ -97,7 +97,7 @@ public class CastFormat extends GeglFilter implements Filter
      * Default value: 
      * Acceptable Range:  
      * */
-    private Babl m_OutputFormat ;
+    private BablFormat m_OutputFormat ;
 
     /** Output format
      *
@@ -111,7 +111,7 @@ public class CastFormat extends GeglFilter implements Filter
      * @return this filter (for chaining operations)
      * 
      */
-    public CastFormat setOutputFormat(Babl value)
+    public CastFormat setOutputFormat(BablFormat value)
     {
 	
         m_OutputFormat = value;
@@ -130,7 +130,7 @@ public class CastFormat extends GeglFilter implements Filter
      * @return value of Output format
      * 
      */
-    public Babl getOutputFormat()
+    public BablFormat getOutputFormat()
     {
         return m_OutputFormat;
     }

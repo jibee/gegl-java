@@ -43,9 +43,14 @@ my %java_type_map=(
 my %special_types_overrides = (
 "BufferSink.buffer"=>"GeglBuffer",
 "BufferSink.format" => "BablFormat",
+"Checkerboard.format" => "BablFormat",
+"ConvertFormat.format" => "BablFormat",
+"Color.format" => "BablFormat",
 "LcmsFromProfile.src-profile" => "Pointer", # actually a cmsHPROFILE from lcms2
 "Npd.model" => "Pointer", # Actually a NPD model from NPD
-"SavePixbuf.pixbuf" => "Pointer" # Actually a GdkPixbuf
+"SavePixbuf.pixbuf" => "Pointer", # Actually a GdkPixbuf
+"CastFormat.input-format"=>"BablFormat",
+"CastFormat.output-format"=>"BablFormat",
 );
 
 
@@ -312,7 +317,7 @@ sub parse_property
     my $java_type = $java_type_map{$type};
     warn("No java type for $type - $description") unless $java_type;
     $java_type = $special_types_overrides{$className.".".$name} if $special_types_overrides{$className.".".$name};
-    warn("Using default Pointer type for $className.$name : $description") if $java_type eq "Pointer";
+    warn("Using default Pointer type for $className.$name : $description") if $java_type eq "Pointer" or $java_type eq "Babl";
 
     my $shortName = make_wikiname($name);
     my $fieldname = "m_".$shortName;
