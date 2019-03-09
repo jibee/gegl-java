@@ -170,7 +170,7 @@ public class Gegl {
 		return com.jibee.gegl.priv.Gegl.INSTANCE.gegl_color_new(string);
 	}
 
-	public static GeglBuffer newBuffer(GeglRectangle extent, Babl format)
+	public static GeglBuffer newBuffer(GeglRectangle extent, BablFormat format)
 	{
 		return com.jibee.gegl.priv.Gegl.INSTANCE.gegl_buffer_new(extent, format.getPointer());
 	}
