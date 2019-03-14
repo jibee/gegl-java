@@ -1,6 +1,6 @@
 package com.jibee.gegl.filters.gegl;
 
-import com.jibee.gegl.Babl;
+import com.jibee.gegl.BablFormat;
 import com.jibee.gegl.Filter;
 import com.jibee.gegl.GeglFilter;
 import com.jibee.gegl.GeglNode;
@@ -50,7 +50,7 @@ public class ConvertFormat extends GeglFilter implements Filter
      * Default value: 
      * Acceptable Range:  
      * */
-    private Babl m_Format ;
+    private BablFormat m_Format ;
 
     /** Output format
      *
@@ -64,7 +64,7 @@ public class ConvertFormat extends GeglFilter implements Filter
      * @return this filter (for chaining operations)
      * 
      */
-    public ConvertFormat setFormat(Babl value)
+    public ConvertFormat setFormat(BablFormat value)
     {
 	
         m_Format = value;
@@ -83,7 +83,7 @@ public class ConvertFormat extends GeglFilter implements Filter
      * @return value of Output format
      * 
      */
-    public Babl getFormat()
+    public BablFormat getFormat()
     {
         return m_Format;
     }

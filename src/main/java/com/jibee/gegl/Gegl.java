@@ -11,11 +11,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.nio.file.Path;
 
-import com.jibee.gegl.priv.Environment;
+import com.jibee.gegl.priv.Environment.POSIX;
 import com.jibee.gegl.priv.GeglRectangle;
 
 import lombok.extern.slf4j.Slf4j;
 
+/** GEGL library loader
+ * 
+ * @author jibee
+ *
+ */
 @Slf4j
 public class Gegl {
 	static
@@ -68,8 +73,8 @@ public class Gegl {
 			jnaPath = modules_path+":"+jnaPath;
 		}
 		System.setProperty("jna.library.path",jnaPath);
-		Environment.libc.setenv("BABL_PATH", modules_path+"/babl-0.1", 0);
-		Environment.libc.setenv("LD_LIBRARY_PATH", modules_path, 0);
+		POSIX.setenv("BABL_PATH", modules_path+"/babl-0.1", 0);
+		POSIX.setenv("LD_LIBRARY_PATH", modules_path, 0);
 		com.jibee.gegl.priv.BablAPI.INSTANCE.babl_init();
 		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_init(null, null);
 		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_config().set("application-license", "GPL3");
@@ -153,23 +158,46 @@ public class Gegl {
 		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_exit();
 	};
 
+	/** Create a new empty node
+	 * 
+	 * @return
+	 */
 	public static GeglNode newNode() {
 		return com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_new();
 	}
-
+	/** Create a node from its XML representation
+	 * 
+	 * @param text
+	 * @return
+	 */
 	public static GeglNode fromXml(String text)
 	{
 		return fromXml("/");
 	}
+	/** Create a node from its XML representation
+	 * 
+	 * @param text
+	 * @param path_base
+	 * @return
+	 */
 	public static GeglNode fromXml(String text, String path_base)
 	{
 		return com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_new_from_xml(text, path_base);
 	}
-
+	/** Creates a color
+	 * 
+	 * @param string color name or hex representation
+	 * @return
+	 */
 	public static GeglColor makeColor(String string) {
 		return com.jibee.gegl.priv.Gegl.INSTANCE.gegl_color_new(string);
 	}
-
+	/** Create a new data buffer
+	 * 
+	 * @param extent
+	 * @param format
+	 * @return
+	 */
 	public static GeglBuffer newBuffer(GeglRectangle extent, BablFormat format)
 	{
 		return com.jibee.gegl.priv.Gegl.INSTANCE.gegl_buffer_new(extent, format.getPointer());

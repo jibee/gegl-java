@@ -20,15 +20,27 @@ import com.sun.jna.ptr.DoubleByReference;
 import com.sun.jna.ptr.IntByReference;
 import com.sun.jna.ptr.PointerByReference;
 
+/** GEGL library interface; implementation to be provided by the native library through JNA
+ * 
+ * @author jibee
+ *
+ */
 public interface Gegl extends Library {
 
 
+	/** Tile backend type
+	 * 
+	 *
+	 */
 	public interface GeglTileBackend {
 
 	}
 
 
-
+	/** Sampler type
+	 * 
+	 *
+	 */
 	public interface GeglSampler {
 		/**
 		 * gegl_sampler_get:
@@ -94,25 +106,28 @@ public interface Gegl extends Library {
 	}
 
 
-
+	/** Matrix type */
 	public interface GeglMatrix2 {
 
 	}
 
 
-
+/** Abyss Policy type
+ * 
+ *
+ */
 	public interface GeglAbyssPolicy {
 
 	}
 
 
-
+	/** Destroy notifier type */
 	public interface GDestroyNotify {
 
 	}
 
 
-
+	/** Callback type  */
 	public interface GCallback {
 
 	}
@@ -788,8 +803,16 @@ int gegl_node_get_consumers (GeglNode node,
 	 */
 	String gegl_node_to_xml (GeglNode node,String path_root);
 
+	/**
+	 * @param node
+	 * @return
+	 */
 	boolean gegl_node_get_passthrough ( GeglNode node);
 
+	/**
+	 * @param node
+	 * @param passthrough
+	 */
 	void gegl_node_set_passthrough (GeglNode node, boolean passthrough);
 
 
@@ -881,7 +904,8 @@ int gegl_node_get_consumers (GeglNode node,
 	 */
 	void gegl_color_get_pixel(GeglColor color, BablFormat format, Pointer pixel);
 
-	/***
+	/**
+	 * @return *
 	 */
 
 	//#define GEGL_TYPE_PARAM_COLOR           (gegl_param_color_get_type ())

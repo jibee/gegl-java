@@ -4,8 +4,15 @@ import com.jibee.gegl.priv.BablAPI;
 import com.jibee.gegl.priv.TypedPointer;
 import com.sun.jna.Pointer;
 
+/** Pixel format converter
+ * 
+ *
+ */
 public class BablFish extends Babl<BablFish> {
-
+	/** Constructor
+	 * 
+	 * @param impl pointer to C structure
+	 */
 	protected BablFish(TypedPointer<BablFish> impl) {
 		super(impl);
 	}
@@ -16,6 +23,9 @@ public class BablFish extends Babl<BablFish> {
 	 *  Create a babl fish capable of converting from source_format to
 	 *  destination_format, source and destination can be either strings
 	 *  with the names of the formats or Babl-format objects.
+	 * @param source_format Source format
+	 * @param destination_format Destination format
+	 *  
 	 */
 	public BablFish(BablFormat source_format, BablFormat destination_format)
 	{
@@ -27,6 +37,8 @@ public class BablFish extends Babl<BablFish> {
 	 *  Create a babl fish capable of converting from source_format to
 	 *  destination_format, source and destination can be either strings
 	 *  with the names of the formats or Babl-format objects.
+	 * @param source_format Source format
+	 * @param destination_format Destination format
 	 */
 	public BablFish(String source_format, BablFormat destination_format)
 	{
@@ -38,6 +50,8 @@ public class BablFish extends Babl<BablFish> {
 	 *  Create a babl fish capable of converting from source_format to
 	 *  destination_format, source and destination can be either strings
 	 *  with the names of the formats or Babl-format objects.
+	 * @param source_format Source format
+	 * @param destination_format Destination format
 	 */
 	public BablFish(BablFormat source_format, String destination_format)
 	{
@@ -49,6 +63,8 @@ public class BablFish extends Babl<BablFish> {
 	 *  Create a babl fish capable of converting from source_format to
 	 *  destination_format, source and destination can be either strings
 	 *  with the names of the formats or Babl-format objects.
+	 * @param source_format Source format
+	 * @param destination_format Destination format
 	 */
 	public BablFish(String source_format, String destination_format)
 	{
@@ -58,7 +74,12 @@ public class BablFish extends Babl<BablFish> {
 	 * babl_process:
 	 *
 	 *  Process n pixels from source to destination using babl_fish,
-	 *  returns number of pixels converted.
+	 * @param source Source buffer
+	 * @param destination Destination buffer
+	 * @param n number of pixels to convert
+	 *  @return returns number of pixels converted.
+	 *  
+	 *  
 	 */
 
 	public int process(Pointer source, Pointer destination, int n)

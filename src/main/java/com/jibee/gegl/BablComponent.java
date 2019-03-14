@@ -3,8 +3,14 @@ package com.jibee.gegl;
 import com.jibee.gegl.priv.BablAPI;
 import com.jibee.gegl.priv.TypedPointer;
 
+/** Component of a pixel format 
+ * 
+ */
 public class BablComponent  extends Babl<BablComponent>{
 
+	/**
+	 * @param impl
+	 */
 	protected BablComponent(TypedPointer<BablComponent> impl) {
 		super(impl);
 	}
@@ -22,5 +28,5 @@ public class BablComponent  extends Babl<BablComponent>{
 	{
 		this(BablAPI.INSTANCE.babl_component(name));
 	}
-	
+
 }

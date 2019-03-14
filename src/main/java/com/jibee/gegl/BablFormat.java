@@ -3,8 +3,15 @@ package com.jibee.gegl;
 import com.jibee.gegl.priv.BablAPI;
 import com.jibee.gegl.priv.TypedPointer;
 
+/**
+ * Babl data format
+ *
+ */
 public class BablFormat extends Babl<BablFormat>{
-
+	/**
+	 * Constructor
+	 * @param ptr
+	 */
 	public BablFormat(TypedPointer<BablFormat> ptr) {
 		super(ptr);
 	}
@@ -45,9 +52,9 @@ public class BablFormat extends Babl<BablFormat>{
 	/**
 	 * babl_format_has_alpha:
 	 *
-	 * Returns whether the @format has an alpha channel.
+	 * @return Returns whether the @format has an alpha channel.
 	 */
-	boolean has_alpha()
+	public boolean hasAlpha()
 	{
 		return 0 != BablAPI.INSTANCE.babl_format_has_alpha(getPointer());
 	}
@@ -55,9 +62,9 @@ public class BablFormat extends Babl<BablFormat>{
 	/**
 	 * babl_format_get_bytes_per_pixel:
 	 *
-	 * Returns the bytes per pixel for a babl color format.
+	 * @return Returns the bytes per pixel for a babl color format.
 	 */
-	int          babl_format_get_bytes_per_pixel()
+	public int getBytesPerPixel()
 	{
 		return BablAPI.INSTANCE.babl_format_get_bytes_per_pixel(getPointer());
 	}
@@ -67,17 +74,18 @@ public class BablFormat extends Babl<BablFormat>{
 	 *
 	 * @return the model used for constructing the format.
 	 */
-	BablModel get_model()
+	public BablModel getModel()
 	{
 		return new BablModel(BablAPI.INSTANCE.babl_format_get_model(getPointer()));
 	}
 
 	/**
 	 * babl_format_get_n_components:
+	 * 
 	 *
-	 * Returns the number of components for the given @format.
+	 * @return Returns the number of components for the given @format.
 	 */
-	int get_n_components()
+	public int componentLength()
 	{
 		return BablAPI.INSTANCE.babl_format_get_bytes_per_pixel(getPointer());
 	}
@@ -85,10 +93,12 @@ public class BablFormat extends Babl<BablFormat>{
 	/**
 	 * babl_format_get_type:
 	 *
-	 * Returns the type in the given @format for the given
+	 * @param component_index index of the component queried
+	 *
+	 * @return Returns the type in the given @format for the given
 	 * @component_index.
 	 */
-	BablType babl_format_get_type(int component_index)
+	public BablType getType(int component_index)
 	{
 		return new BablType(BablAPI.INSTANCE.babl_format_get_type(getPointer(), component_index));
 	}

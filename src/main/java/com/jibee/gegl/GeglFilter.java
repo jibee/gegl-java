@@ -1,6 +1,5 @@
 package com.jibee.gegl;
 
-import com.jibee.gegl.priv.Gegl;
 import com.jibee.gegl.priv.GeglRectangle;
 import com.sun.jna.Pointer;
 
@@ -90,11 +89,12 @@ public class GeglFilter implements iFilter {
 		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_set(m_implementation, propertyName, value);
 	}
 	/** Sets a property of type Babl color space
+	 * @param <T>
 	 * 
 	 * @param propertyName name of the filter property
 	 * @param value value of the filter property
 	 */
-	protected void setProperty(String propertyName, Babl value) {
+	protected void setProperty(String propertyName, Babl<?> value) {
 		com.jibee.gegl.priv.Gegl.INSTANCE.gegl_node_set(m_implementation, propertyName, value);
 	}
 	/** Sets a property of type int.
@@ -135,7 +135,7 @@ public class GeglFilter implements iFilter {
 	 * @param string
 	 * @return
 	 */
-	protected GeglColor makeColor(String string) {
+	protected static GeglColor makeColor(String string) {
 		return com.jibee.gegl.priv.Gegl.INSTANCE.gegl_color_new(string);
 	}
 	/** Connects this filter's output to the receiver's input
@@ -225,12 +225,15 @@ public class GeglFilter implements iFilter {
 	}
 	
 	/** Describes the filter chain as an XML string, assuming all paths are absolute
+	 * @return the filter chain as an XML string
 	 */
 	public String asXML()
 	{
 		return getImplementation().asXML();
 	}
 	/** Describes the filter chain as an XML string, expressing paths relative to the base_path
+	 * @param base_path base path for file paths
+	 * @return the filter chain as an XML string 
 	 */
 	public String asXML(String base_path)
 	{
@@ -238,11 +241,11 @@ public class GeglFilter implements iFilter {
 	}
 	/**
 	 * gegl_node_disconnect:
-	 * @param input_pad: the input pad to disconnect.
+	 * @param input_pad the input pad to disconnect.
 	 *
 	 * Disconnects node connected to @input_pad of @node (if any).
 	 *
-	 * Returns TRUE if a connection was broken.
+	 * @return Returns TRUE if a connection was broken.
 	 */
 	public boolean disconnect(String input_pad)
 	{

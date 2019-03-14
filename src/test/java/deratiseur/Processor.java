@@ -1,19 +1,13 @@
 package deratiseur;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.jibee.gegl.Babl;
 import com.jibee.gegl.BablFormat;
 import com.jibee.gegl.GeglBuffer;
 import com.jibee.gegl.GeglNode;
-import com.jibee.gegl.OutputPad;
 import com.jibee.gegl.filters.gegl.BufferSink;
-import com.jibee.gegl.filters.gegl.JpgLoad;
-import com.jibee.gegl.filters.gegl.Load;
 import com.jibee.gegl.filters.gegl.RawLoad;
 import com.jibee.gegl.priv.GeglRectangle;
 
