@@ -134,9 +134,9 @@ public class SdlDisplay extends GeglFilter implements Sink
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<SdlDisplay> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
 
 }

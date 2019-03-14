@@ -537,14 +537,14 @@ public class Vignette extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Vignette> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Vignette> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

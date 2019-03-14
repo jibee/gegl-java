@@ -340,14 +340,14 @@ public class Dither extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Dither> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Dither> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

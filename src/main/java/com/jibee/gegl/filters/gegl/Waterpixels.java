@@ -242,14 +242,14 @@ public class Waterpixels extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Waterpixels> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Waterpixels> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

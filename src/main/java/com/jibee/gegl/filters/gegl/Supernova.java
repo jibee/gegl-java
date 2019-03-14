@@ -384,14 +384,14 @@ public class Supernova extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Supernova> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Supernova> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

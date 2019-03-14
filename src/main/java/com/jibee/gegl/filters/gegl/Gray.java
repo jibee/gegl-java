@@ -41,14 +41,14 @@ public class Gray extends GeglFilter implements Filter
     }
 
         @Override
-    public InputPad Input()
+    public InputPad<Gray> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Gray> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

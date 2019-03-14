@@ -327,9 +327,9 @@ public class Plasma extends GeglFilter implements Source
     }
 
     @Override
-    public OutputPad Output()
+    public OutputPad<Plasma> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

@@ -29,7 +29,7 @@ public interface iFilter {
 	 * @param pad input pad in the receiving filter
 	 * @return the receiver filter
 	 */
-	public iFilter connectTo(String outputPadName, InputPad pad);
+	public iFilter connectTo(String outputPadName, InputPad<?> pad);
 	/** Processes the filter chain until this filter. For example, for a Save
 	 * type of filter this will process the filter chain and save the resulting
 	 * image

@@ -70,8 +70,8 @@ my $className = make_wikiname($filter_name);
 
 # input pads
 #say join(", ", @{$operation_spec->{"input-pads"}}) if $operation_spec->{"input-pads"};
-    my $inputPads = processPads($operation_spec->{"input-pads"}, "InputPad");
-    my $outputPads = processPads($operation_spec->{"output-pads"}, "OutputPad");
+    my $inputPads = processPads($operation_spec->{"input-pads"}, "InputPad", $className);
+    my $outputPads = processPads($operation_spec->{"output-pads"}, "OutputPad", $className);
     my $implements_spec = prepareImplements($operation_spec->{"input-pads"}, $operation_spec->{"output-pads"});
     my $implements = $implements_spec->{text};
     delete $operation_spec->{"input-pads"};
@@ -254,12 +254,12 @@ sub prepareImplements
 
 sub processPad
 {
-    my ($padspec, $class)=@_;
+    my ($padspec, $class, $containingClass)=@_;
     my $padName=make_wikiname($padspec);
     my $text = <<"EOF";
-    public $class $padName()
+    public $class<$containingClass> $padName()
     {
-        return new $class(this, "$padspec");
+        return new $class<>(this, "$padspec");
     }
 EOF
 
@@ -276,9 +276,9 @@ EOF
 
 sub processPads
 {
-    my ($padspecs, $class)=@_;
+    my ($padspecs, $class, $containingClass)=@_;
     return "" unless $padspecs;
-    return join("\n", map{processPad($_, $class)} @$padspecs);
+    return join("\n", map{processPad($_, $class, $containingClass)} @$padspecs);
 }
 
 sub arrayRefToJavaArray

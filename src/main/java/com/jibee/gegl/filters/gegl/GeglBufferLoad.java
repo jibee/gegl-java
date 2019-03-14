@@ -87,9 +87,9 @@ public class GeglBufferLoad extends GeglFilter implements Source
     }
 
     @Override
-    public OutputPad Output()
+    public OutputPad<GeglBufferLoad> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

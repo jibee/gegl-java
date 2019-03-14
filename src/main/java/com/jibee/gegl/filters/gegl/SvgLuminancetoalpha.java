@@ -41,14 +41,14 @@ public class SvgLuminancetoalpha extends GeglFilter implements Filter
     }
 
         @Override
-    public InputPad Input()
+    public InputPad<SvgLuminancetoalpha> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<SvgLuminancetoalpha> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

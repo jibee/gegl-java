@@ -442,14 +442,14 @@ public class PanoramaProjection extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<PanoramaProjection> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<PanoramaProjection> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

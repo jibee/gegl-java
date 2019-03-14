@@ -380,9 +380,9 @@ public class Checkerboard extends GeglFilter implements Source
     }
 
     @Override
-    public OutputPad Output()
+    public OutputPad<Checkerboard> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

@@ -281,14 +281,14 @@ public class Gblur1d extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Gblur1d> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Gblur1d> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

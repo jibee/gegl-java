@@ -289,14 +289,14 @@ public class Spherize extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Spherize> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Spherize> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

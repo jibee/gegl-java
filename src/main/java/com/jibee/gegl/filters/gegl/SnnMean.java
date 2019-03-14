@@ -144,14 +144,14 @@ public class SnnMean extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<SnnMean> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<SnnMean> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

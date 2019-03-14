@@ -144,14 +144,14 @@ public class DifferenceOfGaussians extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<DifferenceOfGaussians> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<DifferenceOfGaussians> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

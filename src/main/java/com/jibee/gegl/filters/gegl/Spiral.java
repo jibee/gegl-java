@@ -622,9 +622,9 @@ public class Spiral extends GeglFilter implements Source
     }
 
     @Override
-    public OutputPad Output()
+    public OutputPad<Spiral> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

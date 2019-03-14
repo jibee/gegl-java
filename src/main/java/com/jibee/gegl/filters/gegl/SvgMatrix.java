@@ -88,14 +88,14 @@ public class SvgMatrix extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<SvgMatrix> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<SvgMatrix> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

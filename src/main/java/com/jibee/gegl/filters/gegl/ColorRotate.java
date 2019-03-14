@@ -543,14 +543,14 @@ Change to this: Change gray colors to this hue and saturation
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<ColorRotate> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<ColorRotate> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

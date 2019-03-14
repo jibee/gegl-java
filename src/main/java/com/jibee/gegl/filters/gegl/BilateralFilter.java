@@ -144,14 +144,14 @@ public class BilateralFilter extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<BilateralFilter> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<BilateralFilter> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

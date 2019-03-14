@@ -136,14 +136,14 @@ public class CastFormat extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<CastFormat> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<CastFormat> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

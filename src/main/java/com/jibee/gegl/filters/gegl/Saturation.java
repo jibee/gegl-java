@@ -93,14 +93,14 @@ public class Saturation extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Saturation> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Saturation> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

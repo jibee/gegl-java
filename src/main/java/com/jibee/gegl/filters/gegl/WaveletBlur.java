@@ -93,14 +93,14 @@ public class WaveletBlur extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<WaveletBlur> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<WaveletBlur> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

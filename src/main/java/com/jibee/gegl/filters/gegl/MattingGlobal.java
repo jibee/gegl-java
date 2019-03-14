@@ -93,20 +93,20 @@ public class MattingGlobal extends GeglFilter implements CombiningFilter
     }
 
     @Override
-    public InputPad Aux()
+    public InputPad<MattingGlobal> Aux()
     {
-        return new InputPad(this, "aux");
+        return new InputPad<>(this, "aux");
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<MattingGlobal> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<MattingGlobal> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

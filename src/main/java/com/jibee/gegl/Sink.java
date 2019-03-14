@@ -10,5 +10,5 @@ public interface Sink extends iFilter{
 	 * 
 	 * @return
 	 */
-	InputPad Input();
+	InputPad<?> Input();
 }

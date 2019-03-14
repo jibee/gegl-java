@@ -190,9 +190,9 @@ public class SimplexNoise extends GeglFilter implements Source
     }
 
     @Override
-    public OutputPad Output()
+    public OutputPad<SimplexNoise> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

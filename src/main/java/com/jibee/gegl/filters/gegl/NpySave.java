@@ -87,9 +87,9 @@ public class NpySave extends GeglFilter implements Sink
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<NpySave> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
 
 }

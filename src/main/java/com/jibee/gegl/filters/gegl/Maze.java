@@ -380,14 +380,14 @@ public class Maze extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Maze> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Maze> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

@@ -544,14 +544,14 @@ public class Newsprint extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Newsprint> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Newsprint> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

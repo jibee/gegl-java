@@ -88,20 +88,20 @@ public class Difference extends GeglFilter implements CombiningFilter
     }
 
     @Override
-    public InputPad Aux()
+    public InputPad<Difference> Aux()
     {
-        return new InputPad(this, "aux");
+        return new InputPad<>(this, "aux");
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Difference> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Difference> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

@@ -11,5 +11,5 @@ public interface Source extends iFilter {
 	 * 
 	 * @return
 	 */
-	OutputPad Output();
+	OutputPad<?> Output();
 }

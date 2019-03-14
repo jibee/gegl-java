@@ -87,9 +87,9 @@ public class OpenBuffer extends GeglFilter implements Source
     }
 
     @Override
-    public OutputPad Output()
+    public OutputPad<OpenBuffer> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

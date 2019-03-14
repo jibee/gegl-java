@@ -195,14 +195,14 @@ public class Mantiuk06 extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Mantiuk06> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Mantiuk06> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

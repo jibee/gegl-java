@@ -478,14 +478,14 @@ public class TilePaper extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<TilePaper> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<TilePaper> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

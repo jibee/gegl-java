@@ -233,9 +233,9 @@ public class PerlinNoise extends GeglFilter implements Source
     }
 
     @Override
-    public OutputPad Output()
+    public OutputPad<PerlinNoise> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

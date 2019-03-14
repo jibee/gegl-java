@@ -285,9 +285,9 @@ public class Rectangle extends GeglFilter implements Source
     }
 
     @Override
-    public OutputPad Output()
+    public OutputPad<Rectangle> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

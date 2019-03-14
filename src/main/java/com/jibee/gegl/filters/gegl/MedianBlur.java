@@ -336,14 +336,14 @@ public class MedianBlur extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<MedianBlur> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<MedianBlur> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

@@ -242,20 +242,20 @@ public class SeamlessCloneCompose extends GeglFilter implements CombiningFilter
     }
 
     @Override
-    public InputPad Aux()
+    public InputPad<SeamlessCloneCompose> Aux()
     {
-        return new InputPad(this, "aux");
+        return new InputPad<>(this, "aux");
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<SeamlessCloneCompose> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<SeamlessCloneCompose> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

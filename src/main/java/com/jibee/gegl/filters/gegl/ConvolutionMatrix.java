@@ -1644,14 +1644,14 @@ public class ConvolutionMatrix extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<ConvolutionMatrix> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<ConvolutionMatrix> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

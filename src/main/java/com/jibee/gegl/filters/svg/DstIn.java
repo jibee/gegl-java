@@ -88,20 +88,20 @@ public class DstIn extends GeglFilter implements CombiningFilter
     }
 
     @Override
-    public InputPad Aux()
+    public InputPad<DstIn> Aux()
     {
-        return new InputPad(this, "aux");
+        return new InputPad<>(this, "aux");
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<DstIn> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<DstIn> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

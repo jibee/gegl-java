@@ -3,9 +3,10 @@ package com.jibee.gegl;
 /** Output pad
  * 
  * @author jibee
+ * @param <T> type of the underlying filter
  *
  */
-public class OutputPad extends Pad{
+public class OutputPad<T extends GeglFilter> extends Pad<T>{
 	/** Constructor
 	 * 
 	/** Constructor
@@ -13,7 +14,7 @@ public class OutputPad extends Pad{
 	 * @param f Filter this pad belongs to
 	 * @param n Name of the pad
 	 */
-	public OutputPad(GeglFilter f, String n)
+	public OutputPad(T f, String n)
 	{
 		super(f, n);
 	}
@@ -23,8 +24,9 @@ public class OutputPad extends Pad{
 	 * @return the filter on the receiving end of this pad
 	 * 
 	 */
-	public GeglFilter connectTo(InputPad sink)
+	public <Y extends GeglFilter> Y connectTo(InputPad<Y> sink)
 	{
-		return getFilter().connectTo(getName(), sink);
+		getFilter().connectTo(getName(), sink);
+		return sink.getFilter();
 	}
 }

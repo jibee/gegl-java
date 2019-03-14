@@ -190,9 +190,9 @@ public class PngSave extends GeglFilter implements Sink
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<PngSave> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
 
 }

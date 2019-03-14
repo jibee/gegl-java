@@ -136,14 +136,14 @@ public class ColorOverlay extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<ColorOverlay> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<ColorOverlay> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

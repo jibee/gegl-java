@@ -144,14 +144,14 @@ public class EdgeNeon extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<EdgeNeon> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<EdgeNeon> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

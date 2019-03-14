@@ -187,14 +187,14 @@ public class MotionBlurZoom extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<MotionBlurZoom> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<MotionBlurZoom> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

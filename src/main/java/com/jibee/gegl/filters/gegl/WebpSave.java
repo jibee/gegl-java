@@ -139,9 +139,9 @@ public class WebpSave extends GeglFilter implements Sink
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<WebpSave> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
 
 }

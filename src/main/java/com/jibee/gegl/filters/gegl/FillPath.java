@@ -283,14 +283,14 @@ public class FillPath extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<FillPath> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<FillPath> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

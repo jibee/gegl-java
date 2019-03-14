@@ -187,20 +187,20 @@ public class MapRelative extends GeglFilter implements CombiningFilter
     }
 
     @Override
-    public InputPad Aux()
+    public InputPad<MapRelative> Aux()
     {
-        return new InputPad(this, "aux");
+        return new InputPad<>(this, "aux");
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<MapRelative> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<MapRelative> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

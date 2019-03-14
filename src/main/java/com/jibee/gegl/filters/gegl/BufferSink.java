@@ -136,9 +136,9 @@ public class BufferSink extends GeglFilter implements Sink
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<BufferSink> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
 
 }

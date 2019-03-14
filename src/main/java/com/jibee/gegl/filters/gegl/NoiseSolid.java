@@ -429,9 +429,9 @@ public class NoiseSolid extends GeglFilter implements Source
     }
 
     @Override
-    public OutputPad Output()
+    public OutputPad<NoiseSolid> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

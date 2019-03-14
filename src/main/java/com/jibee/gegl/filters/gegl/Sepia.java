@@ -140,14 +140,14 @@ public class Sepia extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Sepia> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Sepia> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

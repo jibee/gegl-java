@@ -176,7 +176,7 @@ public class GeglFilter implements iFilter {
 	 * @return the receiver filter
 	 */
 	@Override
-	public GeglFilter connectTo(String outputPadName, InputPad pad)
+	public GeglFilter connectTo(String outputPadName, InputPad<?> pad)
 	{
 		connectTo(pad.getFilter(), outputPadName, pad.getName());
 		return pad.getFilter();

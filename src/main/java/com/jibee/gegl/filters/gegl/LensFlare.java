@@ -135,14 +135,14 @@ public class LensFlare extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<LensFlare> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<LensFlare> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

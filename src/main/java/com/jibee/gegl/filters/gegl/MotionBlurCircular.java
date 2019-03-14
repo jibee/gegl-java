@@ -187,14 +187,14 @@ public class MotionBlurCircular extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<MotionBlurCircular> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<MotionBlurCircular> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

@@ -246,14 +246,14 @@ public class Fattal02 extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Fattal02> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Fattal02> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

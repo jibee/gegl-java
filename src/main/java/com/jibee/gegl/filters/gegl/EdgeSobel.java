@@ -182,14 +182,14 @@ public class EdgeSobel extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<EdgeSobel> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<EdgeSobel> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

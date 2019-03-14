@@ -134,9 +134,9 @@ public class WebpLoad extends GeglFilter implements Source
     }
 
     @Override
-    public OutputPad Output()
+    public OutputPad<WebpLoad> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

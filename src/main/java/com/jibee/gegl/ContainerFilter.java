@@ -31,7 +31,7 @@ public class ContainerFilter implements Filter {
 	}
 
 	@Override
-	public InputPad Input() {
+	public InputPad<?> Input() {
 		return this.getFirst().Input();
 	}
 	/** Gets the first filter in the stack
@@ -78,7 +78,7 @@ public class ContainerFilter implements Filter {
 	}
 
 	@Override
-	public iFilter connectTo(String outputPadName, InputPad pad) {
+	public iFilter connectTo(String outputPadName, InputPad<?> pad) {
 		return this.getLast().connectTo(outputPadName, pad);
 	}
 
@@ -93,7 +93,7 @@ public class ContainerFilter implements Filter {
 	}
 
 	@Override
-	public OutputPad Output() {
+	public OutputPad<?> Output() {
 		return this.getLast().Output();
 	}
 	@Override

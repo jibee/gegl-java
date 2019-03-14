@@ -572,14 +572,14 @@ public class ValuePropagate extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<ValuePropagate> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<ValuePropagate> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

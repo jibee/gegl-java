@@ -89,14 +89,14 @@ public class ConvertFormat extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<ConvertFormat> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<ConvertFormat> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

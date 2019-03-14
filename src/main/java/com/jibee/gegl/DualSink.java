@@ -10,5 +10,5 @@ public interface DualSink extends Sink{
 	 * 
 	 * @return
 	 */
-	InputPad Aux();
+	InputPad<?> Aux();
 }

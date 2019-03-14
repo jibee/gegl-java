@@ -383,14 +383,14 @@ public class ScaleSize extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<ScaleSize> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<ScaleSize> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

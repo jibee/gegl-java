@@ -747,9 +747,9 @@ public class DiffractionPatterns extends GeglFilter implements Source
     }
 
     @Override
-    public OutputPad Output()
+    public OutputPad<DiffractionPatterns> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

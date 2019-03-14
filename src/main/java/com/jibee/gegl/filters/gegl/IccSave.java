@@ -87,9 +87,9 @@ public class IccSave extends GeglFilter implements Sink
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<IccSave> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
 
 }

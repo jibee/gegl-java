@@ -429,26 +429,26 @@ public class Displace extends GeglFilter implements CombiningFilter
     * 
     * @return the InputPad named aux2
     */
-    public InputPad Aux2()
+    public InputPad<Displace> Aux2()
     {
-        return new InputPad(this, "aux2");
+        return new InputPad<>(this, "aux2");
     }
 
     @Override
-    public InputPad Aux()
+    public InputPad<Displace> Aux()
     {
-        return new InputPad(this, "aux");
+        return new InputPad<>(this, "aux");
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Displace> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Displace> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

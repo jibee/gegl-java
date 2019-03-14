@@ -144,14 +144,14 @@ public class ColorTemperature extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<ColorTemperature> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<ColorTemperature> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

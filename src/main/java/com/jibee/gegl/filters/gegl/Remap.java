@@ -44,26 +44,26 @@ public class Remap extends GeglFilter implements CombiningFilter
     * 
     * @return the InputPad named aux2
     */
-    public InputPad Aux2()
+    public InputPad<Remap> Aux2()
     {
-        return new InputPad(this, "aux2");
+        return new InputPad<>(this, "aux2");
     }
 
     @Override
-    public InputPad Aux()
+    public InputPad<Remap> Aux()
     {
-        return new InputPad(this, "aux");
+        return new InputPad<>(this, "aux");
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Remap> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Remap> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

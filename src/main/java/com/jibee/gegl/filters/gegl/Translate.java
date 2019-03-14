@@ -328,14 +328,14 @@ public class Translate extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Translate> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Translate> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

@@ -144,14 +144,14 @@ public class TileGlass extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<TileGlass> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<TileGlass> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

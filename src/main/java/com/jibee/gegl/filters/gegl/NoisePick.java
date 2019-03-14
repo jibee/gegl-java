@@ -191,14 +191,14 @@ public class NoisePick extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<NoisePick> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<NoisePick> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

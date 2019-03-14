@@ -187,14 +187,14 @@ public class Deinterlace extends GeglFilter implements Filter
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<Deinterlace> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<Deinterlace> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

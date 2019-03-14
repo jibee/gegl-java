@@ -88,9 +88,9 @@ public class SavePixbuf extends GeglFilter implements Sink
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<SavePixbuf> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
 
 }

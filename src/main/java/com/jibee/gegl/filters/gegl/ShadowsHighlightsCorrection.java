@@ -348,20 +348,20 @@ public class ShadowsHighlightsCorrection extends GeglFilter implements Combining
     }
 
     @Override
-    public InputPad Aux()
+    public InputPad<ShadowsHighlightsCorrection> Aux()
     {
-        return new InputPad(this, "aux");
+        return new InputPad<>(this, "aux");
     }
 
     @Override
-    public InputPad Input()
+    public InputPad<ShadowsHighlightsCorrection> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<ShadowsHighlightsCorrection> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }

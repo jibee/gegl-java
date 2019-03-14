@@ -41,14 +41,14 @@ public class InvertLinear extends GeglFilter implements Filter
     }
 
         @Override
-    public InputPad Input()
+    public InputPad<InvertLinear> Input()
     {
-        return new InputPad(this, "input");
+        return new InputPad<>(this, "input");
     }
     @Override
-    public OutputPad Output()
+    public OutputPad<InvertLinear> Output()
     {
-        return new OutputPad(this, "output");
+        return new OutputPad<>(this, "output");
     }
 
 }
