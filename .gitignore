@@ -21,3 +21,10 @@ CMakeFiles
 /dependancies/gexiv2/
 /dependancies/json-glib/
 /native
+/.project
+/.swp
+/.classpath
+/gegl-0.0.1-SNAPSHOT.jar
+/Makefile
+/cmake_install.cmake
+/install_manifest.txt

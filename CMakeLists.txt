@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
+SET(jar_version "0.0.1-SNAPSHOT")
 add_subdirectory(dependancies)
 
 # Build the native library jars
@@ -25,7 +26,14 @@ file(WRITE native/MANIFEST.Windows_amd64 ${manifest_win})
 
 file(GLOB javalibs target/dependency/*.jar)
 find_package(Java COMPONENTS Development)
-add_jar(gegl_java
+
+# TODO generate the pom file
+add_jar(gegl
 SOURCES ${javasrc} ${nativeLibs} ${nativeLibsWin} native/MANIFEST.Linux_amd64 native/MANIFEST.Windows_amd64
 INCLUDE_JARS ${javalibs}
+# add version number to the jar file name
+VERSION ${jar_version}
 )
+
+# declare install dir as local maven repo
+install_jar(gegl DESTINATION "~/.m2/repository/com/jibee/gegl/${jar_version}/")
