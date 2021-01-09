@@ -197,7 +197,26 @@ public class GeglBuffer extends GObject {
 		return com.jibee.gegl.priv.Gegl.INSTANCE.gegl_buffer_set_abyss(this, abyss);
 	}
 
+	/**
+	 * gegl_buffer_get_x:
+	 *
+	 * @return Evaluates to the X coordinate of the upper left corner of the buffer's extent.
+	 */
+	public int getX()
+	{
+		return getExtent().x;
+	}
 
+	/**
+	 * gegl_buffer_get_y:
+	 *
+	 * @return Evaluates to the Y coordinate of the upper left corner of the buffer's extent.
+	 */
+	public int getY()
+	{
+		return getExtent().y;
+	}
+	
 	/**
 	 * gegl_buffer_get_pixel_count:
 	 *
